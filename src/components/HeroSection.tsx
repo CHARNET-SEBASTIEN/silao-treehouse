@@ -45,8 +45,8 @@ const HeroSection = () => {
           alt="Arbre éducatif avec enfants et éducateurs"
           className="w-full h-auto mix-blend-multiply"
           style={{
-            maskImage: "radial-gradient(ellipse 78% 72% at 50% 48%, black 50%, transparent 95%)",
-            WebkitMaskImage: "radial-gradient(ellipse 78% 72% at 50% 48%, black 50%, transparent 95%)",
+            maskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
+            WebkitMaskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
           }}
         />
       </motion.div>
