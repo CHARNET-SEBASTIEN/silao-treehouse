@@ -38,15 +38,15 @@ const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="mt-6 max-w-3xl w-full z-10"
+        className="-mt-2 max-w-3xl w-full z-10"
       >
         <img
           src={heroTree}
           alt="Arbre éducatif avec enfants et éducateurs"
           className="w-full h-auto"
           style={{
-            maskImage: "radial-gradient(ellipse 70% 65% at 50% 50%, black 40%, transparent 100%)",
-            WebkitMaskImage: "radial-gradient(ellipse 70% 65% at 50% 50%, black 40%, transparent 100%)",
+            maskImage: "radial-gradient(ellipse 75% 70% at 50% 48%, black 50%, transparent 95%)",
+            WebkitMaskImage: "radial-gradient(ellipse 75% 70% at 50% 48%, black 50%, transparent 95%)",
           }}
         />
       </motion.div>
