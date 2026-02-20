@@ -8,14 +8,16 @@ import AxesSummary from "@/components/AxesSummary";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
+import KeyFiguresSection from "@/components/KeyFiguresSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background paper-grain">
       <Navbar />
       <main className="pt-16">
         <HeroSection />
         <AxesSummary />
+        <KeyFiguresSection />
         <section id="features">
           <FeaturesSection />
         </section>
