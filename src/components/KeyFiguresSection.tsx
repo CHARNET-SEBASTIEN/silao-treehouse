@@ -1,81 +1,110 @@
 import { motion } from "framer-motion";
 
-/* Hand-drawn SVG illustrations for each figure */
+/* Animated stroke-drawing variants */
+const draw = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (i: number) => ({
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: { delay: i * 0.15, type: "spring" as const, duration: 1.8, bounce: 0 },
+      opacity: { delay: i * 0.15, duration: 0.3 },
+    },
+  }),
+};
+
+const fillIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { delay: 0.6 + i * 0.15, duration: 0.5 },
+  }),
+};
+
+/* Each illustration is its own component so framer-motion can animate strokes */
+const IllustrationUsagers = () => (
+  <motion.svg viewBox="0 0 80 80" fill="none" className="w-full h-full" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+    <motion.circle cx="28" cy="18" r="7" stroke="currentColor" strokeWidth="2" variants={draw} custom={0} />
+    <motion.circle cx="28" cy="18" r="7" variants={fillIn} custom={0} fill="hsl(var(--primary) / 0.12)" stroke="none" />
+    <motion.path d="M28 25 C28 25 24 32 24 42" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={1} />
+    <motion.path d="M28 25 C28 25 32 32 32 42" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={1} />
+    <motion.path d="M20 35 L24 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={2} />
+    <motion.path d="M36 35 L32 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={2} />
+    <motion.circle cx="52" cy="28" r="5.5" stroke="currentColor" strokeWidth="2" variants={draw} custom={3} />
+    <motion.circle cx="52" cy="28" r="5.5" variants={fillIn} custom={3} fill="hsl(var(--secondary) / 0.15)" stroke="none" />
+    <motion.path d="M52 33.5 C52 33.5 49 38 49 45" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={4} />
+    <motion.path d="M52 33.5 C52 33.5 55 38 55 45" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={4} />
+    <motion.path d="M36 35 C40 37 44 37 46 36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" variants={draw} custom={5} />
+    <motion.path d="M42 20 C42 18 44 17 45 18.5 C46 17 48 18 48 20 C48 22 45 24 45 24 C45 24 42 22 42 20Z" stroke="hsl(var(--destructive) / 0.5)" strokeWidth="1" variants={draw} custom={6} />
+    <motion.path d="M42 20 C42 18 44 17 45 18.5 C46 17 48 18 48 20 C48 22 45 24 45 24 C45 24 42 22 42 20Z" variants={fillIn} custom={6} fill="hsl(var(--destructive) / 0.3)" stroke="none" />
+    <motion.path d="M12 55 C20 53 35 56 50 53 C58 52 68 54 72 53" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.25" variants={draw} custom={7} />
+  </motion.svg>
+);
+
+const IllustrationEtablissements = () => (
+  <motion.svg viewBox="0 0 80 80" fill="none" className="w-full h-full" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+    <motion.rect x="18" y="22" width="26" height="30" rx="2" stroke="currentColor" strokeWidth="2" variants={draw} custom={0} />
+    <motion.rect x="18" y="22" width="26" height="30" rx="2" variants={fillIn} custom={0} fill="hsl(var(--primary) / 0.08)" stroke="none" />
+    <motion.path d="M16 22 L31 12 L46 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" variants={draw} custom={1} />
+    <motion.rect x="23" y="27" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5" variants={draw} custom={2} />
+    <motion.rect x="23" y="27" width="5" height="5" rx="1" variants={fillIn} custom={2} fill="hsl(var(--accent) / 0.15)" stroke="none" />
+    <motion.rect x="34" y="27" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5" variants={draw} custom={3} />
+    <motion.rect x="34" y="27" width="5" height="5" rx="1" variants={fillIn} custom={3} fill="hsl(var(--accent) / 0.15)" stroke="none" />
+    <motion.rect x="23" y="37" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5" variants={draw} custom={4} />
+    <motion.rect x="23" y="37" width="5" height="5" rx="1" variants={fillIn} custom={4} fill="hsl(var(--accent) / 0.15)" stroke="none" />
+    <motion.rect x="33" y="40" width="7" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" variants={draw} custom={5} />
+    <motion.rect x="33" y="40" width="7" height="12" rx="1" variants={fillIn} custom={5} fill="hsl(var(--secondary) / 0.12)" stroke="none" />
+    <motion.circle cx="38" cy="47" r="0.8" variants={fillIn} custom={6} fill="currentColor" />
+    <motion.path d="M58 52 L58 38" stroke="hsl(var(--warm-earth))" strokeWidth="2" strokeLinecap="round" variants={draw} custom={6} />
+    <motion.circle cx="58" cy="33" r="8" stroke="hsl(var(--primary) / 0.4)" strokeWidth="1.5" variants={draw} custom={7} />
+    <motion.circle cx="58" cy="33" r="8" variants={fillIn} custom={7} fill="hsl(var(--primary) / 0.15)" stroke="none" />
+    <motion.path d="M10 55 C25 53 45 56 70 53" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.25" variants={draw} custom={8} />
+  </motion.svg>
+);
+
+const IllustrationConformite = () => (
+  <motion.svg viewBox="0 0 80 80" fill="none" className="w-full h-full" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+    <motion.path d="M40 10 C40 10 20 18 20 18 L20 38 C20 52 40 65 40 65 C40 65 60 52 60 38 L60 18 C60 18 40 10 40 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" variants={draw} custom={0} />
+    <motion.path d="M40 10 C40 10 20 18 20 18 L20 38 C20 52 40 65 40 65 C40 65 60 52 60 38 L60 18 C60 18 40 10 40 10Z" variants={fillIn} custom={0} fill="hsl(var(--primary) / 0.08)" stroke="none" />
+    <motion.path d="M28 38 L36 46 L52 28" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" variants={draw} custom={2} />
+    <motion.path d="M14 28 C14 24 18 22 18 22 C18 22 16 26 18 28 C16 28 14 28 14 28Z" stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" variants={draw} custom={3} />
+    <motion.path d="M14 28 C14 24 18 22 18 22 C18 22 16 26 18 28 C16 28 14 28 14 28Z" variants={fillIn} custom={3} fill="hsl(var(--primary) / 0.25)" stroke="none" />
+    <motion.path d="M66 28 C66 24 62 22 62 22 C62 22 64 26 62 28 C64 28 66 28 66 28Z" stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" variants={draw} custom={4} />
+    <motion.path d="M66 28 C66 24 62 22 62 22 C62 22 64 26 62 28 C64 28 66 28 66 28Z" variants={fillIn} custom={4} fill="hsl(var(--primary) / 0.25)" stroke="none" />
+    <motion.circle cx="12" cy="45" r="1.5" variants={fillIn} custom={5} fill="hsl(var(--secondary) / 0.5)" />
+    <motion.circle cx="68" cy="45" r="1.5" variants={fillIn} custom={5} fill="hsl(var(--secondary) / 0.5)" />
+    <motion.circle cx="40" cy="72" r="1.5" variants={fillIn} custom={6} fill="hsl(var(--secondary) / 0.5)" />
+  </motion.svg>
+);
+
+const IllustrationEngagement = () => (
+  <motion.svg viewBox="0 0 80 80" fill="none" className="w-full h-full" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+    <motion.path d="M40 70 L40 40 C40 35 38 30 40 28" stroke="hsl(var(--warm-earth))" strokeWidth="3" strokeLinecap="round" variants={draw} custom={0} />
+    <motion.path d="M40 45 C40 45 32 40 28 42" stroke="hsl(var(--warm-earth))" strokeWidth="2" strokeLinecap="round" variants={draw} custom={1} />
+    <motion.path d="M40 38 C40 38 48 33 52 35" stroke="hsl(var(--warm-earth))" strokeWidth="2" strokeLinecap="round" variants={draw} custom={2} />
+    <motion.circle cx="40" cy="22" r="12" stroke="hsl(var(--primary) / 0.35)" strokeWidth="1.5" variants={draw} custom={3} />
+    <motion.circle cx="40" cy="22" r="12" variants={fillIn} custom={3} fill="hsl(var(--primary) / 0.15)" stroke="none" />
+    <motion.circle cx="30" cy="28" r="9" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" variants={draw} custom={4} />
+    <motion.circle cx="30" cy="28" r="9" variants={fillIn} custom={4} fill="hsl(var(--primary) / 0.12)" stroke="none" />
+    <motion.circle cx="50" cy="28" r="9" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" variants={draw} custom={4} />
+    <motion.circle cx="50" cy="28" r="9" variants={fillIn} custom={4} fill="hsl(var(--primary) / 0.12)" stroke="none" />
+    <motion.circle cx="35" cy="16" r="7" stroke="hsl(var(--primary) / 0.25)" strokeWidth="1" variants={draw} custom={5} />
+    <motion.circle cx="35" cy="16" r="7" variants={fillIn} custom={5} fill="hsl(var(--primary) / 0.1)" stroke="none" />
+    <motion.circle cx="46" cy="18" r="6" stroke="hsl(var(--primary) / 0.25)" strokeWidth="1" variants={draw} custom={5} />
+    <motion.circle cx="46" cy="18" r="6" variants={fillIn} custom={5} fill="hsl(var(--primary) / 0.1)" stroke="none" />
+    <motion.path d="M40 70 C36 72 30 72 26 70" stroke="hsl(var(--warm-earth))" strokeWidth="1.5" strokeLinecap="round" variants={draw} custom={6} />
+    <motion.path d="M40 70 C44 72 50 72 54 70" stroke="hsl(var(--warm-earth))" strokeWidth="1.5" strokeLinecap="round" variants={draw} custom={6} />
+    <motion.circle cx="48" cy="22" r="2.5" variants={fillIn} custom={7} fill="hsl(var(--destructive) / 0.35)" stroke="hsl(var(--destructive) / 0.5)" strokeWidth="1" />
+    <motion.circle cx="33" cy="25" r="2" variants={fillIn} custom={7} fill="hsl(var(--secondary) / 0.4)" stroke="hsl(var(--secondary) / 0.5)" strokeWidth="1" />
+  </motion.svg>
+);
+
 const illustrations: Record<string, React.ReactNode> = {
-  usagers: (
-    <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-      {/* Adult holding child's hand */}
-      <circle cx="28" cy="18" r="7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="hsl(var(--primary) / 0.12)" />
-      <path d="M28 25 C28 25 24 32 24 42 M28 25 C28 25 32 32 32 42" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M20 35 L24 30 M36 35 L32 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      {/* Child */}
-      <circle cx="52" cy="28" r="5.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="hsl(var(--secondary) / 0.15)" />
-      <path d="M52 33.5 C52 33.5 49 38 49 45 M52 33.5 C52 33.5 55 38 55 45" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      {/* Holding hands line */}
-      <path d="M36 35 C40 37 44 37 46 36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 3" />
-      {/* Little hearts */}
-      <path d="M42 20 C42 18 44 17 45 18.5 C46 17 48 18 48 20 C48 22 45 24 45 24 C45 24 42 22 42 20Z" fill="hsl(var(--destructive) / 0.3)" stroke="hsl(var(--destructive) / 0.5)" strokeWidth="1" />
-      {/* Ground scribble */}
-      <path d="M12 55 C20 53 35 56 50 53 C58 52 68 54 72 53" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.25" />
-    </svg>
-  ),
-  etablissements: (
-    <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-      {/* Main building */}
-      <rect x="18" y="22" width="26" height="30" rx="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="hsl(var(--primary) / 0.08)" />
-      <path d="M14 52 L18 52 M44 52 L48 52" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      {/* Roof */}
-      <path d="M16 22 L31 12 L46 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      {/* Windows */}
-      <rect x="23" y="27" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5" fill="hsl(var(--accent) / 0.15)" />
-      <rect x="34" y="27" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5" fill="hsl(var(--accent) / 0.15)" />
-      <rect x="23" y="37" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.5" fill="hsl(var(--accent) / 0.15)" />
-      {/* Door */}
-      <rect x="33" y="40" width="7" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" fill="hsl(var(--secondary) / 0.12)" />
-      <circle cx="38" cy="47" r="0.8" fill="currentColor" />
-      {/* Small tree next to building */}
-      <path d="M58 52 L58 38" stroke="hsl(var(--warm-earth))" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="58" cy="33" r="8" fill="hsl(var(--primary) / 0.15)" stroke="hsl(var(--primary) / 0.4)" strokeWidth="1.5" />
-      <circle cx="55" cy="30" r="5" fill="hsl(var(--primary) / 0.1)" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" />
-      {/* Ground */}
-      <path d="M10 55 C25 53 45 56 70 53" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.25" />
-    </svg>
-  ),
-  conformite: (
-    <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-      {/* Shield */}
-      <path d="M40 10 C40 10 20 18 20 18 L20 38 C20 52 40 65 40 65 C40 65 60 52 60 38 L60 18 C60 18 40 10 40 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="hsl(var(--primary) / 0.08)" />
-      {/* Checkmark */}
-      <path d="M28 38 L36 46 L52 28" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      {/* Small leaves around shield */}
-      <path d="M14 28 C14 24 18 22 18 22 C18 22 16 26 18 28 C16 28 14 28 14 28Z" fill="hsl(var(--primary) / 0.25)" stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" />
-      <path d="M66 28 C66 24 62 22 62 22 C62 22 64 26 62 28 C64 28 66 28 66 28Z" fill="hsl(var(--primary) / 0.25)" stroke="hsl(var(--primary) / 0.4)" strokeWidth="1" />
-      {/* Stars */}
-      <circle cx="12" cy="45" r="1.5" fill="hsl(var(--secondary) / 0.5)" />
-      <circle cx="68" cy="45" r="1.5" fill="hsl(var(--secondary) / 0.5)" />
-      <circle cx="40" cy="72" r="1.5" fill="hsl(var(--secondary) / 0.5)" />
-    </svg>
-  ),
-  engagement: (
-    <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
-      {/* Tree trunk */}
-      <path d="M40 70 L40 40 C40 35 38 30 40 28" stroke="hsl(var(--warm-earth))" strokeWidth="3" strokeLinecap="round" />
-      <path d="M40 45 C40 45 32 40 28 42" stroke="hsl(var(--warm-earth))" strokeWidth="2" strokeLinecap="round" />
-      <path d="M40 38 C40 38 48 33 52 35" stroke="hsl(var(--warm-earth))" strokeWidth="2" strokeLinecap="round" />
-      {/* Foliage blobs */}
-      <circle cx="40" cy="22" r="12" fill="hsl(var(--primary) / 0.15)" stroke="hsl(var(--primary) / 0.35)" strokeWidth="1.5" />
-      <circle cx="30" cy="28" r="9" fill="hsl(var(--primary) / 0.12)" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" />
-      <circle cx="50" cy="28" r="9" fill="hsl(var(--primary) / 0.12)" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" />
-      <circle cx="35" cy="16" r="7" fill="hsl(var(--primary) / 0.1)" stroke="hsl(var(--primary) / 0.25)" strokeWidth="1" />
-      <circle cx="46" cy="18" r="6" fill="hsl(var(--primary) / 0.1)" stroke="hsl(var(--primary) / 0.25)" strokeWidth="1" />
-      {/* Roots */}
-      <path d="M40 70 C36 72 30 72 26 70" stroke="hsl(var(--warm-earth))" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M40 70 C44 72 50 72 54 70" stroke="hsl(var(--warm-earth))" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Little fruit / apple */}
-      <circle cx="48" cy="22" r="2.5" fill="hsl(var(--destructive) / 0.35)" stroke="hsl(var(--destructive) / 0.5)" strokeWidth="1" />
-      <circle cx="33" cy="25" r="2" fill="hsl(var(--secondary) / 0.4)" stroke="hsl(var(--secondary) / 0.5)" strokeWidth="1" />
-    </svg>
-  ),
+  usagers: <IllustrationUsagers />,
+  etablissements: <IllustrationEtablissements />,
+  conformite: <IllustrationConformite />,
+  engagement: <IllustrationEngagement />,
 };
 
 const figures = [
