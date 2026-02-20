@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShieldCheck, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Shield } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import logoSilao from "@/assets/logo-silao.png";
+import logoD2l from "@/assets/logo-d2l.jpeg";
 
 const navLinks = [
   { label: "Accueil", href: "/", icon: Home },
@@ -38,11 +40,10 @@ const Navbar = () => {
         {/* Frosted background pill */}
         <div className="absolute inset-x-4 inset-y-2 bg-background/70 backdrop-blur-xl rounded-2xl border border-border/50 shadow-sm" />
 
-        <Link to="/" className="flex items-center gap-2 relative z-10">
-          <svg className="w-7 h-7 text-primary" viewBox="0 0 64 64" fill="currentColor">
-            <path d="M32 2C32 2 10 20 10 40C10 52 20 62 32 62C44 62 54 52 54 40C54 20 32 2 32 2Z" />
-          </svg>
-          <span className="font-sketch text-2xl text-foreground">Silao</span>
+        <Link to="/" className="flex items-center gap-3 relative z-10">
+          <img src={logoD2l} alt="D2L" className="h-8 w-auto rounded" />
+          <div className="w-px h-6 bg-border" />
+          <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
         </Link>
 
         <div className="relative z-10 hidden sm:inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-body px-3 py-1 rounded-full sketch-border-sm">
