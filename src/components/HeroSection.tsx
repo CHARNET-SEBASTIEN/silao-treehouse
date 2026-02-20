@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
+import DemoRequestDialog from "@/components/DemoRequestDialog";
 
 const HeroSection = () => {
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
     <section className="relative flex flex-col items-center justify-center paper-bg overflow-hidden px-4 pt-4 pb-0">
       {/* Decorative leaf SVGs */}
@@ -31,9 +34,10 @@ const HeroSection = () => {
           <p className="text-base text-muted-foreground font-body max-w-xl mb-5">
             Dossier Usager Informatisé pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social. Simple, collaboratif, conforme.
           </p>
-          <Button variant="hero" size="xl">
+          <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
             Demandez la démo
           </Button>
+          <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
 
         {/* Tree image */}
