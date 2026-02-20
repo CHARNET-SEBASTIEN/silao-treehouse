@@ -43,7 +43,7 @@ const HeroSection = () => {
         <img
           src={heroTree}
           alt="Arbre éducatif avec enfants et éducateurs"
-          className="w-full h-auto mix-blend-multiply"
+          className="w-full h-auto"
         />
       </motion.div>
     </section>
