@@ -5,21 +5,21 @@ import avatarStephane from "@/assets/avatar-stephane.png";
 
 const testimonials = [
   {
-    quote: "La saisie et la mise à jour des informations sont rapides, simples, et conviviales !",
+    quote: "Le DUI est intuitif et la mise en conformité Ségur s'est faite naturellement. Un vrai gain de temps au quotidien !",
     name: "Claire",
-    role: "Assistante de direction",
+    role: "Assistante de direction — MECS",
     avatar: avatarClaire,
   },
   {
-    quote: "Je respecte les droits des usagers et c'est un gage de qualité pour l'évaluation externe !",
+    quote: "Nous avons déployé Silao sur nos structures Handicap et Protection de l'Enfance. La gestion multi-sites est un vrai plus.",
     name: "Marianne",
-    role: "Directrice",
+    role: "Directrice générale — Association gestionnaire",
     avatar: avatarMarianne,
   },
   {
-    quote: "Je passe beaucoup moins de temps à préparer mes synthèses.",
+    quote: "Les projets personnalisés et les transmissions sont centralisés, je prépare mes synthèses deux fois plus vite.",
     name: "Stéphane",
-    role: "Éducateur",
+    role: "Éducateur spécialisé — IME",
     avatar: avatarStephane,
   },
 ];

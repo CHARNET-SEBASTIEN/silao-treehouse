@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Shield } from "lucide-react";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 
@@ -19,15 +20,18 @@ const HeroSection = () => {
         transition={{ duration: 0.8 }}
         className="text-center max-w-3xl z-10"
       >
+        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-body px-4 py-1.5 rounded-full mb-6 sketch-border-sm">
+          <Shield className="w-4 h-4" />
+          Compatible Ségur du Numérique
+        </div>
         <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-2 leading-tight">
-          Logiciel collaboratif
+          Le DUI pensé pour
         </h1>
         <p className="text-3xl md:text-4xl font-sketch text-primary mb-6">
-          de suivi éducatif
+          le social & médico-social
         </p>
         <p className="text-lg text-muted-foreground font-body max-w-xl mx-auto mb-8">
-          Conçu par et pour les établissements de protection de l'enfance.
-          Simple, convivial, humain.
+          Dossier Usager Informatisé pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social. Simple, collaboratif, conforme.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Button variant="hero" size="xl">

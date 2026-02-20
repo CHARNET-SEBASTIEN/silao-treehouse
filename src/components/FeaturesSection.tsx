@@ -1,26 +1,36 @@
 import { motion } from "framer-motion";
-import { Users, Shield, FileText, Share2 } from "lucide-react";
+import { Users, Shield, FileText, Share2, ClipboardList, BarChart3 } from "lucide-react";
 
 const features = [
   {
-    icon: Users,
-    title: "Suivi collaboratif",
-    description: "Partagez les informations entre équipes en temps réel, selon les droits d'accès de chacun.",
+    icon: ClipboardList,
+    title: "Dossier Usager Informatisé",
+    description: "Centralisez les données administratives, sociales, éducatives et médicales dans un DUI unique et structuré.",
   },
   {
-    icon: FileText,
-    title: "Synthèses simplifiées",
-    description: "Préparez vos synthèses éducatives en quelques clics grâce à des outils intuitifs.",
+    icon: Users,
+    title: "Coordination pluridisciplinaire",
+    description: "Facilitez le travail en équipe avec le cahier de transmissions, les projets personnalisés et le partage d'informations en temps réel.",
   },
   {
     icon: Shield,
-    title: "Droits des usagers",
-    description: "Respectez les droits des usagers avec un suivi conforme aux exigences réglementaires.",
+    title: "Conformité Ségur & RGPD",
+    description: "Solution compatible Ségur du Numérique avec traçabilité complète, gestion fine des droits d'accès et hébergement HDS.",
+  },
+  {
+    icon: FileText,
+    title: "Synthèses & rapports",
+    description: "Générez vos synthèses éducatives, rapports ANAP et tableaux de bord en quelques clics.",
+  },
+  {
+    icon: BarChart3,
+    title: "Pilotage d'activité",
+    description: "Indicateurs de suivi, taux d'occupation, statistiques et reporting pour un pilotage éclairé de votre ESSMS.",
   },
   {
     icon: Share2,
-    title: "Accès web sécurisé",
-    description: "Travaillez depuis n'importe où grâce à une application 100% web et sécurisée.",
+    title: "100% web & multi-sites",
+    description: "Accessible depuis tout appareil, sans installation. Idéal pour les structures multi-établissements et les équipes mobiles.",
   },
 ];
 
@@ -35,14 +45,14 @@ const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Un nouveau <span className="text-primary sketch-underline">confort de travail</span>
+            Une solution <span className="text-primary sketch-underline">complète</span> pour le terrain
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Silao accompagne vos équipes au quotidien avec des outils pensés pour le terrain.
+            Silao accompagne les MECS, IME, ITEP, ESAT, SESSAD, CHRS et bien d'autres structures au quotidien.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
