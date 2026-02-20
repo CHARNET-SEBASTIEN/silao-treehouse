@@ -26,7 +26,7 @@ const HeroSection = () => {
           className="text-center md:text-left md:w-2/5 shrink-0"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1 leading-tight">
-            Le DUI pensé pour
+            SILAO, DUI pensé pour
           </h1>
           <p className="text-2xl md:text-3xl font-sketch text-primary mb-3">
             le social & médico-social
