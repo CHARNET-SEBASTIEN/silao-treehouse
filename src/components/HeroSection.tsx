@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
@@ -30,6 +30,23 @@ const FloatingLeaf = ({ delay, x, size }: { delay: number; x: string; size: numb
 
 const HeroSection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Mouse position tracking for radial glow follow
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+  const smoothX = useSpring(mouseX, { stiffness: 80, damping: 20 });
+  const smoothY = useSpring(mouseY, { stiffness: 80, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width);
+    mouseY.set((e.clientY - rect.top) / rect.height);
+  };
+
+  // Glow position as CSS values
+  const glowX = useTransform(smoothX, (v) => `${v * 100}%`);
+  const glowY = useTransform(smoothY, (v) => `${v * 100}%`);
 
   return (
     <section className="relative flex flex-col items-center justify-center paper-bg overflow-hidden px-4 pt-4 pb-0">
@@ -71,41 +88,75 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 0.3 }}
           className="md:w-3/5 w-full relative"
         >
-          {/* Container for zoom + breeze animation */}
-          <div className="relative overflow-hidden rounded-2xl">
-            {/* Slow zoom animation on the tree */}
+          <div
+            className="relative overflow-hidden rounded-2xl cursor-pointer"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onMouseMove={handleMouseMove}
+          >
+            {/* Slow zoom — intensifies on hover */}
             <motion.div
-              animate={{ scale: [1, 1.06, 1.03, 1.06] }}
+              animate={{
+                scale: isHovered ? [1.08, 1.12, 1.1] : [1, 1.06, 1.03, 1.06],
+              }}
               transition={{
-                duration: 20,
+                duration: isHovered ? 3 : 20,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
               className="origin-[50%_40%]"
             >
-              {/* Gentle sway / breeze on the whole tree */}
+              {/* Breeze sway — stronger on hover */}
               <motion.div
-                animate={{ rotate: [0, 0.4, -0.3, 0.2, 0] }}
+                animate={{
+                  rotate: isHovered
+                    ? [0, 1.2, -0.8, 0.6, -0.4, 0]
+                    : [0, 0.4, -0.3, 0.2, 0],
+                }}
                 transition={{
-                  duration: 6,
+                  duration: isHovered ? 3 : 6,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
                 className="origin-[50%_85%]"
               >
-                <img
-                  src={heroTree}
-                  alt="Arbre éducatif avec enfants et éducateurs"
-                  className="w-full h-auto mix-blend-multiply"
-                  style={{
-                    maskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
-                    WebkitMaskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
+                {/* Brightness boost on hover */}
+                <motion.div
+                  animate={{
+                    filter: isHovered
+                      ? "brightness(1.15) saturate(1.2)"
+                      : "brightness(1) saturate(1)",
                   }}
-                />
+                  transition={{ duration: 0.6 }}
+                >
+                  <img
+                    src={heroTree}
+                    alt="Arbre éducatif avec enfants et éducateurs"
+                    className="w-full h-auto mix-blend-multiply"
+                    style={{
+                      maskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
+                      WebkitMaskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
+                    }}
+                  />
+                </motion.div>
               </motion.div>
             </motion.div>
 
-            {/* Luminous pulse in roots area */}
+            {/* Cursor-following radial glow */}
+            <motion.div
+              className="absolute inset-0 pointer-events-none"
+              animate={{ opacity: isHovered ? 1 : 0 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                background: useTransform(
+                  [glowX, glowY],
+                  ([x, y]) =>
+                    `radial-gradient(circle 180px at ${x} ${y}, hsl(var(--secondary) / 0.25), transparent 70%)`
+                ),
+              }}
+            />
+
+            {/* Root pulse — much stronger on hover */}
             <motion.div
               className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-[25%] pointer-events-none"
               style={{
@@ -113,17 +164,17 @@ const HeroSection = () => {
                 borderRadius: "50%",
               }}
               animate={{
-                opacity: [0, 0.6, 0.2, 0.7, 0],
-                scale: [0.9, 1.1, 0.95, 1.05, 0.9],
+                opacity: isHovered ? [0.3, 1, 0.5, 0.9, 0.3] : [0, 0.6, 0.2, 0.7, 0],
+                scale: isHovered ? [1, 1.25, 1.05, 1.2, 1] : [0.9, 1.1, 0.95, 1.05, 0.9],
               }}
               transition={{
-                duration: 5,
+                duration: isHovered ? 2.5 : 5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
             />
 
-            {/* Secondary warm glow pulse */}
+            {/* Secondary warm glow — stronger on hover */}
             <motion.div
               className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[40%] h-[15%] pointer-events-none"
               style={{
@@ -131,11 +182,12 @@ const HeroSection = () => {
                 borderRadius: "50%",
               }}
               animate={{
-                opacity: [0.1, 0.5, 0.15, 0.45, 0.1],
+                opacity: isHovered ? [0.4, 0.9, 0.3, 0.85, 0.4] : [0.1, 0.5, 0.15, 0.45, 0.1],
+                scale: isHovered ? [1, 1.3, 1.1, 1.25, 1] : [1, 1, 1, 1, 1],
               }}
               transition={{
-                duration: 3.5,
-                delay: 1.5,
+                duration: isHovered ? 2 : 3.5,
+                delay: isHovered ? 0 : 1.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -148,30 +200,38 @@ const HeroSection = () => {
             <FloatingLeaf delay={7} x="60%" size={9} />
             <FloatingLeaf delay={3.5} x="38%" size={11} />
 
-            {/* Subtle sparkle dots — life in the tree */}
+            {/* Sparkle dots — brighter on hover */}
             {[
               { x: "42%", y: "30%", d: 0 },
               { x: "55%", y: "25%", d: 1.5 },
               { x: "48%", y: "38%", d: 3 },
               { x: "38%", y: "22%", d: 4.5 },
               { x: "52%", y: "35%", d: 2 },
+              { x: "60%", y: "32%", d: 1 },
+              { x: "35%", y: "28%", d: 3.5 },
             ].map((dot, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1.5 h-1.5 rounded-full pointer-events-none"
+                className="absolute rounded-full pointer-events-none"
                 style={{
                   left: dot.x,
                   top: dot.y,
-                  background: "hsl(var(--secondary) / 0.6)",
-                  boxShadow: "0 0 6px 2px hsl(var(--secondary) / 0.3)",
+                  width: isHovered ? 6 : 5,
+                  height: isHovered ? 6 : 5,
+                  background: `hsl(var(--secondary) / ${isHovered ? 0.8 : 0.6})`,
+                  boxShadow: `0 0 ${isHovered ? 12 : 6}px ${isHovered ? 4 : 2}px hsl(var(--secondary) / ${isHovered ? 0.5 : 0.3})`,
                 }}
                 animate={{
-                  opacity: [0, 0.8, 0, 0.6, 0],
-                  scale: [0.5, 1.2, 0.5, 1, 0.5],
+                  opacity: isHovered
+                    ? [0.2, 1, 0.4, 1, 0.2]
+                    : [0, 0.8, 0, 0.6, 0],
+                  scale: isHovered
+                    ? [0.8, 1.5, 0.8, 1.3, 0.8]
+                    : [0.5, 1.2, 0.5, 1, 0.5],
                 }}
                 transition={{
-                  duration: 4,
-                  delay: dot.d,
+                  duration: isHovered ? 2 : 4,
+                  delay: dot.d * (isHovered ? 0.3 : 1),
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
