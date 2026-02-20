@@ -43,7 +43,11 @@ const HeroSection = () => {
         <img
           src={heroTree}
           alt="Arbre éducatif avec enfants et éducateurs"
-          className="w-full h-auto"
+          className="w-full h-auto mix-blend-multiply"
+          style={{
+            maskImage: "radial-gradient(ellipse 78% 72% at 50% 48%, black 50%, transparent 95%)",
+            WebkitMaskImage: "radial-gradient(ellipse 78% 72% at 50% 48%, black 50%, transparent 95%)",
+          }}
         />
       </motion.div>
     </section>
