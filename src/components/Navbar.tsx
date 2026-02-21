@@ -47,7 +47,7 @@ const Navbar = () => {
 
         <div className="relative z-10 hidden sm:inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-body px-3 py-1 rounded-full sketch-border-sm">
           <TreePine className="w-3.5 h-3.5" />
-          Éditeur indépendant & engagé
+          Éditeur engagé
         </div>
 
         <button
