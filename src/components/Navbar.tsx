@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShieldCheck, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Shield } from "lucide-react";
+import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Shield } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
@@ -12,10 +12,9 @@ const navLinks = [
 ];
 
 const axesLinks = [
-  { label: "Conformité SONS", href: "/conformite-sons", icon: ShieldCheck, description: "Devis 100% conformes, zéro rejet" },
-  { label: "Grappes Multi-ESMS", href: "/grappes-esms", icon: Building2, description: "Architecture mutualisée multi-établissements" },
+  { label: "Toutes les structures", href: "/grappes-esms", icon: Building2, description: "Du lieu de vie aux grandes associations" },
   { label: "Accompagnement", href: "/accompagnement", icon: Handshake, description: "Partenariat opérationnel clé en main" },
-  { label: "Engagements 5 ans", href: "/engagements", icon: HeartHandshake, description: "SLA formalisés et relation durable" },
+  { label: "Engagements durables", href: "/engagements", icon: HeartHandshake, description: "SLA formalisés et relation durable" },
 ];
 
 const Navbar = () => {
