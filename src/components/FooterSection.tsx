@@ -28,10 +28,9 @@ const FooterSection = () => {
               <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
               <a href="/#features" className="hover:text-primary transition-colors">Fonctionnalités</a>
               <a href="/#testimonials" className="hover:text-primary transition-colors">Témoignages</a>
-              <Link to="/conformite-sons" className="hover:text-primary transition-colors">Conformité SONS</Link>
-              <Link to="/grappes-esms" className="hover:text-primary transition-colors">Grappes Multi-ESMS</Link>
+              <Link to="/grappes-esms" className="hover:text-primary transition-colors">Toutes les structures</Link>
               <Link to="/accompagnement" className="hover:text-primary transition-colors">Accompagnement</Link>
-              <Link to="/engagements" className="hover:text-primary transition-colors">Engagements 5 ans</Link>
+              <Link to="/engagements" className="hover:text-primary transition-colors">Engagements durables</Link>
             </nav>
           </div>
 

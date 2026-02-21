@@ -20,8 +20,8 @@ const faqs = [
     answer: "Nous proposons un partenariat opérationnel clé en main : du comité de pilotage (COMOP) aux cibles Ségur. Cela inclut la formation des équipes, la migration des données, le paramétrage personnalisé et un support dédié pendant toute la phase de déploiement.",
   },
   {
-    question: "Quels sont vos engagements de service sur 5 ans ?",
-    answer: "Nos engagements sont formalisés par des SLA (Service Level Agreements) : disponibilité garantie, temps de réponse du support, ticketing transparent, mises à jour régulières et accès au Club Utilisateurs pour co-construire les évolutions du produit.",
+    question: "Quels sont vos engagements de service ?",
+    answer: "Nos engagements sont formalisés par des SLA (Service Level Agreements) sans limite de durée : disponibilité garantie, temps de réponse du support, ticketing transparent, mises à jour régulières et accès au Club Utilisateurs pour co-construire les évolutions du produit. Un partenariat durable avec Silao.",
   },
   {
     question: "Comment demander une démonstration de D2L ?",
