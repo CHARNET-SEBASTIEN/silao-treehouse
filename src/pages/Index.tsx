@@ -9,6 +9,8 @@ import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import KeyFiguresSection from "@/components/KeyFiguresSection";
+import InfographieGrappe from "@/components/InfographieGrappe";
+import InfographieParcours from "@/components/InfographieParcours";
 
 const Index = () => {
   return (
@@ -21,6 +23,8 @@ const Index = () => {
         <section id="features">
           <FeaturesSection />
         </section>
+        <InfographieGrappe />
+        <InfographieParcours />
         <section id="testimonials">
           <TestimonialsSection />
         </section>

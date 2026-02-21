@@ -6,19 +6,19 @@ const axes = [
   {
     icon: Building2,
     title: "Adapté à toutes les structures",
-    description: "Du plus petit lieu de vie aux grappes multi-ESMS et grandes associations.",
+    description: "Mutualisation technique simplifiée : gérez une seule BAL Applicative MSSanté pour tous vos établissements géographiques (FINESS).",
     href: "/grappes-esms",
   },
   {
     icon: Handshake,
-    title: "Accompagnement",
-    description: "Un partenariat opérationnel clé en main, du COMOP aux cibles Ségur.",
+    title: "Accompagnement clé en main",
+    description: "Des tableaux de bord intégrés pour piloter en temps réel vos indicateurs Ségur (taux d'INS, alimentation DMP) et sécuriser vos subventions.",
     href: "/accompagnement",
   },
   {
     icon: HeartHandshake,
-    title: "Engagements durables",
-    description: "SLA formalisés, ticketing transparent et Club Utilisateurs.",
+    title: "Indépendance & engagements durables",
+    description: "D2L, un éditeur indépendant et engagé. La garantie d'une solution pérenne, sans risque de migration forcée. SLA formalisés pour tous nos clients.",
     href: "/engagements",
   },
 ];

@@ -7,6 +7,7 @@ const sectors = [
   "Insertion (CHRS, SIAO)",
   "SESSAD & Services ambulatoires",
   "AEMO & Milieu ouvert",
+  "PDS — Personnes en Difficultés Spécifiques",
   "Personnes Âgées",
 ];
 

@@ -128,9 +128,9 @@ const figures = [
   },
   {
     key: "engagement",
-    value: "5 ans",
-    label: "Engagement contractuel",
-    description: "partenariat durable",
+    value: "∞",
+    label: "Engagement sans limite",
+    description: "SLA pour tous, indéfiniment",
   },
 ];
 
