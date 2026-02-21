@@ -1,18 +1,12 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Building2, Handshake, HeartHandshake } from "lucide-react";
+import { Building2, Handshake, HeartHandshake } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const axes = [
   {
-    icon: ShieldCheck,
-    title: "Conformité SONS",
-    description: "Des devis 100% conformes — zéro rejet, zéro ambiguïté.",
-    href: "/conformite-sons",
-  },
-  {
     icon: Building2,
-    title: "Grappes Multi-ESMS",
-    description: "Architecture mutualisée pour associations multi-établissements.",
+    title: "Adapté à toutes les structures",
+    description: "Du plus petit lieu de vie aux grappes multi-ESMS et grandes associations.",
     href: "/grappes-esms",
   },
   {
@@ -23,7 +17,7 @@ const axes = [
   },
   {
     icon: HeartHandshake,
-    title: "Engagements 5 ans",
+    title: "Engagements durables",
     description: "SLA formalisés, ticketing transparent et Club Utilisateurs.",
     href: "/engagements",
   },
@@ -40,14 +34,14 @@ const AxesSummary = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            Nos <span className="text-primary sketch-underline">4 engagements</span>
+            Nos <span className="text-primary sketch-underline">3 engagements</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
             Des garanties concrètes pour sécuriser votre projet Ségur.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {axes.map((axe, i) => (
             <motion.div
               key={axe.href}

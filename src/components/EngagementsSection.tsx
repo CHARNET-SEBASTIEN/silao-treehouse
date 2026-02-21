@@ -26,14 +26,14 @@ const EngagementsSection = () => {
         >
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-body font-medium">
             <HeartHandshake className="w-4 h-4" />
-            Axe 4 — Engagements
+            Engagements
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Des engagements écrits sur{" "}
-            <span className="text-primary sketch-underline">5 ans</span>
+            Des engagements{" "}
+            <span className="text-primary sketch-underline">durables</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Performance et transparence : des SLA formalisés pour une relation de confiance durable.
+            Performance et transparence : des SLA formalisés pour tous nos clients, sans limite de durée.
           </p>
         </motion.div>
 
