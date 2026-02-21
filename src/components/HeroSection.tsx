@@ -72,9 +72,23 @@ const HeroSection = () => {
           <p className="text-2xl md:text-3xl font-sketch text-primary mb-3">
             le social & médico-social
           </p>
-          <p className="text-base text-muted-foreground font-body max-w-xl mb-5">
+          <p className="text-base text-muted-foreground font-body max-w-xl mb-4">
             Dossier Usager Informatisé pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social. Simple, collaboratif, conforme.
           </p>
+          <div className="flex flex-col gap-2 mb-5 max-w-xl">
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-2 h-2 rounded-full bg-primary shrink-0" />
+              <p className="text-sm text-foreground font-body">
+                <strong>Une équipe agile et proche</strong> — qui va à la rencontre de ses clients et partage leurs valeurs.
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-2 h-2 rounded-full bg-secondary shrink-0" />
+              <p className="text-sm text-foreground font-body">
+                <strong>Mobilisés auprès des instances</strong> — pour des mises en conformité sécurisées et au bon moment.
+              </p>
+            </div>
+          </div>
           <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
             Demandez la démo
           </Button>
