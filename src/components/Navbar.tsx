@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Shield } from "lucide-react";
+import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
@@ -46,8 +46,8 @@ const Navbar = () => {
         </Link>
 
         <div className="relative z-10 hidden sm:inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-body px-3 py-1 rounded-full sketch-border-sm">
-          <Shield className="w-3.5 h-3.5" />
-          Compatible Ségur du Numérique
+          <TreePine className="w-3.5 h-3.5" />
+          Éditeur indépendant & engagé
         </div>
 
         <button
