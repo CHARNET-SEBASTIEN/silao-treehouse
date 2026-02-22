@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine } from "lucide-react";
+import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine, Brain } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Accueil", href: "/", icon: Home },
   { label: "Fonctionnalités", href: "/#features", icon: Sparkles, isAnchor: true },
   { label: "Témoignages", href: "/#testimonials", icon: MessageSquareQuote, isAnchor: true },
+  { label: "Quiz Ségur", href: "/quiz-segur", icon: Brain },
 ];
 
 const axesLinks = [
