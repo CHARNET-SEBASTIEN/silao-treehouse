@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { Brain } from "lucide-react";
 
 /* Floating leaf particle component */
 const FloatingLeaf = ({ delay, x, size }: { delay: number; x: string; size: number }) => (
@@ -89,9 +91,17 @@ const HeroSection = () => {
               </p>
             </div>
           </div>
-          <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
-            Demandez la démo
-          </Button>
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+            <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+              Demandez la démo
+            </Button>
+            <Button variant="hero-outline" size="xl" asChild>
+              <Link to="/quiz-segur" className="gap-2">
+                <Brain className="w-5 h-5" />
+                Quiz Ségur
+              </Link>
+            </Button>
+          </div>
           <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
 
