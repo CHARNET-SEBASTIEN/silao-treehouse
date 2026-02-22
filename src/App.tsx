@@ -8,6 +8,7 @@ import SONSCompliancePage from "./pages/SONSCompliancePage";
 import GrappesPage from "./pages/GrappesPage";
 import AccompagnementPage from "./pages/AccompagnementPage";
 import EngagementsPage from "./pages/EngagementsPage";
+import QuizPage from "./pages/QuizPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/grappes-esms" element={<GrappesPage />} />
           <Route path="/accompagnement" element={<AccompagnementPage />} />
           <Route path="/engagements" element={<EngagementsPage />} />
+          <Route path="/quiz-segur" element={<QuizPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
