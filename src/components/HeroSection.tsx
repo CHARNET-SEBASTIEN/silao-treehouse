@@ -4,7 +4,19 @@ import { Link } from "react-router-dom";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
-import { Brain } from "lucide-react";
+import { Brain, Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
+
+const secteurs = [
+  { icon: Accessibility, label: "Handicap (PH)", href: "/secteur/handicap" },
+  { icon: ShieldCheck, label: "Protection enfance", href: "/secteur/protection-enfance" },
+  { icon: Home, label: "Insertion / AHI", href: "/secteur/insertion-ahi" },
+  { icon: Baby, label: "CAMSP / CMPP", href: "/secteur/camsp-cmpp" },
+];
+
+const services = [
+  { icon: Briefcase, label: "Aide à la MOA", description: "Pilotage de projet & gouvernance" },
+  { icon: GraduationCap, label: "Formation", description: "Plans adaptés par profil métier" },
+];
 
 /* Floating leaf particle component */
 const FloatingLeaf = ({ delay, x, size }: { delay: number; x: string; size: number }) => (
@@ -74,26 +86,54 @@ const HeroSection = () => {
           <p className="text-2xl md:text-3xl font-sketch text-primary mb-3">
             le social & médico-social
           </p>
-          <p className="text-base text-muted-foreground font-body max-w-xl mb-4">
-            Dossier Usager Informatisé pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social. Simple, collaboratif, conforme.
+          <p className="text-base text-muted-foreground font-body max-w-xl mb-5">
+            Dossier Usager Informatisé couvrant l'ensemble des filières. Simple, collaboratif, conforme au Ségur.
           </p>
-          <div className="flex flex-col gap-2 mb-5 max-w-xl">
-            <div className="flex items-start gap-2">
-              <span className="mt-1.5 w-2 h-2 rounded-full bg-primary shrink-0" />
-              <p className="text-sm text-foreground font-body">
-                <strong>Une équipe agile et proche</strong> — qui va à la rencontre de ses clients et partage leurs valeurs.
-              </p>
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="mt-1.5 w-2 h-2 rounded-full bg-secondary shrink-0" />
-              <p className="text-sm text-foreground font-body">
-                <strong>Mobilisés auprès des instances</strong> — pour des mises en conformité sécurisées et au bon moment.
-              </p>
-            </div>
+
+          {/* 4 filières badges */}
+          <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
+            {secteurs.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 + i * 0.08 }}
+              >
+                <Link
+                  to={s.href}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full sketch-border-sm bg-card text-sm font-body text-foreground hover:bg-primary/10 hover:text-primary transition-colors group"
+                >
+                  <s.icon className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  {s.label}
+                </Link>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="flex flex-wrap gap-3 justify-center md:justify-start mb-5"
+          >
+            {services.map((s) => (
+              <div key={s.label} className="flex items-center gap-2 text-sm font-body text-muted-foreground">
+                <s.icon className="w-4 h-4 text-primary" />
+                <span><strong className="text-foreground">{s.label}</strong> — {s.description}</span>
+              </div>
+            ))}
+          </motion.div>
+
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
               Demandez la démo
+            </Button>
+            <Button variant="hero-outline" size="xl" asChild>
+              <Link to="/offres" className="gap-2">
+                <ArrowRight className="w-5 h-5" />
+                Nos offres
+              </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
               <Link to="/quiz-segur" className="gap-2">
