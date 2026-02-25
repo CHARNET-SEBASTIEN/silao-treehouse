@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine, Brain } from "lucide-react";
+import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
@@ -10,6 +10,18 @@ const navLinks = [
   { label: "Fonctionnalités", href: "/#features", icon: Sparkles, isAnchor: true },
   { label: "Témoignages", href: "/#testimonials", icon: MessageSquareQuote, isAnchor: true },
   { label: "Quiz Ségur", href: "/quiz-segur", icon: Brain },
+];
+
+const secteurLinks = [
+  { label: "Handicap — PH", href: "/secteur/handicap", icon: Accessibility, description: "IME, ITEP, MAS, FAM, ESAT, SESSAD" },
+  { label: "Protection de l'enfance", href: "/secteur/protection-enfance", icon: ShieldCheck, description: "MECS, SAE, AEMO, Lieux de vie" },
+  { label: "Insertion / AHI", href: "/secteur/insertion-ahi", icon: Home, description: "CHRS, SIAO, CPH, CADA" },
+  { label: "CAMSP / CMPP", href: "/secteur/camsp-cmpp", icon: Baby, description: "Dépistage et soins précoces" },
+];
+
+const offreLinks = [
+  { label: "Offres de déploiement", href: "/offres", icon: Rocket, description: "Méthodologie et accompagnement projet" },
+  { label: "Abonnement", href: "/abonnement", icon: CreditCard, description: "Modèle tout compris, sans surprise" },
 ];
 
 const axesLinks = [
@@ -22,22 +34,63 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  // Close on route change
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
+  const renderLinkGroup = (title: string, links: typeof axesLinks, startDelay: number) => (
+    <>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: startDelay }}
+        className="text-xs uppercase tracking-widest text-muted-foreground/60 font-body px-4 mb-3"
+      >
+        {title}
+      </motion.p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
+        {links.map((link, i) => (
+          <motion.div
+            key={link.href}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: startDelay + 0.03 + i * 0.04, duration: 0.25 }}
+          >
+            <Link
+              to={link.href}
+              onClick={() => setOpen(false)}
+              className={`block p-3 rounded-xl transition-all group ${
+                location.pathname === link.href
+                  ? "bg-primary/10 sketch-border-sm"
+                  : "hover:bg-muted/50"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-0.5">
+                <link.icon className={`w-4 h-4 ${
+                  location.pathname === link.href ? "text-primary" : "text-muted-foreground group-hover:text-primary"
+                } transition-colors`} />
+                <span className={`font-sketch text-lg ${
+                  location.pathname === link.href ? "text-primary" : "text-foreground"
+                }`}>
+                  {link.label}
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground font-body pl-7">{link.description}</p>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </>
+  );
+
   return (
     <>
-      {/* Minimal top bar */}
       <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6">
-        {/* Frosted background pill */}
         <div className="absolute inset-x-4 inset-y-2 bg-background/70 backdrop-blur-xl rounded-2xl border border-border/50 shadow-sm" />
 
         <Link to="/" className="flex items-center gap-3 relative z-10">
@@ -70,7 +123,6 @@ const Navbar = () => {
         </button>
       </header>
 
-      {/* Fullscreen overlay */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -78,24 +130,24 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex items-center justify-center"
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex items-start justify-center overflow-y-auto pt-20 pb-10"
           >
             <nav className="w-full max-w-2xl px-8">
               {/* Main links */}
-              <div className="space-y-2 mb-10">
+              <div className="space-y-1 mb-8">
                 {navLinks.map((link, i) => {
                   const isActive = !link.isAnchor && location.pathname === link.href;
                   const content = (
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.06, duration: 0.3 }}
-                      className={`flex items-center gap-4 py-4 px-4 rounded-xl transition-colors group ${
+                      transition={{ delay: i * 0.04, duration: 0.25 }}
+                      className={`flex items-center gap-4 py-3 px-4 rounded-xl transition-colors group ${
                         isActive ? "bg-primary/10" : "hover:bg-muted/50"
                       }`}
                     >
                       <link.icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-primary"} transition-colors`} />
-                      <span className={`font-sketch text-3xl md:text-4xl ${isActive ? "text-primary" : "text-foreground"}`}>
+                      <span className={`font-sketch text-2xl md:text-3xl ${isActive ? "text-primary" : "text-foreground"}`}>
                         {link.label}
                       </span>
                     </motion.div>
@@ -113,47 +165,9 @@ const Navbar = () => {
                 })}
               </div>
 
-              {/* Axes section */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-xs uppercase tracking-widest text-muted-foreground/60 font-body px-4 mb-4"
-              >
-                Nos engagements
-              </motion.p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {axesLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25 + i * 0.06, duration: 0.3 }}
-                  >
-                    <Link
-                      to={link.href}
-                      onClick={() => setOpen(false)}
-                      className={`block p-4 rounded-xl transition-all group ${
-                        location.pathname === link.href
-                          ? "bg-primary/10 sketch-border-sm"
-                          : "hover:bg-muted/50"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3 mb-1">
-                        <link.icon className={`w-4 h-4 ${
-                          location.pathname === link.href ? "text-primary" : "text-muted-foreground group-hover:text-primary"
-                        } transition-colors`} />
-                        <span className={`font-sketch text-xl ${
-                          location.pathname === link.href ? "text-primary" : "text-foreground"
-                        }`}>
-                          {link.label}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground font-body pl-7">{link.description}</p>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
+              {renderLinkGroup("Nos secteurs", secteurLinks, 0.15)}
+              {renderLinkGroup("Nos offres", offreLinks, 0.35)}
+              {renderLinkGroup("Nos engagements", axesLinks, 0.45)}
             </nav>
           </motion.div>
         )}
