@@ -9,6 +9,12 @@ import GrappesPage from "./pages/GrappesPage";
 import AccompagnementPage from "./pages/AccompagnementPage";
 import EngagementsPage from "./pages/EngagementsPage";
 import QuizPage from "./pages/QuizPage";
+import SecteurHandicapPage from "./pages/SecteurHandicapPage";
+import SecteurPDEPage from "./pages/SecteurPDEPage";
+import SecteurAHIPage from "./pages/SecteurAHIPage";
+import SecteurCAMSPPage from "./pages/SecteurCAMSPPage";
+import OffresPage from "./pages/OffresPage";
+import AbonnementPage from "./pages/AbonnementPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +32,12 @@ const App = () => (
           <Route path="/accompagnement" element={<AccompagnementPage />} />
           <Route path="/engagements" element={<EngagementsPage />} />
           <Route path="/quiz-segur" element={<QuizPage />} />
+          <Route path="/secteur/handicap" element={<SecteurHandicapPage />} />
+          <Route path="/secteur/protection-enfance" element={<SecteurPDEPage />} />
+          <Route path="/secteur/insertion-ahi" element={<SecteurAHIPage />} />
+          <Route path="/secteur/camsp-cmpp" element={<SecteurCAMSPPage />} />
+          <Route path="/offres" element={<OffresPage />} />
+          <Route path="/abonnement" element={<AbonnementPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
