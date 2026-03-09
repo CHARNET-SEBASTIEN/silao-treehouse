@@ -35,7 +35,7 @@ const AccompagnementSection = () => {
             <span className="text-primary sketch-underline">un partenariat opérationnel</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Un accompagnement au changement réellement clé en main, du COMOP au suivi des cibles Ségur.
+            Un accompagnement au changement réellement clé en main, du COMOP au suivi de vos indicateurs.
           </p>
         </motion.div>
 
