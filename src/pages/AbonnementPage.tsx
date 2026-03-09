@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const includedItems = [
   "Accès complet à tous les modules Silao",
-  "Mises à jour réglementaires incluses (Ségur, SERAFIN-PH…)",
+  "Mises à jour réglementaires incluses (SERAFIN-PH, réformes tarifaires…)",
   "Support technique par ticket et téléphone",
   "Hébergement sécurisé HDS (Hébergeur de Données de Santé)",
   "Sauvegardes automatiques quotidiennes",
