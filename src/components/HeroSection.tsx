@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
-import { Brain, Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
+import { Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 
 const secteurs = [
   { icon: Accessibility, label: "Handicap (PH)", href: "/secteur/handicap" },
