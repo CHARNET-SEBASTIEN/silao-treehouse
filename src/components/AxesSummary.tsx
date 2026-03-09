@@ -1,37 +1,48 @@
 import { motion } from "framer-motion";
-import { Building2, Handshake, HeartHandshake } from "lucide-react";
 import { Link } from "react-router-dom";
+import engagementStructures from "@/assets/engagement-structures.png";
+import engagementAccompagnement from "@/assets/engagement-accompagnement.png";
+import engagementIndependance from "@/assets/engagement-independance.png";
 
 const axes = [
   {
-    icon: Building2,
-    title: "Adapté à toutes les structures",
-    description: "Mutualisation technique simplifiée : gérez une seule BAL Applicative MSSanté pour tous vos établissements géographiques (FINESS).",
+    image: engagementStructures,
+    title: "Adapté à toutes",
+    titleLine2: "les structures",
+    description: "Mutualisation technique simplifiée : gérez une seule BAL MSSanté pour tous vos établissements (FINESS).",
     href: "/grappes-esms",
+    color: "from-primary/20 to-primary/5",
+    hoverColor: "group-hover:from-primary/30 group-hover:to-primary/10",
   },
   {
-    icon: Handshake,
-    title: "Accompagnement clé en main",
-    description: "Des tableaux de bord intégrés pour piloter en temps réel vos indicateurs d'usage (taux d'INS, alimentation DMP) et sécuriser vos financements.",
+    image: engagementAccompagnement,
+    title: "Accompagnement",
+    titleLine2: "clé en main",
+    description: "Tableaux de bord intégrés pour piloter vos indicateurs d'usage et sécuriser vos financements.",
     href: "/accompagnement",
+    color: "from-secondary/20 to-secondary/5",
+    hoverColor: "group-hover:from-secondary/30 group-hover:to-secondary/10",
   },
   {
-    icon: HeartHandshake,
-    title: "Indépendance & engagements durables",
-    description: "D2L, un éditeur indépendant et engagé. La garantie d'une solution pérenne, sans risque de migration forcée. SLA formalisés pour tous nos clients.",
+    image: engagementIndependance,
+    title: "Indépendance &",
+    titleLine2: "engagements durables",
+    description: "Un éditeur indépendant et engagé. Solution pérenne, SLA formalisés, sans risque de migration forcée.",
     href: "/engagements",
+    color: "from-accent/30 to-accent/10",
+    hoverColor: "group-hover:from-accent/40 group-hover:to-accent/15",
   },
 ];
 
 const AxesSummary = () => {
   return (
-    <section className="pt-8 pb-8 px-4">
+    <section className="pt-12 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Nos <span className="text-primary sketch-underline">3 engagements</span>
@@ -41,25 +52,45 @@ const AxesSummary = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {axes.map((axe, i) => (
             <motion.div
               key={axe.href}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
+              transition={{ delay: i * 0.12, duration: 0.5 }}
             >
               <Link
                 to={axe.href}
-                className="block sketch-border bg-card p-6 h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
+                className="group block text-center h-full"
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <axe.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{axe.title}</h3>
-                <p className="text-sm text-muted-foreground font-body leading-relaxed">{axe.description}</p>
-                <span className="inline-block mt-3 text-sm text-primary font-body font-medium group-hover:underline">
+                {/* Illustrated avatar */}
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  className={`w-36 h-36 mx-auto mb-6 rounded-full bg-gradient-to-br ${axe.color} ${axe.hoverColor} flex items-center justify-center transition-all duration-300 shadow-md group-hover:shadow-xl`}
+                >
+                  <img
+                    src={axe.image}
+                    alt={axe.title}
+                    className="w-24 h-24 object-contain drop-shadow-sm"
+                  />
+                </motion.div>
+
+                {/* Title */}
+                <h3 className="text-lg font-bold text-foreground leading-snug mb-2">
+                  <span className="block">{axe.title}</span>
+                  <span className="block text-primary">{axe.titleLine2}</span>
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-muted-foreground font-body leading-relaxed max-w-[280px] mx-auto mb-3">
+                  {axe.description}
+                </p>
+
+                {/* Link */}
+                <span className="inline-flex items-center gap-1 text-sm text-primary font-body font-medium group-hover:underline transition-all">
                   En savoir plus →
                 </span>
               </Link>
