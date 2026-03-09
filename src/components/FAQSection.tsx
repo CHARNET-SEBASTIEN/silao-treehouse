@@ -8,8 +8,8 @@ const faqs = [
     answer: "D2L est un Dossier Usager Informatisé conçu spécifiquement pour les établissements et services sociaux et médico-sociaux (ESMS). Il couvre la Protection de l'Enfance, le Handicap, l'Insertion et le secteur médico-social. Il s'adresse aux associations, fondations et collectivités gérant un ou plusieurs établissements.",
   },
   {
-    question: "D2L est-il conforme au référentiel SONS ?",
-    answer: "Oui, D2L garantit une conformité totale au référentiel SONS (Socle commun de services Numériques en Santé). Nos devis sont 100% conformes, zéro rejet, zéro ambiguïté. Nous assurons une veille réglementaire permanente pour anticiper les évolutions.",
+    question: "D2L est-il conforme aux exigences réglementaires en vigueur ?",
+    answer: "Oui, D2L garantit une conformité totale aux référentiels réglementaires en vigueur. Nos devis sont 100% conformes, zéro rejet, zéro ambiguïté. Nous assurons une veille réglementaire permanente pour anticiper les évolutions.",
   },
   {
     question: "Comment fonctionne l'architecture en grappes multi-ESMS ?",
