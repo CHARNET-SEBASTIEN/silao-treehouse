@@ -12,7 +12,7 @@ const axes = [
   {
     icon: Handshake,
     title: "Accompagnement clé en main",
-    description: "Des tableaux de bord intégrés pour piloter en temps réel vos indicateurs Ségur (taux d'INS, alimentation DMP) et sécuriser vos subventions.",
+    description: "Des tableaux de bord intégrés pour piloter en temps réel vos indicateurs d'usage (taux d'INS, alimentation DMP) et sécuriser vos financements.",
     href: "/accompagnement",
   },
   {
