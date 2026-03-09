@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { HeartHandshake } from "lucide-react";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 
 const CTASection = () => {
@@ -16,18 +16,25 @@ const CTASection = () => {
           viewport={{ once: true }}
           className="sketch-border bg-primary/5 p-10 md:p-16 text-center"
         >
+          <div className="flex justify-center mb-5">
+            <div className="w-14 h-14 rounded-full bg-secondary/15 flex items-center justify-center">
+              <HeartHandshake className="w-7 h-7 text-secondary" />
+            </div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-            Prêt à moderniser la gestion de vos <span className="text-primary font-sketch">usagers</span> ?
+            Envie d'en <span className="text-primary font-sketch">parler ensemble</span> ?
           </h2>
           <p className="text-muted-foreground font-body max-w-2xl mx-auto mb-8 text-lg">
-            Rejoignez les établissements qui ont déjà fait le choix d'un DUI simple, conforme et pensé pour le terrain. Demandez votre démonstration personnalisée.
+            Chaque structure est unique. Échangeons sur vos besoins pour construire ensemble un accompagnement adapté à votre réalité de terrain.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
-              Demandez la démo
-              <ArrowRight className="w-4 h-4 ml-2" />
+              Échangeons sur votre projet
             </Button>
           </div>
+          <p className="text-xs text-muted-foreground font-body mt-4">
+            Sans engagement · Réponse sous 48 h
+          </p>
           <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
       </div>

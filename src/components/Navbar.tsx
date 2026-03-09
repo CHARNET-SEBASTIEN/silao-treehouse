@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
+import DemoRequestDialog from "@/components/DemoRequestDialog";
 
 const navLinks = [
   { label: "Accueil", href: "/", icon: Home },
@@ -32,6 +34,7 @@ const axesLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -99,29 +102,43 @@ const Navbar = () => {
           <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
         </Link>
 
-        <div className="relative z-10 hidden sm:inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-body px-3 py-1 rounded-full sketch-border-sm">
-          <TreePine className="w-3.5 h-3.5" />
-          DUI pensé pour le social & médico-social
-        </div>
+        {/* CTA buttons visible in header like sauvegarde26 */}
+        <div className="relative z-10 flex items-center gap-2">
+          <div className="hidden sm:inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-body px-3 py-1 rounded-full sketch-border-sm mr-2">
+            <TreePine className="w-3.5 h-3.5" />
+            DUI médico-social
+          </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="relative z-10 w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted/50 transition-colors"
-          aria-label="Menu"
-        >
-          <AnimatePresence mode="wait">
-            {open ? (
-              <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <X size={22} className="text-foreground" />
-              </motion.div>
-            ) : (
-              <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <Menu size={22} className="text-foreground" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
+          <Button
+            variant="default"
+            size="sm"
+            className="hidden sm:inline-flex rounded-full text-xs font-body"
+            onClick={() => setDemoOpen(true)}
+          >
+            Nous contacter
+          </Button>
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted/50 transition-colors"
+            aria-label="Menu"
+          >
+            <AnimatePresence mode="wait">
+              {open ? (
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <X size={22} className="text-foreground" />
+                </motion.div>
+              ) : (
+                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <Menu size={22} className="text-foreground" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </header>
+
+      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
 
       <AnimatePresence>
         {open && (
