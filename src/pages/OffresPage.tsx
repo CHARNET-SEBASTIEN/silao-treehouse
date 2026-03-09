@@ -13,7 +13,7 @@ const deploymentSteps = [
     step: "01",
     title: "Cadrage & gouvernance",
     description: "Nous intégrons un chef de projet dédié à votre COMOP. Ensemble, nous définissons le périmètre, le planning et les indicateurs de réussite.",
-    details: ["Analyse de vos besoins métier", "Constitution du COMOP", "Planning de déploiement sur mesure", "Définition des cibles Ségur"],
+    details: ["Analyse de vos besoins métier", "Constitution du COMOP", "Planning de déploiement sur mesure", "Définition des objectifs"],
   },
   {
     icon: Settings,
@@ -33,8 +33,8 @@ const deploymentSteps = [
     icon: BarChart3,
     step: "04",
     title: "Pilotage & suivi post-déploiement",
-    description: "Nous suivons les indicateurs d'usage pour vous aider à atteindre vos cibles Ségur et sécuriser vos financements.",
-    details: ["Tableaux de bord d'usage en temps réel", "Suivi des cibles Ségur (INS, DMP…)", "Comités de suivi réguliers", "Support et maintenance continues"],
+    description: "Nous suivons les indicateurs d'usage pour vous aider à atteindre vos objectifs et sécuriser vos financements.",
+    details: ["Tableaux de bord d'usage en temps réel", "Suivi des indicateurs clés (INS, DMP…)", "Comités de suivi réguliers", "Support et maintenance continues"],
   },
 ];
 
@@ -48,7 +48,7 @@ const offerTypes = [
   {
     name: "Déploiement Premium",
     description: "Pour les associations multi-sites avec des besoins de mutualisation.",
-    features: ["Chef de projet D2L senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs Ségur", "Support 7j/7 avec SLA renforcé"],
+    features: ["Chef de projet D2L senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs d'usage", "Support 7j/7 avec SLA renforcé"],
     highlighted: true,
   },
   {

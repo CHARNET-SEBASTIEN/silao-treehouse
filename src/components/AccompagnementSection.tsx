@@ -12,7 +12,7 @@ const accompagnementPoints = [
 const pilotageIndicators = [
   { icon: Target, label: "Taux de qualification INS" },
   { icon: Activity, label: "Taux d'alimentation du DMP" },
-  { icon: BarChart3, label: "Suivi des cibles Ségur" },
+  { icon: BarChart3, label: "Suivi des indicateurs d'usage" },
   { icon: BarChart3, label: "Tableaux de bord temps réel pour la direction" },
 ];
 
@@ -35,7 +35,7 @@ const AccompagnementSection = () => {
             <span className="text-primary sketch-underline">un partenariat opérationnel</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Un accompagnement au changement réellement clé en main, du COMOP au suivi des cibles Ségur.
+            Un accompagnement au changement réellement clé en main, du COMOP au suivi de vos indicateurs.
           </p>
         </motion.div>
 
@@ -102,7 +102,7 @@ const AccompagnementSection = () => {
         >
           <Target className="w-10 h-10 text-primary mx-auto mb-4" />
           <p className="text-foreground text-lg font-body leading-relaxed">
-            <strong>Les financements Ségur dépendent de l'atteinte de cibles d'usage.</strong>
+            <strong>Vos financements dépendent de l'atteinte de cibles d'usage.</strong>
           </p>
           <p className="text-primary font-sketch text-xl mt-3">
             Nous vous donnons les outils pour les atteindre et les prouver.

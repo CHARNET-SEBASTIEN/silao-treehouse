@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
-import { Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
+import { Brain, Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 
 const secteurs = [
   { icon: Accessibility, label: "Handicap (PH)", href: "/secteur/handicap" },
@@ -126,6 +126,12 @@ const HeroSection = () => {
               <Link to="/offres" className="gap-2">
                 <ArrowRight className="w-5 h-5" />
                 Découvrir nos offres
+              </Link>
+            </Button>
+            <Button variant="hero-outline" size="xl" asChild>
+              <Link to="/quiz-segur" className="gap-2">
+                <Brain className="w-5 h-5" />
+                Quiz Ségur
               </Link>
             </Button>
           </div>

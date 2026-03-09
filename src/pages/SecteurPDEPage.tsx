@@ -28,7 +28,7 @@ const SecteurPDEPage = () => (
           "Traçabilité des incidents et événements significatifs",
           "Gestion des visites médiatisées et des droits de visite",
           "Rapports automatisés pour les magistrats et le Département",
-          "Conformité Ségur du numérique en milieu social",
+          "Conformité réglementaire du numérique en milieu social",
         ]}
         modules={[
           "Dossier Usager Informatisé",

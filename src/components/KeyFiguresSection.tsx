@@ -123,8 +123,8 @@ const figures = [
   {
     key: "conformite",
     value: "100%",
-    label: "Conformité Ségur",
-    description: "certifié SONS",
+    label: "Conformité réglementaire",
+    description: "certifié et audité",
   },
   {
     key: "engagement",

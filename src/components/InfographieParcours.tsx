@@ -7,7 +7,7 @@ const steps = [
     step: "Étape 1",
     title: "Le Devis Transparent",
     description:
-      "Application directe du financement SONS. Séparation claire du reste à charge et de la dette technologique.",
+      "Application directe des financements disponibles. Séparation claire du reste à charge et de la dette technologique.",
     accent: "0€ de surprise",
   },
   {
@@ -50,11 +50,11 @@ const InfographieParcours = () => {
             Infographie
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Le parcours Ségur{" "}
+            Le parcours{" "}
             <span className="text-primary sketch-underline">« Zéro Charge Mentale »</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            4 étapes simples pour une mise en conformité sereine avec D2L.
+            4 étapes simples pour un déploiement serein avec D2L.
           </p>
         </motion.div>
 

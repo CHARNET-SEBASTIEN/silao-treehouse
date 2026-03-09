@@ -6,19 +6,19 @@ const points = [
     icon: SplitSquareVertical,
     title: "Séparation stricte des coûts",
     description:
-      'Mention explicite : "Montant de la Prestation Ségur pris en charge par l\'État" — distinction claire entre financement État et reste à charge établissement.',
+      'Distinction claire entre financements publics et reste à charge établissement. Transparence totale sur chaque ligne de nos devis.',
   },
   {
     icon: BadgeEuro,
     title: "Gestion de la dette technologique",
     description:
-      "Facturation sur ligne distincte, conformité aux exigences ASP et prévention des rejets de financement.",
+      "Facturation sur ligne distincte, conformité aux exigences réglementaires et prévention des rejets de financement.",
   },
   {
     icon: FileCheck,
-    title: "Conformité réglementaire ANS & ASP",
+    title: "Conformité réglementaire",
     description:
-      "Chaque ligne de nos devis répond aux critères de recevabilité de l'ANS et de l'ASP pour sécuriser vos dossiers.",
+      "Chaque ligne de nos devis répond aux critères de recevabilité pour sécuriser vos dossiers de financement.",
   },
 ];
 
@@ -34,10 +34,10 @@ const SONSComplianceSection = () => {
         >
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-body font-medium">
             <ShieldCheck className="w-4 h-4" />
-            Axe 1 — Conformité SONS
+            Transparence & conformité
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Des devis <span className="text-primary sketch-underline">100% conformes</span> SONS
+            Des devis <span className="text-primary sketch-underline">100% transparents</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Zéro rejet, zéro ambiguïté — votre financement sécurisé avant le démarrage du projet.
@@ -73,7 +73,7 @@ const SONSComplianceSection = () => {
         >
           <ShieldCheck className="w-10 h-10 text-primary mx-auto mb-4" />
           <p className="text-foreground text-lg font-body leading-relaxed">
-            <strong>Nos devis sont structurés pour répondre précisément aux exigences ANS et ASP.</strong>
+            <strong>Nos devis sont structurés pour répondre précisément aux exigences réglementaires en vigueur.</strong>
           </p>
           <p className="text-primary font-sketch text-xl mt-3">
             Nous sécurisons votre financement avant même le démarrage du projet.

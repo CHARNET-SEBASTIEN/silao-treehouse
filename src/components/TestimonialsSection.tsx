@@ -5,7 +5,7 @@ import avatarStephane from "@/assets/avatar-stephane.png";
 
 const testimonials = [
   {
-    quote: "Le DUI est intuitif et la mise en conformité Ségur s'est faite naturellement. Un vrai gain de temps au quotidien !",
+    quote: "Le DUI est intuitif et la mise en conformité réglementaire s'est faite naturellement. Un vrai gain de temps au quotidien !",
     name: "Claire",
     role: "Assistante de direction — MECS",
     avatar: avatarClaire,

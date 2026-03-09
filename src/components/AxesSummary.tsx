@@ -12,7 +12,7 @@ const axes = [
   {
     icon: Handshake,
     title: "Accompagnement clé en main",
-    description: "Des tableaux de bord intégrés pour piloter en temps réel vos indicateurs Ségur (taux d'INS, alimentation DMP) et sécuriser vos subventions.",
+    description: "Des tableaux de bord intégrés pour piloter en temps réel vos indicateurs d'usage (taux d'INS, alimentation DMP) et sécuriser vos financements.",
     href: "/accompagnement",
   },
   {
@@ -37,7 +37,7 @@ const AxesSummary = () => {
             Nos <span className="text-primary sketch-underline">3 engagements</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
-            Des garanties concrètes pour sécuriser votre projet Ségur.
+            Des garanties concrètes pour sécuriser votre projet.
           </p>
         </motion.div>
 
