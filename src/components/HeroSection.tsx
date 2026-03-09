@@ -80,7 +80,7 @@ const HeroSection = () => {
             accompagne au quotidien
           </p>
           <p className="text-base text-muted-foreground font-body max-w-xl mb-5">
-            Un logiciel conçu avec et pour les professionnels du social et du médico-social. Simple, humain, conforme au Ségur.
+            Un logiciel conçu avec et pour les professionnels du social et du médico-social. Simple, humain, à vos côtés.
           </p>
 
           {/* 4 filières badges */}
