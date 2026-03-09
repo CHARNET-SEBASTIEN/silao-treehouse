@@ -7,10 +7,10 @@ import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Brain, Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight } from "lucide-react";
 
 const secteurs = [
-  { icon: Accessibility, label: "Handicap (PH)", href: "/secteur/handicap" },
-  { icon: ShieldCheck, label: "Protection enfance", href: "/secteur/protection-enfance" },
-  { icon: Home, label: "Insertion / AHI", href: "/secteur/insertion-ahi" },
-  { icon: Baby, label: "CAMSP / CMPP", href: "/secteur/camsp-cmpp" },
+  { icon: Accessibility, label: "Handicap", href: "/secteur/handicap", color: "bg-primary/15 text-primary border-primary/30 hover:bg-primary hover:text-primary-foreground" },
+  { icon: ShieldCheck, label: "Protection enfance", href: "/secteur/protection-enfance", color: "bg-secondary/15 text-secondary border-secondary/30 hover:bg-secondary hover:text-secondary-foreground" },
+  { icon: Home, label: "Insertion / AHI", href: "/secteur/insertion-ahi", color: "bg-accent/15 text-accent border-accent/30 hover:bg-accent hover:text-accent-foreground" },
+  { icon: Baby, label: "CAMSP / CMPP", href: "/secteur/camsp-cmpp", color: "bg-primary/15 text-primary border-primary/30 hover:bg-primary hover:text-primary-foreground" },
 ];
 
 const services = [
@@ -46,7 +46,6 @@ const HeroSection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Mouse position tracking for radial glow follow
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
   const smoothX = useSpring(mouseX, { stiffness: 80, damping: 20 });
@@ -58,13 +57,11 @@ const HeroSection = () => {
     mouseY.set((e.clientY - rect.top) / rect.height);
   };
 
-  // Glow position as CSS values
   const glowX = useTransform(smoothX, (v) => `${v * 100}%`);
   const glowY = useTransform(smoothY, (v) => `${v * 100}%`);
 
   return (
     <section className="relative flex flex-col items-center justify-center paper-bg overflow-hidden px-4 pt-4 pb-0">
-
       <div className="relative z-10 w-full max-w-5xl flex flex-col md:flex-row items-center gap-6">
         {/* Text content */}
         <motion.div
@@ -79,53 +76,59 @@ const HeroSection = () => {
           <p className="text-2xl md:text-3xl font-sketch text-primary mb-3">
             accompagne au quotidien
           </p>
-          <p className="text-base text-muted-foreground font-body max-w-xl mb-5">
+          <p className="text-base text-muted-foreground font-body max-w-xl mb-6">
             Un logiciel conçu avec et pour les professionnels du social et du médico-social. Simple, humain, à vos côtés.
           </p>
 
-          {/* 4 filières badges */}
-          <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
+          {/* 4 filières — playful rounded badges */}
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-5">
             {secteurs.map((s, i) => (
               <motion.div
                 key={s.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 + i * 0.08 }}
+                initial={{ opacity: 0, y: 15, scale: 0.85 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.4 + i * 0.1, type: "spring", stiffness: 200 }}
               >
                 <Link
                   to={s.href}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full sketch-border-sm bg-card text-sm font-body text-foreground hover:bg-primary/10 hover:text-primary transition-colors group"
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border-2 text-sm font-bold transition-all duration-300 group shadow-sm hover:shadow-md hover:-translate-y-0.5 ${s.color}`}
                 >
-                  <s.icon className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <s.icon className="w-4 h-4 transition-transform group-hover:scale-110" />
                   {s.label}
                 </Link>
               </motion.div>
             ))}
           </div>
 
-          {/* Services */}
+          {/* Services — subtle chips */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap gap-3 justify-center md:justify-start mb-5"
+            className="flex flex-wrap gap-3 justify-center md:justify-start mb-6"
           >
             {services.map((s) => (
-              <div key={s.label} className="flex items-center gap-2 text-sm font-body text-muted-foreground">
-                <s.icon className="w-4 h-4 text-primary" />
+              <div key={s.label} className="flex items-center gap-2 text-sm font-body text-muted-foreground bg-card/60 rounded-full px-3 py-1.5">
+                <s.icon className="w-4 h-4 text-secondary" />
                 <span><strong className="text-foreground">{s.label}</strong> — {s.description}</span>
               </div>
             ))}
           </motion.div>
 
-          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+          {/* CTA buttons — sauvegarde26 pill style */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.85 }}
+            className="flex flex-wrap gap-3 justify-center md:justify-start"
+          >
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
               Parlons de votre projet
             </Button>
-            <Button variant="hero-outline" size="xl" asChild>
+            <Button variant="hero-warm" size="xl" asChild>
               <Link to="/offres" className="gap-2">
                 <ArrowRight className="w-5 h-5" />
-                Découvrir nos offres
+                Nos offres
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
@@ -134,7 +137,7 @@ const HeroSection = () => {
                 Quiz Ségur
               </Link>
             </Button>
-          </div>
+          </motion.div>
           <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
 
@@ -151,7 +154,6 @@ const HeroSection = () => {
             onMouseLeave={() => setIsHovered(false)}
             onMouseMove={handleMouseMove}
           >
-            {/* Slow zoom — intensifies on hover */}
             <motion.div
               animate={{
                 scale: isHovered ? [1.08, 1.12, 1.1] : [1, 1.06, 1.03, 1.06],
@@ -163,7 +165,6 @@ const HeroSection = () => {
               }}
               className="origin-[50%_40%]"
             >
-              {/* Breeze sway — stronger on hover */}
               <motion.div
                 animate={{
                   rotate: isHovered
@@ -177,7 +178,6 @@ const HeroSection = () => {
                 }}
                 className="origin-[50%_85%]"
               >
-                {/* Brightness boost on hover */}
                 <motion.div
                   animate={{
                     filter: isHovered
@@ -199,7 +199,6 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Cursor-following radial glow */}
             <motion.div
               className="absolute inset-0 pointer-events-none"
               animate={{ opacity: isHovered ? 1 : 0 }}
@@ -213,7 +212,6 @@ const HeroSection = () => {
               }}
             />
 
-            {/* Root pulse — much stronger on hover */}
             <motion.div
               className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-[25%] pointer-events-none"
               style={{
@@ -231,7 +229,6 @@ const HeroSection = () => {
               }}
             />
 
-            {/* Secondary warm glow — stronger on hover */}
             <motion.div
               className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[40%] h-[15%] pointer-events-none"
               style={{
@@ -250,14 +247,12 @@ const HeroSection = () => {
               }}
             />
 
-            {/* Floating leaf particles */}
             <FloatingLeaf delay={0} x="35%" size={12} />
             <FloatingLeaf delay={2.5} x="55%" size={10} />
             <FloatingLeaf delay={5} x="45%" size={14} />
             <FloatingLeaf delay={7} x="60%" size={9} />
             <FloatingLeaf delay={3.5} x="38%" size={11} />
 
-            {/* Sparkle dots — brighter on hover */}
             {[
               { x: "42%", y: "30%", d: 0 },
               { x: "55%", y: "25%", d: 1.5 },
