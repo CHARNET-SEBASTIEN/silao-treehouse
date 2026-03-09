@@ -7,7 +7,7 @@ const steps = [
     step: "Étape 1",
     title: "Le Devis Transparent",
     description:
-      "Application directe du financement SONS. Séparation claire du reste à charge et de la dette technologique.",
+      "Application directe des financements disponibles. Séparation claire du reste à charge et de la dette technologique.",
     accent: "0€ de surprise",
   },
   {
