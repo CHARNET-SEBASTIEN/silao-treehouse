@@ -33,8 +33,8 @@ const deploymentSteps = [
     icon: BarChart3,
     step: "04",
     title: "Pilotage & suivi post-déploiement",
-    description: "Nous suivons les indicateurs d'usage pour vous aider à atteindre vos cibles Ségur et sécuriser vos financements.",
-    details: ["Tableaux de bord d'usage en temps réel", "Suivi des cibles Ségur (INS, DMP…)", "Comités de suivi réguliers", "Support et maintenance continues"],
+    description: "Nous suivons les indicateurs d'usage pour vous aider à atteindre vos objectifs et sécuriser vos financements.",
+    details: ["Tableaux de bord d'usage en temps réel", "Suivi des indicateurs clés (INS, DMP…)", "Comités de suivi réguliers", "Support et maintenance continues"],
   },
 ];
 
