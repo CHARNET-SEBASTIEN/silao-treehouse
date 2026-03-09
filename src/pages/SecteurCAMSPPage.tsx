@@ -24,7 +24,7 @@ const SecteurCAMSPPage = () => (
           "Gestion des bilans et des évaluations standardisées",
           "Lien avec les familles et compte-rendus de consultations",
           "Planification et suivi des séances thérapeutiques",
-          "Conformité Ségur et interopérabilité avec le DMP",
+          "Conformité réglementaire et interopérabilité avec le DMP",
           "Statistiques d'activité pour les tutelles (ARS, CPAM)",
           "Gestion de la file active et des listes d'attente",
         ]}

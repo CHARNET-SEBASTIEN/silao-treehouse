@@ -12,8 +12,8 @@ const articles = [
     slug: "#",
   },
   {
-    title: "Conformité SONS 2026 : ce qui change pour les ESMS",
-    excerpt: "Décryptage des nouvelles exigences du référentiel SONS et comment D2L vous garantit une conformité totale sans effort supplémentaire.",
+    title: "Conformité réglementaire 2026 : ce qui change pour les ESMS",
+    excerpt: "Décryptage des nouvelles exigences réglementaires et comment D2L vous garantit une conformité totale sans effort supplémentaire.",
     date: "28 janvier 2026",
     readTime: "5 min",
     category: "Réglementation",

@@ -32,7 +32,7 @@ const faqItems = [
   },
   {
     question: "Les mises à jour réglementaires sont-elles incluses ?",
-    answer: "Oui, toutes les mises à jour liées aux évolutions réglementaires (Ségur, SERAFIN-PH, réformes tarifaires) sont incluses dans l'abonnement sans surcoût.",
+    answer: "Oui, toutes les mises à jour liées aux évolutions réglementaires (SERAFIN-PH, réformes tarifaires) sont incluses dans l'abonnement sans surcoût.",
   },
   {
     question: "Peut-on ajouter des utilisateurs en cours de contrat ?",

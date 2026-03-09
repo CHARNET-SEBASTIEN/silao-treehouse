@@ -102,7 +102,7 @@ const AccompagnementSection = () => {
         >
           <Target className="w-10 h-10 text-primary mx-auto mb-4" />
           <p className="text-foreground text-lg font-body leading-relaxed">
-            <strong>Les financements Ségur dépendent de l'atteinte de cibles d'usage.</strong>
+            <strong>Vos financements dépendent de l'atteinte de cibles d'usage.</strong>
           </p>
           <p className="text-primary font-sketch text-xl mt-3">
             Nous vous donnons les outils pour les atteindre et les prouver.

@@ -25,7 +25,7 @@ const SecteurHandicapPage = () => (
         benefits={[
           "Projet personnalisé intégré avec suivi des objectifs et évaluations",
           "Coordination pluridisciplinaire simplifiée (éducateurs, soignants, psychologues)",
-          "Conformité Ségur : alimentation du DMP, INS qualifiée, messagerie MSSanté",
+          "Interopérabilité : alimentation du DMP, INS qualifiée, messagerie MSSanté",
           "Tableaux de bord de pilotage pour la direction et les financeurs",
           "Gestion des notifications MDPH et des orientations",
           "Suivi du parcours inclusif (scolarité, emploi, logement)",

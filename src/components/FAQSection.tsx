@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "Quel accompagnement proposez-vous lors du déploiement ?",
-    answer: "Nous proposons un partenariat opérationnel clé en main : du comité de pilotage (COMOP) aux cibles Ségur. Cela inclut la formation des équipes, la migration des données, le paramétrage personnalisé et un support dédié pendant toute la phase de déploiement.",
+    answer: "Nous proposons un partenariat opérationnel clé en main : du comité de pilotage (COMOP) à l'atteinte de vos objectifs d'usage. Cela inclut la formation des équipes, la migration des données, le paramétrage personnalisé et un support dédié pendant toute la phase de déploiement.",
   },
   {
     question: "Quels sont vos engagements de service ?",
