@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, TreePine, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
+import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logoSilao from "@/assets/logo-silao.png";
@@ -35,6 +35,7 @@ const axesLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [demoOpen, setDemoOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -45,6 +46,12 @@ const Navbar = () => {
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const renderLinkGroup = (title: string, links: typeof axesLinks, startDelay: number) => (
     <>
@@ -93,50 +100,72 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6">
-        <div className="absolute inset-x-4 inset-y-2 bg-background/70 backdrop-blur-xl rounded-2xl border border-border/50 shadow-sm" />
+      <motion.header
+        initial={false}
+        animate={{
+          backgroundColor: scrolled ? "hsl(var(--background) / 0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "blur(0px)",
+        }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-4 md:px-6"
+      >
+        {/* Floating bar background */}
+        <motion.div
+          initial={false}
+          animate={{
+            opacity: scrolled ? 1 : 0,
+            y: scrolled ? 0 : -4,
+          }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-x-3 inset-y-2 bg-background/80 backdrop-blur-xl rounded-full border border-border/40 shadow-lg"
+        />
 
-        <Link to="/" className="flex items-center gap-3 relative z-10">
-          <img src={logoD2l} alt="D2L" className="h-8 w-auto rounded" />
-          <div className="w-px h-6 bg-border" />
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 relative z-10">
+          <img src={logoD2l} alt="D2L" className="h-8 w-auto rounded-lg shadow-sm" />
+          <div className="w-px h-5 bg-border/60" />
           <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
         </Link>
 
-        {/* CTA buttons visible in header like sauvegarde26 */}
+        {/* Right side actions */}
         <div className="relative z-10 flex items-center gap-2">
-          <div className="hidden sm:inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-body px-3 py-1 rounded-full sketch-border-sm mr-2">
-            <TreePine className="w-3.5 h-3.5" />
-            DUI médico-social
-          </div>
-
+          {/* Contact button — warm orange pill like sauvegarde26 */}
           <Button
-            variant="default"
+            variant="hero"
             size="sm"
-            className="hidden sm:inline-flex rounded-full text-xs font-body"
+            className="hidden sm:inline-flex rounded-full text-xs font-bold px-5 shadow-md"
             onClick={() => setDemoOpen(true)}
           >
             Nous contacter
           </Button>
 
-          <button
+          {/* Menu button — rounded with color */}
+          <motion.button
             onClick={() => setOpen(!open)}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted/50 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`flex items-center gap-2 h-10 px-4 rounded-full font-bold text-sm transition-all duration-300 ${
+              open
+                ? "bg-foreground text-background"
+                : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
+            }`}
             aria-label="Menu"
           >
             <AnimatePresence mode="wait">
               {open ? (
-                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <X size={22} className="text-foreground" />
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <X size={18} />
                 </motion.div>
               ) : (
-                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <Menu size={22} className="text-foreground" />
+                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <Menu size={18} />
                 </motion.div>
               )}
             </AnimatePresence>
-          </button>
+            <span className="hidden sm:inline">MENU</span>
+          </motion.button>
         </div>
-      </header>
+      </motion.header>
 
       <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
 
@@ -163,7 +192,11 @@ const Navbar = () => {
                         isActive ? "bg-primary/10" : "hover:bg-muted/50"
                       }`}
                     >
-                      <link.icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-primary"} transition-colors`} />
+                      <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${
+                        isActive ? "bg-primary text-primary-foreground" : "bg-muted/60 text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
+                      }`}>
+                        <link.icon className="w-4.5 h-4.5" />
+                      </div>
                       <span className={`font-sketch text-2xl md:text-3xl ${isActive ? "text-primary" : "text-foreground"}`}>
                         {link.label}
                       </span>
