@@ -13,7 +13,7 @@ const deploymentSteps = [
     step: "01",
     title: "Cadrage & gouvernance",
     description: "Nous intégrons un chef de projet dédié à votre COMOP. Ensemble, nous définissons le périmètre, le planning et les indicateurs de réussite.",
-    details: ["Analyse de vos besoins métier", "Constitution du COMOP", "Planning de déploiement sur mesure", "Définition des cibles Ségur"],
+    details: ["Analyse de vos besoins métier", "Constitution du COMOP", "Planning de déploiement sur mesure", "Définition des objectifs"],
   },
   {
     icon: Settings,
