@@ -127,12 +127,12 @@ const HeroSection = () => {
 
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
-              Demandez la démo
+              Parlons de votre projet
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
               <Link to="/offres" className="gap-2">
                 <ArrowRight className="w-5 h-5" />
-                Nos offres
+                Découvrir nos offres
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
