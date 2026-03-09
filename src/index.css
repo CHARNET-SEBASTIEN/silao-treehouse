@@ -6,52 +6,52 @@
 
 @layer base {
   :root {
-    --background: 210 20% 97%;
-    --foreground: 220 15% 20%;
+    --background: 35 30% 96%;
+    --foreground: 220 20% 18%;
 
-    --card: 210 18% 94%;
-    --card-foreground: 220 15% 20%;
+    --card: 35 25% 93%;
+    --card-foreground: 220 20% 18%;
 
-    --popover: 210 20% 97%;
-    --popover-foreground: 220 15% 20%;
+    --popover: 35 30% 96%;
+    --popover-foreground: 220 20% 18%;
 
-    --primary: 215 78% 33%;
+    --primary: 215 85% 30%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 38 100% 44%;
+    --secondary: 30 100% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 15% 90%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 35 18% 88%;
+    --muted-foreground: 220 12% 42%;
 
-    --accent: 205 100% 38%;
+    --accent: 205 90% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 82%;
-    --input: 210 15% 82%;
-    --ring: 215 78% 33%;
+    --border: 30 15% 80%;
+    --input: 30 15% 80%;
+    --ring: 215 85% 30%;
 
     --radius: 1rem;
 
-    --sidebar-background: 210 18% 94%;
-    --sidebar-foreground: 220 15% 20%;
-    --sidebar-primary: 215 78% 33%;
+    --sidebar-background: 35 25% 93%;
+    --sidebar-foreground: 220 20% 18%;
+    --sidebar-primary: 215 85% 30%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 15% 90%;
-    --sidebar-accent-foreground: 220 15% 20%;
-    --sidebar-border: 210 15% 82%;
-    --sidebar-ring: 215 78% 33%;
+    --sidebar-accent: 35 18% 88%;
+    --sidebar-accent-foreground: 220 20% 18%;
+    --sidebar-border: 30 15% 80%;
+    --sidebar-ring: 215 85% 30%;
 
     /* Custom tokens */
-    --sketch-border: 2px solid hsl(210 15% 75%);
-    --paper-texture: hsl(210 20% 97%);
-    --leaf-green: 215 78% 33%;
-    --warm-earth: 38 100% 44%;
-    --sky-soft: 205 100% 38%;
-    --bark-brown: 220 15% 25%;
+    --sketch-border: 2px solid hsl(30 15% 72%);
+    --paper-texture: hsl(35 30% 96%);
+    --leaf-green: 215 85% 30%;
+    --warm-earth: 30 100% 50%;
+    --sky-soft: 205 90% 35%;
+    --bark-brown: 220 20% 22%;
   }
 
   .dark {
