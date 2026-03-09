@@ -11,7 +11,7 @@ const SecteurHandicapPage = () => (
         icon={Accessibility}
         name="Handicap — PH"
         tagline="Le DUI conçu pour le parcours de la personne en situation de handicap"
-        description="Silao accompagne les établissements et services du secteur Handicap avec un dossier usager informatisé complet, conforme au Ségur du numérique et adapté aux réalités terrain : projets personnalisés, coordination pluridisciplinaire, suivi des parcours inclusifs."
+        description="Silao accompagne les établissements et services du secteur Handicap avec un dossier usager informatisé complet, conforme aux exigences réglementaires et adapté aux réalités terrain : projets personnalisés, coordination pluridisciplinaire, suivi des parcours inclusifs."
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[
