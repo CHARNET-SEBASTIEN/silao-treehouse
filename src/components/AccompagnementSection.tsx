@@ -12,7 +12,7 @@ const accompagnementPoints = [
 const pilotageIndicators = [
   { icon: Target, label: "Taux de qualification INS" },
   { icon: Activity, label: "Taux d'alimentation du DMP" },
-  { icon: BarChart3, label: "Suivi des cibles Ségur" },
+  { icon: BarChart3, label: "Suivi des indicateurs d'usage" },
   { icon: BarChart3, label: "Tableaux de bord temps réel pour la direction" },
 ];
 
