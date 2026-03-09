@@ -81,13 +81,13 @@ const HeroSection = () => {
           className="text-center md:text-left md:w-2/5 shrink-0"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1 leading-tight">
-            SILAO, DUI pensé pour
+            SILAO, le DUI qui vous
           </h1>
           <p className="text-2xl md:text-3xl font-sketch text-primary mb-3">
-            le social & médico-social
+            accompagne au quotidien
           </p>
           <p className="text-base text-muted-foreground font-body max-w-xl mb-5">
-            Dossier Usager Informatisé couvrant l'ensemble des filières. Simple, collaboratif, conforme au Ségur.
+            Un logiciel conçu avec et pour les professionnels du social et du médico-social. Simple, humain, conforme au Ségur.
           </p>
 
           {/* 4 filières badges */}
