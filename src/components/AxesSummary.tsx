@@ -37,7 +37,7 @@ const AxesSummary = () => {
             Nos <span className="text-primary sketch-underline">3 engagements</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
-            Des garanties concrètes pour sécuriser votre projet Ségur.
+            Des garanties concrètes pour sécuriser votre projet.
           </p>
         </motion.div>
 

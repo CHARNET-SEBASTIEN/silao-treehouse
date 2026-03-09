@@ -102,8 +102,8 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Conformité Ségur, SONS & Cyber",
-    description: "Mise en conformité financée par l'État. Nos devis SONS sont transparents, isolent la dette technologique et garantissent un reste à charge maîtrisé. Authentification forte Pro Santé Connect & double facteur (programme CaRE).",
+    title: "Conformité réglementaire & Cyber",
+    description: "Mise en conformité avec les exigences réglementaires en vigueur. Devis transparents, dette technologique isolée et reste à charge maîtrisé. Authentification forte Pro Santé Connect & double facteur (programme CaRE).",
     illustrationKey: "segur",
   },
   {

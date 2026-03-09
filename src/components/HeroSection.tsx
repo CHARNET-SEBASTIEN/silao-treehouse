@@ -128,6 +128,12 @@ const HeroSection = () => {
                 Découvrir nos offres
               </Link>
             </Button>
+            <Button variant="hero-outline" size="xl" asChild>
+              <Link to="/quiz-segur" className="gap-2">
+                <Brain className="w-5 h-5" />
+                Quiz Ségur
+              </Link>
+            </Button>
           </div>
           <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
