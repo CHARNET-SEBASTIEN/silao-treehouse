@@ -48,7 +48,7 @@ const offerTypes = [
   {
     name: "Déploiement Premium",
     description: "Pour les associations multi-sites avec des besoins de mutualisation.",
-    features: ["Chef de projet D2L senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs d'usage", "Support 7j/7 avec SLA renforcé"],
+    features: ["Chef de projet SILAO senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs d'usage", "Support 7j/7 avec SLA renforcé"],
     highlighted: true,
   },
   {
