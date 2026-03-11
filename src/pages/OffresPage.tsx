@@ -42,7 +42,7 @@ const offerTypes = [
   {
     name: "Déploiement Standard",
     description: "Pour les structures autonomes souhaitant un déploiement encadré.",
-    features: ["Chef de projet D2L dédié", "Paramétrage standard", "Formation initiale", "Support 5j/7"],
+    features: ["Chef de projet SILAO dédié", "Paramétrage standard", "Formation initiale", "Support 5j/7"],
     highlighted: false,
   },
   {
