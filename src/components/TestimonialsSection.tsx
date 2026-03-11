@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-center text-foreground mb-16"
         >
-          Ce qu'ils en <span className="text-primary sketch-underline">disent</span>
+          Retours <span className="text-primary sketch-underline">terrain</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

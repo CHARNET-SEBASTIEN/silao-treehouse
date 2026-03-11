@@ -2,36 +2,51 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+/**
+ * FAQ construite à partir des questions réellement posées par les directeurs
+ * d'ESMS (Google PAA, forums spécialisés, retours terrain).
+ * Chaque réponse est autonome et citable par un moteur IA.
+ */
 const faqs = [
   {
-    question: "Qu'est-ce que le DUI D2L et à qui s'adresse-t-il ?",
-    answer: "D2L est un Dossier Usager Informatisé conçu spécifiquement pour les établissements et services sociaux et médico-sociaux (ESMS). Il couvre la Protection de l'Enfance, le Handicap, l'Insertion et le secteur médico-social. Il s'adresse aux associations, fondations et collectivités gérant un ou plusieurs établissements.",
+    question: "Quelle est la différence entre un DUI et un simple logiciel de gestion ?",
+    answer:
+      "Un DUI (Dossier Usager Informatisé) centralise l'ensemble du parcours d'un usager — projet personnalisé, transmissions, bilans, prescriptions — dans un référentiel unique. Un logiciel de gestion classique couvre souvent la facturation ou la planification, mais pas le suivi éducatif, médical et social de bout en bout. D2L est un DUI complet : il remplace les tableaux Excel, les classeurs papier et les outils dispersés par une seule plateforme partagée entre tous les professionnels de l'ESMS.",
   },
   {
-    question: "D2L est-il conforme aux exigences réglementaires en vigueur ?",
-    answer: "Oui, D2L garantit une conformité totale aux référentiels réglementaires en vigueur. Nos devis sont 100% conformes, zéro rejet, zéro ambiguïté. Nous assurons une veille réglementaire permanente pour anticiper les évolutions.",
+    question: "D2L est-il conforme au référentiel SONS (Socle des Objets Numériques en Santé) ?",
+    answer:
+      "Oui. D2L intègre nativement les exigences du référentiel SONS : identification nationale de santé (INS), messagerie sécurisée MSSanté, alimentation du DMP, et interopérabilité CI-SIS. Concrètement, vos devis sont acceptés sans rejet ni ambiguïté lors des appels à projets ARS ou CNSA. Silao assure une veille réglementaire continue pour anticiper chaque évolution.",
   },
   {
-    question: "Comment fonctionne l'architecture en grappes multi-ESMS ?",
-    answer: "L'architecture en grappes permet de mutualiser votre DUI entre plusieurs établissements tout en conservant l'autonomie de chacun. Chaque ESMS dispose de son propre espace tout en bénéficiant d'une vue consolidée au niveau de l'association. Cela simplifie la gestion, réduit les coûts et facilite le reporting.",
+    question: "Peut-on utiliser D2L quand on gère plusieurs établissements avec des secteurs différents ?",
+    answer:
+      "C'est précisément le cas d'usage de l'architecture en grappes de D2L. Chaque ESMS conserve son propre paramétrage (Protection de l'Enfance, Handicap, Insertion…), ses droits d'accès et ses formulaires métier, tout en partageant une base commune au niveau de l'association. La direction dispose d'une vue consolidée — reporting, indicateurs, taux d'occupation — sans compromettre la confidentialité entre établissements.",
   },
   {
-    question: "Quel accompagnement proposez-vous lors du déploiement ?",
-    answer: "Nous proposons un partenariat opérationnel clé en main : du comité de pilotage (COMOP) à l'atteinte de vos objectifs d'usage. Cela inclut la formation des équipes, la migration des données, le paramétrage personnalisé et un support dédié pendant toute la phase de déploiement.",
+    question: "Combien de temps faut-il pour déployer D2L dans un établissement ?",
+    answer:
+      "Un déploiement standard prend entre 3 et 6 mois, selon la taille et la complexité de la structure. Le processus comprend un comité de pilotage (COMOP), la reprise de données depuis votre ancien logiciel, le paramétrage métier, la formation des équipes sur site, puis un accompagnement post-démarrage. Erreur fréquente : sous-estimer la phase de reprise de données. Silao la pilote intégralement pour éviter les pertes d'historique.",
   },
   {
-    question: "Quels sont vos engagements de service ?",
-    answer: "Nos engagements sont formalisés par des SLA (Service Level Agreements) sans limite de durée : disponibilité garantie, temps de réponse du support, ticketing transparent, mises à jour régulières et accès au Club Utilisateurs pour co-construire les évolutions du produit. Un partenariat durable avec Silao.",
+    question: "Que se passe-t-il si on veut changer de DUI après s'être engagé avec D2L ?",
+    answer:
+      "Vos données vous appartiennent. D2L permet l'export intégral de vos dossiers dans des formats standards (CSV, XML interopérable). Il n'y a pas de clause de rétention de données. En pratique, la portabilité est un droit, pas une option. C'est aussi pour cela que Silao propose des SLA sans limite de durée : la confiance se construit dans la durée, pas dans l'enfermement.",
   },
   {
-    question: "Comment demander une démonstration de D2L ?",
-    answer: "Cliquez sur le bouton « Demandez la démo » présent sur notre site. Remplissez le formulaire avec vos coordonnées et notre équipe vous recontactera sous 48h pour organiser une démonstration personnalisée adaptée à votre secteur d'activité.",
+    question: "D2L gère-t-il les spécificités de la Protection de l'Enfance (mesures judiciaires, PPE) ?",
+    answer:
+      "Oui. D2L intègre la gestion des mesures judiciaires (OPP, AEMO, placement), le Projet Pour l'Enfant (PPE) conforme à la loi 2016, le cahier de vie numérique, la gestion des visites médiatisées et les rapports automatisés pour les magistrats. Les droits d'accès sont granulaires pour respecter la confidentialité renforcée exigée dans ce secteur. Une erreur fréquente : utiliser un DUI généraliste sans module PDE dédié — les formulaires et les workflows ne correspondent pas aux exigences terrain.",
+  },
+  {
+    question: "Comment sont gérées les mises à jour et le support technique ?",
+    answer:
+      "Les mises à jour sont incluses dans l'abonnement et déployées automatiquement, sans intervention de votre équipe informatique. Le support est accessible via ticketing avec des temps de réponse garantis par SLA. Silao propose également un Club Utilisateurs où les structures co-construisent les évolutions fonctionnelles du produit. Le support n'est pas un centre d'appels externalisé : ce sont les mêmes consultants qui ont déployé votre projet.",
   },
 ];
 
 const FAQSection = () => {
   useEffect(() => {
-    // Inject JSON-LD structured data for SEO
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.textContent = JSON.stringify({
@@ -53,7 +68,7 @@ const FAQSection = () => {
   }, []);
 
   return (
-    <section className="py-20 px-4">
+    <section id="faq" className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +80,7 @@ const FAQSection = () => {
             Questions <span className="text-primary sketch-underline">fréquentes</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
-            Tout ce que vous devez savoir sur D2L et le Dossier Usager Informatisé.
+            Les vraies questions que se posent les directeurs d'ESMS avant de choisir un DUI.
           </p>
         </motion.div>
 
