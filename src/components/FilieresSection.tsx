@@ -191,8 +191,8 @@ const filieres = [
 
 const FilieresSection = () => {
   return (
-    <section className="py-24 px-4 paper-bg">
-      <div className="max-w-5xl mx-auto">
+    <section id="secteurs" className="px-4 py-24 paper-bg">
+      <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +202,7 @@ const FilieresSection = () => {
           <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
             Un DUI par secteur d'activité
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-foreground md:text-5xl">
             Les <span className="text-primary sketch-underline">secteurs</span> couverts par SILAO
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">

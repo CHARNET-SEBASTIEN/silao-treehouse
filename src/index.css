@@ -86,16 +86,26 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sketch;
+    @apply font-body;
+  }
+
+  ::selection {
+    background: hsl(var(--secondary) / 0.22);
+    color: hsl(var(--foreground));
   }
 }
 
@@ -140,5 +150,21 @@
     background-size: 40px 40px, 90px 90px;
     background-position: 0 0, 20px 30px;
     z-index: 0;
+  }
+
+  .section-panel {
+    background:
+      linear-gradient(180deg, hsl(var(--card) / 0.88), hsl(var(--background) / 0.92));
+    border: 1px solid hsl(var(--border) / 0.7);
+    border-radius: 2rem;
+    box-shadow:
+      0 20px 60px hsl(var(--foreground) / 0.05),
+      inset 0 1px 0 hsl(var(--background) / 0.8);
+  }
+
+  .section-tint {
+    background:
+      radial-gradient(circle at top, hsl(var(--primary) / 0.06), transparent 45%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background) / 0.98));
   }
 }

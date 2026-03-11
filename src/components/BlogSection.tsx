@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Clock, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 const author = {
   name: "Équipe Silao",
@@ -15,7 +16,7 @@ const articles = [
     date: "15 février 2026",
     readTime: "8 min",
     category: "Guide",
-    slug: "#",
+    slug: "/accompagnement",
   },
   {
     title: "Conformité SONS 2026 : ce qui change concrètement pour les ESMS",
@@ -24,7 +25,7 @@ const articles = [
     date: "28 janvier 2026",
     readTime: "5 min",
     category: "Réglementation",
-    slug: "#",
+    slug: "/conformite-sons",
   },
   {
     title: "Grappes multi-ESMS : mutualiser son DUI sans perdre en autonomie",
@@ -33,21 +34,21 @@ const articles = [
     date: "10 janvier 2026",
     readTime: "6 min",
     category: "Cas client",
-    slug: "#",
+    slug: "/grappes-esms",
   },
 ];
 
 const BlogSection = () => {
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-4 py-20">
+      <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
             Ressources & <span className="text-primary sketch-underline">Actualités</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
@@ -67,8 +68,8 @@ const BlogSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.4 }}
             >
-              <a
-                href={article.slug}
+              <Link
+                to={article.slug}
                 className="block sketch-border bg-card p-6 h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
               >
                 <Badge variant="secondary" className="mb-4 font-body text-xs">
@@ -102,7 +103,7 @@ const BlogSection = () => {
                 <span className="inline-flex items-center gap-1 mt-3 text-sm text-primary font-body font-medium group-hover:underline">
                   Lire l'article <ArrowRight className="w-3.5 h-3.5" />
                 </span>
-              </a>
+              </Link>
             </motion.article>
           ))}
         </div>

@@ -4,6 +4,8 @@ import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 
 const FooterSection = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="relative paper-grain bg-card border-t border-border">
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
@@ -17,7 +19,7 @@ const FooterSection = () => {
               <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground font-body leading-relaxed">
-              Dossier Usager Informatisé pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social. Simple, collaboratif, conforme.
+              <strong className="text-foreground">SILAO</strong> est le logiciel de Dossier Usager Informatisé édité par <strong className="text-foreground">D2L</strong> pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social.
             </p>
           </div>
 
@@ -57,12 +59,12 @@ const FooterSection = () => {
         {/* Separator */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground font-body">
-            © 2025 Silao — SILAO. Tous droits réservés.
+            © {currentYear} Silao — SILAO. Tous droits réservés.
           </p>
-          <nav className="flex gap-4 text-xs text-muted-foreground font-body">
-            <a href="#" className="hover:text-primary transition-colors">Mentions légales</a>
-            <a href="#" className="hover:text-primary transition-colors">Politique de confidentialité</a>
-          </nav>
+          <div className="flex gap-4 text-xs text-muted-foreground font-body">
+            <span>Mentions légales à venir</span>
+            <span>Politique de confidentialité à venir</span>
+          </div>
         </div>
       </div>
     </footer>

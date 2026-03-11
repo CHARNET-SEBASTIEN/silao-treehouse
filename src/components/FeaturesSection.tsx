@@ -157,7 +157,7 @@ const leafSway = {
 
 const FeaturesSection = () => {
   return (
-    <section className="pt-8 pb-24 px-4 relative overflow-hidden">
+    <section className="relative overflow-hidden px-4 pt-8 pb-24">
       {/* Background tree trunk SVG */}
       <svg
         className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-40 opacity-[0.06] pointer-events-none"
@@ -175,17 +175,17 @@ const FeaturesSection = () => {
         <path d="M80 500 C80 500 140 450 155 420" stroke="hsl(var(--foreground))" strokeWidth="2.5" fill="none" />
       </svg>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="relative z-10 mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
             Les fonctionnalités <span className="text-primary sketch-underline">clés</span> de SILAO
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground font-body">
             Chaque module répond à un besoin terrain identifié avec les professionnels des ESMS.
           </p>
         </motion.div>

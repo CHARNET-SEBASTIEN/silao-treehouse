@@ -14,6 +14,13 @@ const navLinks = [
   { label: "Quiz Ségur", href: "/quiz-segur", icon: Brain },
 ];
 
+const desktopLinks = [
+  { label: "Fonctionnalités", href: "/#features", isAnchor: true },
+  { label: "Secteurs", href: "/#secteurs", isAnchor: true },
+  { label: "Offres", href: "/offres" },
+  { label: "Témoignages", href: "/#testimonials", isAnchor: true },
+];
+
 const secteurLinks = [
   { label: "Handicap — PH", href: "/secteur/handicap", icon: Accessibility, description: "IME, ITEP, MAS, FAM, ESAT, SESSAD" },
   { label: "Protection de l'enfance", href: "/secteur/protection-enfance", icon: ShieldCheck, description: "MECS, SAE, AEMO, Lieux de vie" },
@@ -126,6 +133,38 @@ const Navbar = () => {
           <div className="w-px h-5 bg-border/60" />
           <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
         </Link>
+
+        <nav className="relative z-10 hidden xl:flex items-center gap-1 rounded-full bg-background/70 px-2 py-1.5 border border-border/50 shadow-sm backdrop-blur">
+          {desktopLinks.map((link) => {
+            const isActive = !link.isAnchor && location.pathname === link.href;
+
+            if (link.isAnchor) {
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary hover:bg-primary/8"
+                >
+                  {link.label}
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                  isActive
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:text-primary hover:bg-primary/8"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
         {/* Right side actions */}
         <div className="relative z-10 flex items-center gap-2">
