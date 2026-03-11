@@ -216,10 +216,10 @@ const OffresPage = () => {
             className="max-w-3xl mx-auto sketch-border bg-primary/5 p-10 text-center"
           >
             <h2 className="text-2xl font-bold text-foreground mb-4">
-              La différence D2L ?
+              La différence SILAO ?
             </h2>
             <p className="text-muted-foreground font-body mb-4">
-              Chez D2L, la <strong>chefferie de projet</strong> n'est pas un simple accompagnement technique.
+              Chez SILAO, la <strong>chefferie de projet</strong> n'est pas un simple accompagnement technique.
               C'est un véritable <strong>partenariat métier</strong> : nos chefs de projet connaissent vos réalités terrain
               et s'intègrent à vos instances de gouvernance.
             </p>
