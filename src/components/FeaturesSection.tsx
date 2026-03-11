@@ -183,10 +183,10 @@ const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Une solution <span className="text-primary sketch-underline">complète</span> pour le terrain
+            Les fonctionnalités <span className="text-primary sketch-underline">clés</span> de D2L
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Silao accompagne les MECS, IME, ITEP, ESAT, SESSAD, CHRS et bien d'autres structures au quotidien.
+            Chaque module répond à un besoin terrain identifié avec les professionnels des ESMS.
           </p>
         </motion.div>
 

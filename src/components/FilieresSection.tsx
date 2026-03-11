@@ -200,14 +200,13 @@ const FilieresSection = () => {
           className="text-center mb-16"
         >
           <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
-            Au service de ceux qui accompagnent
+            Un DUI par secteur d'activité
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Nos{" "}
-            <span className="text-primary sketch-underline">cœurs de métiers</span>
+            Les <span className="text-primary sketch-underline">secteurs</span> couverts par D2L
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Silao s'adapte à chaque filière pour vous permettre de vous concentrer sur l'essentiel : l'accompagnement des personnes.
+            D2L s'adapte aux spécificités métier de chaque filière : formulaires, workflows, vocabulaire et obligations réglementaires.
           </p>
         </motion.div>
 
