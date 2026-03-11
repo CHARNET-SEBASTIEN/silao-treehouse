@@ -165,7 +165,7 @@ const OffresPage = () => {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground font-body text-center mb-12 max-w-2xl mx-auto"
             >
-              Chaque offre inclut la méthodologie D2L. Seul le niveau d'accompagnement varie selon la complexité de votre organisation.
+              Chaque offre inclut la méthodologie SILAO. Seul le niveau d'accompagnement varie selon la complexité de votre organisation.
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {offerTypes.map((offer, i) => (
