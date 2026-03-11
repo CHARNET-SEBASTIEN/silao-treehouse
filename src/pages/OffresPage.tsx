@@ -54,7 +54,7 @@ const offerTypes = [
   {
     name: "Déploiement Sur Mesure",
     description: "Pour les grandes associations et groupements nécessitant un accompagnement complet.",
-    features: ["Équipe projet D2L dédiée", "Audit organisationnel préalable", "Paramétrage entièrement personnalisé", "Conduite du changement complète", "Formation certifiante", "Comité de pilotage mensuel", "SLA illimité"],
+    features: ["Équipe projet SILAO dédiée", "Audit organisationnel préalable", "Paramétrage entièrement personnalisé", "Conduite du changement complète", "Formation certifiante", "Comité de pilotage mensuel", "SLA illimité"],
     highlighted: false,
   },
 ];
