@@ -29,7 +29,7 @@ const articles = [
   {
     title: "Grappes multi-ESMS : mutualiser son DUI sans perdre en autonomie",
     excerpt:
-      "Retour terrain d'une association gérant 12 établissements (PH + PDE) avec D2L : gains de temps, pièges évités, et indicateurs consolidés après 18 mois.",
+      "Retour terrain d'une association gérant 12 établissements (PH + PDE) avec SILAO : gains de temps, pièges évités, et indicateurs consolidés après 18 mois.",
     date: "10 janvier 2026",
     readTime: "6 min",
     category: "Cas client",

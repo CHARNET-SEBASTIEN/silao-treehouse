@@ -12,7 +12,7 @@ const FooterSection = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={logoD2l} alt="D2L" className="h-8 w-auto rounded" />
+              <img src={logoD2l} alt="SILAO" className="h-8 w-auto rounded" />
               <div className="w-px h-6 bg-border" />
               <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
             </div>
@@ -38,9 +38,9 @@ const FooterSection = () => {
           <div>
             <h4 className="font-sketch text-xl text-foreground mb-4">Contact</h4>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground font-body">
-              <a href="mailto:contact@d2l.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="mailto:contact@silao.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                contact@d2l.fr
+                contact@silao.fr
               </a>
               <a href="tel:+33400000000" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary" />
@@ -57,7 +57,7 @@ const FooterSection = () => {
         {/* Separator */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground font-body">
-            © 2025 Silao — D2L. Tous droits réservés.
+            © 2025 Silao — SILAO. Tous droits réservés.
           </p>
           <nav className="flex gap-4 text-xs text-muted-foreground font-body">
             <a href="#" className="hover:text-primary transition-colors">Mentions légales</a>

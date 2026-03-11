@@ -42,19 +42,19 @@ const offerTypes = [
   {
     name: "Déploiement Standard",
     description: "Pour les structures autonomes souhaitant un déploiement encadré.",
-    features: ["Chef de projet D2L dédié", "Paramétrage standard", "Formation initiale", "Support 5j/7"],
+    features: ["Chef de projet SILAO dédié", "Paramétrage standard", "Formation initiale", "Support 5j/7"],
     highlighted: false,
   },
   {
     name: "Déploiement Premium",
     description: "Pour les associations multi-sites avec des besoins de mutualisation.",
-    features: ["Chef de projet D2L senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs d'usage", "Support 7j/7 avec SLA renforcé"],
+    features: ["Chef de projet SILAO senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs d'usage", "Support 7j/7 avec SLA renforcé"],
     highlighted: true,
   },
   {
     name: "Déploiement Sur Mesure",
     description: "Pour les grandes associations et groupements nécessitant un accompagnement complet.",
-    features: ["Équipe projet D2L dédiée", "Audit organisationnel préalable", "Paramétrage entièrement personnalisé", "Conduite du changement complète", "Formation certifiante", "Comité de pilotage mensuel", "SLA illimité"],
+    features: ["Équipe projet SILAO dédiée", "Audit organisationnel préalable", "Paramétrage entièrement personnalisé", "Conduite du changement complète", "Formation certifiante", "Comité de pilotage mensuel", "SLA illimité"],
     highlighted: false,
   },
 ];
@@ -93,7 +93,7 @@ const OffresPage = () => {
               transition={{ delay: 0.2 }}
               className="text-lg text-muted-foreground font-body max-w-2xl mx-auto"
             >
-              Pas de déploiement « brut ». Chez D2L, chaque projet est accompagné de bout en bout par une équipe dédiée qui comprend vos enjeux métier.
+              Pas de déploiement « brut ». Chez SILAO, chaque projet est accompagné de bout en bout par une équipe dédiée qui comprend vos enjeux métier.
             </motion.p>
           </div>
         </section>
@@ -165,7 +165,7 @@ const OffresPage = () => {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground font-body text-center mb-12 max-w-2xl mx-auto"
             >
-              Chaque offre inclut la méthodologie D2L. Seul le niveau d'accompagnement varie selon la complexité de votre organisation.
+              Chaque offre inclut la méthodologie SILAO. Seul le niveau d'accompagnement varie selon la complexité de votre organisation.
             </motion.p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {offerTypes.map((offer, i) => (
@@ -216,10 +216,10 @@ const OffresPage = () => {
             className="max-w-3xl mx-auto sketch-border bg-primary/5 p-10 text-center"
           >
             <h2 className="text-2xl font-bold text-foreground mb-4">
-              La différence D2L ?
+              La différence SILAO ?
             </h2>
             <p className="text-muted-foreground font-body mb-4">
-              Chez D2L, la <strong>chefferie de projet</strong> n'est pas un simple accompagnement technique.
+              Chez SILAO, la <strong>chefferie de projet</strong> n'est pas un simple accompagnement technique.
               C'est un véritable <strong>partenariat métier</strong> : nos chefs de projet connaissent vos réalités terrain
               et s'intègrent à vos instances de gouvernance.
             </p>
