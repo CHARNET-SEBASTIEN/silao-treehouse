@@ -22,10 +22,10 @@ const CTASection = () => {
             </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-            Envie d'en <span className="text-primary font-sketch">parler ensemble</span> ?
+            Demandez une <span className="text-primary font-sketch">démonstration personnalisée</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-2xl mx-auto mb-8 text-lg">
-            Chaque structure est unique. Échangeons sur vos besoins pour construire ensemble un accompagnement adapté à votre réalité de terrain.
+            30 minutes pour voir D2L en situation réelle, sur votre secteur d'activité. Sans engagement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
