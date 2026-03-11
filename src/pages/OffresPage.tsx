@@ -93,7 +93,7 @@ const OffresPage = () => {
               transition={{ delay: 0.2 }}
               className="text-lg text-muted-foreground font-body max-w-2xl mx-auto"
             >
-              Pas de déploiement « brut ». Chez D2L, chaque projet est accompagné de bout en bout par une équipe dédiée qui comprend vos enjeux métier.
+              Pas de déploiement « brut ». Chez SILAO, chaque projet est accompagné de bout en bout par une équipe dédiée qui comprend vos enjeux métier.
             </motion.p>
           </div>
         </section>
