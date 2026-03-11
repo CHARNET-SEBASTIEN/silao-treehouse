@@ -57,7 +57,7 @@ const FooterSection = () => {
         {/* Separator */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground font-body">
-            © 2025 Silao — D2L. Tous droits réservés.
+            © 2025 Silao — SILAO. Tous droits réservés.
           </p>
           <nav className="flex gap-4 text-xs text-muted-foreground font-body">
             <a href="#" className="hover:text-primary transition-colors">Mentions légales</a>

@@ -71,13 +71,13 @@ const HeroSection = () => {
           className="text-center md:text-left md:w-2/5 shrink-0"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1 leading-tight">
-            D2L, le Dossier Usager Informatisé
+            SILAO, le Dossier Usager Informatisé
           </h1>
           <p className="text-2xl md:text-3xl font-sketch text-primary mb-3">
             pour le social et médico-social
           </p>
           <p className="text-base text-muted-foreground font-body max-w-xl mb-6">
-            D2L centralise le parcours de chaque usager — projet personnalisé, transmissions, bilans — dans un outil unique partagé par toute l'équipe. Édité par Silao, déployé clé en main.
+            SILAO centralise le parcours de chaque usager — projet personnalisé, transmissions, bilans — dans un outil unique partagé par toute l'équipe. Déployé clé en main.
           </p>
 
           {/* 4 filières — playful rounded badges */}
