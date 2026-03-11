@@ -12,7 +12,7 @@ const FooterSection = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={logoD2l} alt="D2L" className="h-8 w-auto rounded" />
+              <img src={logoD2l} alt="SILAO" className="h-8 w-auto rounded" />
               <div className="w-px h-6 bg-border" />
               <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
             </div>
