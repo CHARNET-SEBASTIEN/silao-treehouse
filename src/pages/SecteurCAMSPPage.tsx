@@ -12,6 +12,9 @@ const SecteurCAMSPPage = () => (
         name="CAMSP / CMPP"
         tagline="Le DUI adapté au dépistage et aux soins précoces"
         description="Silao accompagne les CAMSP et CMPP dans le suivi pluridisciplinaire des enfants présentant des troubles du développement. Un outil pensé pour la coordination entre professionnels de santé, éducateurs et familles."
+        seoTitle="SILAO CAMSP et CMPP | DUI pour le dépistage et les soins précoces"
+        seoDescription="Découvrez SILAO pour les CAMSP et CMPP : suivi pluridisciplinaire, bilans, coordination des séances et reporting pour les tutelles."
+        canonicalPath="/secteur/camsp-cmpp"
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[

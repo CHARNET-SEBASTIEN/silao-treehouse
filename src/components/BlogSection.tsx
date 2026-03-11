@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Clock, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,8 @@ const author = {
   role: "Consultants métier & produit",
 };
 
+const siteUrl = "https://d2l-silao.lovable.app";
+
 const articles = [
   {
     title: "Comment réussir sa transition vers le DUI dans le médico-social",
@@ -17,6 +20,10 @@ const articles = [
     readTime: "8 min",
     category: "Guide",
     slug: "/accompagnement",
+    relatedLinks: [
+      { to: "/offres", label: "Voir les offres de déploiement associées" },
+      { to: "/abonnement", label: "Comprendre le modèle d'abonnement" },
+    ],
   },
   {
     title: "Conformité SONS 2026 : ce qui change concrètement pour les ESMS",
@@ -26,6 +33,10 @@ const articles = [
     readTime: "5 min",
     category: "Réglementation",
     slug: "/conformite-sons",
+    relatedLinks: [
+      { to: "/offres", label: "Voir comment SILAO intègre la conformité" },
+      { to: "/engagements", label: "Consulter les engagements durables" },
+    ],
   },
   {
     title: "Grappes multi-ESMS : mutualiser son DUI sans perdre en autonomie",
@@ -35,10 +46,34 @@ const articles = [
     readTime: "6 min",
     category: "Cas client",
     slug: "/grappes-esms",
+    relatedLinks: [
+      { to: "/secteur/protection-enfance", label: "Voir un secteur couvert : protection de l'enfance" },
+      { to: "/secteur/handicap", label: "Voir un secteur couvert : handicap" },
+    ],
   },
 ];
 
 const BlogSection = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Ressources SILAO",
+      itemListElement: articles.map((article, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${siteUrl}${article.slug}`,
+        name: article.title,
+      })),
+    });
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <section className="px-4 py-20">
       <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-12">
@@ -54,9 +89,21 @@ const BlogSection = () => {
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
             Guides terrain, décryptages réglementaires et retours d'expérience pour les professionnels du social et médico-social.
           </p>
+          <p className="text-sm text-muted-foreground font-body max-w-2xl mx-auto mt-3 leading-6">
+            Chaque ressource ouvre ensuite vers les pages produit, méthode ou secteur directement liées au sujet traité, pour garder un parcours de lecture cohérent.
+          </p>
           <p className="text-xs text-muted-foreground/60 font-body mt-2">
             Dernière mise à jour : mars 2026
           </p>
+          <div className="mt-5">
+            <Link
+              to="/ressources"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
+            >
+              Voir le hub ressources
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -99,6 +146,22 @@ const BlogSection = () => {
                   <span>{author.name}</span>
                   <span className="text-muted-foreground/40">·</span>
                   <span>{author.role}</span>
+                </div>
+                <div className="mt-4 border-t border-border/40 pt-4">
+                  <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    À explorer aussi
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {article.relatedLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className="text-sm font-medium text-primary hover:underline underline-offset-4"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
                 <span className="inline-flex items-center gap-1 mt-3 text-sm text-primary font-body font-medium group-hover:underline">
                   Lire l'article <ArrowRight className="w-3.5 h-3.5" />

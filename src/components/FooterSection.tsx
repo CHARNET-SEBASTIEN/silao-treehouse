@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 
 const FooterSection = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+
+  const handleLogoClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="relative paper-grain bg-card border-t border-border">
@@ -13,11 +20,11 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <Link to="/" onClick={handleLogoClick} className="mb-4 flex items-center gap-3">
               <img src={logoD2l} alt="SILAO" className="h-8 w-auto rounded" />
               <div className="w-px h-6 bg-border" />
               <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground font-body leading-relaxed">
               <strong className="text-foreground">SILAO</strong> est le logiciel de Dossier Usager Informatisé édité par <strong className="text-foreground">D2L</strong> pour la Protection de l'Enfance, le Handicap, l'Insertion et le médico-social.
             </p>
@@ -29,6 +36,7 @@ const FooterSection = () => {
             <nav className="flex flex-col gap-2 text-sm text-muted-foreground font-body">
               <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
               <a href="/#features" className="hover:text-primary transition-colors">Fonctionnalités</a>
+              <Link to="/ressources" className="hover:text-primary transition-colors">Ressources</Link>
               <a href="/#testimonials" className="hover:text-primary transition-colors">Témoignages</a>
               <Link to="/grappes-esms" className="hover:text-primary transition-colors">Toutes les structures</Link>
               <Link to="/accompagnement" className="hover:text-primary transition-colors">Accompagnement</Link>

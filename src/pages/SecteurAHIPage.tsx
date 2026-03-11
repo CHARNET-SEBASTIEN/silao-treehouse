@@ -12,6 +12,9 @@ const SecteurAHIPage = () => (
         name="Insertion / AHI"
         tagline="Le DUI au service de l'hébergement et de l'insertion"
         description="Silao accompagne les structures d'hébergement et d'insertion dans la gestion des parcours complexes : demandeurs d'asile, personnes sans abri, réfugiés. Un outil pensé pour la coordination multi-acteurs et le suivi des dispositifs."
+        seoTitle="SILAO Insertion et AHI | DUI pour CHRS, SIAO, CPH et CADA"
+        seoDescription="Découvrez SILAO pour l'insertion et l'AHI : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité."
+        canonicalPath="/secteur/insertion-ahi"
         color="text-accent-foreground"
         bgColor="bg-accent"
         structures={[

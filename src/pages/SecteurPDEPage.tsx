@@ -12,6 +12,9 @@ const SecteurPDEPage = () => (
         name="Protection de l'enfance — PDE"
         tagline="Un DUI sécurisé pour le suivi des mineurs protégés"
         description="Silao répond aux exigences spécifiques de la Protection de l'Enfance : confidentialité renforcée, gestion des mesures judiciaires et administratives, coordination avec les services de l'ASE et les magistrats."
+        seoTitle="SILAO Protection de l'enfance | DUI pour MECS, SAE, AEMO et lieux de vie"
+        seoDescription="Découvrez SILAO pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats."
+        canonicalPath="/secteur/protection-enfance"
         color="text-secondary"
         bgColor="bg-secondary/10"
         structures={[

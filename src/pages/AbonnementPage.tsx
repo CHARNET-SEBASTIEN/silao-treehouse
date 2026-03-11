@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CreditCard, CheckCircle2, HelpCircle, ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import SEOHead from "@/components/SEOHead";
 
 const includedItems = [
   "Accès complet à tous les modules Silao",
@@ -45,6 +46,11 @@ const AbonnementPage = () => {
 
   return (
     <div className="min-h-screen bg-background paper-grain">
+      <SEOHead
+        title="Abonnement SILAO | Hébergement, support, mises à jour et conformité inclus"
+        description="Consultez le modèle d'abonnement SILAO : hébergement HDS, support, maintenance, mises à jour réglementaires et évolutions fonctionnelles inclus."
+        canonicalPath="/abonnement"
+      />
       <Navbar />
       <main className="pt-16">
         {/* Hero */}

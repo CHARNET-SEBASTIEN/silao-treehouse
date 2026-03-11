@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { useState } from "react";
+import SEOHead from "@/components/SEOHead";
 
 interface SecteurPageLayoutProps {
   icon: LucideIcon;
@@ -17,6 +18,9 @@ interface SecteurPageLayoutProps {
   benefits: string[];
   clients: { name: string; quote?: string }[];
   modules: string[];
+  seoTitle: string;
+  seoDescription: string;
+  canonicalPath: string;
 }
 
 const SecteurPageLayout = ({
@@ -30,11 +34,19 @@ const SecteurPageLayout = ({
   benefits,
   clients,
   modules,
+  seoTitle,
+  seoDescription,
+  canonicalPath,
 }: SecteurPageLayoutProps) => {
   const [demoOpen, setDemoOpen] = useState(false);
 
   return (
     <>
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        canonicalPath={canonicalPath}
+      />
       {/* Hero */}
       <section className="py-20 px-4 paper-bg">
         <div className="max-w-4xl mx-auto text-center">

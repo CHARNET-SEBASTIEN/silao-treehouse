@@ -17,6 +17,7 @@ const navLinks = [
 const desktopLinks = [
   { label: "Fonctionnalités", href: "/#features", isAnchor: true },
   { label: "Secteurs", href: "/#secteurs", isAnchor: true },
+  { label: "Ressources", href: "/ressources" },
   { label: "Offres", href: "/offres" },
   { label: "Témoignages", href: "/#testimonials", isAnchor: true },
 ];
@@ -31,6 +32,7 @@ const secteurLinks = [
 const offreLinks = [
   { label: "Offres de déploiement", href: "/offres", icon: Rocket, description: "Méthodologie et accompagnement projet" },
   { label: "Abonnement", href: "/abonnement", icon: CreditCard, description: "Modèle tout compris, sans surprise" },
+  { label: "Ressources", href: "/ressources", icon: Brain, description: "Guides, conformité et repères de déploiement" },
 ];
 
 const axesLinks = [
@@ -59,6 +61,12 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleLogoClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const renderLinkGroup = (title: string, links: typeof axesLinks, startDelay: number) => (
     <>
@@ -128,7 +136,7 @@ const Navbar = () => {
         />
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 relative z-10">
+        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2.5 relative z-10">
           <img src={logoD2l} alt="SILAO" className="h-8 w-auto rounded-lg shadow-sm" />
           <div className="w-px h-5 bg-border/60" />
           <img src={logoSilao} alt="Silao" className="h-9 w-auto" />

@@ -6,6 +6,7 @@ import { Rocket, Users, Settings, GraduationCap, BarChart3, ArrowRight, CheckCir
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import SEOHead from "@/components/SEOHead";
 
 const deploymentSteps = [
   {
@@ -64,6 +65,11 @@ const OffresPage = () => {
 
   return (
     <div className="min-h-screen bg-background paper-grain">
+      <SEOHead
+        title="Offres de déploiement SILAO | Méthode, reprise de données et formation"
+        description="Découvrez les offres de déploiement SILAO : cadrage, paramétrage, reprise de données, formation et suivi post-démarrage pour les ESSMS."
+        canonicalPath="/offres"
+      />
       <Navbar />
       <main className="pt-16">
         {/* Hero */}
