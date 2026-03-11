@@ -38,9 +38,9 @@ const FooterSection = () => {
           <div>
             <h4 className="font-sketch text-xl text-foreground mb-4">Contact</h4>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground font-body">
-              <a href="mailto:contact@d2l.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="mailto:contact@silao.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                contact@d2l.fr
+                contact@silao.fr
               </a>
               <a href="tel:+33400000000" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary" />
