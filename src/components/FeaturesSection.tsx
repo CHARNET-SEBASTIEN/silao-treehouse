@@ -183,7 +183,7 @@ const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Les fonctionnalités <span className="text-primary sketch-underline">clés</span> de D2L
+            Les fonctionnalités <span className="text-primary sketch-underline">clés</span> de SILAO
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Chaque module répond à un besoin terrain identifié avec les professionnels des ESMS.

@@ -122,7 +122,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 relative z-10">
-          <img src={logoD2l} alt="D2L" className="h-8 w-auto rounded-lg shadow-sm" />
+          <img src={logoD2l} alt="SILAO" className="h-8 w-auto rounded-lg shadow-sm" />
           <div className="w-px h-5 bg-border/60" />
           <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
         </Link>

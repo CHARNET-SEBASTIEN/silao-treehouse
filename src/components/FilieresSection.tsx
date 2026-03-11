@@ -206,7 +206,7 @@ const FilieresSection = () => {
             Les <span className="text-primary sketch-underline">secteurs</span> couverts par SILAO
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            D2L s'adapte aux spécificités métier de chaque filière : formulaires, workflows, vocabulaire et obligations réglementaires.
+            SILAO s'adapte aux spécificités métier de chaque filière : formulaires, workflows, vocabulaire et obligations réglementaires.
           </p>
         </motion.div>
 
