@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
@@ -6,11 +6,33 @@ import logoD2l from "@/assets/logo-d2l.jpeg";
 const FooterSection = () => {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogoClick = () => {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  };
+
+  const handleAnchorNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    const hash = href.split("#")[1];
+    if (!hash) return;
+
+    event.preventDefault();
+
+    if (location.pathname !== "/" || location.hash !== `#${hash}`) {
+      navigate(`/#${hash}`);
+      return;
+    }
+
+    const element = document.getElementById(hash);
+    if (!element) return;
+
+    const top = element.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   };
 
   return (
@@ -35,9 +57,21 @@ const FooterSection = () => {
             <h4 className="font-sketch text-xl text-foreground mb-4">Navigation</h4>
             <nav className="flex flex-col gap-2 text-sm text-muted-foreground font-body">
               <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
-              <a href="/#features" className="hover:text-primary transition-colors">Fonctionnalités</a>
+              <a
+                href="/#features"
+                onClick={(event) => handleAnchorNavigation(event, "/#features")}
+                className="hover:text-primary transition-colors"
+              >
+                Fonctionnalités
+              </a>
               <Link to="/ressources" className="hover:text-primary transition-colors">Ressources</Link>
-              <a href="/#testimonials" className="hover:text-primary transition-colors">Témoignages</a>
+              <a
+                href="/#testimonials"
+                onClick={(event) => handleAnchorNavigation(event, "/#testimonials")}
+                className="hover:text-primary transition-colors"
+              >
+                Témoignages
+              </a>
               <Link to="/grappes-esms" className="hover:text-primary transition-colors">Toutes les structures</Link>
               <Link to="/accompagnement" className="hover:text-primary transition-colors">Accompagnement</Link>
               <Link to="/engagements" className="hover:text-primary transition-colors">Engagements durables</Link>

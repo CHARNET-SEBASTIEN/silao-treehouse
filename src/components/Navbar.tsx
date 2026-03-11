@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
@@ -46,6 +46,7 @@ const Navbar = () => {
   const [demoOpen, setDemoOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -66,6 +67,28 @@ const Navbar = () => {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  };
+
+  const handleAnchorNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    const hash = href.split("#")[1];
+    if (!hash) return;
+
+    event.preventDefault();
+    setOpen(false);
+
+    if (location.pathname !== "/" || location.hash !== `#${hash}`) {
+      navigate(`/#${hash}`);
+      return;
+    }
+
+    const element = document.getElementById(hash);
+    if (!element) return;
+
+    const top = element.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   };
 
   const renderLinkGroup = (title: string, links: typeof axesLinks, startDelay: number) => (
@@ -151,6 +174,7 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={(event) => handleAnchorNavigation(event, link.href)}
                   className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary hover:bg-primary/8"
                 >
                   {link.label}
@@ -251,7 +275,11 @@ const Navbar = () => {
                   );
 
                   return link.isAnchor ? (
-                    <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(event) => handleAnchorNavigation(event, link.href)}
+                    >
                       {content}
                     </a>
                   ) : (

@@ -21,13 +21,41 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const scrollToHashTarget = (hash: string) => {
+  const targetId = hash.replace("#", "");
+  if (!targetId) return false;
+
+  const element = document.getElementById(targetId);
+  if (!element) return false;
+
+  const headerOffset = 88;
+  const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  return true;
+};
+
 const ScrollManager = () => {
   const location = useLocation();
 
   useEffect(() => {
     if (!location.hash) {
       window.scrollTo({ top: 0, behavior: "auto" });
+      return;
     }
+
+    let attempts = 0;
+    const maxAttempts = 12;
+
+    const tryScroll = () => {
+      if (scrollToHashTarget(location.hash)) return;
+      attempts += 1;
+      if (attempts < maxAttempts) {
+        window.setTimeout(tryScroll, 120);
+      }
+    };
+
+    const frame = window.requestAnimationFrame(tryScroll);
+    return () => window.cancelAnimationFrame(frame);
   }, [location.pathname, location.hash]);
 
   return null;
