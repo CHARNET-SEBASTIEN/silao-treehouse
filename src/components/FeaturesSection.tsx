@@ -157,7 +157,7 @@ const leafSway = {
 
 const FeaturesSection = () => {
   return (
-    <section className="relative overflow-hidden px-4 pt-8 pb-24">
+    <section className="relative overflow-hidden px-4 py-20 md:py-28">
       {/* Background tree trunk SVG */}
       <svg
         className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-40 opacity-[0.06] pointer-events-none"
