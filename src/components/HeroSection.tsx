@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Home,
   ShieldCheck,
+  Sparkles,
   Stethoscope,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -55,19 +56,40 @@ const HeroSection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
 
   return (
-    <section className="px-4 pt-6 pb-10 md:pb-14">
+    <section className="relative px-4 pt-6 pb-10 md:pb-14 overflow-hidden">
+      {/* Gradient background for visual punch */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, hsl(var(--primary) / 0.07) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, hsl(var(--secondary) / 0.05) 0%, transparent 60%)",
+        }}
+      />
+
       <div className="mx-auto max-w-5xl">
         <div className="section-panel overflow-hidden px-6 py-8 sm:px-8 md:px-10 md:py-10">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_24rem]">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="max-w-2xl"
             >
-              <p className="mb-4 inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                D2L Informatique
-              </p>
+              {/* Animated badge */}
+              <motion.p
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary"
+              >
+                <motion.span
+                  animate={{ rotate: [0, 15, -15, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                </motion.span>
+                D2L présente
+              </motion.p>
 
               <h1 className="text-4xl font-extrabold leading-[1.02] tracking-tight text-foreground md:text-5xl lg:text-[3.4rem]">
                 SILAO, le dossier usager informatisé pour les établissements sociaux et médico-sociaux
@@ -79,11 +101,17 @@ const HeroSection = () => {
               </p>
 
               <ul className="mt-6 space-y-3">
-                {points.map((point) => (
-                  <li key={point} className="flex items-center gap-3 text-sm text-foreground/85">
+                {points.map((point, i) => (
+                  <motion.li
+                    key={point}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                    className="flex items-center gap-3 text-sm text-foreground/85"
+                  >
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
                     <span>{point}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
@@ -110,6 +138,7 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
+            {/* Right column — lighter: larger tree, compact sector pills */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -117,11 +146,12 @@ const HeroSection = () => {
               className="mx-auto w-full max-w-sm"
             >
               <div className="rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsl(var(--background)),hsl(var(--card)))] p-5 shadow-[0_24px_60px_-30px_hsl(var(--foreground)/0.25)]">
-                <div className="mb-5 flex justify-center">
+                {/* Larger tree illustration */}
+                <div className="mb-4 flex justify-center">
                   <img
                     src={heroTree}
                     alt="Illustration symbolique de l'accompagnement social et médico-social"
-                    className="h-40 w-auto mix-blend-multiply sm:h-44"
+                    className="h-48 w-auto mix-blend-multiply sm:h-56"
                     style={{
                       maskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
                       WebkitMaskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
@@ -129,24 +159,20 @@ const HeroSection = () => {
                   />
                 </div>
 
-                <div className="mb-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                    Secteurs couverts
-                  </p>
-                </div>
+                {/* Compact sector pills instead of full cards */}
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Secteurs couverts
+                </p>
 
-                <div className="grid gap-3">
+                <div className="flex flex-wrap gap-2">
                   {secteurs.map((secteur) => (
                     <Link
                       key={secteur.label}
                       to={secteur.href}
-                      className={`rounded-[1.25rem] border px-4 py-3 transition-colors hover:bg-card ${secteur.tone}`}
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-card ${secteur.tone}`}
                     >
-                      <div className="flex items-center gap-2">
-                        <secteur.icon className="h-4 w-4" />
-                        <p className="text-sm font-semibold">{secteur.label}</p>
-                      </div>
-                      <p className="mt-1 text-xs leading-5 text-current/80">{secteur.details}</p>
+                      <secteur.icon className="h-3.5 w-3.5" />
+                      {secteur.label}
                     </Link>
                   ))}
                 </div>
