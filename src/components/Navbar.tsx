@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import logoSilao from "@/assets/logo-silao.png";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { getScrollBehavior } from "@/lib/motion";
 
 const navLinks = [
   { label: "Accueil", href: "/", icon: Home },
@@ -47,6 +48,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const menuDialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -63,9 +66,55 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) {
+      menuButtonRef.current?.focus();
+      return;
+    }
+
+    const dialog = menuDialogRef.current;
+    const focusableElements = dialog?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+
+    focusableElements?.[0]?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialog) return;
+
+      const items = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+
+      if (items.length === 0) return;
+
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
+
   const handleLogoClick = () => {
     if (location.pathname === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: getScrollBehavior() });
     }
   };
 
@@ -88,7 +137,7 @@ const Navbar = () => {
     if (!element) return;
 
     const top = element.getBoundingClientRect().top + window.scrollY - 88;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    window.scrollTo({ top: Math.max(0, top), behavior: getScrollBehavior() });
   };
 
   const renderLinkGroup = (title: string, links: typeof axesLinks, startDelay: number) => (
@@ -159,13 +208,21 @@ const Navbar = () => {
         />
 
         {/* Logo */}
-        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2.5 relative z-10">
-          <img src={logoD2l} alt="SILAO" className="h-8 w-auto rounded-lg shadow-sm" />
+        <Link
+          to="/"
+          onClick={handleLogoClick}
+          aria-label="Retour à l’accueil de SILAO par D2L"
+          className="flex items-center gap-2.5 relative z-10"
+        >
+          <img src={logoD2l} alt="" className="h-8 w-auto rounded-lg shadow-sm" />
           <div className="w-px h-5 bg-border/60" />
-          <img src={logoSilao} alt="Silao" className="h-9 w-auto" />
+          <img src={logoSilao} alt="" className="h-9 w-auto" />
         </Link>
 
-        <nav className="relative z-10 hidden xl:flex items-center gap-1 rounded-full bg-background/70 px-2 py-1.5 border border-border/50 shadow-sm backdrop-blur">
+        <nav
+          aria-label="Navigation principale"
+          className="relative z-10 hidden xl:flex items-center gap-1 rounded-full bg-background/70 px-2 py-1.5 border border-border/50 shadow-sm backdrop-blur"
+        >
           {desktopLinks.map((link) => {
             const isActive = !link.isAnchor && location.pathname === link.href;
 
@@ -175,6 +232,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(event) => handleAnchorNavigation(event, link.href)}
+                  aria-current={location.hash === link.href.replace("/", "") ? "page" : undefined}
                   className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary hover:bg-primary/8"
                 >
                   {link.label}
@@ -186,6 +244,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
+                aria-current={isActive ? "page" : undefined}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   isActive
                     ? "bg-primary/10 text-primary"
@@ -212,6 +271,8 @@ const Navbar = () => {
 
           {/* Menu button — rounded with color */}
           <motion.button
+            ref={menuButtonRef}
+            type="button"
             onClick={() => setOpen(!open)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -220,19 +281,18 @@ const Navbar = () => {
                 ? "bg-foreground text-background"
                 : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
             }`}
-            aria-label="Menu"
+            aria-controls="mobile-navigation"
+            aria-expanded={open}
+            aria-label={open ? "Fermer le menu principal" : "Ouvrir le menu principal"}
           >
-            <AnimatePresence mode="wait">
-              {open ? (
-                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                  <X size={18} />
-                </motion.div>
-              ) : (
-                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                  <Menu size={18} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.div
+              key={open ? "close" : "menu"}
+              initial={{ rotate: open ? -90 : 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              transition={{ duration: 0.15 }}
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </motion.div>
             <span className="hidden sm:inline">MENU</span>
           </motion.button>
         </div>
@@ -243,13 +303,19 @@ const Navbar = () => {
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={menuDialogRef}
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu principal"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex items-start justify-center overflow-y-auto pt-20 pb-10"
           >
-            <nav className="w-full max-w-2xl px-8">
+            <nav aria-label="Navigation mobile" className="w-full max-w-2xl px-8">
+              <h2 className="sr-only">Menu principal</h2>
               {/* Main links */}
               <div className="space-y-1 mb-8">
                 {navLinks.map((link, i) => {
@@ -279,11 +345,17 @@ const Navbar = () => {
                       key={link.href}
                       href={link.href}
                       onClick={(event) => handleAnchorNavigation(event, link.href)}
+                      aria-current={location.hash === link.href.replace("/", "") ? "page" : undefined}
                     >
                       {content}
                     </a>
                   ) : (
-                    <Link key={link.href} to={link.href} onClick={() => setOpen(false)}>
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={() => setOpen(false)}
+                    >
                       {content}
                     </Link>
                   );

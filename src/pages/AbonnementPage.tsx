@@ -3,9 +3,11 @@ import FooterSection from "@/components/FooterSection";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { motion } from "framer-motion";
 import { CreditCard, CheckCircle2, HelpCircle, ArrowRight, Shield } from "lucide-react";
+import PageMain from "@/components/PageMain";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { getPageSeo } from "@/lib/publicRoutes";
 
 const includedItems = [
   "Accès complet à tous les modules Silao",
@@ -43,16 +45,13 @@ const faqItems = [
 
 const AbonnementPage = () => {
   const [demoOpen, setDemoOpen] = useState(false);
+  const seo = getPageSeo("/abonnement");
 
   return (
     <div className="min-h-screen bg-background paper-grain">
-      <SEOHead
-        title="Abonnement SILAO | Hébergement, support, mises à jour et conformité inclus"
-        description="Consultez le modèle d'abonnement SILAO : hébergement HDS, support, maintenance, mises à jour réglementaires et évolutions fonctionnelles inclus."
-        canonicalPath="/abonnement"
-      />
+      <SEOHead {...seo} />
       <Navbar />
-      <main className="pt-16">
+      <PageMain className="pt-16">
         {/* Hero */}
         <section className="py-20 px-4 paper-bg">
           <div className="max-w-4xl mx-auto text-center">
@@ -191,7 +190,7 @@ const AbonnementPage = () => {
             </Button>
           </motion.div>
         </section>
-      </main>
+      </PageMain>
       <FooterSection />
       <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </div>

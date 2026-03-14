@@ -1,20 +1,19 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
 import { ShieldCheck } from "lucide-react";
 
 const SecteurPDEPage = () => (
   <div className="min-h-screen bg-background paper-grain">
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <SecteurPageLayout
         icon={ShieldCheck}
         name="Protection de l'enfance — PDE"
         tagline="Un DUI sécurisé pour le suivi des mineurs protégés"
         description="Silao répond aux exigences spécifiques de la Protection de l'Enfance : confidentialité renforcée, gestion des mesures judiciaires et administratives, coordination avec les services de l'ASE et les magistrats."
-        seoTitle="SILAO Protection de l'enfance | DUI pour MECS, SAE, AEMO et lieux de vie"
-        seoDescription="Découvrez SILAO pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats."
-        canonicalPath="/secteur/protection-enfance"
+        seoPath="/secteur/protection-enfance"
         color="text-secondary"
         bgColor="bg-secondary/10"
         structures={[
@@ -50,7 +49,7 @@ const SecteurPDEPage = () => (
           { name: "MECS La Cordée", quote: "L'outil s'adapte parfaitement à nos process de suivi éducatif." },
         ]}
       />
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );

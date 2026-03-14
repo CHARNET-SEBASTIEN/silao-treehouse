@@ -11,18 +11,18 @@ import CTASection from "@/components/CTASection";
 import KeyFiguresSection from "@/components/KeyFiguresSection";
 import FilieresSection from "@/components/FilieresSection";
 import InfographieParcours from "@/components/InfographieParcours";
+import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
+import { getPageSeo } from "@/lib/publicRoutes";
+
+const seo = getPageSeo("/");
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background paper-grain">
-      <SEOHead
-        title="SILAO par D2L | Logiciel DUI pour les établissements sociaux et médico-sociaux"
-        description="SILAO aide les ESSMS à gérer projets personnalisés, transmissions, bilans, conformité SONS et pilotage dans un outil unique."
-        canonicalPath="/"
-      />
+      <SEOHead {...seo} />
       <Navbar />
-      <main className="pt-16">
+      <PageMain className="pt-16">
         <HeroSection />
         <AxesSummary />
         <KeyFiguresSection />
@@ -38,7 +38,7 @@ const Index = () => {
         <FAQSection />
         <PartnersSection />
         <CTASection />
-      </main>
+      </PageMain>
       <FooterSection />
     </div>
   );

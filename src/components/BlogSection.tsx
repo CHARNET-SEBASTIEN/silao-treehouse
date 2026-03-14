@@ -114,16 +114,16 @@ const BlogSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.4 }}
+              className="sketch-border bg-card p-6 h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
             >
-              <Link
-                to={article.slug}
-                className="block sketch-border bg-card p-6 h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
-              >
+              <div className="group h-full">
                 <Badge variant="secondary" className="mb-4 font-body text-xs">
                   {article.category}
                 </Badge>
                 <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
-                  {article.title}
+                  <Link to={article.slug} className="hover:underline underline-offset-4">
+                    {article.title}
+                  </Link>
                 </h3>
                 <p className="text-sm text-muted-foreground font-body leading-relaxed mb-4">
                   {article.excerpt}
@@ -164,9 +164,11 @@ const BlogSection = () => {
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-1 mt-3 text-sm text-primary font-body font-medium group-hover:underline">
-                  Lire l'article <ArrowRight className="w-3.5 h-3.5" />
+                  <Link to={article.slug} className="inline-flex items-center gap-1">
+                    Lire l'article <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </span>
-              </Link>
+              </div>
             </motion.article>
           ))}
         </div>

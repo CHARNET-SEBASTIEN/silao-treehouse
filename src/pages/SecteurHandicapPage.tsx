@@ -1,20 +1,19 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
 import { Accessibility } from "lucide-react";
 
 const SecteurHandicapPage = () => (
   <div className="min-h-screen bg-background paper-grain">
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <SecteurPageLayout
         icon={Accessibility}
         name="Handicap — PH"
         tagline="Le DUI conçu pour le parcours de la personne en situation de handicap"
         description="Silao accompagne les établissements et services du secteur Handicap avec un dossier usager informatisé complet, conforme aux exigences réglementaires et adapté aux réalités terrain : projets personnalisés, coordination pluridisciplinaire, suivi des parcours inclusifs."
-        seoTitle="SILAO Handicap | DUI pour IME, ITEP, MAS, FAM, ESAT et SESSAD"
-        seoDescription="Découvrez SILAO pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH."
-        canonicalPath="/secteur/handicap"
+        seoPath="/secteur/handicap"
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[
@@ -52,7 +51,7 @@ const SecteurHandicapPage = () => (
           { name: "ADSEA 80", quote: "Un outil adapté à nos réalités de terrain, avec un accompagnement projet exemplaire." },
         ]}
       />
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );

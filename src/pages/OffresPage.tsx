@@ -3,10 +3,12 @@ import FooterSection from "@/components/FooterSection";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { motion } from "framer-motion";
 import { Rocket, Users, Settings, GraduationCap, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
+import PageMain from "@/components/PageMain";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import { getPageSeo } from "@/lib/publicRoutes";
 
 const deploymentSteps = [
   {
@@ -62,16 +64,13 @@ const offerTypes = [
 
 const OffresPage = () => {
   const [demoOpen, setDemoOpen] = useState(false);
+  const seo = getPageSeo("/offres");
 
   return (
     <div className="min-h-screen bg-background paper-grain">
-      <SEOHead
-        title="Offres de déploiement SILAO | Méthode, reprise de données et formation"
-        description="Découvrez les offres de déploiement SILAO : cadrage, paramétrage, reprise de données, formation et suivi post-démarrage pour les ESSMS."
-        canonicalPath="/offres"
-      />
+      <SEOHead {...seo} />
       <Navbar />
-      <main className="pt-16">
+      <PageMain className="pt-16">
         {/* Hero */}
         <section className="py-20 px-4 paper-bg">
           <div className="max-w-4xl mx-auto text-center">
@@ -234,7 +233,7 @@ const OffresPage = () => {
             </p>
           </motion.div>
         </section>
-      </main>
+      </PageMain>
       <FooterSection />
       <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </div>

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -164,29 +163,20 @@ const faqs = [
   },
 ];
 
-const FAQSection = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answerText,
-        },
-      })),
-    });
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answerText,
+    },
+  })),
+};
 
-  return (
+const FAQSection = () => (
     <section id="faq" className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
         <motion.div
@@ -244,7 +234,6 @@ const FAQSection = () => {
         </motion.div>
       </div>
     </section>
-  );
-};
+);
 
 export default FAQSection;

@@ -1,20 +1,19 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
 import { Home } from "lucide-react";
 
 const SecteurAHIPage = () => (
   <div className="min-h-screen bg-background paper-grain">
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <SecteurPageLayout
         icon={Home}
         name="Insertion / AHI"
         tagline="Le DUI au service de l'hébergement et de l'insertion"
         description="Silao accompagne les structures d'hébergement et d'insertion dans la gestion des parcours complexes : demandeurs d'asile, personnes sans abri, réfugiés. Un outil pensé pour la coordination multi-acteurs et le suivi des dispositifs."
-        seoTitle="SILAO Insertion et AHI | DUI pour CHRS, SIAO, CPH et CADA"
-        seoDescription="Découvrez SILAO pour l'insertion et l'AHI : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité."
-        canonicalPath="/secteur/insertion-ahi"
+        seoPath="/secteur/insertion-ahi"
         color="text-accent-foreground"
         bgColor="bg-accent"
         structures={[
@@ -49,7 +48,7 @@ const SecteurAHIPage = () => (
           { name: "AJP", quote: "Silao nous aide à piloter nos places d'hébergement et à suivre les parcours d'insertion de manière fluide." },
         ]}
       />
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );

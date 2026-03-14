@@ -1,19 +1,19 @@
 import Navbar from "@/components/Navbar";
 import EngagementsSection from "@/components/EngagementsSection";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
+import { getPageSeo } from "@/lib/publicRoutes";
+
+const seo = getPageSeo("/engagements");
 
 const EngagementsPage = () => (
   <div className="min-h-screen bg-background">
-    <SEOHead
-      title="Engagements SILAO | Support, SLA, pérennité et indépendance"
-      description="Consultez les engagements SILAO sur la durée : support, SLA, pérennité produit, portabilité des données et relation durable avec les ESSMS."
-      canonicalPath="/engagements"
-    />
+    <SEOHead {...seo} />
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <EngagementsSection />
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );

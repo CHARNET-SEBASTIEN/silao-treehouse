@@ -1,20 +1,19 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
 import { Baby } from "lucide-react";
 
 const SecteurCAMSPPage = () => (
   <div className="min-h-screen bg-background paper-grain">
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <SecteurPageLayout
         icon={Baby}
         name="CAMSP / CMPP"
         tagline="Le DUI adapté au dépistage et aux soins précoces"
         description="Silao accompagne les CAMSP et CMPP dans le suivi pluridisciplinaire des enfants présentant des troubles du développement. Un outil pensé pour la coordination entre professionnels de santé, éducateurs et familles."
-        seoTitle="SILAO CAMSP et CMPP | DUI pour le dépistage et les soins précoces"
-        seoDescription="Découvrez SILAO pour les CAMSP et CMPP : suivi pluridisciplinaire, bilans, coordination des séances et reporting pour les tutelles."
-        canonicalPath="/secteur/camsp-cmpp"
+        seoPath="/secteur/camsp-cmpp"
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[
@@ -47,7 +46,7 @@ const SecteurCAMSPPage = () => (
           { name: "Structures en cours de déploiement", quote: "Silao étend sa couverture aux CAMSP et CMPP pour répondre aux besoins spécifiques du dépistage précoce." },
         ]}
       />
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );

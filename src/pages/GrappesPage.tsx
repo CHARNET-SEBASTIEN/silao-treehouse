@@ -1,19 +1,19 @@
 import Navbar from "@/components/Navbar";
 import GrappesSection from "@/components/GrappesSection";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
+import { getPageSeo } from "@/lib/publicRoutes";
+
+const seo = getPageSeo("/grappes-esms");
 
 const GrappesPage = () => (
   <div className="min-h-screen bg-background">
-    <SEOHead
-      title="Grappes multi-ESMS SILAO | DUI mutualisé pour associations et multi-sites"
-      description="Découvrez comment SILAO permet de mutualiser un DUI entre plusieurs établissements tout en conservant les spécificités métier et la confidentialité."
-      canonicalPath="/grappes-esms"
-    />
+    <SEOHead {...seo} />
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <GrappesSection />
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );

@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
+import SEOHead from "@/components/SEOHead";
+import { getPageSeo } from "@/lib/publicRoutes";
 
 interface Question {
   question: string;
@@ -210,6 +213,8 @@ const rawQuestions: Question[] = [
   },
 ];
 
+const seo = getPageSeo("/quiz-segur");
+
 /** Shuffle an array (Fisher-Yates) */
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -294,8 +299,9 @@ const QuizPage = () => {
 
   return (
     <div className="min-h-screen bg-background paper-grain">
+      <SEOHead {...seo} />
       <Navbar />
-      <main className="pt-24 pb-16 px-4">
+      <PageMain className="pt-24 pb-16 px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <motion.div
@@ -434,7 +440,7 @@ const QuizPage = () => {
             )}
           </AnimatePresence>
         </div>
-      </main>
+      </PageMain>
       <FooterSection />
     </div>
   );

@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpenText, FolderKanban, ShieldCheck, Workflow } from "lucide-react";
+import { getPageSeo } from "@/lib/publicRoutes";
 
 const pillars = [
   {
@@ -56,49 +58,13 @@ const questions = [
   },
 ];
 
-const resourcesSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "CollectionPage",
-      name: "Ressources SILAO",
-      url: "https://d2l-silao.lovable.app/ressources",
-      description:
-        "Ressources SILAO sur le DUI, la conformité SONS, le déploiement et les cas d'usage par secteur.",
-    },
-    {
-      "@type": "ItemList",
-      name: "Piliers éditoriaux SILAO",
-      itemListElement: pillars.map((pillar, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: pillar.title,
-      })),
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: questions.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
-    },
-  ],
-};
+const seo = getPageSeo("/ressources");
 
 const RessourcesPage = () => (
   <div className="min-h-screen bg-background paper-grain">
-    <SEOHead
-      title="Ressources SILAO par D2L | DUI, SONS, déploiement et secteurs ESSMS"
-      description="Guides et repères SILAO sur le DUI, la conformité SONS, le déploiement, les grappes multi-établissements et les secteurs ESSMS."
-      canonicalPath="/ressources"
-      schema={resourcesSchema}
-    />
+    <SEOHead {...seo} />
     <Navbar />
-    <main className="pt-16">
+    <PageMain className="pt-16">
       <section className="px-4 py-20 paper-bg">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div
@@ -200,7 +166,7 @@ const RessourcesPage = () => (
           </div>
         </div>
       </section>
-    </main>
+    </PageMain>
     <FooterSection />
   </div>
 );
