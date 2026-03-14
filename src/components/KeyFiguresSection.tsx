@@ -141,7 +141,7 @@ const leafSway = {
 
 const KeyFiguresSection = () => {
   return (
-    <section className="relative py-24 px-4 paper-grain overflow-hidden">
+    <section className="relative py-20 md:py-28 px-4 paper-grain overflow-hidden">
       {/* Decorative floating leaves */}
       <motion.svg {...leafSway} className="absolute top-12 left-[8%] w-10 h-10 text-primary opacity-20" viewBox="0 0 64 64" fill="currentColor">
         <path d="M32 2C32 2 10 20 10 40C10 52 20 62 32 62C44 62 54 52 54 40C54 20 32 2 32 2Z" />
