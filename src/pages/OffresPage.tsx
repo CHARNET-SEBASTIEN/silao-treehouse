@@ -1,237 +1,205 @@
-import Navbar from "@/components/Navbar";
-import FooterSection from "@/components/FooterSection";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
-import { motion } from "framer-motion";
-import { Rocket, Users, Settings, GraduationCap, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
-import PageMain from "@/components/PageMain";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  BarChart3,
+  BookOpenCheck,
+  FolderSync,
+  Handshake,
+  Rocket,
+  Settings2,
+  Users,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
+import DemoRequestDialog from "@/components/DemoRequestDialog";
+import FooterSection from "@/components/FooterSection";
+import Navbar from "@/components/Navbar";
+import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
+import { Button } from "@/components/ui/button";
 import { getPageSeo } from "@/lib/publicRoutes";
+
+const offerBlocks = [
+  {
+    icon: Rocket,
+    title: "Déploiement SILAO",
+    description:
+      "Cadrage, paramétrage, reprise de données et préparation du démarrage avec un projet structuré selon votre organisation.",
+    points: [
+      "Chef de projet dédié",
+      "Périmètre et planning clarifiés",
+      "Base de test et paramétrage",
+      "Organisation de la reprise de données",
+    ],
+  },
+  {
+    icon: Handshake,
+    title: "Accompagnement projet",
+    description:
+      "Gouvernance, conduite du changement, coordination métier et suivi des usages pour sécuriser la montée en charge.",
+    points: [
+      "COMOP et suivi projet",
+      "Interlocuteur unique",
+      "Accompagnement de proximité",
+      "Pilotage des indicateurs d'usage",
+    ],
+  },
+  {
+    icon: BookOpenCheck,
+    title: "Formation",
+    description:
+      "Formations avant, pendant et après déploiement, avec FOAD, visio, présentiel et modules thématiques selon les profils.",
+    points: [
+      "PAPSIL",
+      "Art'Sil",
+      "FOAD standard ou administrateur",
+      "Sessions thématiques ciblées",
+    ],
+  },
+];
 
 const deploymentSteps = [
   {
     icon: Users,
-    step: "01",
-    title: "Cadrage & gouvernance",
-    description: "Nous intégrons un chef de projet dédié à votre COMOP. Ensemble, nous définissons le périmètre, le planning et les indicateurs de réussite.",
-    details: ["Analyse de vos besoins métier", "Constitution du COMOP", "Planning de déploiement sur mesure", "Définition des objectifs"],
+    title: "Cadrer le projet",
+    description:
+      "Définition du périmètre, des interlocuteurs, des jalons et des points de vigilance propres à votre structure ou organisme gestionnaire.",
   },
   {
-    icon: Settings,
-    step: "02",
-    title: "Paramétrage & reprise de données",
-    description: "Nous configurons Silao selon vos process métier et assurons la reprise de vos données existantes en toute sécurité.",
-    details: ["Configuration des modules par structure", "Reprise et migration des données", "Paramétrage des droits et profils", "Interconnexions SI (ViaTrajectoire, DMP…)"],
+    icon: Settings2,
+    title: "Paramétrer SILAO",
+    description:
+      "Ajustement des nomenclatures, droits, rôles, modules et outils collaboratifs en cohérence avec vos pratiques métier.",
   },
   {
-    icon: GraduationCap,
-    step: "03",
-    title: "Formation & accompagnement au changement",
-    description: "Un plan de formation adapté à chaque profil utilisateur, du directeur à l'éducateur de terrain.",
-    details: ["Formations par profil métier", "Supports pédagogiques personnalisés", "Sessions de prise en main sur site ou à distance", "Référents internes formés"],
+    icon: FolderSync,
+    title: "Préparer la reprise",
+    description:
+      "Identification des données à reprendre, contrôle qualité, organisation des imports et sécurisation du passage vers le nouveau DUI.",
   },
   {
     icon: BarChart3,
-    step: "04",
-    title: "Pilotage & suivi post-déploiement",
-    description: "Nous suivons les indicateurs d'usage pour vous aider à atteindre vos objectifs et sécuriser vos financements.",
-    details: ["Tableaux de bord d'usage en temps réel", "Suivi des indicateurs clés (INS, DMP…)", "Comités de suivi réguliers", "Support et maintenance continues"],
+    title: "Piloter la mise en usage",
+    description:
+      "Suivi du démarrage, accompagnement des équipes, contrôle des usages et lecture des premiers indicateurs opérationnels.",
   },
 ];
 
-const offerTypes = [
-  {
-    name: "Déploiement Standard",
-    description: "Pour les structures autonomes souhaitant un déploiement encadré.",
-    features: ["Chef de projet SILAO dédié", "Paramétrage standard", "Formation initiale", "Support 5j/7"],
-    highlighted: false,
-  },
-  {
-    name: "Déploiement Premium",
-    description: "Pour les associations multi-sites avec des besoins de mutualisation.",
-    features: ["Chef de projet SILAO senior", "Paramétrage avancé & reprise de données", "Formation sur mesure par profil", "Accompagnement au changement renforcé", "Pilotage des indicateurs d'usage", "Support 7j/7 avec SLA renforcé"],
-    highlighted: true,
-  },
-  {
-    name: "Déploiement Sur Mesure",
-    description: "Pour les grandes associations et groupements nécessitant un accompagnement complet.",
-    features: ["Équipe projet SILAO dédiée", "Audit organisationnel préalable", "Paramétrage entièrement personnalisé", "Conduite du changement complète", "Formation certifiante", "Comité de pilotage mensuel", "SLA illimité"],
-    highlighted: false,
-  },
+const framingPoints = [
+  "La proposition est construite selon votre périmètre, vos établissements et votre niveau de maturité numérique.",
+  "Le déploiement, la formation et l'abonnement relèvent de briques distinctes, formalisées dans une documentation contractuelle claire.",
+  "L'objectif n'est pas seulement d'installer SILAO, mais de rendre son usage durable et exploitable au quotidien.",
 ];
+
+const seo = getPageSeo("/offres");
 
 const OffresPage = () => {
   const [demoOpen, setDemoOpen] = useState(false);
-  const seo = getPageSeo("/offres");
 
   return (
     <div className="min-h-screen bg-background paper-grain">
       <SEOHead {...seo} />
       <Navbar />
       <PageMain className="pt-16">
-        {/* Hero */}
-        <section className="py-20 px-4 paper-bg">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-body"
-            >
-              <Rocket className="w-4 h-4" />
-              Offres de déploiement
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-foreground mb-6"
-            >
-              Un déploiement{" "}
-              <span className="text-primary sketch-underline">clé en main</span>,{" "}
-              adapté à votre structure
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-lg text-muted-foreground font-body max-w-2xl mx-auto"
-            >
-              Pas de déploiement « brut ». Chez SILAO, chaque projet est accompagné de bout en bout par une équipe dédiée qui comprend vos enjeux métier.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Étapes de déploiement */}
-        <section className="py-20 px-4">
-          <div className="max-w-5xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-foreground text-center mb-16"
-            >
-              Notre méthodologie en{" "}
-              <span className="text-primary sketch-underline">4 étapes</span>
-            </motion.h2>
-            <div className="space-y-12">
-              {deploymentSteps.map((step, i) => {
-                const Icon = step.icon;
-                return (
-                  <motion.div
-                    key={step.step}
-                    initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="sketch-border bg-card p-8 md:flex md:gap-8 md:items-start"
-                  >
-                    <div className="flex items-center gap-4 mb-4 md:mb-0 md:flex-col md:items-center md:min-w-[80px]">
-                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <span className="text-2xl font-sketch text-primary">{step.step}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground font-body mb-4">{step.description}</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {step.details.map((d) => (
-                          <div key={d} className="flex items-center gap-2">
-                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                            <span className="text-sm text-foreground font-body">{d}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+        <section className="px-4 py-20 paper-bg">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary">
+              <Rocket className="h-4 w-4" />
+              Offres SILAO
             </div>
+            <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
+              Déployer SILAO avec une offre <span className="text-primary sketch-underline">structurée</span>
+            </h1>
+            <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
+              L&apos;offre SILAO articule trois dimensions complémentaires: le déploiement du DUI,
+              l&apos;accompagnement projet et la formation des équipes. Chaque proposition est ajustée
+              à votre contexte plutôt qu&apos;enfermée dans un pack standard.
+            </p>
           </div>
         </section>
 
-        {/* Offres */}
-        <section className="py-20 px-4 paper-bg">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-foreground text-center mb-4"
-            >
-              Choisissez l'accompagnement adapté
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-muted-foreground font-body text-center mb-12 max-w-2xl mx-auto"
-            >
-              Chaque offre inclut la méthodologie SILAO. Seul le niveau d'accompagnement varie selon la complexité de votre organisation.
-            </motion.p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {offerTypes.map((offer, i) => (
-                <motion.div
-                  key={offer.name}
-                  initial={{ opacity: 0, y: 30 }}
+        <section className="px-4 py-16">
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+            {offerBlocks.map((block, index) => (
+              <motion.article
+                key={block.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="sketch-border bg-card p-8"
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <block.icon className="h-5 w-5" />
+                </div>
+                <h2 className="mb-3 text-2xl font-bold text-foreground">{block.title}</h2>
+                <p className="mb-6 text-sm leading-7 text-muted-foreground">{block.description}</p>
+                <ul className="space-y-3 text-sm text-foreground">
+                  {block.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className="px-4 py-20 paper-bg">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="mb-14 text-center text-3xl font-bold text-foreground md:text-4xl">
+              Le déploiement SILAO en <span className="text-primary sketch-underline">quatre temps</span>
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {deploymentSteps.map((step, index) => (
+                <motion.article
+                  key={step.title}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`sketch-border bg-card p-8 flex flex-col ${
-                    offer.highlighted ? "ring-2 ring-primary/30 relative" : ""
-                  }`}
+                  transition={{ delay: index * 0.07 }}
+                  className="rounded-[1.6rem] border border-border/60 bg-card p-6 shadow-sm"
                 >
-                  {offer.highlighted && (
-                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground">
-                      Recommandé
-                    </Badge>
-                  )}
-                  <h3 className="text-xl font-bold text-foreground mb-2">{offer.name}</h3>
-                  <p className="text-sm text-muted-foreground font-body mb-6">{offer.description}</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {offer.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground font-body">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant={offer.highlighted ? "hero" : "hero-outline"}
-                    className="w-full"
-                    onClick={() => setDemoOpen(true)}
-                  >
-                    Nous contacter <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </motion.div>
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+                    <step.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-foreground">{step.title}</h3>
+                  <p className="text-sm leading-7 text-muted-foreground">{step.description}</p>
+                </motion.article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Différenciation */}
-        <section className="py-20 px-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto sketch-border bg-primary/5 p-10 text-center"
-          >
-            <h2 className="text-2xl font-bold text-foreground mb-4">
-              La différence SILAO ?
-            </h2>
-            <p className="text-muted-foreground font-body mb-4">
-              Chez SILAO, la <strong>chefferie de projet</strong> n'est pas un simple accompagnement technique.
-              C'est un véritable <strong>partenariat métier</strong> : nos chefs de projet connaissent vos réalités terrain
-              et s'intègrent à vos instances de gouvernance.
-            </p>
-            <p className="text-primary font-sketch text-xl">
-              Formation ≠ Gestion de projet. Nous assurons les deux.
-            </p>
-          </motion.div>
+        <section className="px-4 py-20">
+          <div className="mx-auto max-w-4xl section-panel p-8 md:p-10">
+            <h2 className="mb-5 text-3xl font-bold text-foreground">Comment l&apos;offre est cadrée</h2>
+            <ul className="space-y-4 text-muted-foreground">
+              {framingPoints.map((point) => (
+                <li key={point} className="leading-7">
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+                Demander une démonstration
+              </Button>
+              <Button variant="hero-outline" size="xl" asChild>
+                <Link to="/formations" className="gap-2">
+                  <ArrowRight className="h-4 w-4" />
+                  Voir les formations
+                </Link>
+              </Button>
+              <Button variant="hero-outline" size="xl" asChild>
+                <Link to="/accompagnement" className="gap-2">
+                  <ArrowRight className="h-4 w-4" />
+                  Voir l'accompagnement
+                </Link>
+              </Button>
+            </div>
+          </div>
         </section>
       </PageMain>
       <FooterSection />

@@ -18,7 +18,7 @@ const homeSchema = [
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "Dossier Usager Informatisé pour les ESSMS : handicap, protection de l'enfance, insertion et CAMSP/CMPP.",
+      "Dossier Usager Informatisé pour les ESSMS : protection de l'enfance, médico-social, accueil hébergement insertion et personnes en difficultés spécifiques.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     offers: {
       "@type": "Offer",
@@ -77,7 +77,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title:
       "SILAO par D2L | Logiciel DUI pour les établissements sociaux et médico-sociaux",
     description:
-      "SILAO aide les ESSMS à gérer projets personnalisés, transmissions, bilans, conformité SONS et pilotage dans un outil unique.",
+      "SILAO aide les établissements sociaux et médico-sociaux à gérer dossier usager, agenda, transmissions, conformité Ségur et pilotage dans un outil unique.",
     priority: 1,
     changefreq: "weekly",
     schema: homeSchema,
@@ -104,6 +104,14 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Accompagnement SILAO | Gouvernance, conduite du changement et déploiement",
     description:
       "Découvrez l'accompagnement SILAO : cadrage projet, gouvernance, formation, conduite du changement et suivi des usages dans les ESSMS.",
+    priority: 0.8,
+  },
+  {
+    path: "/formations",
+    title:
+      "Formations SILAO | PAPSIL, Art'Sil, FOAD et modules thématiques",
+    description:
+      "Découvrez les formations SILAO : préparation au projet, paramétrage, FOAD, sessions thématiques, Qualiopi, modalités et tarifs.",
     priority: 0.8,
   },
   {
@@ -146,17 +154,17 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/secteur/insertion-ahi",
-    title: "SILAO Insertion et AHI | DUI pour CHRS, SIAO, CPH et CADA",
+    title: "SILAO AHI | DUI pour CHRS, CADA, HUDA, CPH et accueil de jour",
     description:
-      "Découvrez SILAO pour l'insertion et l'AHI : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
+      "Découvrez SILAO pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
     priority: 0.8,
   },
   {
-    path: "/secteur/camsp-cmpp",
+    path: "/secteur/personnes-difficultes-specifiques",
     title:
-      "SILAO CAMSP et CMPP | DUI pour le dépistage et les soins précoces",
+      "SILAO PDS | DUI pour LHSS, ACT, CAARUD et structures santé-social",
     description:
-      "Découvrez SILAO pour les CAMSP et CMPP : suivi pluridisciplinaire, bilans, coordination des séances et reporting pour les tutelles.",
+      "Découvrez SILAO pour les personnes en difficultés spécifiques : suivi coordonné, alertes, dossier santé et pilotage d'activité.",
     priority: 0.8,
   },
   {
@@ -197,6 +205,20 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       url: `${SITE_URL}/aide-support`,
       email: CONTACT_EMAIL,
     },
+  },
+  {
+    path: "/mentions-legales",
+    title: "Mentions légales | SILAO par D2L",
+    description:
+      "Consultez les mentions légales du site SILAO édité par D2L Informatique.",
+    priority: 0.2,
+  },
+  {
+    path: "/politique-de-confidentialite",
+    title: "Politique de confidentialité | SILAO par D2L",
+    description:
+      "Consultez la politique de confidentialité liée aux formulaires publics et aux données de contact du site SILAO.",
+    priority: 0.2,
   },
   {
     path: "/plan-du-site",

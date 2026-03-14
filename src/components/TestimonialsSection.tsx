@@ -5,21 +5,21 @@ import avatarStephane from "@/assets/avatar-stephane.png";
 
 const testimonials = [
   {
-    quote: "Le DUI est intuitif et la mise en conformité réglementaire s'est faite naturellement. Un vrai gain de temps au quotidien !",
-    name: "Claire",
-    role: "Assistante de direction — MECS",
+    quote: "SILAO se distingue par une prise en main simple et un accompagnement projet réellement structuré.",
+    name: "Direction de MECS",
+    role: "Structure protection de l'enfance",
     avatar: avatarClaire,
   },
   {
-    quote: "Nous avons déployé Silao sur nos structures Handicap et Protection de l'Enfance. La gestion multi-sites est un vrai plus.",
-    name: "Marianne",
-    role: "Directrice générale — Association gestionnaire",
+    quote: "La logique multi-établissements et la lecture par secteur sont des éléments décisifs pour une association gestionnaire.",
+    name: "Association multi-sites",
+    role: "Direction générale",
     avatar: avatarMarianne,
   },
   {
-    quote: "Les projets personnalisés et les transmissions sont centralisés, je prépare mes synthèses deux fois plus vite.",
-    name: "Stéphane",
-    role: "Éducateur spécialisé — IME",
+    quote: "Les bénéfices métier doivent être exprimés clairement: transmissions, agenda, dossiers, coordination et pilotage.",
+    name: "Équipe médico-sociale",
+    role: "Secteur PH",
     avatar: avatarStephane,
   },
 ];
@@ -35,10 +35,10 @@ const TestimonialsSection = () => {
           className="text-center mb-14"
         >
           <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
-            Ce qu'en disent les professionnels
+            Références et retours écrits
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Retours <span className="text-primary sketch-underline">terrain</span>
+            Des retours <span className="text-primary sketch-underline">terrain</span> plus lisibles
           </h2>
         </motion.div>
 

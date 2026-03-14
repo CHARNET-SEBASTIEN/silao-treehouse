@@ -8,3 +8,5 @@ export const SITE_LOCALE = "fr_FR";
 export const DEFAULT_OG_IMAGE =
   "https://storage.googleapis.com/gpt-engineer-file-uploads/QOTfjhIWFFMA2woaEujwlASi5BO2/social-images/social-1773041408123-hero-tree-artguru.webp";
 export const CONTACT_EMAIL = "contact@silao.fr";
+export const LINKEDIN_URL =
+  import.meta.env.VITE_LINKEDIN_URL || "https://fr.linkedin.com/company/d2l-informatique";

@@ -10,41 +10,41 @@ const SecteurHandicapPage = () => (
     <PageMain className="pt-16">
       <SecteurPageLayout
         icon={Accessibility}
-        name="Handicap — PH"
-        tagline="Le DUI conçu pour le parcours de la personne en situation de handicap"
-        description="Silao accompagne les établissements et services du secteur Handicap avec un dossier usager informatisé complet, conforme aux exigences réglementaires et adapté aux réalités terrain : projets personnalisés, coordination pluridisciplinaire, suivi des parcours inclusifs."
+        name="Médico-social — PH"
+        tagline="Le DUI conçu pour les prises en charge du secteur médico-social"
+        description="Silao accompagne les établissements et services du secteur PH avec un dossier usager informatisé complet, conforme aux exigences réglementaires et adapté aux réalités terrain : projets personnalisés, coordination pluridisciplinaire, agenda, listes d'attente et suivi des parcours."
         seoPath="/secteur/handicap"
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[
           { name: "IME", description: "Institut Médico-Éducatif : accompagnement éducatif et thérapeutique des enfants en situation de handicap." },
-          { name: "ITEP", description: "Institut Thérapeutique Éducatif et Pédagogique : prise en charge des troubles du comportement." },
+          { name: "DITEP", description: "Dispositif Thérapeutique Éducatif et Pédagogique : prise en charge coordonnée des troubles du comportement." },
+          { name: "SESSAD", description: "Service d'Éducation Spéciale et de Soins à Domicile : intervention au plus près du lieu de vie." },
+          { name: "CAMSP", description: "Centre d'Action Médico-Sociale Précoce : dépistage et accompagnement précoces." },
+          { name: "CMPP", description: "Centre Médico-Psycho-Pédagogique : suivi pluridisciplinaire et bilans." },
           { name: "MAS", description: "Maison d'Accueil Spécialisée : hébergement et soins pour adultes lourdement handicapés." },
           { name: "FAM", description: "Foyer d'Accueil Médicalisé : accompagnement des adultes nécessitant un suivi médical." },
-          { name: "ESAT", description: "Établissement et Service d'Aide par le Travail : insertion professionnelle des personnes handicapées." },
-          { name: "SESSAD", description: "Service d'Éducation Spéciale et de Soins à Domicile : intervention au plus près du lieu de vie." },
         ]}
         benefits={[
           "Projet personnalisé intégré avec suivi des objectifs et évaluations",
           "Coordination pluridisciplinaire simplifiée (éducateurs, soignants, psychologues)",
+          "Agenda des professionnels et des usagers, rappels et gestion des transports",
           "Interopérabilité : alimentation du DMP, INS qualifiée, messagerie MSSanté",
-          "Tableaux de bord de pilotage pour la direction et les financeurs",
-          "Gestion des notifications MDPH et des orientations",
-          "Suivi du parcours inclusif (scolarité, emploi, logement)",
-          "Traçabilité complète des accompagnements pour les évaluations HAS",
-          "Interopérabilité avec ViaTrajectoire et les SI des ARS",
+          "Gestion des courriers, des bilans, des listes d'attente et des rapports attendus",
+          "Tableaux de bord de pilotage pour la direction, les tutelles et les financeurs",
+          "Traçabilité complète des accompagnements pour les évaluations et obligations métier",
         ]}
         modules={[
           "Dossier Usager Informatisé",
           "Projet Personnalisé",
           "Agenda partagé",
           "Transmissions ciblées",
-          "Prescriptions & traitements",
-          "Facturation CPAM / CD",
+          "Bilans & évaluations",
+          "Dossier santé",
           "GED & documents",
           "Reporting & statistiques",
-          "MSSanté",
-          "DMP",
+          "Listes d'attente",
+          "Facturation",
         ]}
         clients={[
           { name: "Croix-Rouge française", quote: "Silao nous permet de structurer le suivi des parcours sur l'ensemble de nos établissements PH." },

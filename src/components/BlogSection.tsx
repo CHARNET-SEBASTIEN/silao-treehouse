@@ -90,7 +90,7 @@ const BlogSection = () => {
             Guides terrain, décryptages réglementaires et retours d'expérience pour les professionnels du social et médico-social.
           </p>
           <p className="text-sm text-muted-foreground font-body max-w-2xl mx-auto mt-3 leading-6">
-            Chaque ressource ouvre ensuite vers les pages produit, méthode ou secteur directement liées au sujet traité, pour garder un parcours de lecture cohérent.
+            Chaque ressource approfondit un enjeu concret de déploiement, de conformité ou d'usage dans les ESSMS.
           </p>
           <p className="text-xs text-muted-foreground/60 font-body mt-2">
             Dernière mise à jour : mars 2026

@@ -11,7 +11,16 @@ const seo = getPageSeo("/plan-du-site");
 const sitemapGroups = [
   {
     title: "Pages principales",
-    paths: ["/", "/offres", "/abonnement", "/ressources", "/aide-support"],
+    paths: [
+      "/",
+      "/offres",
+      "/formations",
+      "/abonnement",
+      "/ressources",
+      "/aide-support",
+      "/mentions-legales",
+      "/politique-de-confidentialite",
+    ],
   },
   {
     title: "Secteurs",
@@ -19,12 +28,12 @@ const sitemapGroups = [
       "/secteur/handicap",
       "/secteur/protection-enfance",
       "/secteur/insertion-ahi",
-      "/secteur/camsp-cmpp",
+      "/secteur/personnes-difficultes-specifiques",
     ],
   },
   {
     title: "Expertise SILAO",
-    paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/engagements", "/quiz-segur"],
+    paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/formations", "/engagements", "/quiz-segur"],
   },
 ];
 

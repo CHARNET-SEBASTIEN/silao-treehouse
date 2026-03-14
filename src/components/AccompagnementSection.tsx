@@ -1,114 +1,198 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Handshake, Users, GraduationCap, BarChart3, Target, Activity } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  BarChart3,
+  BriefcaseBusiness,
+  GraduationCap,
+  Handshake,
+  Settings2,
+  Users,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
-const accompagnementPoints = [
-  { icon: Users, label: "Intégration des chefs de projet au COMOP" },
-  { icon: Handshake, label: "Gouvernance partagée" },
-  { icon: GraduationCap, label: "Accompagnement métier structuré" },
-  { icon: GraduationCap, label: "Plan de formation adapté aux profils" },
-  { icon: BarChart3, label: "Pilotage des indicateurs d'usage pour les financements" },
+import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { Button } from "@/components/ui/button";
+
+const phases = [
+  {
+    title: "Avant le déploiement",
+    icon: BriefcaseBusiness,
+    points: [
+      "Qualification du contexte, des établissements concernés et des contraintes métier.",
+      "Cadrage du projet, des interlocuteurs et des décisions à porter en gouvernance.",
+      "Préparation au changement avec les encadrants et l'équipe projet.",
+    ],
+  },
+  {
+    title: "Pendant le déploiement",
+    icon: Settings2,
+    points: [
+      "Paramétrage du DUI avec les profils en charge de la construction et de la reprise des données.",
+      "Accompagnement sur les rôles, nomenclatures, cycle de vie du dossier et outils collaboratifs.",
+      "Coordination continue entre projet, paramétrage, formation et démarrage.",
+    ],
+  },
+  {
+    title: "Après le déploiement",
+    icon: GraduationCap,
+    points: [
+      "Formation des équipes selon les profils, les droits et les usages réellement activés.",
+      "Renfort sur les fonctionnalités avancées ou les modules thématiques.",
+      "Suivi des usages et consolidation des pratiques dans la durée.",
+    ],
+  },
 ];
 
-const pilotageIndicators = [
-  { icon: Target, label: "Taux de qualification INS" },
-  { icon: Activity, label: "Taux d'alimentation du DMP" },
-  { icon: BarChart3, label: "Suivi des indicateurs d'usage" },
-  { icon: BarChart3, label: "Tableaux de bord temps réel pour la direction" },
+const supportBlocks = [
+  {
+    icon: Users,
+    title: "Interlocuteur unique",
+    description:
+      "Un même référent suit le projet du paramétrage à la formation afin de garder une lecture continue du contexte client.",
+  },
+  {
+    icon: Handshake,
+    title: "Proximité terrain",
+    description:
+      "L'accompagnement s'ajuste à la taille de la structure, aux profils en place et au niveau de maturité numérique des équipes.",
+  },
+  {
+    icon: BarChart3,
+    title: "Pilotage des usages",
+    description:
+      "Les indicateurs aident à suivre l'appropriation, à corriger les points de friction et à objectiver la progression.",
+  },
+  {
+    icon: Activity,
+    title: "Continuité opérationnelle",
+    description:
+      "Formation, support et suivi projet sont pensés comme un ensemble cohérent plutôt que comme des actions isolées.",
+  },
+];
+
+const indicators = [
+  "Qualification INS",
+  "Alimentation DMP",
+  "Progression des usages",
+  "Lecture de l'activité par établissement",
 ];
 
 const AccompagnementSection = () => {
+  const [demoOpen, setDemoOpen] = useState(false);
+
   return (
-    <section className="py-24 px-4 paper-bg">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-4 py-20 paper-bg">
+      <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mx-auto mb-16 max-w-4xl text-center"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-body font-medium">
-            <Handshake className="w-4 h-4" />
-            Axe 3 — Accompagnement
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 text-sm text-accent">
+            <Handshake className="h-4 w-4" />
+            Accompagnement SILAO
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Au-delà du logiciel :{" "}
-            <span className="text-primary sketch-underline">un partenariat opérationnel</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Un accompagnement au changement réellement clé en main, du COMOP au suivi de vos indicateurs.
+          <h1 className="mb-5 text-4xl font-bold text-foreground md:text-6xl">
+            Un accompagnement projet qui reste <span className="text-primary sketch-underline">continu</span>
+          </h1>
+          <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
+            Chez D2L Informatique, l&apos;accompagnement ne se limite pas à la mise en route du
+            logiciel. Il couvre la préparation du projet, la construction du DUI, la formation des
+            équipes et la lecture des usages après démarrage.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          {/* Points d'accompagnement */}
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6">Accompagnement structuré</h3>
-            <div className="space-y-4">
-              {accompagnementPoints.map((point, i) => (
-                <motion.div
-                  key={point.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
-                  className="flex items-start gap-4"
-                >
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <point.icon className="w-4 h-4 text-primary" />
-                  </div>
-                  <p className="text-foreground font-body">{point.label}</p>
-                </motion.div>
-              ))}
-            </div>
+        <div className="mb-16 grid gap-6 md:grid-cols-3">
+          {phases.map((phase, index) => (
+            <motion.article
+              key={phase.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06 }}
+              className="sketch-border bg-card p-8"
+            >
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <phase.icon className="h-5 w-5" />
+              </div>
+              <h2 className="mb-4 text-2xl font-bold text-foreground">{phase.title}</h2>
+              <ul className="space-y-3 text-sm leading-7 text-muted-foreground">
+                {phase.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </motion.article>
+          ))}
+        </div>
+
+        <div className="mb-16 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="grid gap-6 sm:grid-cols-2">
+            {supportBlocks.map((block, index) => (
+              <motion.article
+                key={block.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-sm"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+                  <block.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-foreground">{block.title}</h3>
+                <p className="text-sm leading-7 text-muted-foreground">{block.description}</p>
+              </motion.article>
+            ))}
           </div>
 
-          {/* Pilotage intégré */}
-          <motion.div
+          <motion.aside
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="sketch-border bg-card p-8"
+            className="rounded-[1.75rem] border border-border/60 bg-primary/5 p-8"
           >
-            <h4 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-primary" />
-              Pilotage intégré
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {pilotageIndicators.map((ind, i) => (
-                <motion.div
-                  key={ind.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-primary/5"
-                >
-                  <ind.icon className="w-4 h-4 text-primary shrink-0" />
-                  <span className="text-sm text-foreground font-body">{ind.label}</span>
-                </motion.div>
+            <h2 className="mb-4 text-2xl font-bold text-foreground">Pilotage des usages</h2>
+            <p className="mb-6 text-sm leading-7 text-muted-foreground">
+              L&apos;accompagnement intègre aussi la lecture des premiers usages pour aider les
+              établissements à consolider leurs pratiques et à objectiver leur progression.
+            </p>
+            <div className="space-y-3">
+              {indicators.map((indicator) => (
+                <div key={indicator} className="rounded-2xl bg-background/90 px-4 py-3 text-sm text-foreground">
+                  {indicator}
+                </div>
               ))}
             </div>
-          </motion.div>
+          </motion.aside>
         </div>
 
-        {/* Message fort */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="sketch-border bg-primary/5 border-primary/20 p-8 md:p-10 text-center max-w-3xl mx-auto"
-        >
-          <Target className="w-10 h-10 text-primary mx-auto mb-4" />
-          <p className="text-foreground text-lg font-body leading-relaxed">
-            <strong>Vos financements dépendent de l'atteinte de cibles d'usage.</strong>
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-border/60 bg-card p-8 text-center shadow-sm">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
+            Projet, formation et usage forment un même parcours
+          </h2>
+          <p className="mx-auto max-w-2xl text-muted-foreground leading-7">
+            L&apos;efficacité de SILAO repose sur cette continuité: un projet bien préparé, une
+            formation cohérente avec le paramétrage réel, puis un accompagnement qui aide les
+            équipes à tenir dans la durée.
           </p>
-          <p className="text-primary font-sketch text-xl mt-3">
-            Nous vous donnons les outils pour les atteindre et les prouver.
-          </p>
-        </motion.div>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+              Échanger sur votre projet
+            </Button>
+            <Button variant="hero-outline" size="xl" asChild>
+              <Link to="/formations" className="gap-2">
+                <ArrowRight className="h-4 w-4" />
+                Voir les formations
+              </Link>
+            </Button>
+          </div>
+        </div>
       </div>
+
+      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </section>
   );
 };

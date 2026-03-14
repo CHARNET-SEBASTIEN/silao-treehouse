@@ -4,7 +4,6 @@ import FeaturesSection from "@/components/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import PartnersSection from "@/components/PartnersSection";
 import FooterSection from "@/components/FooterSection";
-import AxesSummary from "@/components/AxesSummary";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
@@ -12,6 +11,10 @@ import KeyFiguresSection from "@/components/KeyFiguresSection";
 import FilieresSection from "@/components/FilieresSection";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import BenefitsByTeamSection from "@/components/BenefitsByTeamSection";
+import CompanyStorySection from "@/components/CompanyStorySection";
+import ContactHubSection from "@/components/ContactHubSection";
 import { getPageSeo } from "@/lib/publicRoutes";
 
 const seo = getPageSeo("/");
@@ -23,18 +26,23 @@ const Index = () => {
       <Navbar />
       <PageMain className="pt-16">
         <HeroSection />
-        <AxesSummary />
         <KeyFiguresSection />
-        <section id="features">
+        <section id="services">
           <FeaturesSection />
         </section>
         <FilieresSection />
-        <section id="testimonials">
+        <WhyChooseSection />
+        <BenefitsByTeamSection />
+        <CompanyStorySection />
+        <section id="references">
           <TestimonialsSection />
         </section>
-        <BlogSection />
-        <FAQSection />
         <PartnersSection />
+        <section id="actualites">
+          <BlogSection />
+        </section>
+        <FAQSection />
+        <ContactHubSection />
         <CTASection />
       </PageMain>
       <FooterSection />
