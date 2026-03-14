@@ -11,7 +11,7 @@ const partners = [
 
 const PartnersSection = () => {
   return (
-    <section className="px-4 py-20">
+    <section className="px-4 py-20 md:py-28">
       <div className="mx-auto max-w-5xl text-center section-panel px-6 py-10 md:px-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
