@@ -36,7 +36,7 @@ const axes = [
 
 const AxesSummary = () => {
   return (
-    <section className="pt-12 pb-12 px-4">
+    <section className="py-20 md:py-28 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,6 +44,9 @@ const AxesSummary = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
+          <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
+            Pourquoi choisir SILAO
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Nos <span className="text-primary sketch-underline">3 engagements</span>
           </h2>

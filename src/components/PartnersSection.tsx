@@ -17,7 +17,7 @@ const PartnersSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-3 text-2xl font-extrabold tracking-tight text-foreground md:text-4xl"
+          className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
         >
           Ils nous font <span className="text-primary sketch-underline">confiance</span>
         </motion.h2>

@@ -83,7 +83,7 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Ressources & <span className="text-primary sketch-underline">Actualités</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">

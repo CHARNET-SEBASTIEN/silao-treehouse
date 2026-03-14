@@ -182,7 +182,7 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
             Les fonctionnalités <span className="text-primary sketch-underline">clés</span> de SILAO
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground font-body">

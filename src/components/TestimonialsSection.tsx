@@ -26,16 +26,21 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-24 px-4 bg-card">
+    <section className="py-20 md:py-28 px-4 bg-card">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center text-foreground mb-16"
+          className="text-center mb-14"
         >
-          Retours <span className="text-primary sketch-underline">terrain</span>
-        </motion.h2>
+          <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
+            Ce qu'en disent les professionnels
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            Retours <span className="text-primary sketch-underline">terrain</span>
+          </h2>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, index) => (

@@ -160,7 +160,7 @@ const KeyFiguresSection = () => {
           <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
             Silao en quelques chiffres
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Chiffres <span className="text-primary sketch-underline">clés</span>
           </h2>
         </motion.div>

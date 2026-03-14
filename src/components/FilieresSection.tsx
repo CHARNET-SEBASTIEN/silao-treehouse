@@ -202,7 +202,7 @@ const FilieresSection = () => {
           <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
             Un DUI par secteur d'activité
           </p>
-          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-foreground md:text-5xl">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
             Les <span className="text-primary sketch-underline">secteurs</span> couverts par SILAO
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
