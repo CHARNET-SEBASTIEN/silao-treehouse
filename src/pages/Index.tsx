@@ -10,7 +10,6 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import KeyFiguresSection from "@/components/KeyFiguresSection";
 import FilieresSection from "@/components/FilieresSection";
-import InfographieParcours from "@/components/InfographieParcours";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
@@ -30,7 +29,6 @@ const Index = () => {
           <FeaturesSection />
         </section>
         <FilieresSection />
-        <InfographieParcours />
         <section id="testimonials">
           <TestimonialsSection />
         </section>

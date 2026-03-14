@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Building2, Handshake, HeartHandshake, Home, Sparkles, MessageSquareQuote, Brain, Rocket, CreditCard, Accessibility, ShieldCheck, Baby } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logoSilao from "@/assets/logo-silao.png";
+import logoSilao from "@/assets/logo-silao-official.svg";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { getScrollBehavior } from "@/lib/motion";

@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Mail, MapPin } from "lucide-react";
-import logoSilao from "@/assets/logo-silao.png";
+import logoSilao from "@/assets/logo-silao-official.svg";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 import { getScrollBehavior } from "@/lib/motion";
 

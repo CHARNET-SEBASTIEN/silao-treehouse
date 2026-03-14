@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
+import duiDashboardMockup from "@/assets/dui-dashboard-mockup.png";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
@@ -185,7 +186,7 @@ const HeroSection = () => {
           <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
 
-        {/* Animated Tree */}
+        {/* Hero illustration and product mockup */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -254,7 +255,7 @@ const HeroSection = () => {
                   <img
                     src={heroTree}
                     alt="Arbre éducatif avec enfants et éducateurs"
-                    className="mx-auto h-[16rem] w-auto max-w-none mix-blend-multiply sm:h-[20rem] md:h-[25rem] lg:h-[28rem] xl:h-[31rem]"
+                    className="mx-auto h-[16rem] w-auto max-w-none mix-blend-multiply sm:h-[20rem] md:h-[23rem] lg:h-[25rem] xl:h-[27rem]"
                     style={{
                       maskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
                       WebkitMaskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
@@ -376,6 +377,58 @@ const HeroSection = () => {
                 </p>
               </div>
             ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.72, duration: 0.6 }}
+            className="mt-6 rounded-[2rem] border border-white/60 bg-[linear-gradient(145deg,rgba(255,255,255,0.95),rgba(241,245,255,0.92))] p-3 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)]"
+          >
+            <div className="flex items-center justify-between rounded-[1.2rem] bg-[linear-gradient(120deg,#5c56e8,#6d56e6,#7b6df4)] px-4 py-3 text-white shadow-sm">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/95" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/65" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/35" />
+              </div>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/90">
+                Tableau de bord SILAO
+              </p>
+              <div className="rounded-full border border-white/20 bg-white/12 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white/88">
+                DUI web
+              </div>
+            </div>
+
+            <div className="relative mt-3 overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-black/5">
+              <img
+                src={duiDashboardMockup}
+                alt="Aperçu du tableau de bord du Dossier Usager Informatisé SILAO"
+                className="block h-auto w-full object-cover"
+              />
+              <div className="pointer-events-none absolute left-[16%] top-[3%] h-[4.5%] w-[31%] rounded-full bg-[#6b5ee8]/72 shadow-sm backdrop-blur-sm" />
+              <div className="pointer-events-none absolute right-[4%] top-[3%] h-[4.5%] w-[29%] rounded-full bg-[#6b5ee8]/92 shadow-sm backdrop-blur-sm" />
+              <div className="pointer-events-none absolute left-[2%] top-[11.5%] h-[3.7%] w-[18%] rounded-full bg-white/95 shadow-sm backdrop-blur-sm" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/92 via-white/15 to-transparent" />
+            </div>
+
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-border/60 bg-background/80 px-3 py-3 shadow-sm">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Vue d'accueil
+                </p>
+                <p className="mt-1 text-sm font-semibold text-foreground">
+                  Paramétrable par métier
+                </p>
+              </div>
+              <div className="rounded-2xl border border-border/60 bg-background/80 px-3 py-3 shadow-sm">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Accès unifié
+                </p>
+                <p className="mt-1 text-sm font-semibold text-foreground">
+                  Agenda, docs, pilotage
+                </p>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
