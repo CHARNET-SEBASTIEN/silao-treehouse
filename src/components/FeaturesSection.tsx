@@ -157,7 +157,7 @@ const leafSway = {
 
 const FeaturesSection = () => {
   return (
-    <section className="relative overflow-hidden px-4 pt-8 pb-24">
+    <section className="relative overflow-hidden px-4 py-20 md:py-28">
       {/* Background tree trunk SVG */}
       <svg
         className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-40 opacity-[0.06] pointer-events-none"
@@ -182,7 +182,7 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
             Les fonctionnalités <span className="text-primary sketch-underline">clés</span> de SILAO
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground font-body">

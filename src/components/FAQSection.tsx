@@ -177,7 +177,7 @@ export const faqSchema = {
 };
 
 const FAQSection = () => (
-    <section id="faq" className="py-20 px-4">
+    <section id="faq" className="py-20 md:py-28 px-4 paper-grain">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

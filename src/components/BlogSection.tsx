@@ -75,7 +75,7 @@ const BlogSection = () => {
   }, []);
 
   return (
-    <section className="px-4 py-20">
+    <section className="px-4 py-20 md:py-28">
       <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-foreground md:text-4xl">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Ressources & <span className="text-primary sketch-underline">Actualités</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto">
