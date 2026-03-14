@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
+import duiDashboardMockup from "@/assets/dui-dashboard-mockup.png";
 import heroTree from "@/assets/hero-tree.png";
 import { Button } from "@/components/ui/button";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
-import { Brain, Accessibility, ShieldCheck, Home, Baby, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Brain, Accessibility, ShieldCheck, Home, Baby, GraduationCap, Briefcase, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const secteurs = [
   { icon: Accessibility, label: "Handicap", href: "/secteur/handicap", color: "bg-primary/12 text-primary border-primary/25 hover:bg-primary hover:text-primary-foreground" },
@@ -13,10 +14,28 @@ const secteurs = [
   { icon: Baby, label: "CAMSP / CMPP", href: "/secteur/camsp-cmpp", color: "bg-primary/12 text-primary border-primary/25 hover:bg-primary hover:text-primary-foreground" },
 ];
 
+const services = [
+  { icon: Briefcase, label: "Aide à la MOA", description: "Pilotage de projet & gouvernance" },
+  { icon: GraduationCap, label: "Formation", description: "Plans adaptés par profil métier" },
+];
+
 const reassurancePoints = [
   "Déploiement cadré avec vos équipes métier",
   "Conformité et cybersécurité intégrées",
   "Accompagnement durable, sans migration forcée",
+];
+
+const illustrationHighlights = [
+  {
+    icon: Briefcase,
+    title: "Déploiement accompagné",
+    description: "Cadrage, paramétrage et formation portés avec vos équipes.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Conformité intégrée",
+    description: "Un cadre de travail pensé pour les exigences du terrain.",
+  },
 ];
 
 /* Floating leaf particle component */
@@ -62,17 +81,20 @@ const HeroSection = () => {
   const glowY = useTransform(smoothY, (v) => `${v * 100}%`);
 
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden px-4 pt-8 pb-12 md:pb-16">
-      <div className="relative z-10 w-full max-w-6xl">
-        <div className="flex flex-col items-center gap-12 md:flex-row md:items-center">
+    <section className="relative flex flex-col items-center justify-center paper-bg overflow-hidden px-4 pt-6 pb-8 md:pb-12">
+      <div className="relative z-10 w-full max-w-6xl section-panel px-5 py-8 sm:px-8 md:px-10 md:py-10">
+        <div className="flex flex-col items-center gap-10 md:flex-row md:items-start">
           {/* Text content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center md:w-[50%] md:text-left shrink-0"
+            className="text-center md:w-[46%] md:text-left shrink-0"
           >
-            <h1 className="mb-3 text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              D2L présente
+            </p>
+            <h1 className="mb-2 text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl">
               <span className="block text-primary font-sketch md:text-7xl">SILAO</span>
               <span className="block mt-1">Le DUI qui clarifie le parcours usager</span>
             </h1>
@@ -80,11 +102,7 @@ const HeroSection = () => {
               pour le social et médico-social
             </p>
 
-            <p className="mb-6 max-w-lg text-base leading-7 text-muted-foreground md:text-lg">
-              Projets personnalisés, transmissions, bilans et pilotage dans un outil unique, partagé par toute l'équipe.
-            </p>
-
-            {/* Secteur badges */}
+            {/* 4 filières — playful rounded badges */}
             <div className="mb-6 flex flex-wrap justify-center gap-2.5 md:justify-start">
               {secteurs.map((s, i) => (
                 <motion.div
@@ -104,11 +122,30 @@ const HeroSection = () => {
               ))}
             </div>
 
+            <p className="mb-6 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">
+              <strong className="font-semibold text-foreground">SILAO</strong> réunit projets personnalisés, transmissions, bilans et pilotage dans un outil unique, partagé par toute l'équipe. Une lecture simple du terrain, sans ajouter de charge mentale au déploiement.
+            </p>
+
+            {/* Services — subtle chips */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="mb-6 flex flex-wrap justify-center gap-3 md:justify-start"
+            >
+              {services.map((s) => (
+                <div key={s.label} className="flex items-center gap-2 rounded-full bg-background/80 px-3 py-1.5 text-sm text-muted-foreground shadow-sm">
+                  <s.icon className="w-4 h-4 text-secondary" />
+                  <span><strong className="text-foreground">{s.label}</strong> — {s.description}</span>
+                </div>
+              ))}
+            </motion.div>
+
             {/* Reassurance */}
             <motion.ul
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 0.78 }}
               className="mb-7 space-y-2 text-left"
             >
               {reassurancePoints.map((point) => (
@@ -123,7 +160,7 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.85 }}
               className="flex flex-col gap-3 md:items-start"
             >
               <Button variant="hero" size="xl" className="w-full sm:w-auto sm:min-w-[16rem]" onClick={() => setDemoOpen(true)}>
@@ -144,19 +181,33 @@ const HeroSection = () => {
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground">
-                Démo personnalisée · Premier retour sous 48 h
+                Démo personnalisée, cadrage métier et premier retour sous 48 h.
               </p>
             </motion.div>
             <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
           </motion.div>
 
-          {/* Hero illustration */}
+          {/* Hero illustration and product mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3 }}
-            className="relative w-full md:w-[45%]"
+            className="relative w-full md:w-[47%] md:pt-2"
           >
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
+              className="mb-4 text-center md:mb-5 md:text-left"
+            >
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Une vision métier unifiée
+              </p>
+              <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
+                Parcours, transmissions, bilans et pilotage rassemblés dans une seule interface partagée par les équipes.
+              </p>
+            </motion.div>
+
             <div
               className="relative flex items-center justify-center overflow-visible cursor-pointer"
               onMouseEnter={() => setIsHovered(true)}
@@ -179,7 +230,7 @@ const HeroSection = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="origin-[50%_40%]"
+                className="origin-[50%_40%] scale-[0.98] md:scale-100"
               >
                 <motion.div
                   animate={{
@@ -205,7 +256,7 @@ const HeroSection = () => {
                     <img
                       src={heroTree}
                       alt="Arbre éducatif avec enfants et éducateurs"
-                      className="mx-auto h-[18rem] w-auto max-w-none mix-blend-multiply sm:h-[22rem] md:h-[26rem] lg:h-[28rem]"
+                      className="mx-auto h-[16rem] w-auto max-w-none mix-blend-multiply sm:h-[20rem] md:h-[23rem] lg:h-[25rem] xl:h-[27rem]"
                       style={{
                         maskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
                         WebkitMaskImage: "radial-gradient(ellipse 65% 60% at 50% 48%, black 40%, transparent 85%)",
@@ -250,6 +301,82 @@ const HeroSection = () => {
               <FloatingLeaf delay={5} x="45%" size={14} />
               <FloatingLeaf delay={7} x="60%" size={9} />
             </div>
+
+            {/* Highlight cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2"
+            >
+              {illustrationHighlights.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-border/60 bg-background/70 px-4 py-4 shadow-sm backdrop-blur"
+                >
+                  <div className="mb-2 flex items-center gap-2 text-primary">
+                    <item.icon className="h-4 w-4" />
+                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  </div>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Dashboard mockup */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.72, duration: 0.6 }}
+              className="mt-6 rounded-[2rem] border border-white/60 bg-[linear-gradient(145deg,rgba(255,255,255,0.95),rgba(241,245,255,0.92))] p-3 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.35)]"
+            >
+              <div className="flex items-center justify-between rounded-[1.2rem] bg-[linear-gradient(120deg,#5c56e8,#6d56e6,#7b6df4)] px-4 py-3 text-white shadow-sm">
+                <div className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/95" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/65" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/35" />
+                </div>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/90">
+                  Tableau de bord SILAO
+                </p>
+                <div className="rounded-full border border-white/20 bg-white/12 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white/88">
+                  DUI web
+                </div>
+              </div>
+
+              <div className="relative mt-3 overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-black/5">
+                <img
+                  src={duiDashboardMockup}
+                  alt="Aperçu du tableau de bord du Dossier Usager Informatisé SILAO"
+                  className="block h-auto w-full object-cover"
+                />
+                <div className="pointer-events-none absolute left-[16%] top-[3%] h-[4.5%] w-[31%] rounded-full bg-[#6b5ee8]/72 shadow-sm backdrop-blur-sm" />
+                <div className="pointer-events-none absolute right-[4%] top-[3%] h-[4.5%] w-[29%] rounded-full bg-[#6b5ee8]/92 shadow-sm backdrop-blur-sm" />
+                <div className="pointer-events-none absolute left-[2%] top-[11.5%] h-[3.7%] w-[18%] rounded-full bg-white/95 shadow-sm backdrop-blur-sm" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/92 via-white/15 to-transparent" />
+              </div>
+
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-border/60 bg-background/80 px-3 py-3 shadow-sm">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Vue d'accueil
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">
+                    Paramétrable par métier
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border/60 bg-background/80 px-3 py-3 shadow-sm">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Accès unifié
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">
+                    Agenda, docs, pilotage
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
