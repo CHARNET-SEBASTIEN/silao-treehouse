@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import AbonnementPage from "@/pages/AbonnementPage";
 import AccompagnementPage from "@/pages/AccompagnementPage";
+import CookiePolicyPage from "@/pages/CookiePolicyPage";
 import EngagementsPage from "@/pages/EngagementsPage";
 import FormationsPage from "@/pages/FormationsPage";
 import GrappesPage from "@/pages/GrappesPage";
@@ -43,6 +44,7 @@ const AppRoutes = () => (
     <Route path="/aide-support" element={<HelpSupportPage />} />
     <Route path="/mentions-legales" element={<LegalNoticesPage />} />
     <Route path="/politique-de-confidentialite" element={<PrivacyPolicyPage />} />
+    <Route path="/politique-de-cookies" element={<CookiePolicyPage />} />
     <Route path="/plan-du-site" element={<SitemapPage />} />
     <Route path="/404" element={<NotFound />} />
     <Route path="*" element={<NotFound />} />

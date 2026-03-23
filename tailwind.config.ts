@@ -15,8 +15,14 @@ export default {
     },
     extend: {
       fontFamily: {
-        sketch: ["Caveat", "cursive"],
-        body: ["DM Sans", "sans-serif"],
+        sketch: ["\"Segoe Print\"", "\"Bradley Hand\"", "\"Marker Felt\"", "cursive"],
+        body: [
+          "\"Avenir Next\"",
+          "Avenir",
+          "\"Segoe UI\"",
+          "\"Helvetica Neue\"",
+          "sans-serif",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
+import { CONTACT_EMAIL, DPO_EMAIL, RIGHTS_REQUEST_URL } from "@/lib/site";
 
 interface DemoRequestDialogProps {
   open: boolean;
@@ -30,6 +32,30 @@ const initialValues: FormValues = {
   organization: "",
   phone: "",
   message: "",
+};
+
+const buildMailtoHref = (values: FormValues) => {
+  const lines = [
+    `Nom : ${values.lastName.trim()}`,
+    `Prénom : ${values.firstName.trim()}`,
+    `Email : ${values.email.trim()}`,
+    `Organisation : ${values.organization.trim()}`,
+  ];
+
+  if (values.phone.trim()) {
+    lines.push(`Téléphone : ${values.phone.trim()}`);
+  }
+
+  if (values.message.trim()) {
+    lines.push("", "Message :", values.message.trim());
+  }
+
+  const params = new URLSearchParams({
+    subject: "Demande de démonstration SILAO",
+    body: lines.join("\n"),
+  });
+
+  return `mailto:${CONTACT_EMAIL}?${params.toString()}`;
 };
 
 const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProps>(
@@ -110,18 +136,17 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
         return;
       }
 
-      setStatusMessage("Envoi en cours de votre demande.");
+      setStatusMessage("Préparation de votre demande.");
       setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setFormValues(initialValues);
-        setErrors({});
-        setStatusMessage("Demande envoyée. Notre équipe vous recontactera rapidement.");
-        onOpenChange(false);
-        toast.success("Demande envoyée !", {
-          description: "Nous vous recontacterons très rapidement.",
-        });
-      }, 1000);
+      window.location.href = buildMailtoHref(formValues);
+      setLoading(false);
+      setFormValues(initialValues);
+      setErrors({});
+      setStatusMessage("Votre messagerie s'ouvre pour finaliser l'envoi.");
+      onOpenChange(false);
+      toast.success("Votre messagerie s'ouvre", {
+        description: "Vérifiez le message prérempli puis confirmez l'envoi.",
+      });
     };
 
     return (
@@ -271,16 +296,46 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                 ref={(node) => {
                   fieldRefs.current.message = node;
                 }}
-              />
+                />
+            </div>
+
+            <div className="rounded-2xl border border-border/70 bg-muted/35 p-4 text-xs leading-6 text-muted-foreground">
+              <p>
+                Les champs marqués d&apos;un * sont obligatoires. Les informations saisies sont
+                traitées par D2L Informatique afin de répondre à votre demande de démonstration et
+                d&apos;organiser un échange commercial. La base légale est l&apos;exécution de mesures
+                précontractuelles prises à votre demande.
+              </p>
+              <p className="mt-2">
+                Les données sont destinées aux équipes habilitées de D2L Informatique et conservées
+                pendant 3 ans à compter du dernier contact. Vous pouvez exercer vos droits via{" "}
+                <a
+                  className="text-primary underline underline-offset-4"
+                  href={RIGHTS_REQUEST_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  le formulaire dédié
+                </a>
+                , à l&apos;adresse{" "}
+                <a className="text-primary underline underline-offset-4" href={`mailto:${DPO_EMAIL}`}>
+                  {DPO_EMAIL}
+                </a>{" "}
+                ou en consultant notre{" "}
+                <Link className="text-primary underline underline-offset-4" to="/politique-de-confidentialite">
+                  politique de confidentialité
+                </Link>
+                .
+              </p>
             </div>
 
             <Button type="submit" variant="hero" size="xl" className="w-full" disabled={loading}>
               {loading ? (
-                "Envoi en cours…"
+                "Préparation…"
               ) : (
                 <>
                   <Send className="w-4 h-4 mr-2" />
-                  Envoyer ma demande
+                  Ouvrir mon message
                 </>
               )}
             </Button>

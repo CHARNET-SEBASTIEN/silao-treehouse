@@ -5,7 +5,7 @@ import { Linkedin, Mail, MapPin } from "lucide-react";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 import logoSilao from "@/assets/logo-silao-official.svg";
 import { getScrollBehavior } from "@/lib/motion";
-import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
+import { COMPANY_ADDRESS, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
 
 const footerAnchors = [
   { label: "Secteurs", href: "/#secteurs" },
@@ -117,7 +117,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 </a>
                 <div className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 text-primary" />
-                  <span>9 rue Saint Sébastien, 37330 Marcilly-sur-Maulne</span>
+                  <span>{COMPANY_ADDRESS}</span>
                 </div>
                 <a
                   href={LINKEDIN_URL}
@@ -142,6 +142,9 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               </Link>
               <Link to="/politique-de-confidentialite" className="transition-colors hover:text-primary">
                 Politique de confidentialité
+              </Link>
+              <Link to="/politique-de-cookies" className="transition-colors hover:text-primary">
+                Politique de cookies
               </Link>
               <Link to="/plan-du-site" className="transition-colors hover:text-primary">
                 Plan du site

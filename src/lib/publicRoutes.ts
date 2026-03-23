@@ -221,6 +221,13 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     priority: 0.2,
   },
   {
+    path: "/politique-de-cookies",
+    title: "Politique de cookies | SILAO par D2L",
+    description:
+      "Consultez la politique de cookies du site SILAO et l'état actuel des traceurs utilisés.",
+    priority: 0.2,
+  },
+  {
     path: "/plan-du-site",
     title: "Plan du site SILAO | Toutes les pages publiques",
     description:
