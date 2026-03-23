@@ -27,7 +27,7 @@ const axes = [
     image: engagementIndependance,
     title: "Indépendance &",
     titleLine2: "engagements durables",
-    description: "Un éditeur indépendant et engagé. Solution pérenne, SLA formalisés, sans risque de migration forcée.",
+    description: "Un éditeur engagé sur la sécurité, le référencement Ségur, l'accessibilité et une démarche responsable.",
     href: "/engagements",
     color: "from-accent/30 to-accent/10",
     hoverColor: "group-hover:from-accent/40 group-hover:to-accent/15",

@@ -103,10 +103,10 @@ const searchItems: SearchItem[] = [
   },
   {
     title: "Formations",
-    description: "PAPSIL, Art'Sil, FOAD, visio, présentiel et modules thématiques.",
+    description: "Formations sur mesure, Qualiopi, accessibilité et organisation adaptée aux équipes.",
     href: "/formations",
     category: "Services",
-    keywords: ["formations", "papsil", "artsil", "foad", "qualiopi", "agenda"],
+    keywords: ["formations", "qualiopi", "accessibilite", "catalogue", "sur mesure", "agenda"],
   },
   {
     title: "Offres",

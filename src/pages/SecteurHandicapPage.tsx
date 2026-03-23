@@ -1,8 +1,9 @@
-import Navbar from "@/components/Navbar";
+import { Accessibility } from "lucide-react";
+
 import FooterSection from "@/components/FooterSection";
+import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
-import { Accessibility } from "lucide-react";
 
 const SecteurHandicapPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -11,45 +12,54 @@ const SecteurHandicapPage = () => (
       <SecteurPageLayout
         icon={Accessibility}
         name="Médico-social — PH"
-        tagline="Le DUI conçu pour les prises en charge du secteur médico-social"
-        description="Silao accompagne les établissements et services du secteur PH avec un dossier usager informatisé complet, conforme aux exigences réglementaires et adapté aux réalités terrain : projets personnalisés, coordination pluridisciplinaire, agenda, listes d'attente et suivi des parcours."
+        tagline="Un DUI pensé pour les prises en charge du médico-social et du handicap"
+        description="Les fonctionnalités dédiées au secteur médico-social n'ont cessé de se multiplier sous l'impulsion de nos clients. Silao couvre aussi bien les besoins des structures avec hébergement que ceux des CAMSP et des CMPP."
         seoPath="/secteur/handicap"
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[
-          { name: "IME", description: "Institut Médico-Éducatif : accompagnement éducatif et thérapeutique des enfants en situation de handicap." },
-          { name: "DITEP", description: "Dispositif Thérapeutique Éducatif et Pédagogique : prise en charge coordonnée des troubles du comportement." },
-          { name: "SESSAD", description: "Service d'Éducation Spéciale et de Soins à Domicile : intervention au plus près du lieu de vie." },
-          { name: "CAMSP", description: "Centre d'Action Médico-Sociale Précoce : dépistage et accompagnement précoces." },
-          { name: "CMPP", description: "Centre Médico-Psycho-Pédagogique : suivi pluridisciplinaire et bilans." },
-          { name: "MAS", description: "Maison d'Accueil Spécialisée : hébergement et soins pour adultes lourdement handicapés." },
-          { name: "FAM", description: "Foyer d'Accueil Médicalisé : accompagnement des adultes nécessitant un suivi médical." },
+          {
+            name: "IME",
+            description:
+              "Institut médico-éducatif et accompagnements éducatifs ou thérapeutiques coordonnés.",
+          },
+          {
+            name: "DITEP / SESSAD",
+            description:
+              "Prises en charge pluridisciplinaires au plus près du lieu de vie des enfants et adolescents.",
+          },
+          {
+            name: "CAMSP / CMPP",
+            description:
+              "Structures de suivi précoce et ambulatoire avec agenda, attentes, bilans et rapports spécialisés.",
+          },
+          {
+            name: "MAS / FAM",
+            description:
+              "Structures avec hébergement nécessitant coordination, sécurité des données et suivi de santé renforcé.",
+          },
         ]}
         benefits={[
-          "Projet personnalisé intégré avec suivi des objectifs et évaluations",
-          "Coordination pluridisciplinaire simplifiée (éducateurs, soignants, psychologues)",
-          "Agenda des professionnels et des usagers, rappels et gestion des transports",
-          "Interopérabilité : alimentation du DMP, INS qualifiée, messagerie MSSanté",
-          "Gestion des courriers, des bilans, des listes d'attente et des rapports attendus",
-          "Tableaux de bord de pilotage pour la direction, les tutelles et les financeurs",
-          "Traçabilité complète des accompagnements pour les évaluations et obligations métier",
+          "L'agenda concentre l'activité du service avec gestion des alertes, rappels, plages horaires, ressources et transports.",
+          "Silao facilite la gestion et le suivi des prestations MDPH ainsi que des dossiers administratifs associés.",
+          "Une fiche d'urgence peut être générée pour récupérer rapidement les informations vitales d'un usager.",
+          "La gestion des attentes aide à organiser les admissions selon les demandes, le temps d'attente, le praticien concerné et la criticité.",
+          "Les rapports ANAP, CPAM, CMPP et CAMSP sont disponibles dans Silao.",
+          "Silao est référencé DSR Ségur MS1 PH pour les personnes en situation de handicap.",
         ]}
         modules={[
           "Dossier Usager Informatisé",
-          "Projet Personnalisé",
           "Agenda partagé",
-          "Transmissions ciblées",
-          "Bilans & évaluations",
+          "Gestion des alertes",
+          "Gestion MDPH",
+          "Fiche d'urgence",
+          "Gestion des attentes",
           "Dossier santé",
-          "GED & documents",
-          "Reporting & statistiques",
-          "Listes d'attente",
-          "Facturation",
+          "Rapports ANAP / CPAM / CMPP / CAMSP",
+          "Transports et déplacements",
+          "Gestion des ressources",
         ]}
-        clients={[
-          { name: "Croix-Rouge française", quote: "Silao nous permet de structurer le suivi des parcours sur l'ensemble de nos établissements PH." },
-          { name: "ADSEA 80", quote: "Un outil adapté à nos réalités de terrain, avec un accompagnement projet exemplaire." },
-        ]}
+        clients={[]}
       />
     </PageMain>
     <FooterSection />

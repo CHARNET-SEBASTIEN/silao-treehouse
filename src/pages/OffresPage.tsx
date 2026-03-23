@@ -49,12 +49,12 @@ const offerBlocks = [
     icon: BookOpenCheck,
     title: "Formation",
     description:
-      "Formations avant, pendant et après déploiement, avec FOAD, visio, présentiel et modules thématiques selon les profils.",
+      "Formations adaptées aux besoins de vos équipes, organisées sur mesure avec une équipe expérimentée et un interlocuteur dédié.",
     points: [
-      "PAPSIL",
-      "Art'Sil",
-      "FOAD standard ou administrateur",
-      "Sessions thématiques ciblées",
+      "Formules sur mesure",
+      "Organisation entre 1 et 2 mois selon la demande",
+      "Certification Qualiopi",
+      "Accessibilité étudiée au cas par cas",
     ],
   },
 ];

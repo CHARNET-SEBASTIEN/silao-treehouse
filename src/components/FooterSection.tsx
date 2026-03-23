@@ -117,7 +117,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 </a>
                 <div className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 text-primary" />
-                  <span>France</span>
+                  <span>9 rue Saint Sébastien, 37330 Marcilly-sur-Maulne</span>
                 </div>
                 <a
                   href={LINKEDIN_URL}

@@ -31,8 +31,8 @@ const steps = [
     step: "Étape 4",
     title: "Le Partenariat Durable",
     description:
-      "Support réactif avec SLA formalisés et co-construction des futures versions via le Club Utilisateurs.",
-    accent: "Sans limite de durée",
+      "Une relation durable portée par l'accompagnement, la qualité de service, la sécurité et l'amélioration continue.",
+    accent: "Dans la durée",
   },
 ];
 

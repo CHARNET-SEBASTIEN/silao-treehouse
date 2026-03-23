@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 
 const partners = [
   "Croix-Rouge française",
+  "Action Enfance",
+  "Sauvegarde 26",
+  "ARRAS",
+  "ADSEA02",
   "Fondation Grancher",
-  "ADSEA 80",
-  "MECS La Cordée",
-  "L'Oustal",
-  "AJP",
+  "MDEF Calvados",
 ];
 
 const PartnersSection = () => {
@@ -19,10 +20,11 @@ const PartnersSection = () => {
           viewport={{ once: true }}
           className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
         >
-          Ils nous font <span className="text-primary sketch-underline">confiance</span>
+          Quelques structures <span className="text-primary sketch-underline">accompagnées</span>
         </motion.h2>
         <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
-          Associations, établissements et directions métiers s'appuient déjà sur SILAO pour structurer leurs usages sans perdre leur réalité terrain.
+          Des associations, établissements et directions métiers s&apos;appuient sur SILAO pour
+          structurer leurs usages sans perdre leur réalité terrain.
         </p>
 
         <motion.div
@@ -34,7 +36,7 @@ const PartnersSection = () => {
           {partners.map((partner) => (
             <span
               key={partner}
-              className="sketch-border-sm px-5 py-2 bg-card text-muted-foreground font-body text-sm cursor-default"
+              className="cursor-default bg-card px-5 py-2 font-body text-sm text-muted-foreground sketch-border-sm"
             >
               {partner}
             </span>

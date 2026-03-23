@@ -1,124 +1,102 @@
 import { motion } from "framer-motion";
-import { Clock, TicketCheck, Timer, Users, HeartHandshake, AlertTriangle } from "lucide-react";
+import {
+  Accessibility,
+  HeartHandshake,
+  Leaf,
+  LockKeyhole,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
-const slaItems = [
-  { icon: AlertTriangle, label: "24h pour anomalie bloquante", highlight: true },
-  { icon: Timer, label: "5 jours pour anomalie non bloquante", highlight: false },
-  { icon: TicketCheck, label: "Outil de ticketing transparent", highlight: false },
-  { icon: Clock, label: "Traçabilité complète des demandes", highlight: false },
-];
-
-const clubPoints = [
-  "Co-construction des évolutions",
-  "Anticipation réglementaire",
-  "Participation active des ESMS",
+const commitments = [
+  {
+    icon: Sparkles,
+    title: "Qualité et simplicité",
+    description:
+      "Silao est une solution SaaS entièrement installée, gérée et mise à jour par nos soins, avec une attention particulière portée à la protection des données.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "Sécurité",
+    description:
+      "Accès réservés aux personnes autorisées, droits définis par profil, données hébergées sur serveur protégé HDS, échanges chiffrés et sensibilisation régulière des équipes à la cybersécurité.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Référencement Ségur",
+    description:
+      "Silao est référencé Ségur et s'inscrit dans une démarche de sécurité et d'amélioration de la prise en charge de l'usager.",
+  },
+  {
+    icon: Accessibility,
+    title: "Accessibilité",
+    description:
+      "Nos accompagnements, contenus et formations sont adaptés aux personnes en situation de handicap, avec aménagements possibles selon les besoins.",
+  },
+  {
+    icon: Leaf,
+    title: "Démarche responsable",
+    description:
+      "Déplacements privilégiant le train, réunions en visioconférence quand c'est pertinent et attention portée au développement durable dans nos pratiques comme dans nos solutions.",
+  },
 ];
 
 const EngagementsSection = () => {
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative overflow-hidden px-4 py-24 paper-bg">
+      <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-body font-medium">
-            <HeartHandshake className="w-4 h-4" />
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+            <HeartHandshake className="h-4 w-4" />
             Engagements
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Des engagements{" "}
-            <span className="text-primary sketch-underline">durables</span>
+          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
+            Des engagements <span className="text-primary sketch-underline">durables</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Performance et transparence : des SLA formalisés pour tous nos clients, sans limite de durée.
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            La performance, la réglementation et la qualité de l&apos;accompagnement sont au cœur
+            de toutes nos actions, au service du confort d&apos;utilisation, de la sécurité des
+            données et de l&apos;optimisation de la prise en charge.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          {/* SLA */}
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6">SLA formalisés</h3>
-            <div className="space-y-4">
-              {slaItems.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
-                  className={`flex items-center gap-4 p-4 rounded-lg ${
-                    item.highlight ? "bg-primary/10 sketch-border-sm" : "bg-card"
-                  }`}
-                >
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${
-                      item.highlight ? "bg-primary/20" : "bg-primary/10"
-                    }`}
-                  >
-                    <item.icon className={`w-5 h-5 ${item.highlight ? "text-primary" : "text-primary"}`} />
-                  </div>
-                  <p className={`font-body text-lg ${item.highlight ? "text-foreground font-semibold" : "text-foreground"}`}>
-                    {item.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Club Utilisateurs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="sketch-border bg-card p-8"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center">
-                <Users className="w-5 h-5 text-secondary" />
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
+          {commitments.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06 }}
+              className="rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-sm"
+            >
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <item.icon className="h-5 w-5" />
               </div>
-              <h4 className="text-xl font-bold text-foreground">Club Utilisateurs</h4>
-            </div>
-            <div className="space-y-4">
-              {clubPoints.map((point, i) => (
-                <motion.div
-                  key={point}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <div className="w-2 h-2 rounded-full bg-secondary shrink-0" />
-                  <p className="text-foreground font-body">{point}</p>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-6 pt-6 border-t border-border">
-              <p className="text-muted-foreground font-body text-sm leading-relaxed">
-                Un club formalisé pour co-construire les évolutions et anticiper les changements réglementaires avec vos équipes.
-              </p>
-            </div>
-          </motion.div>
+              <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
+              <p className="text-sm leading-7 text-muted-foreground">{item.description}</p>
+            </motion.article>
+          ))}
         </div>
 
-        {/* Message différenciant */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="sketch-border bg-primary/5 border-primary/20 p-8 md:p-10 text-center max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl border-primary/20 bg-primary/5 p-8 text-center sketch-border md:p-10"
         >
-          <HeartHandshake className="w-10 h-10 text-primary mx-auto mb-4" />
-          <p className="text-foreground text-lg font-body leading-relaxed">
-            <strong>Nous ne livrons pas un logiciel.</strong>
+          <HeartHandshake className="mx-auto mb-4 h-10 w-10 text-primary" />
+          <p className="text-lg leading-relaxed text-foreground font-body">
+            <strong>Nous ne livrons pas seulement un logiciel.</strong>
           </p>
-          <p className="text-primary font-sketch text-xl mt-3">
-            Nous construisons une relation durable.
+          <p className="mt-3 font-sketch text-xl text-primary">
+            Nous portons une solution, un accompagnement et une responsabilité durable.
           </p>
         </motion.div>
       </div>

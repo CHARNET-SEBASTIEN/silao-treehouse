@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import {
   BedDouble,
   BriefcaseBusiness,
+  Building2,
   ClipboardPenLine,
   HeartPulse,
   Smartphone,
@@ -10,47 +11,56 @@ import {
 const teamBenefits = [
   {
     icon: BriefcaseBusiness,
-    title: "Administratif",
+    title: "Équipes administratives",
     points: [
-      "Dossier administratif unifié et documents centralisés.",
-      "Suivi des financeurs, états, statistiques et facturation.",
-      "Moins de doubles saisies et de tableaux dispersés.",
+      "Accéder facilement et rapidement à toutes les informations.",
+      "Centraliser les documents et mieux gérer les échéances grâce aux alertes.",
+      "Gagner du temps sur la rédaction des documents, rapports et circuits de validation.",
     ],
   },
   {
     icon: ClipboardPenLine,
-    title: "Accompagnement",
+    title: "Équipes éducatives et accompagnement",
     points: [
-      "Projets personnalisés, transmissions et rendez-vous dans le même outil.",
-      "Historique exploitable sans dépendre d'un classeur local ou d'un oral.",
-      "Vision claire du parcours usager et des actions en cours.",
+      "Accéder en un clic au cahier de liaison et à l'agenda.",
+      "Transmettre et recevoir des informations en temps réel.",
+      "Gagner en visibilité sur les actions et en temps sur la rédaction des rapports.",
     ],
   },
   {
     icon: HeartPulse,
-    title: "Médical et paramédical",
+    title: "Équipes médicales",
     points: [
-      "Dossier santé, bilans, comptes rendus et coordination pluridisciplinaire.",
-      "Traçabilité renforcée pour les structures à forte composante sanitaire.",
-      "Interopérabilité et exigences Ségur intégrées à l'approche produit.",
+      "Suivre le dossier médical et le plan de soin.",
+      "Consulter les ordonnances et centraliser les informations de santé de l'usager.",
+      "Assurer une coordination sécurisée des équipes autour des écrits liés à la santé.",
     ],
   },
   {
     icon: Smartphone,
     title: "Équipes mobiles",
     points: [
-      "Usage terrain sur tablette et téléphone.",
-      "Alertes, cahier de liaison et accès rapide aux informations utiles.",
-      "Continuité de service sans installation locale lourde.",
+      "Gagner du temps en visite à domicile, en maraude ou en déplacement.",
+      "Avoir facilement accès au dossier usager et à l'agenda.",
+      "Réaliser plus simplement ses écrits et coordonner l'action avec les équipes sur site.",
+    ],
+  },
+  {
+    icon: Building2,
+    title: "Équipes logement",
+    points: [
+      "Faciliter la gestion du parc locatif.",
+      "Centraliser les informations administratives et financières liées au logement.",
+      "Suivre les interventions et produire des statistiques dédiées.",
     ],
   },
   {
     icon: BedDouble,
-    title: "Équipes de nuit",
+    title: "Équipes de nuit et d'astreinte",
     points: [
-      "Transmissions lisibles et immédiates entre relèves.",
-      "Accès rapide aux situations sensibles et consignes actives.",
-      "Moins de rupture d'information sur les périodes critiques.",
+      "Centraliser les informations utiles aux relèves.",
+      "Retrouver immédiatement les consignes et situations sensibles.",
+      "Réduire les ruptures d'information sur les périodes critiques.",
     ],
   },
 ];
@@ -68,15 +78,16 @@ const BenefitsByTeamSection = () => (
           Bénéfices par métier
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Ce que SILAO change pour les <span className="text-primary sketch-underline">équipes</span>
+          Ce que SILAO change pour les{" "}
+          <span className="text-primary sketch-underline">équipes</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Chaque usage est pensé pour répondre à une réalité terrain précise, de l&apos;administratif
-          aux équipes mobiles en passant par les professionnels de santé.
+          Chaque usage est pensé pour une réalité terrain précise, de l&apos;administratif à
+          l&apos;accompagnement, en passant par les équipes médicales, mobiles, logement ou de nuit.
         </p>
       </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {teamBenefits.map((item, index) => (
           <motion.article
             key={item.title}

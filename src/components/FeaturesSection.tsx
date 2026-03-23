@@ -17,61 +17,61 @@ const features = [
     icon: IdCard,
     title: "Dossier usager",
     description:
-      "Données administratives, éducatives, sociales et historiques de prise en charge dans un référentiel unique.",
+      "Un dossier organisé par thèmes pour retrouver rapidement données administratives, famille, visites, parcours, informations juridiques et santé.",
   },
   {
     icon: CalendarDays,
     title: "Agenda et planning",
     description:
-      "Organisation des rendez-vous, disponibilités, transports et séquences d'accompagnement au même endroit.",
+      "Des événements associés à l'usager, aux services ou aux professionnels, avec vues jour, semaine, mois, service et type d'événement.",
   },
   {
     icon: BookMarked,
     title: "Cahier de liaison",
     description:
-      "Transmissions, consignes et continuité d'information entre équipes de jour, de nuit ou mobiles.",
+      "Un espace de transmissions sous forme de blog, avec brouillons, commentaires, verrouillage automatique et droits d'accès personnalisables.",
   },
   {
     icon: HeartPulse,
     title: "Dossier santé",
     description:
-      "Bilans, compte-rendus, coordination pluridisciplinaire et éléments utiles aux structures à forte composante sanitaire.",
+      "Historisation sécurisée des allergies, vaccins, diagnostics et éléments médicaux utiles à la coordination des équipes.",
   },
   {
     icon: FileArchive,
     title: "GED",
     description:
-      "Gestion électronique de documents avec centralisation, classement et accès maîtrisé aux pièces utiles.",
+      "Stockage, classement et consultation de tous les documents usagers, avec génération de modèles et de rapports.",
   },
   {
     icon: Users2,
-    title: "Annuaire et coordination",
+    title: "Annuaire centralisé",
     description:
-      "Contacts, rôles, droits d'accès et lecture partagée des parcours au sein de la structure ou d'une grappe.",
+      "Un annuaire des contacts et organismes pour relier facilement médecins, écoles, juges et partenaires à l'activité.",
   },
   {
     icon: BellRing,
-    title: "Alertes et personnalisation",
+    title: "Alertes",
     description:
-      "Alertes, paramétrages fonctionnels, profils métiers et interface ajustée à vos pratiques de terrain.",
+      "Des alertes sur les échéances, missions et renouvellements de documents, adaptables en autonomie selon vos pratiques.",
   },
   {
     icon: FolderKanban,
     title: "Pilotage, états et stats",
     description:
-      "Suivi d'activité, reporting, listes d'attente, taux d'occupation et indicateurs pour la direction et les financeurs.",
+      "Des états filtrables, des statistiques par thème et des requêteurs pour produire vos exports et indicateurs d'activité.",
   },
   {
     icon: CreditCard,
     title: "Facturation",
     description:
-      "Prise en charge des financeurs et gestion des éléments nécessaires à la facturation usagers ou dispositifs.",
+      "Facturation à partir de l'agenda ou des présences, avec génération possible de factures rétroactives individuelles.",
   },
   {
     icon: Files,
-    title: "Accompagnement documentaire",
+    title: "Services socles et usages métier",
     description:
-      "Courriers, dossiers, exports et documents structurés pour sécuriser les échanges et les obligations métier.",
+      "INS, DMP, MSSanté, Pro Santé Connect, budget usager, parc locatif, rappels de rendez-vous et autres modules adaptés au terrain.",
   },
 ];
 
@@ -88,11 +88,13 @@ const FeaturesSection = () => (
           Fonctionnalités principales
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Les modules qui structurent le <span className="text-primary sketch-underline">quotidien métier</span>
+          Les modules qui structurent le{" "}
+          <span className="text-primary sketch-underline">quotidien métier</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Dossier usager, agenda, transmissions, GED, alertes, pilotage et facturation sont pensés
-          pour rester lisibles et exploitables par les équipes de terrain.
+          Le dossier usager, l&apos;agenda, les transmissions, la GED, les alertes, le pilotage et
+          la facturation ont été conçus pour rester lisibles, personnalisables et réellement utiles
+          aux équipes.
         </p>
       </motion.div>
 

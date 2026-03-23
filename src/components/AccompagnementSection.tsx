@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Activity,
+  Accessibility,
   ArrowRight,
-  BarChart3,
-  BriefcaseBusiness,
-  GraduationCap,
+  Cloud,
   Handshake,
-  Settings2,
+  HeartHandshake,
+  ShieldCheck,
   Users,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -17,66 +16,60 @@ import { Button } from "@/components/ui/button";
 
 const phases = [
   {
-    title: "Avant le déploiement",
-    icon: BriefcaseBusiness,
+    title: "Installer Silao",
+    icon: Cloud,
     points: [
-      "Qualification du contexte, des établissements concernés et des contraintes métier.",
-      "Cadrage du projet, des interlocuteurs et des décisions à porter en gouvernance.",
-      "Préparation au changement avec les encadrants et l'équipe projet.",
+      "Aucune installation locale, aucun matériel spécifique et aucune compétence technique requise.",
+      "Une simple connexion internet et un navigateur suffisent pour accéder à l'application en mode SaaS.",
+      "Sauvegardes, mises à jour et maintenance sont prises en charge par nos équipes.",
     ],
   },
   {
-    title: "Pendant le déploiement",
-    icon: Settings2,
+    title: "Un accompagnement de proximité",
+    icon: Handshake,
     points: [
-      "Paramétrage du DUI avec les profils en charge de la construction et de la reprise des données.",
-      "Accompagnement sur les rôles, nomenclatures, cycle de vie du dossier et outils collaboratifs.",
-      "Coordination continue entre projet, paramétrage, formation et démarrage.",
+      "Chaque déploiement est adapté à la taille de la structure, à la maturité numérique des utilisateurs et au type de prise en charge.",
+      "Un ou deux chefs de projet dédiés accompagnent paramétrage, reprise de données et suivi.",
+      "Les échanges sont centrés sur vos besoins métier, pas sur la technique.",
     ],
   },
   {
-    title: "Après le déploiement",
-    icon: GraduationCap,
+    title: "Une expertise métier",
+    icon: Users,
     points: [
-      "Formation des équipes selon les profils, les droits et les usages réellement activés.",
-      "Renfort sur les fonctionnalités avancées ou les modules thématiques.",
-      "Suivi des usages et consolidation des pratiques dans la durée.",
+      "Les équipes en lien avec les clients intègrent d'anciens responsables d'établissement, chefs de service et travailleurs sociaux.",
+      "Cette connaissance du terrain permet une compréhension fine des contraintes et priorités des structures.",
+      "Les réponses apportées sont pensées pour vos pratiques professionnelles réelles.",
     ],
   },
 ];
 
 const supportBlocks = [
   {
-    icon: Users,
-    title: "Interlocuteur unique",
+    icon: HeartHandshake,
+    title: "Qualité et bienveillance",
     description:
-      "Un même référent suit le projet du paramétrage à la formation afin de garder une lecture continue du contexte client.",
+      "Professionnalisme et bienveillance guident l'accompagnement des équipes de la protection de l'enfance, du médico-social et de l'insertion.",
   },
   {
-    icon: Handshake,
-    title: "Proximité terrain",
+    icon: ShieldCheck,
+    title: "Hébergement sécurisé",
     description:
-      "L'accompagnement s'ajuste à la taille de la structure, aux profils en place et au niveau de maturité numérique des équipes.",
+      "L'application est hébergée sur des serveurs certifiés répondant aux standards de sécurité et de confidentialité les plus exigeants.",
   },
   {
-    icon: BarChart3,
-    title: "Pilotage des usages",
+    icon: Accessibility,
+    title: "Accessibilité",
     description:
-      "Les indicateurs aident à suivre l'appropriation, à corriger les points de friction et à objectiver la progression.",
-  },
-  {
-    icon: Activity,
-    title: "Continuité opérationnelle",
-    description:
-      "Formation, support et suivi projet sont pensés comme un ensemble cohérent plutôt que comme des actions isolées.",
+      "Contenus, réunions et formations sont adaptés aux personnes en situation de handicap, avec sous-titres, typographies lisibles et aménagements individualisés.",
   },
 ];
 
 const indicators = [
-  "Qualification INS",
-  "Alimentation DMP",
-  "Progression des usages",
-  "Lecture de l'activité par établissement",
+  "Sauvegarde automatique des données",
+  "Mises à jour régulières à distance",
+  "Maintenance sans interruption",
+  "Accompagnement métier continu",
 ];
 
 const AccompagnementSection = () => {
@@ -96,12 +89,13 @@ const AccompagnementSection = () => {
             Accompagnement SILAO
           </div>
           <h1 className="mb-5 text-4xl font-bold text-foreground md:text-6xl">
-            Un accompagnement projet qui reste <span className="text-primary sketch-underline">continu</span>
+            Un accompagnement de proximité, pensé pour un déploiement{" "}
+            <span className="text-primary sketch-underline">serein</span>
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
-            Chez D2L Informatique, l&apos;accompagnement ne se limite pas à la mise en route du
-            logiciel. Il couvre la préparation du projet, la construction du DUI, la formation des
-            équipes et la lecture des usages après démarrage.
+            D2L Informatique a fait le choix d&apos;un accompagnement réellement adapté à la taille
+            de la structure, à la maturité informatique des utilisateurs et au type de prise en
+            charge, pour assurer un déploiement qualitatif et humain.
           </p>
         </motion.div>
 
@@ -129,7 +123,7 @@ const AccompagnementSection = () => {
         </div>
 
         <div className="mb-16 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {supportBlocks.map((block, index) => (
               <motion.article
                 key={block.title}
@@ -154,14 +148,18 @@ const AccompagnementSection = () => {
             viewport={{ once: true }}
             className="rounded-[1.75rem] border border-border/60 bg-primary/5 p-8"
           >
-            <h2 className="mb-4 text-2xl font-bold text-foreground">Pilotage des usages</h2>
+            <h2 className="mb-4 text-2xl font-bold text-foreground">0 souci technique</h2>
             <p className="mb-6 text-sm leading-7 text-muted-foreground">
-              L&apos;accompagnement intègre aussi la lecture des premiers usages pour aider les
-              établissements à consolider leurs pratiques et à objectiver leur progression.
+              Avec Silao, les équipes peuvent se concentrer sur leur métier: D2L Informatique
+              prend en charge l&apos;infrastructure, les mises à jour et la continuité technique de
+              l&apos;outil.
             </p>
             <div className="space-y-3">
               {indicators.map((indicator) => (
-                <div key={indicator} className="rounded-2xl bg-background/90 px-4 py-3 text-sm text-foreground">
+                <div
+                  key={indicator}
+                  className="rounded-2xl bg-background/90 px-4 py-3 text-sm text-foreground"
+                >
                   {indicator}
                 </div>
               ))}
@@ -171,12 +169,11 @@ const AccompagnementSection = () => {
 
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-border/60 bg-card p-8 text-center shadow-sm">
           <h2 className="mb-4 text-2xl font-bold text-foreground">
-            Projet, formation et usage forment un même parcours
+            Être bien accompagné, c&apos;est aussi être compris
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground leading-7">
-            L&apos;efficacité de SILAO repose sur cette continuité: un projet bien préparé, une
-            formation cohérente avec le paramétrage réel, puis un accompagnement qui aide les
-            équipes à tenir dans la durée.
+          <p className="mx-auto max-w-2xl leading-7 text-muted-foreground">
+            Notre objectif est de soutenir les professionnels avec des outils fiables, pensés pour
+            alléger leur quotidien et renforcer l&apos;impact de leur accompagnement.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>

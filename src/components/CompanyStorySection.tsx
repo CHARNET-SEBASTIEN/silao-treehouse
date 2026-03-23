@@ -6,25 +6,25 @@ const markers = [
     icon: Landmark,
     title: "Depuis 2005",
     description:
-      "D2L Informatique conçoit et fait évoluer SILAO avec une logique de service durable et un engagement de long terme.",
+      "D2L Informatique conçoit des logiciels pour le secteur social et fait évoluer SILAO avec une logique de service durable.",
   },
   {
     icon: Users2,
     title: "30 collaborateurs",
     description:
-      "Une équipe mêlant expertise informatique, accompagnement projet et profils issus du secteur social et médico-social.",
+      "Une équipe qui mêle expertise informatique, accompagnement projet et profils issus du social et du médico-social.",
   },
   {
     icon: Wrench,
     title: "Un produit, maîtrisé en interne",
     description:
-      "Commercialisation, développement, support, formation, reprise de données et R&D sont gérés par la même organisation.",
+      "Commercialisation, développement, support, formation, reprise de données et R&D sont portés par la même organisation.",
   },
   {
     icon: Leaf,
-    title: "Un numérique responsable",
+    title: "Depuis le 1er janvier 2024",
     description:
-      "Open source, sobriété technique et déplacements limités au profit du train et de la visio quand c'est pertinent.",
+      "Une organisation horizontale inspirée du modèle Opale, alignée avec la raison d'être et les valeurs de D2L.",
   },
 ];
 
@@ -44,18 +44,24 @@ const CompanyStorySection = () => (
             D2L Informatique, un éditeur impliqué dans toute la vie du projet
           </h2>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            Depuis 2005, D2L développe SILAO avec une logique de service durable: un seul produit,
-            une forte proximité terrain et une maîtrise complète du projet dans le temps.
+            « Concevoir un logiciel n&apos;est pas seulement l&apos;exercice de nos compétences
+            techniques, mais également la conscience profonde de l&apos;importance qu&apos;il va revêtir
+            dans le quotidien des personnes qui vont l&apos;utiliser. »
+          </p>
+          <p className="mt-5 text-sm leading-7 text-muted-foreground">
+            Née en 2005, D2L Informatique couvre toute la vie de ses outils: commercialisation,
+            développement, tests, documentation, mise en œuvre technique, suivi de production,
+            accompagnement fonctionnel, reprise de données, formation, conseil et R&D.
           </p>
           <div className="mt-8 rounded-[1.75rem] border border-border/60 bg-card px-6 py-6">
             <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
-              Ce qu&apos;il faut retenir
+              Raison d&apos;être
             </p>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground/85">
-              <li>20 ans d&apos;expérience dans les logiciels pour le social et le médico-social.</li>
-              <li>SILAO est construit et ajusté en partenariat avec les clients.</li>
-              <li>La couverture s&apos;étend aujourd&apos;hui à la PDE, au PH, à l&apos;AHI et au PDS.</li>
-              <li>La logique de service inclut support, formation, conseils et reprise de données.</li>
+              <li>Mettre la technologie au service des personnes et non l&apos;inverse.</li>
+              <li>S&apos;appuyer sur l&apos;intelligence collective et le travail réellement ensemble.</li>
+              <li>Aider les professionnels qui accompagnent quotidiennement les personnes en difficulté.</li>
+              <li>Faire vivre des valeurs de respect, solidarité, confiance, responsabilité et honnêteté.</li>
             </ul>
           </div>
         </motion.div>
@@ -78,6 +84,39 @@ const CompanyStorySection = () => (
             </motion.article>
           ))}
         </div>
+      </div>
+
+      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="rounded-[1.75rem] border border-border/60 bg-card px-6 py-6"
+        >
+          <h3 className="text-2xl font-bold text-foreground">
+            Une organisation alignée avec ses valeurs
+          </h3>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground">
+            Le 1er janvier 2024, D2L Informatique a fait évoluer son fonctionnement pour mettre fin
+            aux hiérarchies classiques et adopter une organisation horizontale. Chacun peut porter
+            une initiative, participer à un projet et contribuer aux décisions prises collégialement.
+          </p>
+        </motion.article>
+
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.06 }}
+          className="rounded-[1.75rem] border border-border/60 bg-background/85 px-6 py-6"
+        >
+          <h3 className="text-2xl font-bold text-foreground">Ce qui nous caractérise</h3>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground">
+            Le sens du service, l&apos;envie d&apos;apporter des réponses de qualité, simples,
+            efficaces et complètes, ainsi qu&apos;un profond respect des clients, de leur métier et de
+            chaque membre de l&apos;équipe.
+          </p>
+        </motion.article>
       </div>
     </div>
   </section>

@@ -109,16 +109,16 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/formations",
     title:
-      "Formations SILAO | PAPSIL, Art'Sil, FOAD et modules thématiques",
+      "Formations SILAO | Formations sur mesure, Qualiopi et accessibilité",
     description:
-      "Découvrez les formations SILAO : préparation au projet, paramétrage, FOAD, sessions thématiques, Qualiopi, modalités et tarifs.",
+      "Découvrez les formations SILAO : formules adaptées aux équipes, certification Qualiopi, accessibilité et organisation sur mesure.",
     priority: 0.8,
   },
   {
     path: "/engagements",
-    title: "Engagements SILAO | Support, SLA, pérennité et indépendance",
+    title: "Engagements SILAO | Sécurité, accessibilité et démarche responsable",
     description:
-      "Consultez les engagements SILAO sur la durée : support, SLA, pérennité produit, portabilité des données et relation durable avec les ESSMS.",
+      "Consultez les engagements SILAO : qualité de service, sécurité des données, référencement Ségur, accessibilité et démarche responsable.",
     priority: 0.7,
   },
   {

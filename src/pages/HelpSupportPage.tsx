@@ -28,7 +28,7 @@ const supportLinks = [
   },
   {
     title: "Consulter les formations",
-    description: "Parcours PAPSIL, Art'Sil, FOAD et modules thématiques selon vos profils.",
+    description: "Formules adaptées aux équipes, Qualiopi, accessibilité et organisation sur mesure.",
     to: "/formations",
     icon: GraduationCap,
   },

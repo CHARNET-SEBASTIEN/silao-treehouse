@@ -1,8 +1,9 @@
-import Navbar from "@/components/Navbar";
+import { ShieldCheck } from "lucide-react";
+
 import FooterSection from "@/components/FooterSection";
+import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
-import { ShieldCheck } from "lucide-react";
 
 const SecteurPDEPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -11,43 +12,53 @@ const SecteurPDEPage = () => (
       <SecteurPageLayout
         icon={ShieldCheck}
         name="Protection de l'enfance — PDE"
-        tagline="Un DUI sécurisé pour le suivi des mineurs protégés"
-        description="Silao répond aux exigences spécifiques de la Protection de l'Enfance : confidentialité renforcée, gestion des mesures judiciaires et administratives, coordination avec les services de l'ASE et les magistrats."
+        tagline="Le secteur historique de Silao, pensé pour l'hébergement comme pour le milieu ouvert"
+        description="La protection de l'enfance est le tout premier secteur pour lequel Silao a dédié ses fonctionnalités. L'outil couvre les besoins de l'hébergement, du milieu ouvert, de l'accueil familial et des accompagnements spécifiques, avec une adaptation continue aux réalités terrain."
         seoPath="/secteur/protection-enfance"
         color="text-secondary"
         bgColor="bg-secondary/10"
         structures={[
-          { name: "MECS", description: "Maison d'Enfants à Caractère Social : hébergement et accompagnement éducatif des mineurs confiés." },
-          { name: "SAE", description: "Service d'Accueil d'Urgence : prise en charge immédiate en situation de danger." },
-          { name: "AEMO", description: "Action Éducative en Milieu Ouvert : suivi éducatif à domicile sous mandat judiciaire." },
-          { name: "Lieux de vie", description: "Structures à taille humaine pour un accompagnement individualisé au quotidien." },
+          {
+            name: "Enfance et jeunesse avec hébergement",
+            description:
+              "Gestion de l'argent de poche, de l'habillement, des fratries et traçabilité des opérations saisies.",
+          },
+          {
+            name: "Adolescents et adultes en suivi extérieur",
+            description:
+              "Suivi vers l'autonomie avec logement, budget personnel, droits sociaux et accompagnement vers l'emploi.",
+          },
+          {
+            name: "Accueil en famille",
+            description:
+              "Gestion des assistants familiaux, des agréments, des places disponibles et historisation des accueils.",
+          },
+          {
+            name: "Lieux de vie et dispositifs expérimentaux",
+            description:
+              "Un accompagnement dédié pour des prises en charge spécifiques, évolutives ou innovantes.",
+          },
         ]}
         benefits={[
-          "Gestion des mesures judiciaires et administratives (OPP, AEMO, placement)",
-          "Confidentialité renforcée et droits d'accès granulaires",
-          "Suivi du Projet Pour l'Enfant (PPE) conforme à la loi 2016",
-          "Coordination avec l'ASE, les juges et les familles",
-          "Traçabilité des incidents et événements significatifs",
-          "Gestion des visites médiatisées et des droits de visite",
-          "Rapports automatisés pour les magistrats et le Département",
-          "Conformité réglementaire du numérique en milieu social",
+          "L'agenda et le cahier de liaison constituent les deux piliers de l'activité.",
+          "Les fonctionnalités ont été conçues pour répondre aux besoins de l'hébergement comme du milieu ouvert.",
+          "Les liens entre fratries permettent de mutualiser les informations utiles entre plusieurs fiches usagers.",
+          "Le suivi des présences intègre un circuit de validation sur deux niveaux et des exports pour la facturation ou les statistiques.",
+          "Silao est aujourd'hui référencé DSR Ségur MS2 PE.",
         ]}
         modules={[
           "Dossier Usager Informatisé",
-          "Projet Pour l'Enfant",
-          "Cahier de vie numérique",
-          "Gestion des mesures",
-          "Transmissions sécurisées",
-          "Agenda & rendez-vous",
-          "GED & documents",
-          "Rapports & bilans",
-          "Suivi de scolarité",
-          "Facturation Département",
+          "Agenda",
+          "Cahier de liaison",
+          "Gestion des fratries",
+          "Argent de poche et habillement",
+          "Gestion des logements",
+          "Gestion des droits sociaux",
+          "Suivi des présences",
+          "Accueil familial",
+          "Exports statistiques et facturation",
         ]}
-        clients={[
-          { name: "Fondation Grancher", quote: "Silao nous offre la traçabilité et la sécurité indispensables pour le suivi de nos jeunes." },
-          { name: "MECS La Cordée", quote: "L'outil s'adapte parfaitement à nos process de suivi éducatif." },
-        ]}
+        clients={[]}
       />
     </PageMain>
     <FooterSection />

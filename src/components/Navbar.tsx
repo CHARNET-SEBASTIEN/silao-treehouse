@@ -45,7 +45,7 @@ const groupedLinks = [
     links: [
       { label: "Offres", href: "/offres", description: "Déploiement, reprise, formation" },
       { label: "Accompagnement", href: "/accompagnement", description: "Méthode projet et proximité terrain" },
-      { label: "Formations", href: "/formations", description: "PAPSIL, Art'Sil, FOAD, thématiques" },
+      { label: "Formations", href: "/formations", description: "Sur mesure, Qualiopi, accessibilité" },
       { label: "Engagements", href: "/engagements", description: "Sécurité, RGPD, référencement Ségur" },
       { label: "Ressources", href: "/ressources", description: "Actualités, guides et veille sectorielle" },
     ],

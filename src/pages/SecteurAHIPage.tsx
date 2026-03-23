@@ -1,8 +1,9 @@
-import Navbar from "@/components/Navbar";
+import { Home } from "lucide-react";
+
 import FooterSection from "@/components/FooterSection";
+import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
-import { Home } from "lucide-react";
 
 const SecteurAHIPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -11,43 +12,58 @@ const SecteurAHIPage = () => (
       <SecteurPageLayout
         icon={Home}
         name="Accueil, hébergement et insertion — AHI"
-        tagline="Le DUI au service des parcours d'hébergement et d'insertion"
-        description="Silao accompagne les structures AHI dans la gestion des parcours complexes: accompagnement social, hébergement, orientation, accès au logement et suivi administratif dans un outil commun."
+        tagline="Un outil conçu pour tracer les actions et coordonner les parcours d'insertion"
+        description="Le secteur de l'insertion a des besoins spécifiques auxquels Silao répond depuis plus de quinze ans. L'accompagnement de personnes en situation de détresse sociale ou administrative suppose des fonctionnalités capables d'assurer la traçabilité des actions et une bonne communication entre acteurs."
         seoPath="/secteur/insertion-ahi"
         color="text-accent-foreground"
         bgColor="bg-accent"
         structures={[
-          { name: "Accueil de jour", description: "Suivi des situations, orientation, accès aux droits et accompagnement de proximité." },
-          { name: "CHRS", description: "Centre d'Hébergement et de Réinsertion Sociale : accueil et accompagnement vers l'autonomie." },
-          { name: "HUDA / CADA", description: "Hébergement de demandeurs d'asile et suivi administratif ou juridique associé." },
-          { name: "CPH", description: "Centre Provisoire d'Hébergement : accueil des réfugiés reconnus." },
-          { name: "AVDL / IML", description: "Accompagnement vers le logement et l'insertion dans des dispositifs multi-acteurs." },
+          {
+            name: "Hébergement adultes seuls ou en famille",
+            description:
+              "Historisation et suivi des accompagnements pour les personnes seules comme pour les familles, en évitant la double saisie.",
+          },
+          {
+            name: "Accompagnement au logement",
+            description:
+              "Suivi des démarches, traçabilité des actions et statistiques sur les affectations, la rotation et les délais de séjour.",
+          },
+          {
+            name: "Adultes en suivi extérieur",
+            description:
+              "Gestion des logements, du budget personnel, des droits sociaux et de l'accompagnement vers l'emploi ou le logement.",
+          },
+          {
+            name: "Personnes en régularisation",
+            description:
+              "Suivi des procédures liées au titre de séjour ainsi que des démarches administratives, juridiques et sociales.",
+          },
+          {
+            name: "Accompagnement emploi et apprentissage des langues",
+            description:
+              "Coordination des actions d'accompagnement, y compris pour les liens familiaux, la comptabilisation individuelle ou famille et le suivi médical.",
+          },
         ]}
         benefits={[
-          "Gestion du parcours d'insertion global (logement, emploi, santé, administratif)",
-          "Suivi des dispositifs et des durées de prise en charge",
-          "Coordination multi-acteurs (travailleurs sociaux, partenaires logement, préfecture)",
-          "Gestion des places et du taux d'occupation en temps réel",
-          "Conformité aux obligations de reporting DGCS / DRIHL",
-          "Suivi des demandes d'asile et des titres de séjour",
-          "Tableaux de bord d'activité pour les financeurs",
-          "Interface simplifiée pour les équipes de terrain",
+          "Traçabilité des actions d'accompagnement social, administratif et juridique.",
+          "Bonne communication entre les acteurs sur le terrain grâce à un outil commun.",
+          "Suivi des parcours d'hébergement, de logement, d'emploi et de santé.",
+          "Création de liens entre plusieurs usagers pour gérer les situations familiales.",
+          "Comptabilisation individuelle et/ou famille pour les besoins de statistiques et de facturation.",
         ]}
         modules={[
           "Dossier Usager Informatisé",
           "Plan d'accompagnement",
           "Gestion des hébergements",
-          "Suivi administratif & juridique",
-          "Transmissions",
-          "Agenda partagé",
-          "GED & documents",
-          "Reporting DGCS",
-          "Statistiques d'activité",
-          "Gestion locative",
+          "Accompagnement au logement",
+          "Suivi administratif et juridique",
+          "Gestion du budget personnel",
+          "Gestion des droits sociaux",
+          "Accompagnement à l'emploi",
+          "Apprentissage des langues",
+          "Suivi médical",
         ]}
-        clients={[
-          { name: "AJP", quote: "Silao nous aide à piloter nos places d'hébergement et à suivre les parcours d'insertion de manière fluide." },
-        ]}
+        clients={[]}
       />
     </PageMain>
     <FooterSection />

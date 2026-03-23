@@ -47,17 +47,16 @@ const secteurs = [
 ];
 
 const points = [
-  "Référencé Ségur",
-  "Pensé avec les professionnels depuis 2005",
-  "Démo, support et ressources clairement accessibles",
+  "Pensé avec les professionnels du social et du médico-social depuis 2005",
+  "Référencé DSR Ségur MS2 PE et DSR Ségur MS1 PH",
+  "DSR Ségur MS1 AHI en cours",
 ];
 
 const HeroSection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
 
   return (
-    <section className="relative px-4 pt-6 pb-10 md:pb-14 overflow-hidden">
-      {/* Gradient background for visual punch */}
+    <section className="relative overflow-hidden px-4 pb-10 pt-6 md:pb-14">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
@@ -75,7 +74,6 @@ const HeroSection = () => {
               transition={{ duration: 0.6 }}
               className="max-w-2xl"
             >
-              {/* Animated badge */}
               <motion.p
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -88,16 +86,19 @@ const HeroSection = () => {
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                 </motion.span>
-                D2L présente
+                D2L Informatique
               </motion.p>
 
               <h1 className="text-4xl font-extrabold leading-[1.02] tracking-tight text-foreground md:text-5xl lg:text-[3.4rem]">
-                SILAO, le dossier usager informatisé pour les établissements sociaux et médico-sociaux
+                SILAO, le dossier usager informatisé pensé avec et pour les
+                professionnels du social et du médico-social
               </h1>
 
               <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
-                SILAO réunit dossier usager, coordination, pilotage et accompagnement projet dans
-                une approche pensée pour les établissements sociaux et médico-sociaux.
+                Silao, l&apos;évolution du logiciel historique Sil&apos;Age, est une solution
+                collaborative simple, intuitive et complète. Elle réunit suivi de la prise en
+                charge, dossier administratif et éducatif, agenda, dossier médical, GED et
+                facturation dans un seul environnement.
               </p>
 
               <ul className="mt-6 space-y-3">
@@ -138,7 +139,6 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
-            {/* Right column — lighter: larger tree, compact sector pills */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -146,7 +146,6 @@ const HeroSection = () => {
               className="mx-auto w-full max-w-sm"
             >
               <div className="rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsl(var(--background)),hsl(var(--card)))] p-5 shadow-[0_24px_60px_-30px_hsl(var(--foreground)/0.25)]">
-                {/* Larger tree illustration */}
                 <div className="mb-4 flex justify-center">
                   <img
                     src={heroTree}
@@ -154,12 +153,12 @@ const HeroSection = () => {
                     className="h-48 w-auto mix-blend-multiply sm:h-56"
                     style={{
                       maskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
-                      WebkitMaskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
+                      WebkitMaskImage:
+                        "radial-gradient(circle at center, black 62%, transparent 96%)",
                     }}
                   />
                 </div>
 
-                {/* Compact sector pills instead of full cards */}
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                   Secteurs couverts
                 </p>

@@ -12,40 +12,53 @@ const SecteurPDSPage = () => (
       <SecteurPageLayout
         icon={Stethoscope}
         name="Personnes en difficultés spécifiques — PDS"
-        tagline="Le DUI pour les structures à l'interface du social, du médical et de l'insertion"
-        description="SILAO répond aux réalités des structures PDS, où l'accompagnement social, les enjeux de santé, l'orientation et la coordination pluridisciplinaire doivent coexister dans un même cadre de travail."
+        tagline="Le DUI pour les structures à la croisée du social et du médical"
+        description="Le secteur PDS a des besoins spécifiques liés à sa double vocation, sociale et médicale. L'accompagnement prodigué implique une équipe pluridisciplinaire: la qualité de la communication interne et la gestion des alertes sont donc des priorités pour assurer une prise en charge optimale."
         seoPath="/secteur/personnes-difficultes-specifiques"
         color="text-primary"
         bgColor="bg-primary/10"
         structures={[
-          { name: "LHSS", description: "Lits halte soins santé pour des personnes en grande précarité nécessitant des soins et un accompagnement global." },
-          { name: "ACT", description: "Appartements de coordination thérapeutique avec articulation constante entre santé, logement et accompagnement." },
-          { name: "CAARUD", description: "Centres d'accueil et d'accompagnement à la réduction des risques pour usagers de drogues." },
-          { name: "Structures mixtes santé-social", description: "Organisations combinant suivi médical, accompagnement social et enjeux d'insertion." },
+          {
+            name: "Suivi médical",
+            description:
+              "Accès au dossier médical de l'usager, à son DMP, et historisation du parcours de soin avec systèmes d'alerte.",
+          },
+          {
+            name: "Accompagnement au logement",
+            description:
+              "Outils pour suivre les démarches d'accès au logement, tracer les actions et produire des statistiques sur les affectations.",
+          },
+          {
+            name: "Adultes en suivi extérieur",
+            description:
+              "Gestion des logements, du budget personnel et des droits sociaux dans le cadre de l'accompagnement vers l'autonomie.",
+          },
+          {
+            name: "Accompagnement à l'emploi",
+            description:
+              "Coordination des actions d'accompagnement au service d'un suivi global et individualisé.",
+          },
         ]}
         benefits={[
-          "Suivi coordonné des dimensions sociales, médicales et administratives du parcours.",
-          "Traçabilité adaptée aux situations complexes et aux risques élevés de rupture de prise en charge.",
-          "Agenda, cahier de liaison et alertes pour fluidifier les relais entre équipes et partenaires.",
-          "Gestion documentaire centralisée pour les droits sociaux, pièces médicales et éléments de suivi.",
-          "Pilotage d'activité, états et statistiques pour les financeurs et les obligations de reporting.",
-          "Accompagnement de proximité pour des structures souvent peu dotées en ressources informatiques internes.",
+          "Une bonne communication au sein des équipes devient un levier central de la prise en charge.",
+          "Les systèmes d'alertes permettent un suivi de proximité pour chaque usager.",
+          "Les outils articulent dimensions sociales, médicales et administratives dans un même cadre de travail.",
+          "Les statistiques permettent de suivre l'évolution des affectations et des parcours.",
+          "La coordination pluridisciplinaire est pensée comme une fonction native de l'outil.",
         ]}
         modules={[
           "Dossier Usager Informatisé",
-          "Agenda partagé",
-          "Cahier de liaison",
+          "Dossier médical",
+          "DMP",
           "Alertes",
-          "Gestion documentaire",
-          "Dossier santé",
+          "Accompagnement au logement",
+          "Gestion des logements",
+          "Budget personnel",
+          "Droits sociaux",
           "États et statistiques",
-          "Pilotage d'activité",
-          "Droits d'accès",
           "Coordination pluridisciplinaire",
         ]}
-        clients={[
-          { name: "Structures médico-sociales et associatives", quote: "SILAO apporte un cadre commun là où les accompagnements sont à la fois sociaux, sanitaires et fortement coordonnés." },
-        ]}
+        clients={[]}
       />
     </PageMain>
     <FooterSection />
