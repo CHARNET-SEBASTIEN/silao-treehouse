@@ -21,7 +21,7 @@ const seo = getPageSeo("/");
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background paper-grain">
+    <div className="min-h-screen overflow-x-hidden bg-background paper-grain">
       <SEOHead {...seo} />
       <Navbar />
       <PageMain className="pt-16">

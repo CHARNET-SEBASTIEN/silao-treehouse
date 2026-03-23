@@ -8,31 +8,35 @@ const CTASection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
 
   return (
-    <section className="py-20 md:py-28 px-4">
+    <section className="px-4 py-20 md:py-28">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="sketch-border bg-primary/5 p-10 md:p-16 text-center"
+          className="section-panel px-8 py-10 text-center md:px-14 md:py-16"
         >
-          <div className="flex justify-center mb-5">
-            <div className="w-14 h-14 rounded-full bg-secondary/15 flex items-center justify-center">
-              <HeartHandshake className="w-7 h-7 text-secondary" />
+          <div className="mb-5 flex justify-center">
+            <span className="marker-label">Démo personnalisée</span>
+          </div>
+          <div className="mb-6 flex justify-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_18px_40px_-24px_hsl(var(--accent)/0.95)]">
+              <HeartHandshake className="h-7 w-7" />
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-            Demandez une <span className="text-primary font-sketch">démonstration personnalisée</span>
+          <h2 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
+            Demandez une <span className="text-accent font-sketch">démonstration personnalisée</span>
           </h2>
-          <p className="text-muted-foreground font-body max-w-2xl mx-auto mb-8 text-lg">
-            30 minutes pour voir SILAO en situation réelle, sur votre secteur d'activité. Sans engagement.
+          <p className="mx-auto mb-8 max-w-2xl text-lg font-body text-muted-foreground">
+            30 minutes pour voir SILAO en situation réelle, sur votre secteur d&apos;activité,
+            avec un scénario adapté à votre organisation. Sans engagement.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
               Échangeons sur votre projet
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground font-body mt-4">
+          <p className="mt-4 text-xs font-body text-muted-foreground">
             Sans engagement · Réponse sous 48 h
           </p>
           <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />

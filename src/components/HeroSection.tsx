@@ -56,18 +56,17 @@ const HeroSection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
 
   return (
-    <section className="relative overflow-hidden px-4 pb-10 pt-6 md:pb-14">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, hsl(var(--primary) / 0.07) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, hsl(var(--secondary) / 0.05) 0%, transparent 60%)",
-        }}
-      />
+    <section className="relative overflow-hidden px-4 pb-12 pt-14 md:pb-16 md:pt-16">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64">
+        <div className="absolute -left-16 top-10 h-8 w-56 rounded-full bg-primary/80 blur-[2px]" />
+        <div className="absolute left-24 top-0 h-6 w-40 rounded-full bg-primary/45" />
+        <div className="absolute right-12 top-8 h-10 w-64 rounded-full bg-primary/70 blur-[1px]" />
+        <div className="absolute -right-12 top-24 h-8 w-44 rounded-full bg-secondary/85 blur-[2px]" />
+      </div>
 
-      <div className="mx-auto max-w-5xl">
-        <div className="section-panel overflow-hidden px-6 py-8 sm:px-8 md:px-10 md:py-10">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <div className="mx-auto max-w-6xl">
+        <div className="section-panel overflow-hidden px-6 py-8 sm:px-8 md:px-10 md:py-12">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_22rem]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -78,7 +77,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary"
+                className="marker-label mb-5"
               >
                 <motion.span
                   animate={{ rotate: [0, 15, -15, 0] }}
@@ -86,20 +85,33 @@ const HeroSection = () => {
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                 </motion.span>
-                D2L Informatique
+                Communication SILAO
               </motion.p>
 
-              <h1 className="text-4xl font-extrabold leading-[1.02] tracking-tight text-foreground md:text-5xl lg:text-[3.4rem]">
-                SILAO, le dossier usager informatisé pensé avec et pour les
-                professionnels du social et du médico-social
+              <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
+                <span className="mb-2 block text-accent">SILAO</span>
+                Le dossier usager informatisé pensé avec et pour les professionnels du social et
+                du médico-social
               </h1>
 
-              <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
+              <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.15rem]">
                 Silao, l&apos;évolution du logiciel historique Sil&apos;Age, est une solution
                 collaborative simple, intuitive et complète. Elle réunit suivi de la prise en
                 charge, dossier administratif et éducatif, agenda, dossier médical, GED et
                 facturation dans un seul environnement.
               </p>
+
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-sm font-semibold text-primary">
+                  Référencé DSR Ségur MS2 PE
+                </span>
+                <span className="rounded-full border border-secondary/30 bg-secondary/10 px-3.5 py-1.5 text-sm font-semibold text-secondary">
+                  Référencé DSR Ségur MS1 PH
+                </span>
+                <span className="rounded-full border border-accent/30 bg-accent/90 px-3.5 py-1.5 text-sm font-semibold text-accent-foreground">
+                  AHI en cours
+                </span>
+              </div>
 
               <ul className="mt-6 space-y-3">
                 {points.map((point, i) => (
@@ -108,9 +120,9 @@ const HeroSection = () => {
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                    className="flex items-center gap-3 text-sm text-foreground/85"
+                    className="flex items-center gap-3 text-sm text-foreground/88"
                   >
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
                     <span>{point}</span>
                   </motion.li>
                 ))}
@@ -145,12 +157,29 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.08 }}
               className="mx-auto w-full max-w-sm"
             >
-              <div className="rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsl(var(--background)),hsl(var(--card)))] p-5 shadow-[0_24px_60px_-30px_hsl(var(--foreground)/0.25)]">
-                <div className="mb-4 flex justify-center">
+              <div className="brand-card brand-grid rounded-[2rem] p-5 shadow-[0_24px_60px_-30px_hsl(236_44%_7%/0.9)]">
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      Secteurs couverts
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Une même plateforme, adaptée aux pratiques terrain et aux organisations.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-right">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Depuis
+                    </p>
+                    <p className="text-2xl font-bold text-accent">2005</p>
+                  </div>
+                </div>
+
+                <div className="mb-4 flex justify-center rounded-[1.75rem] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.18),transparent_62%)]">
                   <img
                     src={heroTree}
                     alt="Illustration symbolique de l'accompagnement social et médico-social"
-                    className="h-48 w-auto mix-blend-multiply sm:h-56"
+                    className="h-48 w-auto sm:h-56"
                     style={{
                       maskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
                       WebkitMaskImage:
@@ -159,16 +188,33 @@ const HeroSection = () => {
                   />
                 </div>
 
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                  Secteurs couverts
-                </p>
+                <div className="mb-5 grid grid-cols-3 gap-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-center">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                      Produit
+                    </p>
+                    <p className="mt-1 text-lg font-bold text-foreground">1</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-center">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                      Secteurs
+                    </p>
+                    <p className="mt-1 text-lg font-bold text-foreground">4</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-center">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                      Mission
+                    </p>
+                    <p className="mt-1 text-lg font-bold text-foreground">Terrain</p>
+                  </div>
+                </div>
 
                 <div className="flex flex-wrap gap-2">
                   {secteurs.map((secteur) => (
                     <Link
                       key={secteur.label}
                       to={secteur.href}
-                      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-card ${secteur.tone}`}
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-white/10 ${secteur.tone}`}
                     >
                       <secteur.icon className="h-3.5 w-3.5" />
                       {secteur.label}

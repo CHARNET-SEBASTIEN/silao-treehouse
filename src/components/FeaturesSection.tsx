@@ -75,6 +75,12 @@ const features = [
   },
 ];
 
+const tones = [
+  "bg-primary/12 text-primary",
+  "bg-secondary/12 text-secondary",
+  "bg-accent/90 text-accent-foreground",
+];
+
 const FeaturesSection = () => (
   <section className="relative overflow-hidden px-4 py-20 md:py-28">
     <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
@@ -84,7 +90,7 @@ const FeaturesSection = () => (
         viewport={{ once: true }}
         className="mx-auto mb-16 max-w-3xl text-center"
       >
-        <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
+        <p className="marker-label mb-4">
           Fonctionnalités principales
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
@@ -106,9 +112,11 @@ const FeaturesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.04 }}
-            className="rounded-[1.5rem] border border-border/60 bg-card px-5 py-6 shadow-sm transition-transform hover:-translate-y-1"
+            className="brand-card rounded-[1.5rem] px-5 py-6 transition-transform hover:-translate-y-1"
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <div
+              className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${tones[index % tones.length]}`}
+            >
               <feature.icon className="h-5 w-5" />
             </div>
             <h3 className="mb-2 text-xl font-bold text-foreground">{feature.title}</h3>

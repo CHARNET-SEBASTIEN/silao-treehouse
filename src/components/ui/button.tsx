@@ -9,15 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 sketch-border",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_18px_40px_-24px_hsl(var(--primary)/0.95)]",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground sketch-border",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 sketch-border",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/85 shadow-[0_18px_40px_-24px_hsl(var(--secondary)/0.95)]",
+        ghost: "hover:bg-accent/15 hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-secondary text-secondary-foreground hover:opacity-90 rounded-full font-bold text-lg tracking-wide shadow-lg hover:shadow-xl hover:scale-105",
-        "hero-outline": "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground rounded-full font-bold text-lg tracking-wide hover:scale-105",
-        "hero-warm": "bg-accent text-accent-foreground hover:opacity-90 rounded-full font-bold text-lg tracking-wide shadow-lg hover:shadow-xl hover:scale-105",
+        hero: "rounded-full bg-secondary text-secondary-foreground font-bold text-lg tracking-[0.02em] shadow-[0_22px_45px_-26px_hsl(var(--secondary)/0.98)] hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground",
+        "hero-outline": "rounded-full border border-white/12 bg-white/5 text-foreground font-bold text-lg tracking-[0.02em] hover:border-primary/45 hover:bg-primary/12 hover:text-foreground",
+        "hero-warm": "rounded-full bg-accent text-accent-foreground font-bold text-lg tracking-[0.02em] shadow-[0_22px_45px_-26px_hsl(var(--accent)/0.98)] hover:-translate-y-0.5 hover:brightness-95",
       },
       size: {
         default: "h-10 px-4 py-2",

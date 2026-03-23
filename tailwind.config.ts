@@ -15,10 +15,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        sketch: ["\"Segoe Print\"", "\"Bradley Hand\"", "\"Marker Felt\"", "cursive"],
+        heading: ["Manjari", "\"Trebuchet MS\"", "sans-serif"],
+        sketch: ["Manjari", "\"Trebuchet MS\"", "sans-serif"],
         body: [
-          "\"Avenir Next\"",
-          "Avenir",
+          "\"Source Sans 3\"",
+          "\"Myriad Pro\"",
+          "\"Segoe UI\"",
+          "Arial",
           "\"Segoe UI\"",
           "\"Helvetica Neue\"",
           "sans-serif",
