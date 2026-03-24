@@ -182,18 +182,18 @@ const OffresPage = () => {
               ))}
             </ul>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+            <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:flex-wrap">
+              <Button variant="hero" size="xl" className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight lg:w-auto" onClick={() => setDemoOpen(true)}>
                 Demander une démonstration
               </Button>
-              <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/formations" className="gap-2">
+              <Button variant="hero-outline" size="xl" className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight lg:w-auto" asChild>
+                <Link to="/formations" className="gap-2 text-center">
                   <ArrowRight className="h-4 w-4" />
                   Voir les formations
                 </Link>
               </Button>
-              <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/accompagnement" className="gap-2">
+              <Button variant="hero-outline" size="xl" className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight lg:w-auto" asChild>
+                <Link to="/accompagnement" className="gap-2 text-center">
                   <ArrowRight className="h-4 w-4" />
                   Voir l'accompagnement
                 </Link>

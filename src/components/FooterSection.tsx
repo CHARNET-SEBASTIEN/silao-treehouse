@@ -2,16 +2,19 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Linkedin, Mail, MapPin } from "lucide-react";
 
-import logoD2l from "@/assets/logo-d2l.jpeg";
-import logoSilao from "@/assets/logo-silao-official.svg";
+import logoD2lColor from "@/assets/logo-d2l-color.png";
+import logoD2lWhite from "@/assets/logo-d2l-white.png";
+import logoSilaoColor from "@/assets/logo-silao-color.svg";
+import logoSilaoWhite from "@/assets/logo-silao-white.svg";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
+import { filiereThemes } from "@/lib/filiereThemes";
 import { COMPANY_ADDRESS, COMPANY_NAME, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
 
 const footerAnchors = [
-  { label: "Secteurs", href: "/#secteurs" },
   { label: "Services", href: "/#services" },
-  { label: "Références", href: "/#references" },
+  { label: "Secteurs", href: "/#secteurs" },
   { label: "Qui sommes-nous", href: "/#societe" },
+  { label: "Références", href: "/#references" },
   { label: "Actualités", href: "/#actualites" },
   { label: "Contacts", href: "/#contacts" },
 ];
@@ -57,12 +60,38 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               <Link
                 to="/"
                 onClick={handleLogoClick}
-                className="mb-4 flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className="mb-4 inline-flex items-center gap-3 rounded-full border border-border/80 bg-card/90 px-3 py-2 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 <span className="sr-only">SILAO par D2L, retour à l&apos;accueil</span>
-                <img src={logoD2l} alt="" aria-hidden="true" className="h-8 w-auto rounded" />
-                <div className="h-6 w-px bg-border" />
-                <img src={logoSilao} alt="" aria-hidden="true" className="h-9 w-auto" />
+                <span className="flex items-center px-1">
+                  <img
+                    src={logoD2lColor}
+                    alt=""
+                    aria-hidden="true"
+                    className="block h-8 w-auto object-contain dark:hidden"
+                  />
+                  <img
+                    src={logoD2lWhite}
+                    alt=""
+                    aria-hidden="true"
+                    className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
+                  />
+                </span>
+                <div className="h-7 w-px bg-border/70" />
+                <span className="flex items-center px-1">
+                  <img
+                    src={logoSilaoColor}
+                    alt=""
+                    aria-hidden="true"
+                    className="block h-8 w-auto object-contain dark:hidden"
+                  />
+                  <img
+                    src={logoSilaoWhite}
+                    alt=""
+                    aria-hidden="true"
+                    className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
+                  />
+                </span>
               </Link>
               <p className="text-sm leading-7 text-muted-foreground">
                 <strong className="text-foreground">SILAO</strong> est le dossier usager informatisé
@@ -70,10 +99,10 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 établissements sociaux et médico-sociaux.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
-                <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">PDE</span>
-                <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">PH</span>
-                <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1 text-xs font-semibold text-accent-foreground">AHI</span>
-                <span className="rounded-full border border-border/80 bg-background/90 px-3 py-1 text-xs font-semibold text-foreground">PDS</span>
+                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.pde.border} ${filiereThemes.pde.bg} ${filiereThemes.pde.text}`}>PDE</span>
+                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.ph.border} ${filiereThemes.ph.bg} ${filiereThemes.ph.text}`}>PH</span>
+                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.ahi.border} ${filiereThemes.ahi.bg} ${filiereThemes.ahi.text}`}>AHI</span>
+                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.pds.border} ${filiereThemes.pds.bg} ${filiereThemes.pds.text}`}>PDS</span>
               </div>
             </div>
 

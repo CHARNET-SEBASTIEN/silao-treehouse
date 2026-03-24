@@ -11,10 +11,10 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import heroTree from "@/assets/hero-tree.png";
-import heroTreeWebp from "@/assets/hero-tree.webp";
+import heroTreeBrand from "@/assets/hero-tree-brand.png";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
+import { filiereThemes } from "@/lib/filiereThemes";
 
 const secteurs = [
   {
@@ -22,28 +22,28 @@ const secteurs = [
     label: "Protection de l'enfance",
     details: "MECS, milieu ouvert, accueil familial",
     href: "/secteur/protection-enfance",
-    tone: "border-secondary/25 bg-secondary/8 text-secondary",
+    theme: filiereThemes.pde,
   },
   {
     icon: Baby,
     label: "Médico-social / PH",
     details: "IME, DITEP, SESSAD, CAMSP, CMPP",
     href: "/secteur/handicap",
-    tone: "border-primary/25 bg-primary/8 text-primary",
+    theme: filiereThemes.ph,
   },
   {
     icon: Home,
     label: "AHI",
     details: "CHRS, CADA, HUDA, CPH",
     href: "/secteur/insertion-ahi",
-    tone: "border-[#8a7000]/30 bg-[#8a7000]/10 text-[#6b5600]",
+    theme: filiereThemes.ahi,
   },
   {
     icon: Stethoscope,
     label: "PDS",
     details: "LHSS, ACT, CAARUD",
     href: "/secteur/personnes-difficultes-specifiques",
-    tone: "border-primary/25 bg-primary/8 text-primary",
+    theme: filiereThemes.pds,
   },
 ];
 
@@ -179,25 +179,17 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 flex justify-center rounded-[1.75rem] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.18),transparent_62%)]">
-                  <picture>
-                    <source srcSet={heroTreeWebp} type="image/webp" />
-                    <img
-                      src={heroTree}
-                      alt="Illustration symbolique de l'accompagnement social et médico-social"
-                      width={1536}
-                      height={1024}
-                      fetchPriority="high"
-                      loading="eager"
-                      decoding="async"
-                      className="h-48 w-auto sm:h-56"
-                      style={{
-                        maskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
-                        WebkitMaskImage:
-                          "radial-gradient(circle at center, black 62%, transparent 96%)",
-                      }}
-                    />
-                  </picture>
+                <div className="mb-4 flex justify-center rounded-[1.75rem] border border-primary/10 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-4 py-5">
+                  <img
+                    src={heroTreeBrand}
+                    alt="Arbre SILAO illustrant l'accompagnement social et medico-social"
+                    width={1668}
+                    height={1758}
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                    className="h-56 w-auto drop-shadow-[0_24px_36px_hsl(var(--primary)/0.14)] sm:h-64"
+                  />
                 </div>
 
                 <div className="mb-5 grid grid-cols-3 gap-2">
@@ -226,7 +218,7 @@ const HeroSection = () => {
                     <Link
                       key={secteur.label}
                       to={secteur.href}
-                      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-primary/10 ${secteur.tone}`}
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-primary/10 ${secteur.theme.border} ${secteur.theme.bg} ${secteur.theme.text}`}
                     >
                       <secteur.icon className="h-3.5 w-3.5" />
                       {secteur.label}

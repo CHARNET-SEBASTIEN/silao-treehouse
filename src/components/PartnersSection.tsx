@@ -14,14 +14,13 @@ const PartnersSection = () => {
   return (
     <section className="px-4 py-20 md:py-28">
       <div className="mx-auto max-w-5xl text-center section-panel px-6 py-10 md:px-10">
-        <p className="marker-label mb-4">Structures accompagnées</p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
         >
-          Quelques structures <span className="text-primary sketch-underline">accompagnées</span>
+          Structures <span className="text-primary sketch-underline">accompagnées</span>
         </motion.h2>
         <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
           Des associations, établissements et directions métiers s&apos;appuient sur SILAO pour

@@ -14,8 +14,10 @@ import {
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import logoD2l from "@/assets/logo-d2l.jpeg";
-import logoSilao from "@/assets/logo-silao-official.svg";
+import logoD2lColor from "@/assets/logo-d2l-color.png";
+import logoD2lWhite from "@/assets/logo-d2l-white.png";
+import logoSilaoColor from "@/assets/logo-silao-color.svg";
+import logoSilaoWhite from "@/assets/logo-silao-white.svg";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -24,10 +26,10 @@ import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
-  { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
   { label: "Services", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
-  { label: "Références", href: "/#references", icon: ShieldCheck, isAnchor: true },
+  { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
   { label: "Qui sommes-nous", href: "/#societe", icon: Users2, isAnchor: true },
+  { label: "Références", href: "/#references", icon: ShieldCheck, isAnchor: true },
   { label: "Actualités", href: "/#actualites", icon: Newspaper, isAnchor: true },
   { label: "Contacts", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
@@ -170,12 +172,38 @@ const Navbar = () => {
         <Link
           to="/"
           onClick={handleLogoClick}
-          className="relative z-10 flex items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="relative z-10 flex h-11 shrink-0 items-center gap-3 rounded-full border border-border/80 bg-card/88 px-3 py-2 shadow-sm backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           <span className="sr-only">SILAO par D2L, retour à l&apos;accueil</span>
-          <img src={logoD2l} alt="" aria-hidden="true" className="h-8 w-auto rounded-lg shadow-sm" />
-          <div className="h-5 w-px bg-border/60" />
-          <img src={logoSilao} alt="" aria-hidden="true" className="h-9 w-auto" />
+          <span className="flex h-full items-center px-1">
+            <img
+              src={logoD2lColor}
+              alt=""
+              aria-hidden="true"
+              className="block h-8 w-auto object-contain dark:hidden"
+            />
+            <img
+              src={logoD2lWhite}
+              alt=""
+              aria-hidden="true"
+              className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
+            />
+          </span>
+          <div className="h-7 w-px bg-border/70" />
+          <span className="flex h-full items-center px-1">
+            <img
+              src={logoSilaoColor}
+              alt=""
+              aria-hidden="true"
+              className="block h-8 w-auto object-contain dark:hidden"
+            />
+            <img
+              src={logoSilaoWhite}
+              alt=""
+              aria-hidden="true"
+              className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
+            />
+          </span>
         </Link>
 
         <nav

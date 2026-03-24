@@ -4,6 +4,7 @@ import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
+import { filiereThemes } from "@/lib/filiereThemes";
 
 const SecteurHandicapPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -15,8 +16,9 @@ const SecteurHandicapPage = () => (
         tagline="Un DUI pensé pour les prises en charge du médico-social et du handicap"
         description="Les fonctionnalités dédiées au secteur médico-social n'ont cessé de se multiplier sous l'impulsion de nos clients. Silao couvre aussi bien les besoins des structures avec hébergement que ceux des CAMSP et des CMPP."
         seoPath="/secteur/handicap"
-        color="text-primary"
-        bgColor="bg-primary/10"
+        color={filiereThemes.ph.text}
+        bgColor={filiereThemes.ph.bg}
+        borderColor={filiereThemes.ph.border}
         structures={[
           {
             name: "IME",

@@ -4,6 +4,7 @@ import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
+import { filiereThemes } from "@/lib/filiereThemes";
 
 const SecteurAHIPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -15,8 +16,9 @@ const SecteurAHIPage = () => (
         tagline="Un outil conçu pour tracer les actions et coordonner les parcours d'insertion"
         description="Le secteur de l'insertion a des besoins spécifiques auxquels Silao répond depuis plus de quinze ans. L'accompagnement de personnes en situation de détresse sociale ou administrative suppose des fonctionnalités capables d'assurer la traçabilité des actions et une bonne communication entre acteurs."
         seoPath="/secteur/insertion-ahi"
-        color="text-accent-foreground"
-        bgColor="bg-accent"
+        color={filiereThemes.ahi.text}
+        bgColor={filiereThemes.ahi.bg}
+        borderColor={filiereThemes.ahi.border}
         structures={[
           {
             name: "Hébergement adultes seuls ou en famille",

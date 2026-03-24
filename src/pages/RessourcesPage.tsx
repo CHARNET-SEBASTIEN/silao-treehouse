@@ -178,7 +178,6 @@ const RessourcesPage = () => (
             <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
             <div className="relative grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
               <div>
-                <p className="marker-label mb-4">Questions fréquentes</p>
                 <h2 className="text-3xl font-bold text-foreground md:text-4xl">
                   Trouver les bonnes <span className="text-primary sketch-underline">ressources DUI</span>
                   {" "}selon votre besoin

@@ -4,6 +4,7 @@ import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
+import { filiereThemes } from "@/lib/filiereThemes";
 
 const SecteurPDEPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -15,8 +16,9 @@ const SecteurPDEPage = () => (
         tagline="Le secteur historique de Silao, pensé pour l'hébergement comme pour le milieu ouvert"
         description="La protection de l'enfance est le tout premier secteur pour lequel Silao a dédié ses fonctionnalités. L'outil couvre les besoins de l'hébergement, du milieu ouvert, de l'accueil familial et des accompagnements spécifiques, avec une adaptation continue aux réalités terrain."
         seoPath="/secteur/protection-enfance"
-        color="text-secondary"
-        bgColor="bg-secondary/10"
+        color={filiereThemes.pde.text}
+        bgColor={filiereThemes.pde.bg}
+        borderColor={filiereThemes.pde.border}
         structures={[
           {
             name: "Enfance et jeunesse avec hébergement",

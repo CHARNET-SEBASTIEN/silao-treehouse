@@ -140,7 +140,6 @@ const FAQSection = () => (
         viewport={{ once: true }}
         className="mb-12 text-center"
       >
-        <p className="marker-label mb-4">FAQ</p>
         <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
           Questions <span className="text-primary sketch-underline">fréquentes</span>
         </h2>

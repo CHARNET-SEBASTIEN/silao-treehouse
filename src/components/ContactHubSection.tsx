@@ -58,18 +58,15 @@ const ContactHubSection = () => {
           viewport={{ once: true }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
-        <p className="marker-label mb-4">Entrées de contact</p>
-        <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
-          Contacts
-        </p>
-        <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Un point d&apos;entrée clair pour chaque <span className="text-primary sketch-underline">demande</span>
-        </h2>
-        <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Démonstration, support, documentation ou prise de contact institutionnelle: chaque demande
-          trouve ici un parcours simple et identifiable.
-        </p>
-      </motion.div>
+          <p className="marker-label mb-4">Entrées de contact</p>
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+            Un point d&apos;entrée clair pour chaque <span className="text-primary sketch-underline">demande</span>
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">
+            Démonstration, support, documentation ou prise de contact institutionnelle: chaque demande
+            trouve ici un parcours simple et identifiable.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -108,7 +105,7 @@ const ContactHubSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06 }}
-              className="relative overflow-hidden rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
+              className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,hsl(var(--primary)),hsl(var(--secondary)))]" />
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">

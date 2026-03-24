@@ -7,6 +7,7 @@ import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
+import { cn } from "@/lib/utils";
 
 interface SecteurPageLayoutProps {
   icon: LucideIcon;
@@ -15,6 +16,7 @@ interface SecteurPageLayoutProps {
   description: string;
   color: string;
   bgColor: string;
+  borderColor: string;
   structures: { name: string; description: string }[];
   benefits: string[];
   clients: { name: string; quote?: string }[];
@@ -29,6 +31,7 @@ const SecteurPageLayout = ({
   description,
   color,
   bgColor,
+  borderColor,
   structures,
   benefits,
   clients,
@@ -47,7 +50,7 @@ const SecteurPageLayout = ({
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`w-20 h-20 rounded-full ${bgColor} flex items-center justify-center mx-auto mb-6`}
+            className={`mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border ${bgColor} ${borderColor}`}
           >
             <Icon className={`w-10 h-10 ${color}`} />
           </motion.div>
@@ -63,7 +66,7 @@ const SecteurPageLayout = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-primary font-sketch mb-4"
+            className={`mb-4 text-xl font-sketch ${color}`}
           >
             {tagline}
           </motion.p>
@@ -100,7 +103,7 @@ const SecteurPageLayout = ({
             viewport={{ once: true }}
             className="text-3xl font-bold text-foreground text-center mb-12"
           >
-            Structures <span className="text-primary sketch-underline">couvertes</span>
+            Structures <span className={cn("sketch-underline", color)}>couvertes</span>
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {structures.map((s, i) => (
@@ -112,7 +115,7 @@ const SecteurPageLayout = ({
                 transition={{ delay: i * 0.08 }}
                 className="sketch-border bg-card p-6"
               >
-                <Badge variant="outline" className="mb-3">{s.name}</Badge>
+                <Badge variant="outline" className={cn("mb-3 border", bgColor, borderColor, color)}>{s.name}</Badge>
                 <p className="text-sm text-muted-foreground font-body">{s.description}</p>
               </motion.div>
             ))}
@@ -129,7 +132,7 @@ const SecteurPageLayout = ({
             viewport={{ once: true }}
             className="text-3xl font-bold text-foreground text-center mb-12"
           >
-            Pourquoi choisir Silao pour le secteur <span className="text-primary">{name}</span> ?
+            Pourquoi choisir Silao pour le secteur <span className={color}>{name}</span> ?
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((b, i) => (
@@ -158,7 +161,7 @@ const SecteurPageLayout = ({
             viewport={{ once: true }}
             className="text-3xl font-bold text-foreground mb-12"
           >
-            Modules <span className="text-primary sketch-underline">adaptés</span>
+            Modules <span className={cn("sketch-underline", color)}>adaptés</span>
           </motion.h2>
           <div className="flex flex-wrap gap-3 justify-center">
             {modules.map((m, i) => (
@@ -216,7 +219,7 @@ const SecteurPageLayout = ({
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto sketch-border bg-primary/5 p-10 text-center"
+          className={cn("max-w-3xl mx-auto sketch-border p-10 text-center", bgColor, borderColor)}
         >
           <h2 className="text-2xl font-bold text-foreground mb-4">
             Prêt à déployer Silao dans votre structure ?

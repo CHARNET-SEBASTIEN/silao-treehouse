@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Accessibility, ArrowRight, Home, ShieldCheck, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import { filiereThemes } from "@/lib/filiereThemes";
+
 const filieres = [
   {
     icon: ShieldCheck,
@@ -10,9 +12,7 @@ const filieres = [
     description:
       "Hébergement, milieu ouvert, accueil familial, lieux de vie, SIE et MIJE avec un besoin fort de confidentialité et d'accompagnement projet.",
     structures: ["MECS", "AEMO", "Accueil familial", "Lieu de vie"],
-    color: "text-secondary",
-    bgColor: "bg-secondary/10",
-    borderColor: "border-secondary/20",
+    theme: filiereThemes.pde,
     href: "/secteur/protection-enfance",
   },
   {
@@ -22,9 +22,7 @@ const filieres = [
     description:
       "IME, DITEP, SESSAD, CAMSP, CMPP, MAS ou FAM, avec une forte culture de traçabilité, d'agenda et de listes d'attente.",
     structures: ["IME", "DITEP", "SESSAD", "CAMSP / CMPP"],
-    color: "text-primary",
-    bgColor: "bg-primary/10",
-    borderColor: "border-primary/20",
+    theme: filiereThemes.ph,
     href: "/secteur/handicap",
   },
   {
@@ -34,9 +32,7 @@ const filieres = [
     description:
       "Accueil de jour, CHRS, HU, CPH, CADA, HUDA, AVDL et IML avec des parcours souvent multi-dispositifs.",
     structures: ["CHRS", "CADA", "HUDA", "CPH"],
-    color: "text-[#6b5600]",
-    bgColor: "bg-[#8a7000]/10",
-    borderColor: "border-[#8a7000]/20",
+    theme: filiereThemes.ahi,
     href: "/secteur/insertion-ahi",
   },
   {
@@ -46,9 +42,7 @@ const filieres = [
     description:
       "LHSS, ACT, CAARUD et structures à l'interface du social, du médical et de l'insertion.",
     structures: ["LHSS", "ACT", "CAARUD", "Prises en charge santé-social"],
-    color: "text-primary",
-    bgColor: "bg-primary/10",
-    borderColor: "border-primary/20",
+    theme: filiereThemes.pds,
     href: "/secteur/personnes-difficultes-specifiques",
   },
 ];
@@ -85,15 +79,15 @@ const FilieresSection = () => (
           >
             <Link
               to={filiere.href}
-              className={`group block h-full rounded-[1.7rem] border ${filiere.borderColor} ${filiere.bgColor} px-5 py-6 transition-transform hover:-translate-y-1 hover:shadow-lg`}
+              className={`group flex h-full flex-col rounded-[1.7rem] border ${filiere.theme.border} ${filiere.theme.bg} px-5 py-6 transition-transform hover:-translate-y-1 hover:shadow-lg`}
             >
-              <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-card ${filiere.color}`}>
+              <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${filiere.theme.iconBg} ${filiere.theme.text}`}>
                 <filiere.icon className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              <p className={`text-sm font-semibold uppercase tracking-[0.2em] ${filiere.theme.text}`}>
                 {filiere.name}
               </p>
-              <h3 className={`mt-1 text-2xl font-bold ${filiere.color}`}>{filiere.title}</h3>
+              <h3 className={`mt-1 text-2xl font-bold ${filiere.theme.text}`}>{filiere.title}</h3>
               <p className="mt-3 text-sm leading-7 text-foreground/90">{filiere.description}</p>
 
               <div className="mt-5 flex flex-wrap gap-2">
@@ -107,7 +101,7 @@ const FilieresSection = () => (
                 ))}
               </div>
 
-              <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+              <div className={`mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold ${filiere.theme.text}`}>
                 Découvrir le secteur
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </div>

@@ -82,32 +82,32 @@ const HelpSupportPage = () => {
 
         <section className="px-4 py-16">
           <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
-            <article className="section-panel p-8">
+            <article className="section-panel flex h-full flex-col p-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">Demande de démonstration</h2>
               <p className="mb-6 text-muted-foreground">
                 Pour qualifier un projet, identifier le secteur concerné et organiser une présentation ciblée de SILAO.
               </p>
-              <Button variant="hero" size="lg" className="w-full" onClick={() => setDemoOpen(true)}>
+              <Button variant="hero" size="lg" className="mt-auto w-full" onClick={() => setDemoOpen(true)}>
                 Demander une démo
               </Button>
             </article>
 
-            <article className="section-panel p-8">
+            <article className="section-panel flex h-full flex-col p-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">Contact public</h2>
               <p className="mb-6 text-muted-foreground">
                 Pour une question générale, une demande de support ou une orientation vers le bon interlocuteur.
               </p>
-              <Button asChild variant="hero-outline" size="lg" className="w-full">
+              <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
               </Button>
             </article>
 
-            <article className="section-panel p-8">
+            <article className="section-panel flex h-full flex-col p-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">Plaquette et actualités</h2>
               <p className="mb-6 text-muted-foreground">
                 Pour demander une présentation synthétique et accéder aux contenus publics SILAO.
               </p>
-              <div className="flex flex-col gap-3">
+              <div className="mt-auto flex flex-col gap-3">
                 <Button asChild variant="hero-outline" size="lg">
                   <a href={`mailto:${CONTACT_EMAIL}?subject=Demande%20de%20plaquette%20SILAO`}>
                     <FileText className="mr-2 h-4 w-4" />
@@ -129,13 +129,13 @@ const HelpSupportPage = () => {
             </h2>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {supportLinks.map((item) => (
-                <article key={item.to} className="section-panel p-6">
+                <article key={item.to} className="section-panel flex h-full flex-col p-6">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <item.icon className="h-5 w-5" />
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
                   <p className="mb-4 text-sm leading-7 text-muted-foreground">{item.description}</p>
-                  <Button asChild variant="hero-outline" size="lg" className="w-full">
+                  <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
                     <Link to={item.to}>Ouvrir la page</Link>
                   </Button>
                 </article>

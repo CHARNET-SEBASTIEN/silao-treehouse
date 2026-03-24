@@ -46,10 +46,6 @@ const ensureHeadLinks = () => {
     href: "https://fonts.gstatic.com",
     crossorigin: "",
   });
-  upsertLink('link[rel="preconnect"][href="https://storage.googleapis.com"]', {
-    rel: "preconnect",
-    href: "https://storage.googleapis.com",
-  });
   upsertLink('link[rel="dns-prefetch"][href="https://fonts.googleapis.com"]', {
     rel: "dns-prefetch",
     href: "https://fonts.googleapis.com",
@@ -57,10 +53,6 @@ const ensureHeadLinks = () => {
   upsertLink('link[rel="dns-prefetch"][href="https://fonts.gstatic.com"]', {
     rel: "dns-prefetch",
     href: "https://fonts.gstatic.com",
-  });
-  upsertLink('link[rel="dns-prefetch"][href="https://storage.googleapis.com"]', {
-    rel: "dns-prefetch",
-    href: "https://storage.googleapis.com",
   });
 };
 

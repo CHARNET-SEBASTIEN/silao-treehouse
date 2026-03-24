@@ -142,10 +142,8 @@ export const buildHeadMarkup = (page: PageSeo) => {
     `<link rel="alternate" hreflang="fr-FR" href="${canonicalUrl}" />`,
     '<link rel="preconnect" href="https://fonts.googleapis.com" />',
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
-    '<link rel="preconnect" href="https://storage.googleapis.com" />',
     '<link rel="dns-prefetch" href="https://fonts.googleapis.com" />',
     '<link rel="dns-prefetch" href="https://fonts.gstatic.com" />',
-    '<link rel="dns-prefetch" href="https://storage.googleapis.com" />',
     ...schemas.map(
       (schema, index) =>
         `<script id="seo-schema-${index}" type="application/ld+json" data-seo-schema="true">${JSON.stringify(schema)}</script>`,

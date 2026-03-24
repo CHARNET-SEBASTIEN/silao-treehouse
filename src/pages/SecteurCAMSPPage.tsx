@@ -3,6 +3,7 @@ import FooterSection from "@/components/FooterSection";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
 import { Baby } from "lucide-react";
+import { filiereThemes } from "@/lib/filiereThemes";
 
 const SecteurCAMSPPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -14,8 +15,9 @@ const SecteurCAMSPPage = () => (
         tagline="Le DUI adapté au dépistage et aux soins précoces"
         description="Silao accompagne les CAMSP et CMPP dans le suivi pluridisciplinaire des enfants présentant des troubles du développement. Un outil pensé pour la coordination entre professionnels de santé, éducateurs et familles."
         seoPath="/secteur/camsp-cmpp"
-        color="text-primary"
-        bgColor="bg-primary/10"
+        color={filiereThemes.ph.text}
+        bgColor={filiereThemes.ph.bg}
+        borderColor={filiereThemes.ph.border}
         structures={[
           { name: "CAMSP", description: "Centre d'Action Médico-Sociale Précoce : dépistage et prise en charge précoce des enfants de 0 à 6 ans." },
           { name: "CMPP", description: "Centre Médico-Psycho-Pédagogique : consultations et soins pour enfants et adolescents avec troubles psychologiques." },

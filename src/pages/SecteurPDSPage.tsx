@@ -4,6 +4,7 @@ import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SecteurPageLayout from "@/components/SecteurPageLayout";
+import { filiereThemes } from "@/lib/filiereThemes";
 
 const SecteurPDSPage = () => (
   <div className="min-h-screen bg-background paper-grain">
@@ -15,8 +16,9 @@ const SecteurPDSPage = () => (
         tagline="Le DUI pour les structures à la croisée du social et du médical"
         description="Le secteur PDS a des besoins spécifiques liés à sa double vocation, sociale et médicale. L'accompagnement prodigué implique une équipe pluridisciplinaire: la qualité de la communication interne et la gestion des alertes sont donc des priorités pour assurer une prise en charge optimale."
         seoPath="/secteur/personnes-difficultes-specifiques"
-        color="text-primary"
-        bgColor="bg-primary/10"
+        color={filiereThemes.pds.text}
+        bgColor={filiereThemes.pds.bg}
+        borderColor={filiereThemes.pds.border}
         structures={[
           {
             name: "Suivi médical",

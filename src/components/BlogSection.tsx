@@ -66,7 +66,7 @@ const BlogSection = () => {
               transition={{ delay: i * 0.1, duration: 0.4 }}
               className="h-full bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg sketch-border"
             >
-              <div className="group h-full">
+              <div className="group flex h-full flex-col">
                 <Badge variant="secondary" className="mb-4 font-body text-xs">
                   {resource.category}
                 </Badge>
@@ -78,7 +78,7 @@ const BlogSection = () => {
                 <p className="mb-4 font-body text-sm leading-relaxed text-muted-foreground">
                   {resource.excerpt}
                 </p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary font-body group-hover:underline">
+                <span className="mt-auto pt-3 inline-flex items-center gap-1 text-sm font-medium text-primary font-body group-hover:underline">
                   <Link to={resource.slug} className="inline-flex items-center gap-1">
                     Ouvrir la page <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
