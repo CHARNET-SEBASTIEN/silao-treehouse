@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { MotionConfig } from "framer-motion";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
@@ -52,24 +52,68 @@ const ScrollManager = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (!("scrollRestoration" in window.history)) return;
+
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+
+    return () => {
+      window.history.scrollRestoration = previous;
+    };
+  }, []);
+
+  useLayoutEffect(() => {
     if (!location.hash) {
-      window.scrollTo({ top: 0, behavior: "auto" });
-      return;
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, 0);
+
+      const frame = window.requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        root.style.scrollBehavior = previousBehavior;
+      });
+
+      return () => {
+        window.cancelAnimationFrame(frame);
+        root.style.scrollBehavior = previousBehavior;
+      };
     }
+
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+
+    let timeoutId: number | null = null;
+    let frame = 0;
+
+    const cleanup = () => {
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+      window.cancelAnimationFrame(frame);
+      root.style.scrollBehavior = previousBehavior;
+    };
 
     let attempts = 0;
     const maxAttempts = 12;
 
     const tryScroll = () => {
-      if (scrollToHashTarget(location.hash)) return;
+      if (scrollToHashTarget(location.hash)) {
+        root.style.scrollBehavior = previousBehavior;
+        return;
+      }
+
       attempts += 1;
       if (attempts < maxAttempts) {
-        window.setTimeout(tryScroll, 120);
+        timeoutId = window.setTimeout(tryScroll, 120);
+      } else {
+        root.style.scrollBehavior = previousBehavior;
       }
     };
 
-    const frame = window.requestAnimationFrame(tryScroll);
-    return () => window.cancelAnimationFrame(frame);
+    frame = window.requestAnimationFrame(tryScroll);
+    return cleanup;
   }, [location.pathname, location.hash]);
 
   return null;

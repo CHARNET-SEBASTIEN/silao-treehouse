@@ -236,7 +236,7 @@ const RessourcesPage = () => (
           <div className="mx-auto mt-12 max-w-4xl">
             <div className="mb-8 text-center">
               <h3 className="text-2xl font-bold text-foreground md:text-3xl">
-                Questions qui reviennent <span className="text-primary sketch-underline">souvent</span>
+                Questions qui reviennent souvent
               </h3>
               <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
                 Ces repères aident à orienter une recherche métier sur le DUI, à identifier les bons
