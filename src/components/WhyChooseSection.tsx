@@ -26,13 +26,13 @@ const reasons = [
     icon: SlidersHorizontal,
     title: "Personnalisable",
     description:
-      "Profils métiers, droits d'accès, listes, arborescences documentaires, tableaux de bord et alertes se configurent selon votre organisation.",
+      "Profils métiers, droits d'accès, listes, arborescences documentaires, tableaux de bord, thèmes et alertes se configurent selon votre organisation.",
   },
   {
     icon: Headset,
     title: "Accompagnement de proximité",
     description:
-      "Le déploiement s'adapte à la taille de votre structure, avec un chef de projet dédié tout au long du parcours.",
+      "Le déploiement s'adapte à la taille de votre structure, avec un ou deux chefs de projet dédiés pour le paramétrage, la reprise et le suivi.",
   },
   {
     icon: ShieldCheck,
@@ -50,7 +50,7 @@ const reasons = [
     icon: Accessibility,
     title: "Expertise métier",
     description:
-      "Chaque module est développé avec les clients et enrichi par des profils issus du secteur social et médico-social.",
+      "Chaque module est développé avec les clients et enrichi par des profils issus du secteur social et médico-social, au plus près du terrain.",
   },
 ];
 
@@ -71,8 +71,8 @@ const WhyChooseSection = () => (
           <span className="text-primary sketch-underline">SILAO</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Simplicité d&apos;usage, personnalisation, sécurité, mobilité, expertise métier et
-          accompagnement de proximité forment le socle de l&apos;offre SILAO.
+          Simplicité d&apos;usage, personnalisation, sécurité, disponibilité sur tous les écrans,
+          expertise métier et accompagnement de proximité forment le socle de l&apos;offre SILAO.
         </p>
       </motion.div>
 

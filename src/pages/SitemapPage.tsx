@@ -11,16 +11,7 @@ const seo = getPageSeo("/plan-du-site");
 const sitemapGroups = [
   {
     title: "Pages principales",
-    paths: [
-      "/",
-      "/offres",
-      "/formations",
-      "/abonnement",
-      "/ressources",
-      "/aide-support",
-      "/mentions-legales",
-      "/politique-de-confidentialite",
-    ],
+    paths: ["/", "/offres", "/formations", "/abonnement", "/ressources", "/aide-support"],
   },
   {
     title: "Secteurs",
@@ -33,7 +24,16 @@ const sitemapGroups = [
   },
   {
     title: "Expertise SILAO",
-    paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/formations", "/engagements", "/quiz-segur"],
+    paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/engagements", "/quiz-segur"],
+  },
+  {
+    title: "Informations pratiques",
+    paths: [
+      "/mentions-legales",
+      "/politique-de-confidentialite",
+      "/politique-de-cookies",
+      "/plan-du-site",
+    ],
   },
 ];
 

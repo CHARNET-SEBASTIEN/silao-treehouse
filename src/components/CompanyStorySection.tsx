@@ -1,22 +1,28 @@
 import { motion } from "framer-motion";
 import { Leaf, Landmark, Users2, Wrench } from "lucide-react";
 
+import {
+  COMPANY_ACTIVITY,
+  COMPANY_CREATION_DATE,
+  COMPANY_NAME,
+} from "@/lib/site";
+
 const markers = [
   {
     icon: Landmark,
-    title: "Depuis 2005",
+    title: COMPANY_CREATION_DATE,
     description:
-      "D2L Informatique conçoit des logiciels pour le secteur social et fait évoluer SILAO avec une logique de service durable.",
+      `${COMPANY_NAME} conçoit des logiciels pour le secteur social et fait évoluer SILAO avec une logique de service durable depuis sa création.`,
   },
   {
     icon: Users2,
     title: "30 collaborateurs",
     description:
-      "Une équipe qui mêle expertise informatique, accompagnement projet et profils issus du social et du médico-social.",
+      "Un effectif qui mêle expertise informatique, accompagnement projet et profils issus du social et du médico-social.",
   },
   {
     icon: Wrench,
-    title: "Un produit, maîtrisé en interne",
+    title: COMPANY_ACTIVITY,
     description:
       "Commercialisation, développement, support, formation, reprise de données et R&D sont portés par la même organisation.",
   },
@@ -41,7 +47,7 @@ const CompanyStorySection = () => (
             Qui sommes-nous
           </p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            D2L Informatique, un éditeur impliqué dans toute la vie du projet
+            {COMPANY_NAME}, un éditeur impliqué dans toute la vie du projet
           </h2>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
             « Concevoir un logiciel n&apos;est pas seulement l&apos;exercice de nos compétences
@@ -49,9 +55,10 @@ const CompanyStorySection = () => (
             dans le quotidien des personnes qui vont l&apos;utiliser. »
           </p>
           <p className="mt-5 text-sm leading-7 text-muted-foreground">
-            Née en 2005, D2L Informatique couvre toute la vie de ses outils: commercialisation,
-            développement, tests, documentation, mise en œuvre technique, suivi de production,
-            accompagnement fonctionnel, reprise de données, formation, conseil et R&D.
+            Créée le {COMPANY_CREATION_DATE}, {COMPANY_NAME} couvre toute la vie de ses outils:
+            commercialisation, développement, tests, documentation, mise en œuvre technique, suivi
+            de production, accompagnement fonctionnel, reprise de données, formation, conseil et
+            R&amp;D.
           </p>
           <div className="mt-8 rounded-[1.75rem] border border-border/60 bg-card px-6 py-6">
             <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
@@ -99,7 +106,8 @@ const CompanyStorySection = () => (
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
             Le 1er janvier 2024, D2L Informatique a fait évoluer son fonctionnement pour mettre fin
             aux hiérarchies classiques et adopter une organisation horizontale. Chacun peut porter
-            une initiative, participer à un projet et contribuer aux décisions prises collégialement.
+            une initiative, participer à un projet et contribuer à des décisions prises
+            collégialement.
           </p>
         </motion.article>
 

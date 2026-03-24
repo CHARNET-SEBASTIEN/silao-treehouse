@@ -9,6 +9,7 @@ import {
   FolderKanban,
   HeartPulse,
   IdCard,
+  SlidersHorizontal,
   Users2,
 } from "lucide-react";
 
@@ -44,6 +45,12 @@ const features = [
       "Stockage, classement et consultation de tous les documents usagers, avec génération de modèles et de rapports.",
   },
   {
+    icon: SlidersHorizontal,
+    title: "Personnalisation",
+    description:
+      "Profils métiers, droits d'accès, listes déroulantes, arborescences documentaires, tableaux de bord et alertes s'adaptent à vos procédures.",
+  },
+  {
     icon: Users2,
     title: "Annuaire centralisé",
     description:
@@ -71,7 +78,7 @@ const features = [
     icon: Files,
     title: "Services socles et usages métier",
     description:
-      "INS, DMP, MSSanté, Pro Santé Connect, budget usager, parc locatif, rappels de rendez-vous et autres modules adaptés au terrain.",
+      "INS, DMP, MSSanté, Pro Santé Connect, budget usager, parc locatif, rappels de rendez-vous par mail ou SMS et autres modules adaptés au terrain.",
   },
 ];
 
@@ -98,13 +105,13 @@ const FeaturesSection = () => (
           <span className="text-primary sketch-underline">quotidien métier</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Le dossier usager, l&apos;agenda, les transmissions, la GED, les alertes, le pilotage et
-          la facturation ont été conçus pour rester lisibles, personnalisables et réellement utiles
-          aux équipes.
+          Le dossier usager, l&apos;agenda, les transmissions, la GED, les alertes, le pilotage, la
+          personnalisation et la facturation ont été conçus pour rester lisibles, configurables et
+          réellement utiles aux équipes.
         </p>
       </motion.div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {features.map((feature, index) => (
           <motion.article
             key={feature.title}

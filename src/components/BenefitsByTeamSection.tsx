@@ -14,7 +14,8 @@ const teamBenefits = [
     title: "Équipes administratives",
     points: [
       "Accéder facilement et rapidement à toutes les informations.",
-      "Centraliser les documents et mieux gérer les échéances grâce aux alertes.",
+      "Centraliser toutes les informations et simplifier la gestion documentaire.",
+      "Mettre en place des alertes sur les échéances et les renouvellements.",
       "Gagner du temps sur la rédaction des documents, rapports et circuits de validation.",
     ],
   },
@@ -23,6 +24,7 @@ const teamBenefits = [
     title: "Équipes éducatives et accompagnement",
     points: [
       "Accéder en un clic au cahier de liaison et à l'agenda.",
+      "Recevoir des alertes sur les missions ou suivis choisis.",
       "Transmettre et recevoir des informations en temps réel.",
       "Gagner en visibilité sur les actions et en temps sur la rédaction des rapports.",
     ],
@@ -34,6 +36,7 @@ const teamBenefits = [
       "Suivre le dossier médical et le plan de soin.",
       "Consulter les ordonnances et centraliser les informations de santé de l'usager.",
       "Assurer une coordination sécurisée des équipes autour des écrits liés à la santé.",
+      "Bénéficier de moyens de communication sécurisés autour du suivi médical.",
     ],
   },
   {
@@ -41,8 +44,9 @@ const teamBenefits = [
     title: "Équipes mobiles",
     points: [
       "Gagner du temps en visite à domicile, en maraude ou en déplacement.",
+      "Transmettre et recevoir des informations en temps réel.",
       "Avoir facilement accès au dossier usager et à l'agenda.",
-      "Réaliser plus simplement ses écrits et coordonner l'action avec les équipes sur site.",
+      "Réaliser plus simplement ses écrits, y compris avec la dictée vocale, et coordonner l'action avec les équipes sur site.",
     ],
   },
   {
@@ -51,7 +55,8 @@ const teamBenefits = [
     points: [
       "Faciliter la gestion du parc locatif.",
       "Centraliser les informations administratives et financières liées au logement.",
-      "Suivre les interventions et produire des statistiques dédiées.",
+      "Suivre les interventions avec alertes dédiées.",
+      "Produire des statistiques liées à la gestion locative.",
     ],
   },
   {
@@ -84,7 +89,8 @@ const BenefitsByTeamSection = () => (
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
           Chaque usage est pensé pour une réalité terrain précise, de l&apos;administratif à
-          l&apos;accompagnement, en passant par les équipes médicales, mobiles, logement ou de nuit.
+          l&apos;accompagnement, en passant par les équipes médicales, mobiles, logement, de nuit ou
+          d&apos;astreinte.
         </p>
       </motion.div>
 

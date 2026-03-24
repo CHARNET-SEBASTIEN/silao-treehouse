@@ -49,7 +49,7 @@ const secteurs = [
 const points = [
   "Pensé avec les professionnels du social et du médico-social depuis 2005",
   "Référencé DSR Ségur MS2 PE et DSR Ségur MS1 PH",
-  "DSR Ségur MS1 AHI en cours",
+  "15 ans d'expertise terrain et DSR Ségur MS1 AHI en cours",
 ];
 
 const HeroSection = () => {
@@ -95,10 +95,12 @@ const HeroSection = () => {
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.15rem]">
-                Silao, l&apos;évolution du logiciel historique Sil&apos;Age, est une solution
-                collaborative simple, intuitive et complète. Elle réunit suivi de la prise en
-                charge, dossier administratif et éducatif, agenda, dossier médical, GED et
-                facturation dans un seul environnement.
+                Silao est un outil résolument moderne conçu en partenariat avec des établissements
+                pour répondre aux besoins de la protection de l&apos;enfance, du médico-social, de
+                l&apos;accueil-hébergement-insertion et des PDS. Solution collaborative simple,
+                intuitive et complète, elle réunit suivi de la prise en charge, dossier
+                administratif et éducatif, agenda, dossier médical, GED et facturation dans un seul
+                environnement.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2.5">

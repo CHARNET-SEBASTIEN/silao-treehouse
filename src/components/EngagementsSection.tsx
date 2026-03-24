@@ -13,13 +13,13 @@ const commitments = [
     icon: Sparkles,
     title: "Qualité et simplicité",
     description:
-      "Silao est une solution SaaS entièrement installée, gérée et mise à jour par nos soins, avec une attention particulière portée à la protection des données.",
+      "Silao est une solution SaaS entièrement installée, gérée et mise à jour par nos soins, avec une attention particulière portée à la protection des données et à la conformité CNIL.",
   },
   {
     icon: LockKeyhole,
     title: "Sécurité",
     description:
-      "Accès réservés aux personnes autorisées, droits définis par profil, données hébergées sur serveur protégé HDS, échanges chiffrés et sensibilisation régulière des équipes à la cybersécurité.",
+      "Accès réservés aux personnes autorisées, droits définis par profil, données hébergées sur serveur protégé HDS, échanges chiffrés, sauvegardes régulières et sensibilisation cybersécurité des équipes.",
   },
   {
     icon: ShieldCheck,
@@ -58,12 +58,12 @@ const EngagementsSection = () => {
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
             Des engagements <span className="text-primary sketch-underline">durables</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            La performance, la réglementation et la qualité de l&apos;accompagnement sont au cœur
-            de toutes nos actions, au service du confort d&apos;utilisation, de la sécurité des
-            données et de l&apos;optimisation de la prise en charge.
-          </p>
-        </motion.div>
+        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          La performance, la réglementation et la qualité de l&apos;accompagnement sont au cœur de
+          toutes nos actions, au service du confort des utilisateurs, de la sécurisation des
+          données et de l&apos;optimisation de la prise en charge.
+        </p>
+      </motion.div>
 
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
           {commitments.map((item, index) => (

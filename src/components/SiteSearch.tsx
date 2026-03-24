@@ -54,7 +54,7 @@ const searchItems: SearchItem[] = [
   },
   {
     title: "Qui sommes-nous",
-    description: "20 ans d'expérience, 30 collaborateurs, un seul produit pensé avec le terrain.",
+    description: "Créée en 2005, 30 collaborateurs, une équipe construite avec le terrain.",
     href: "/#societe",
     category: "Accueil",
     keywords: ["histoire", "d2l", "valeurs", "équipe", "open source"],

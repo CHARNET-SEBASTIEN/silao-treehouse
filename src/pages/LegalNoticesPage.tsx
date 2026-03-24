@@ -5,7 +5,10 @@ import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
 import {
   COMPANY_ADDRESS,
+  COMPANY_ACTIVITY,
+  COMPANY_CREATION_DATE,
   COMPANY_LEGAL_FORM,
+  COMPANY_LEGAL_NAME,
   COMPANY_NAME,
   COMPANY_RCS,
   COMPANY_SHARE_CAPITAL,
@@ -34,12 +37,14 @@ const LegalNoticesPage = () => (
             <div className="mt-2 space-y-6 text-sm leading-7 text-muted-foreground">
               <div>
                 <h2 className="text-xl font-bold text-foreground">Éditeur</h2>
-                <p>{COMPANY_NAME}</p>
+                <p>{COMPANY_LEGAL_NAME}</p>
                 <p>
                   {COMPANY_LEGAL_FORM} au capital de {COMPANY_SHARE_CAPITAL}
                 </p>
                 <p>{COMPANY_RCS}</p>
+                <p>Activité : {COMPANY_ACTIVITY}</p>
                 <p>Siège social : {COMPANY_ADDRESS}</p>
+                <p>Création : {COMPANY_CREATION_DATE}</p>
                 <p>Représentant légal : {LEGAL_REPRESENTATIVE}</p>
               </div>
               <div>

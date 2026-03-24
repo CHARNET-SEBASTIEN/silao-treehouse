@@ -5,7 +5,7 @@ import { Linkedin, Mail, MapPin } from "lucide-react";
 import logoD2l from "@/assets/logo-d2l.jpeg";
 import logoSilao from "@/assets/logo-silao-official.svg";
 import { getScrollBehavior } from "@/lib/motion";
-import { COMPANY_ADDRESS, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
+import { COMPANY_ADDRESS, COMPANY_NAME, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
 
 const footerAnchors = [
   { label: "Secteurs", href: "/#secteurs" },
@@ -70,7 +70,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               </Link>
               <p className="text-sm leading-7 text-muted-foreground">
                 <strong className="text-foreground">SILAO</strong> est le dossier usager informatisé
-                édité par <strong className="text-foreground">D2L Informatique</strong> pour les
+                édité par <strong className="text-foreground">{COMPANY_NAME}</strong> pour les
                 établissements sociaux et médico-sociaux.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
@@ -138,7 +138,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
 
           <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
             <p className="text-xs text-muted-foreground">
-              © {currentYear} D2L Informatique. Tous droits réservés.
+              © {currentYear} {COMPANY_NAME}. Tous droits réservés.
             </p>
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
               <Link to="/mentions-legales" className="transition-colors hover:text-primary">

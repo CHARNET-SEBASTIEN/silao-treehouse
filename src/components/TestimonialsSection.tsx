@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "Le logiciel nous aide à accompagner les personnes. On part du besoin et le logiciel s'adapte.",
+      "Le logiciel nous aide à accompagner les personnes. On part du besoin des équipes et le logiciel s'adapte à nos pratiques.",
     name: "Sauvegarde 26",
     role: "Protection de l'enfance",
   },
   {
     quote:
-      "Silao est intuitif, répond bien aux besoins, est personnalisable et l'accompagnement de proximité est réellement réactif.",
+      "Silao est intuitif, répond bien aux besoins, il est personnalisable et l'accompagnement de proximité de D2L est réellement réactif.",
     name: "ARRAS",
     role: "Retour client",
   },
@@ -38,6 +38,10 @@ const TestimonialsSection = () => {
             Des retours <span className="text-primary sketch-underline">terrain</span> partagés par
             nos clients
           </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
+            Proximité, personnalisation, soutien au déploiement et amélioration continue reviennent
+            de manière récurrente dans les témoignages transmis par les équipes clientes.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">

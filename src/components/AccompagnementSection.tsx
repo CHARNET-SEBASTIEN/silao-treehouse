@@ -21,7 +21,7 @@ const phases = [
     points: [
       "Aucune installation locale, aucun matériel spécifique et aucune compétence technique requise.",
       "Une simple connexion internet et un navigateur suffisent pour accéder à l'application en mode SaaS.",
-      "Sauvegardes, mises à jour et maintenance sont prises en charge par nos équipes.",
+      "Hébergement sécurisé, sauvegardes, mises à jour et maintenance sont prises en charge par nos équipes.",
     ],
   },
   {
@@ -66,6 +66,8 @@ const supportBlocks = [
 ];
 
 const indicators = [
+  "0 matériel spécifique",
+  "0 compétence technique requise",
   "Sauvegarde automatique des données",
   "Mises à jour régulières à distance",
   "Maintenance sans interruption",
@@ -95,7 +97,8 @@ const AccompagnementSection = () => {
           <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
             D2L Informatique a fait le choix d&apos;un accompagnement réellement adapté à la taille
             de la structure, à la maturité informatique des utilisateurs et au type de prise en
-            charge, pour assurer un déploiement qualitatif et humain.
+            charge, pour assurer un déploiement qualitatif, serein et centré sur vos besoins
+            métier.
           </p>
         </motion.div>
 
@@ -152,7 +155,7 @@ const AccompagnementSection = () => {
             <p className="mb-6 text-sm leading-7 text-muted-foreground">
               Avec Silao, les équipes peuvent se concentrer sur leur métier: D2L Informatique
               prend en charge l&apos;infrastructure, les mises à jour et la continuité technique de
-              l&apos;outil.
+              l&apos;outil, pour un quotidien sans contrainte informatique inutile.
             </p>
             <div className="space-y-3">
               {indicators.map((indicator) => (

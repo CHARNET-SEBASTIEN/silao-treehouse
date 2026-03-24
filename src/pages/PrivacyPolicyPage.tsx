@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
 import {
   COMPANY_ADDRESS,
-  COMPANY_NAME,
+  COMPANY_LEGAL_NAME,
   CONTACT_EMAIL,
   DPO_EMAIL,
   RIGHTS_REQUEST_URL,
@@ -49,7 +49,7 @@ const PrivacyPolicyPage = () => (
           <div className="section-panel p-8">
             <div className="space-y-8 text-sm leading-7 text-muted-foreground">
               <p>
-                {COMPANY_NAME} veille au respect du règlement (UE) 2016/679 du 27 avril 2016
+                {COMPANY_LEGAL_NAME} veille au respect du règlement (UE) 2016/679 du 27 avril 2016
                 relatif à la protection des données personnelles et de la loi Informatique et
                 Libertés modifiée. La présente politique décrit les traitements réalisés via le site{" "}
                 <a className="text-primary underline underline-offset-4" href={SITE_URL}>
@@ -62,7 +62,7 @@ const PrivacyPolicyPage = () => (
                 <h2 className="mb-2 text-xl font-bold text-foreground">
                   Responsable du traitement
                 </h2>
-                <p>{COMPANY_NAME}</p>
+                <p>{COMPANY_LEGAL_NAME}</p>
                 <p>{COMPANY_ADDRESS}</p>
                 <p>
                   Pour plus d&apos;informations sur l&apos;éditeur du site, consultez les{" "}
@@ -135,7 +135,7 @@ const PrivacyPolicyPage = () => (
                   Destinataires des données
                 </h2>
                 <p>
-                  Les données sont destinées aux personnes habilitées au sein de {COMPANY_NAME},
+                  Les données sont destinées aux personnes habilitées au sein de {COMPANY_LEGAL_NAME},
                   notamment les équipes commerciales, projet, support ou communication selon la
                   nature de votre demande. Elles peuvent également être transmises à des
                   sous-traitants techniques intervenant pour l&apos;hébergement, la maintenance du site
