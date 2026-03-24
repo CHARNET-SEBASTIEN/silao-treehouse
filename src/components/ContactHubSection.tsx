@@ -60,7 +60,7 @@ const ContactHubSection = () => {
         >
           <p className="marker-label mb-4">Entrées de contact</p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            Un point d&apos;entrée clair pour chaque <span className="text-primary sketch-underline">demande</span>
+            Un <span className="text-primary sketch-underline">point d&apos;entrée</span> clair pour chaque demande
           </h2>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
             Démonstration, support, documentation ou prise de contact institutionnelle: chaque demande

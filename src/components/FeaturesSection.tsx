@@ -116,11 +116,7 @@ const features = [
   },
 ];
 
-const tones = [
-  "bg-primary/12 text-primary",
-  "bg-secondary/12 text-secondary",
-  "bg-accent/90 text-accent-foreground",
-];
+const featureIconTone = "border border-border/70 bg-background text-primary";
 
 const FeaturesSection = () => (
   <section className="relative overflow-hidden px-4 py-20 md:py-28">
@@ -179,7 +175,7 @@ const FeaturesSection = () => (
             <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
               GED et transmissions
             </span>
-            <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1.5 text-xs font-semibold text-accent-foreground">
+            <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
               Pilotage et alertes
             </span>
           </div>
@@ -215,16 +211,11 @@ const FeaturesSection = () => (
               </div>
 
               <div className={gridClass}>
-                {groupedFeatures.map((feature, featureIndex) => {
-                  const tone = tones[(groupIndex + featureIndex) % tones.length];
-
+                {groupedFeatures.map((feature) => {
                   return (
-                    <article
-                      key={feature.title}
-                      className="surface-card rounded-[1.5rem] px-5 py-6"
-                    >
+                    <article key={feature.title} className="surface-card rounded-[1.5rem] px-5 py-6">
                       <div
-                        className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${tone}`}
+                        className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${featureIconTone}`}
                       >
                         <feature.icon className="h-5 w-5" />
                       </div>

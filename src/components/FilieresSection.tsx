@@ -60,7 +60,7 @@ const FilieresSection = () => (
           Secteurs
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Quatre secteurs couverts, quatre lectures <span className="text-primary sketch-underline">métier</span>
+          <span className="text-primary sketch-underline">Quatre secteurs couverts</span>, quatre lectures métier
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
           SILAO s&apos;adapte aux réalités de la protection de l&apos;enfance, du médico-social, de l&apos;AHI

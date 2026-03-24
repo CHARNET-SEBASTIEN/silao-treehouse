@@ -105,13 +105,19 @@ const HeroSection = () => {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2.5">
-                <span className="rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-sm font-semibold text-primary">
+                <span
+                  className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.pde.border} ${filiereThemes.pde.bg} ${filiereThemes.pde.text}`}
+                >
                   Référencé DSR Ségur MS2 PE
                 </span>
-                <span className="rounded-full border border-secondary/30 bg-secondary/10 px-3.5 py-1.5 text-sm font-semibold text-secondary">
+                <span
+                  className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.ph.border} ${filiereThemes.ph.bg} ${filiereThemes.ph.text}`}
+                >
                   Référencé DSR Ségur MS1 PH
                 </span>
-                <span className="rounded-full border border-accent/30 bg-accent/90 px-3.5 py-1.5 text-sm font-semibold text-accent-foreground">
+                <span
+                  className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.ahi.border} ${filiereThemes.ahi.bg} ${filiereThemes.ahi.text}`}
+                >
                   AHI en cours
                 </span>
               </div>

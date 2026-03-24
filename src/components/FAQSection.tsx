@@ -141,7 +141,7 @@ const FAQSection = () => (
         className="mb-12 text-center"
       >
         <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
-          Questions <span className="text-primary sketch-underline">fréquentes</span>
+          Questions fréquentes
         </h2>
         <p className="mx-auto max-w-xl font-body text-muted-foreground">
           Les questions les plus directes pour comprendre SILAO, son périmètre et son accompagnement.
