@@ -8,6 +8,7 @@ import {
   Menu,
   Newspaper,
   ShieldCheck,
+  SunMoon,
   Users2,
   X,
 } from "lucide-react";
@@ -17,6 +18,7 @@ import logoD2l from "@/assets/logo-d2l.jpeg";
 import logoSilao from "@/assets/logo-silao-official.svg";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import SiteSearch from "@/components/SiteSearch";
+import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { getScrollBehavior } from "@/lib/motion";
 
@@ -209,6 +211,8 @@ const Navbar = () => {
         <div className="relative z-10 flex items-center gap-2">
           <SiteSearch mode="compact" />
 
+          <ThemeToggle className="hidden sm:inline-flex" />
+
           <Button
             variant="hero"
             size="sm"
@@ -282,6 +286,30 @@ const Navbar = () => {
                   );
                 })}
               </div>
+
+              <motion.section
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.14 }}
+                className="mb-6 rounded-[1.75rem] border border-border/80 bg-card p-5 shadow-[0_22px_48px_-36px_hsl(var(--brand-violet)/0.2)] sm:hidden"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+                      Apparence
+                    </p>
+                    <p className="mt-1 text-sm leading-6 text-foreground">
+                      Passer en mode sombre selon votre préférence.
+                    </p>
+                  </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/14 text-primary">
+                    <SunMoon className="h-4 w-4" />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <ThemeToggle className="h-11 w-full justify-center rounded-[1.1rem] text-sm font-semibold" />
+                </div>
+              </motion.section>
 
               <div className="grid gap-6 md:grid-cols-2">
                 {groupedLinks.map((group, groupIndex) => (

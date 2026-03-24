@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StaticRouter } from "react-router-dom/server";
 
 import AppRoutes from "@/AppRoutes";
+import ThemeProvider from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 export { buildHeadMarkup } from "@/lib/seo";
 export {
@@ -18,13 +19,15 @@ export const render = (url: string) => {
 
   return renderToString(
     <QueryClientProvider client={queryClient}>
-      <MotionConfig reducedMotion="user">
-        <TooltipProvider>
-          <StaticRouter location={url}>
-            <AppRoutes />
-          </StaticRouter>
-        </TooltipProvider>
-      </MotionConfig>
+      <ThemeProvider>
+        <MotionConfig reducedMotion="user">
+          <TooltipProvider>
+            <StaticRouter location={url}>
+              <AppRoutes />
+            </StaticRouter>
+          </TooltipProvider>
+        </MotionConfig>
+      </ThemeProvider>
     </QueryClientProvider>,
   );
 };
