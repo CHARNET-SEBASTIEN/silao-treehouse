@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Croix-Rouge française</title>
+  <desc id="desc">Embleme circulaire avec une croix rouge au centre et le texte Croix-Rouge Francaise autour.</desc>
+  <defs>
+    <path id="top-arc" d="M 36 110 A 74 74 0 0 1 184 110" />
+    <path id="bottom-arc" d="M 36 110 A 74 74 0 0 0 184 110" />
+  </defs>
+
+  <rect width="220" height="220" fill="#fffdf9" />
+  <circle cx="110" cy="110" r="81" fill="#fffdf9" stroke="#111111" stroke-width="1.5" />
+
+  <g fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="1.4">
+    <text>
+      <textPath href="#top-arc" startOffset="50%" text-anchor="middle">CROIX-ROUGE</textPath>
+    </text>
+    <text>
+      <textPath href="#bottom-arc" startOffset="50%" text-anchor="middle">FRANCAISE</textPath>
+    </text>
+  </g>
+
+  <g fill="#ef1020">
+    <rect x="93" y="61" width="34" height="98" rx="1.5" />
+    <rect x="61" y="93" width="98" height="34" rx="1.5" />
+  </g>
+</svg>

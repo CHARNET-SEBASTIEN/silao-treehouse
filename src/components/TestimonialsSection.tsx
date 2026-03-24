@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { partnerReferencesByName } from "@/lib/partners";
 
 const testimonials = [
   {
@@ -45,23 +46,38 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="flex flex-col items-center bg-card p-8 text-center sketch-border-sm"
-            >
-              <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-border/60 bg-card text-2xl font-bold text-primary">
-                {t.name.slice(0, 2).toUpperCase()}
+          {testimonials.map((testimonial) => {
+            const partner = partnerReferencesByName[testimonial.name];
+
+            return (
+              <div
+                key={testimonial.name}
+                className="flex flex-col items-center bg-card p-8 text-center sketch-border-sm"
+              >
+                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-3xl border border-border/60 bg-background px-3 shadow-sm">
+                  {partner?.logo ? (
+                    <img
+                      src={partner.logo}
+                      alt={partner.logoAlt}
+                      loading="lazy"
+                      className="max-h-12 w-auto max-w-full object-contain"
+                    />
+                  ) : (
+                    <span className="text-2xl font-bold text-primary">
+                      {partner?.monogram ?? testimonial.name.slice(0, 2).toUpperCase()}
+                    </span>
+                  )}
+                </div>
+                <p className="mb-6 font-body italic leading-relaxed text-foreground">
+                  "{testimonial.quote}"
+                </p>
+                <div>
+                  <p className="font-sketch text-xl text-primary">{testimonial.name}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                </div>
               </div>
-              <p className="mb-6 font-body italic leading-relaxed text-foreground">
-                "{t.quote}"
-              </p>
-              <div>
-                <p className="font-sketch text-xl text-primary">{t.name}</p>
-                <p className="text-sm text-muted-foreground">{t.role}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

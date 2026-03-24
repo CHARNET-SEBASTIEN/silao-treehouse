@@ -1,14 +1,5 @@
 import { motion } from "framer-motion";
-
-const partners = [
-  "Croix-Rouge française",
-  "Action Enfance",
-  "Sauvegarde 26",
-  "ARRAS",
-  "ADSEA02",
-  "Fondation Grancher",
-  "MDEF Calvados",
-];
+import { partnerReferences } from "@/lib/partners";
 
 const PartnersSection = () => {
   return (
@@ -31,15 +22,28 @@ const PartnersSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {partners.map((partner) => (
-            <span
-              key={partner}
-              className="cursor-default rounded-full bg-card px-5 py-2 font-body text-sm font-medium text-muted-foreground sketch-border-sm"
+          {partnerReferences.map((partner) => (
+            <article
+              key={partner.name}
+              className="flex min-h-[170px] flex-col items-center justify-between gap-4 rounded-[28px] bg-card/95 p-5 text-center shadow-sm sketch-border-sm"
             >
-              {partner}
-            </span>
+              <div className="flex h-16 w-full items-center justify-center rounded-2xl border border-border/50 bg-background/80 px-4">
+                {partner.logo ? (
+                  <img
+                    src={partner.logo}
+                    alt={partner.logoAlt}
+                    loading="lazy"
+                    className="max-h-11 w-auto max-w-full object-contain"
+                  />
+                ) : (
+                  <span className="font-sketch text-2xl text-primary">{partner.monogram}</span>
+                )}
+              </div>
+
+              <p className="text-sm font-medium leading-snug text-foreground">{partner.name}</p>
+            </article>
           ))}
         </motion.div>
       </div>
