@@ -88,14 +88,6 @@ const CompanyStorySection = () => (
               loading="lazy"
               className="relative z-10 mx-auto w-full max-w-md"
             />
-            <figcaption className="relative z-10 mt-4 rounded-[1.35rem] border border-border/60 bg-background/92 px-5 py-4">
-              <p className="text-sm font-semibold text-foreground">Une équipe qui travaille ensemble</p>
-              <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                Cette illustration accompagne le bloc “Qui sommes-nous” et renforce l&apos;idée
-                d&apos;une organisation horizontale, collective et impliquée dans toute la vie du
-                projet.
-              </p>
-            </figcaption>
           </motion.figure>
 
           <div className="grid gap-5 sm:grid-cols-2">

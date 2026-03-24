@@ -137,11 +137,6 @@ const FeaturesSection = () => (
             Un DUI conçu pour rendre l&apos;information <span className="text-primary">retrouvable</span>,
             partageable et exploitable
           </h3>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            L&apos;illustration met l&apos;accent sur ce que SILAO apporte au quotidien: un dossier
-            structuré, des documents classés, des repères lisibles et des usages métier qui restent
-            simples pour les équipes.
-          </p>
           <div className="mt-6 flex flex-wrap gap-2.5">
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
               Dossier usager structuré
