@@ -17,12 +17,25 @@ import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
+import qualiopiLogo from "@/assets/qualiopi-logo.png";
 import { getPageSeo } from "@/lib/publicRoutes";
 import { CONTACT_EMAIL } from "@/lib/site";
 
-const keyFigures = [
+type KeyFigure = {
+  value: string;
+  label: string;
+  logo?: string;
+  logoAlt?: string;
+};
+
+const keyFigures: KeyFigure[] = [
   { value: "1 à 2 mois", label: "pour organiser et réaliser la formation selon vos demandes" },
-  { value: "Qualiopi", label: "certification qualité délivrée au titre des actions de formation" },
+  {
+    value: "Qualiopi",
+    label: "certification qualité délivrée au titre des actions de formation",
+    logo: qualiopiLogo,
+    logoAlt: "Logo Qualiopi processus certifié République Française",
+  },
   { value: "Sur mesure", label: "plusieurs formules adaptées aux besoins de vos équipes" },
 ];
 
@@ -110,6 +123,14 @@ const FormationsPage = () => {
                 className="rounded-[1.5rem] border border-border/60 bg-card p-6 text-center shadow-sm"
               >
                 <p className="text-4xl font-bold text-foreground">{item.value}</p>
+                {item.logo ? (
+                  <img
+                    src={item.logo}
+                    alt={item.logoAlt}
+                    loading="lazy"
+                    className="mx-auto mt-4 w-full max-w-[190px]"
+                  />
+                ) : null}
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.label}</p>
               </article>
             ))}

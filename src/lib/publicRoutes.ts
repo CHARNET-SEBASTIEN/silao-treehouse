@@ -99,26 +99,34 @@ const resourcesSchema = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "Quel contenu un site DUI doit-il publier pour être bien compris par les moteurs IA ?",
+        name: "Par où commencer quand on prépare un projet DUI ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Des pages complètes, structurées par question, avec un vocabulaire métier précis, des réponses courtes puis approfondies, et des liens explicites vers les pages produit, secteur et méthode associées.",
+          text: "Commencez par les ressources sur le cadrage, la reprise de données, l'organisation cible, les rôles projet, la formation et le démarrage. Ce sont les contenus les plus utiles pour comprendre ce qui change dans les pratiques et ce qu'il faut sécuriser avant la bascule.",
         },
       },
       {
         "@type": "Question",
-        name: "Pourquoi un hub ressources est-il utile pour SILAO ?",
+        name: "Que faut-il regarder pour comprendre SONS, Ségur, vague 1, vague 2 et ANS ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Parce qu'il relie les sujets informationnels, réglementaires et sectoriels aux pages commerciales. Cela améliore la compréhension du site par les moteurs et évite de laisser des contenus isolés sans lien sémantique fort.",
+          text: "Cherchez des ressources qui relient les exigences nationales aux usages du quotidien: identité, échanges sécurisés, partage documentaire, conformité, calendrier projet et impacts organisationnels. L'enjeu est de comprendre ce que ces cadres changent concrètement pour un établissement.",
         },
       },
       {
         "@type": "Question",
-        name: "Quels sujets sont prioritaires pour SILAO ?",
+        name: "Quels sujets explorer autour de la messagerie sécurisée, du DMP, du DSR, de l'HDS et de Blue ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Le déploiement du DUI, la conformité SONS, la reprise de données, l'usage en multi-établissements et les spécificités de chaque filière sociale ou médico-sociale.",
+          text: "Les ressources les plus utiles expliquent quels documents circulent, dans quelles conditions, avec quel niveau de sécurité, et comment l'hébergement est organisé. Ce sont de bons repères pour comprendre l'environnement technique et réglementaire du DUI.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Comment trouver des ressources adaptées à sa structure ou à sa filière ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Il faut privilégier les contenus qui parlent du même contexte métier que le vôtre: handicap, protection de l'enfance, AHI, PDS ou multi-établissements. Plus les exemples, le vocabulaire et les contraintes ressemblent à votre organisation, plus la ressource sera utile.",
         },
       },
     ],

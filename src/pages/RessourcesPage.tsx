@@ -32,7 +32,7 @@ const pillars = [
     icon: FolderKanban,
     title: "Montrer les cas d'usage par structure",
     description:
-      "Les moteurs IA citent plus facilement des pages qui relient un problème clair à une structure précise, un vocabulaire métier et une réponse produit explicite.",
+      "Les ressources les plus utiles relient une problématique concrète à une structure précise, à un vocabulaire métier partagé et à des réponses opérationnelles pour les équipes.",
     links: [
       { to: "/secteur/handicap", label: "Explorer le secteur handicap" },
       { to: "/secteur/protection-enfance", label: "Explorer la protection de l'enfance" },
@@ -42,19 +42,51 @@ const pillars = [
 
 const questions = [
   {
-    question: "Quel contenu un site DUI doit-il publier pour être bien compris par les moteurs IA ?",
+    question: "Par où commencer quand on prépare un projet DUI ?",
     answer:
-      "Des pages complètes, structurées par question, avec un vocabulaire métier précis, des réponses courtes puis approfondies, et des liens explicites vers les pages produit, secteur et méthode associées.",
+      "Commencez par les ressources sur le cadrage, la reprise de données, l'organisation cible, les rôles projet, la formation et le démarrage. Ce sont les contenus les plus utiles pour comprendre ce qui change dans les pratiques et ce qu'il faut sécuriser avant la bascule.",
   },
   {
-    question: "Pourquoi un hub ressources est-il utile pour SILAO ?",
+    question: "Que faut-il regarder pour comprendre SONS, Ségur, vague 1, vague 2 et ANS ?",
     answer:
-      "Parce qu'il relie les sujets informationnels, réglementaires et sectoriels aux pages commerciales. Cela améliore la compréhension du site par les moteurs et évite de laisser des contenus isolés sans lien sémantique fort.",
+      "Cherchez des ressources qui relient les exigences nationales aux usages du quotidien: identité, échanges sécurisés, partage documentaire, conformité, calendrier projet et impacts organisationnels. L'enjeu est de comprendre ce que ces cadres changent concrètement pour un établissement.",
   },
   {
-    question: "Quels sujets sont prioritaires pour SILAO ?",
+    question: "Quels sujets explorer autour de la messagerie sécurisée, du DMP, du DSR, de l'HDS et de Blue ?",
     answer:
-      "Le déploiement du DUI, la conformité SONS, la reprise de données, l'usage en multi-établissements et les spécificités de chaque filière sociale ou médico-sociale.",
+      "Les ressources les plus utiles expliquent quels documents circulent, dans quelles conditions, avec quel niveau de sécurité, et comment l'hébergement est organisé. Ce sont de bons repères pour comprendre l'environnement technique et réglementaire du DUI.",
+  },
+  {
+    question: "Comment trouver des ressources adaptées à sa structure ou à sa filière ?",
+    answer:
+      "Il faut privilégier les contenus qui parlent du même contexte métier que le vôtre: handicap, protection de l'enfance, AHI, PDS ou multi-établissements. Plus les exemples, le vocabulaire et les contraintes ressemblent à votre organisation, plus la ressource sera utile.",
+  },
+];
+
+const resourceGuides = [
+  {
+    icon: Workflow,
+    eyebrow: "Préparer un projet",
+    title: "Déploiement, reprise de données, organisation et conduite du changement",
+    description:
+      "Si vous cherchez à cadrer un DUI, commencez par les ressources sur la reprise de données, les ateliers projet, les rôles des équipes, la formation et le suivi après démarrage.",
+    tags: ["cadrage projet DUI", "reprise de données", "formation utilisateurs", "démarrage"],
+  },
+  {
+    icon: ShieldCheck,
+    eyebrow: "Comprendre le cadre",
+    title: "SONS, Ségur, ANS, vagues et exigences d'interopérabilité",
+    description:
+      "Pour comprendre les obligations et les jalons, recherchez des contenus qui expliquent le rôle de l'ANS, la logique Ségur, les vagues et les impacts sur le partage et la qualité des données.",
+    tags: ["ANS", "SONS", "Ségur numérique", "vague 1", "vague 2"],
+  },
+  {
+    icon: FolderKanban,
+    eyebrow: "Aller au bon niveau métier",
+    title: "Messagerie sécurisée, DMP, DSR, HDS, Blue et cas d'usage par filière",
+    description:
+      "Privilégiez les ressources qui relient sécurité, échanges documentaires, hébergement et fonctionnement des structures à des situations concrètes dans votre filière ou votre organisation.",
+    tags: ["messagerie sécurisée", "DMP", "DSR", "HDS", "multi-établissements"],
   },
 ];
 
@@ -103,7 +135,7 @@ const RessourcesPage = () => (
               Les sujets à traiter <span className="text-primary sketch-underline">en profondeur</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Chaque bloc répond à une intention de recherche claire et renvoie vers les pages les plus pertinentes du site.
+              Chaque bloc couvre un besoin métier identifié et renvoie vers les pages les plus utiles du site.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -140,29 +172,97 @@ const RessourcesPage = () => (
       </section>
 
       <section className="px-4 py-16 paper-bg">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-foreground">
-              Questions qui reviennent <span className="text-primary sketch-underline">souvent</span>
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              Un contenu AI-search friendly répond rapidement, puis ouvre vers des pages détaillées et reliées entre elles.
-            </p>
+        <div className="mx-auto max-w-6xl">
+          <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-[linear-gradient(135deg,hsl(var(--brand-violet)/0.06),hsl(var(--primary)/0.05)_42%,hsl(var(--accent)/0.08))] p-8 shadow-[0_32px_90px_-42px_hsl(var(--brand-violet)/0.35)] md:p-10">
+            <div className="pointer-events-none absolute -left-16 top-0 h-40 w-40 rounded-full bg-primary/15 blur-3xl" />
+            <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
+            <div className="relative grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+              <div>
+                <p className="marker-label mb-4">Questions fréquentes</p>
+                <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+                  Trouver les bonnes <span className="text-primary sketch-underline">ressources DUI</span>
+                  {" "}selon votre besoin
+                </h2>
+                <p className="mt-4 text-base leading-8 text-muted-foreground md:text-lg">
+                  Que vous cherchiez à préparer un déploiement, comprendre le cadre SONS ou Ségur,
+                  sécuriser les échanges ou trouver des repères adaptés à votre filière, ce bloc
+                  vous aide à repérer les sujets qui comptent vraiment dans une recherche métier DUI.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["déploiement", "reprise de données", "SONS", "Ségur", "MSSanté", "DMP", "HDS", "filières ESSMS"].map(
+                    (keyword) => (
+                      <span
+                        key={keyword}
+                        className="rounded-full border border-border/70 bg-card/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-foreground/80"
+                      >
+                        {keyword}
+                      </span>
+                    ),
+                  )}
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                {resourceGuides.map((topic, index) => (
+                  <motion.article
+                    key={topic.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="rounded-[1.5rem] border border-border/60 bg-card/90 p-5 shadow-sm backdrop-blur-sm"
+                  >
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <topic.icon className="h-5 w-5" />
+                    </div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                      {topic.eyebrow}
+                    </p>
+                    <h3 className="mt-3 text-lg font-bold text-foreground">{topic.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                      {topic.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {topic.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="space-y-4">
-            {questions.map((item, index) => (
-              <motion.article
-                key={item.question}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="sketch-border bg-card p-6"
-              >
-                <h3 className="mb-3 text-lg font-bold text-foreground">{item.question}</h3>
-                <p className="leading-7 text-muted-foreground">{item.answer}</p>
-              </motion.article>
-            ))}
+
+          <div className="mx-auto mt-12 max-w-4xl">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-bold text-foreground md:text-3xl">
+                Questions qui reviennent <span className="text-primary sketch-underline">souvent</span>
+              </h3>
+              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+                Ces repères aident à orienter une recherche métier sur le DUI, à identifier les bons
+                sujets et à prioriser les ressources vraiment utiles.
+              </p>
+            </div>
+            <div className="space-y-4">
+              {questions.map((item, index) => (
+                <motion.article
+                  key={item.question}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="rounded-[1.5rem] border border-border/60 bg-card/95 p-6 shadow-[0_20px_60px_-42px_hsl(var(--brand-violet)/0.35)]"
+                >
+                  <h3 className="mb-3 text-lg font-bold text-foreground">{item.question}</h3>
+                  <p className="leading-7 text-muted-foreground">{item.answer}</p>
+                </motion.article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
