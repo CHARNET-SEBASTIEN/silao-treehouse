@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "contact-api": "node server/contact-server.mjs",
     "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server --emptyOutDir false && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

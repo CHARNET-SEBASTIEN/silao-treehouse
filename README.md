@@ -36,6 +36,12 @@ npm i
 npm run dev
 ```
 
+Si vous travaillez sur le formulaire de contact, lancez aussi l'API SMTP dans un second terminal :
+
+```sh
+npm run contact-api
+```
+
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
@@ -71,3 +77,20 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Contact form MailPace
+
+Le formulaire de demande de démonstration envoie les données vers `POST /api/contact`, puis l'API contacte MailPace en HTTPS.
+
+Variables par défaut :
+
+- `MAILPACE_API_URL=https://app.mailpace.com/api/v1/send`
+- `MAILPACE_SERVER_TOKEN=...`
+- `MAILPACE_DEBUG=false`
+- `CONTACT_TO=sebastien.charnet@d2linformatique.com`
+- `CONTACT_FROM=sebastien.charnet@d2l-informatique.com`
+- `SITE_URL=https://www.silao.fr`
+- `SITE_NAME=SILAO`
+- `CONTACT_API_PORT=8787`
+
+En développement, Vite proxy `/api/*` vers `http://127.0.0.1:8787`. Vous pouvez changer cette cible avec `CONTACT_API_PROXY_TARGET`.

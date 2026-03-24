@@ -84,11 +84,6 @@ const ContactHubSection = () => {
             <h3 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
               Une prise de contact lisible, sans détour inutile
             </h3>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Cette illustration accompagne le principe du bloc: orienter rapidement vers la bonne
-              entrée, qu&apos;il s&apos;agisse d&apos;une démo, d&apos;une demande de support, d&apos;un
-              besoin documentaire ou d&apos;un échange institutionnel.
-            </p>
           </div>
 
           <figure className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(160deg,hsl(var(--accent)/0.12),hsl(var(--primary)/0.06))] px-6 pb-4 pt-6">

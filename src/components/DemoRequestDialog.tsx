@@ -34,29 +34,7 @@ const initialValues: FormValues = {
   message: "",
 };
 
-const buildMailtoHref = (values: FormValues) => {
-  const lines = [
-    `Nom : ${values.lastName.trim()}`,
-    `Prénom : ${values.firstName.trim()}`,
-    `Email : ${values.email.trim()}`,
-    `Organisation : ${values.organization.trim()}`,
-  ];
-
-  if (values.phone.trim()) {
-    lines.push(`Téléphone : ${values.phone.trim()}`);
-  }
-
-  if (values.message.trim()) {
-    lines.push("", "Message :", values.message.trim());
-  }
-
-  const params = new URLSearchParams({
-    subject: "Demande de démonstration SILAO",
-    body: lines.join("\n"),
-  });
-
-  return `mailto:${CONTACT_EMAIL}?${params.toString()}`;
-};
+const contactEndpoint = import.meta.env.VITE_CONTACT_API_URL ?? "/api/contact";
 
 const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProps>(
   ({ open, onOpenChange }, _ref) => {
@@ -126,7 +104,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
       });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const nextErrors = validate(formValues);
       setErrors(nextErrors);
@@ -136,17 +114,54 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
         return;
       }
 
-      setStatusMessage("Préparation de votre demande.");
+      const payload = {
+        lastName: formValues.lastName.trim(),
+        firstName: formValues.firstName.trim(),
+        email: formValues.email.trim(),
+        organization: formValues.organization.trim(),
+        phone: formValues.phone.trim(),
+        message: formValues.message.trim(),
+      };
+
+      setStatusMessage("Envoi de votre demande.");
       setLoading(true);
-      window.location.href = buildMailtoHref(formValues);
-      setLoading(false);
-      setFormValues(initialValues);
-      setErrors({});
-      setStatusMessage("Votre messagerie s'ouvre pour finaliser l'envoi.");
-      onOpenChange(false);
-      toast.success("Votre messagerie s'ouvre", {
-        description: "Vérifiez le message prérempli puis confirmez l'envoi.",
-      });
+
+      try {
+        const response = await fetch(contactEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          const details = await response.text().catch(() => "");
+          throw new Error(`Contact request failed (${response.status}) ${details}`);
+        }
+
+        const result = await response.json().catch(() => null);
+        if (!result?.success) {
+          throw new Error("Contact provider returned an error");
+        }
+
+        setFormValues(initialValues);
+        setErrors({});
+        setStatusMessage("Votre demande a bien été envoyée.");
+        onOpenChange(false);
+        toast.success("Demande envoyée", {
+          description: "Notre équipe reviendra vers vous rapidement.",
+        });
+      } catch (error) {
+        console.error(error);
+        setStatusMessage("L'envoi a échoué. Merci de réessayer.");
+        toast.error("Envoi impossible", {
+          description: `Réessayez plus tard ou écrivez à ${CONTACT_EMAIL}.`,
+        });
+      } finally {
+        setLoading(false);
+      }
     };
 
     return (
@@ -180,6 +195,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                     autoComplete="family-name"
                     value={formValues.lastName}
                     onChange={handleChange}
+                    maxLength={100}
                     aria-invalid={Boolean(errors.lastName)}
                     aria-describedby={getDescribedBy("lastName")}
                     placeholder="Dupont"
@@ -202,6 +218,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                     autoComplete="given-name"
                     value={formValues.firstName}
                     onChange={handleChange}
+                    maxLength={100}
                     aria-invalid={Boolean(errors.firstName)}
                     aria-describedby={getDescribedBy("firstName")}
                     placeholder="Marie"
@@ -228,6 +245,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                 autoComplete="email"
                 value={formValues.email}
                 onChange={handleChange}
+                maxLength={255}
                 aria-invalid={Boolean(errors.email)}
                 aria-describedby={getDescribedBy("email")}
                 placeholder="marie.dupont@association.fr"
@@ -251,6 +269,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                 autoComplete="organization"
                 value={formValues.organization}
                 onChange={handleChange}
+                maxLength={150}
                 aria-invalid={Boolean(errors.organization)}
                 aria-describedby={getDescribedBy("organization")}
                 placeholder="Nom de votre association / établissement"
@@ -276,6 +295,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                 autoComplete="tel"
                 value={formValues.phone}
                 onChange={handleChange}
+                maxLength={30}
                 placeholder="06 12 34 56 78"
                 className="font-body"
                 ref={(node) => {
@@ -291,6 +311,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                 name="message"
                 value={formValues.message}
                 onChange={handleChange}
+                maxLength={5000}
                 placeholder="Précisez vos besoins, votre secteur d'activité, le nombre d'établissements…"
                 className="font-body min-h-[80px] resize-none"
                 ref={(node) => {
@@ -331,11 +352,11 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
 
             <Button type="submit" variant="hero" size="xl" className="w-full" disabled={loading}>
               {loading ? (
-                "Préparation…"
+                "Envoi…"
               ) : (
                 <>
                   <Send className="w-4 h-4 mr-2" />
-                  Ouvrir mon message
+                  Envoyer ma demande
                 </>
               )}
             </Button>
