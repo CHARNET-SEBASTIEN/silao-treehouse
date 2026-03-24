@@ -5,6 +5,7 @@ import {
   Baby,
   CheckCircle2,
   Home,
+  Linkedin,
   ShieldCheck,
   Sparkles,
   Stethoscope,
@@ -14,6 +15,7 @@ import { Link } from "react-router-dom";
 import heroTree from "@/assets/hero-tree.png";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
+import { LINKEDIN_URL } from "@/lib/site";
 
 const secteurs = [
   {
@@ -151,6 +153,16 @@ const HeroSection = () => {
                   </Link>
                 </Button>
               </div>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <Linkedin className="h-4 w-4" />
+                Suivre l&apos;actualité de D2L Informatique et de SILAO sur LinkedIn
+              </a>
             </motion.div>
 
             <motion.div

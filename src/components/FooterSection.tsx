@@ -123,10 +123,16 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="rounded-[1.25rem] border border-primary/20 bg-primary/8 px-4 py-3 transition-colors hover:border-primary/35 hover:bg-primary/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <Linkedin className="h-4 w-4 text-primary" />
-                  LinkedIn
+                  <span className="flex items-center gap-2 font-semibold text-foreground">
+                    <Linkedin className="h-4 w-4 text-primary" />
+                    Suivre SILAO sur LinkedIn
+                  </span>
+                  <span className="mt-1 block text-xs leading-6 text-muted-foreground">
+                    Suivez l&apos;actualité de D2L Informatique, les évolutions de SILAO et les prises
+                    de parole de l&apos;équipe.
+                  </span>
                 </a>
               </div>
             </div>

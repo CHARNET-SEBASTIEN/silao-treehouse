@@ -100,9 +100,9 @@ const HelpSupportPage = () => {
             </article>
 
             <article className="section-panel p-8">
-              <h2 className="mb-4 text-2xl font-bold text-foreground">Plaquette et informations</h2>
+              <h2 className="mb-4 text-2xl font-bold text-foreground">Plaquette et actualités</h2>
               <p className="mb-6 text-muted-foreground">
-                Pour demander un support synthétique, suivre l&apos;actualité SILAO ou ouvrir un échange plus institutionnel.
+                Pour demander une présentation synthétique et suivre l&apos;actualité de D2L Informatique et de SILAO.
               </p>
               <div className="flex flex-col gap-3">
                 <Button asChild variant="hero-outline" size="lg">
@@ -113,7 +113,7 @@ const HelpSupportPage = () => {
                 </Button>
                 <Button asChild variant="hero-outline" size="lg">
                   <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
-                    Voir LinkedIn
+                    Suivre sur LinkedIn
                   </a>
                 </Button>
               </div>

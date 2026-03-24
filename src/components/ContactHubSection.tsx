@@ -37,10 +37,10 @@ const contactCards = [
   },
   {
     icon: Briefcase,
-    title: "Partenariat, recrutement, veille",
+    title: "Actualités D2L et SILAO",
     description:
-      "Préparer un contact autour d'un partenariat, d'un recrutement ou d'une prise de parole plus institutionnelle.",
-    actionLabel: "Voir LinkedIn",
+      "Suivre les nouveautés produit, la vie de D2L Informatique, les prises de parole et les sujets de veille publiés par l'équipe.",
+    actionLabel: "Suivre sur LinkedIn",
     href: LINKEDIN_URL,
     type: "external" as const,
   },
