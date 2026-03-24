@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { BookOpenText, Brain, FileText, GraduationCap, LifeBuoy, Mail, Rocket } from "lucide-react";
+import { BookOpenText, Brain, FileText, GraduationCap, LifeBuoy, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import postiereIllustration from "@/assets/illustrations/postiere.png";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
@@ -49,18 +50,30 @@ const HelpSupportPage = () => {
       <Navbar />
       <PageMain className="pt-16">
         <section className="px-4 py-20 paper-bg">
-          <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary">
-            <LifeBuoy className="h-4 w-4" />
-            Aide, support et contacts
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
-            Démonstration, support et documentation dans un même <span className="text-primary sketch-underline">espace de contact</span>
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
-            Retrouvez les accès utiles pour contacter l&apos;équipe, préparer un projet SILAO ou
-            demander des informations complémentaires.
-          </p>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="text-center lg:text-left">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary">
+                <LifeBuoy className="h-4 w-4" />
+                Aide, support et contacts
+              </div>
+              <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
+                Démonstration, support et documentation dans un même <span className="text-primary sketch-underline">espace de contact</span>
+              </h1>
+              <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
+                Retrouvez les accès utiles pour contacter l&apos;équipe, préparer un projet SILAO ou
+                demander des informations complémentaires.
+              </p>
+            </div>
+
+            <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(155deg,hsl(var(--accent)/0.12),hsl(var(--primary)/0.06))] px-6 pb-4 pt-6 shadow-sm">
+              <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-accent/15 blur-3xl" />
+              <img
+                src={postiereIllustration}
+                alt="Illustration symbolisant l'orientation des demandes vers les bons interlocuteurs"
+                loading="lazy"
+                className="relative z-10 mx-auto w-full max-w-sm"
+              />
+            </figure>
           </div>
         </section>
 

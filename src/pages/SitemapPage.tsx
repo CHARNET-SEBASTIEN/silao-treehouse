@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import voyageurIllustration from "@/assets/illustrations/voyageur.png";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
@@ -43,14 +44,37 @@ const SitemapPage = () => (
     <Navbar />
     <PageMain className="pt-16">
       <section className="px-4 py-20 paper-bg">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
-            Plan du site <span className="text-primary sketch-underline">SILAO</span>
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
-            Cette page regroupe l&apos;ensemble des routes publiques du site pour faciliter l&apos;exploration,
-            la navigation clavier et l&apos;indexation des contenus réellement ouverts.
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="text-center lg:text-left">
+            <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
+              Plan du site <span className="text-primary sketch-underline">SILAO</span>
+            </h1>
+            <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
+              Cette page regroupe l&apos;ensemble des routes publiques du site pour faciliter l&apos;exploration,
+              la navigation clavier et l&apos;indexation des contenus réellement ouverts.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-2.5 lg:justify-start">
+              <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+                Navigation rapide
+              </span>
+              <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
+                Vue d&apos;ensemble
+              </span>
+              <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1.5 text-xs font-semibold text-accent-foreground">
+                Routes publiques
+              </span>
+            </div>
+          </div>
+
+          <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(150deg,hsl(var(--secondary)/0.12),hsl(var(--primary)/0.06))] px-6 pb-4 pt-6 shadow-sm">
+            <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-secondary/15 blur-3xl" />
+            <img
+              src={voyageurIllustration}
+              alt="Illustration symbolisant le repérage et l'orientation dans les pages du site"
+              loading="lazy"
+              className="relative z-10 mx-auto w-full max-w-xs"
+            />
+          </figure>
         </div>
       </section>
 

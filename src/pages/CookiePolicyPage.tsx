@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import magicienneClesIllustration from "@/assets/illustrations/magicienne-cles.png";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
@@ -15,10 +16,40 @@ const CookiePolicyPage = () => (
     <Navbar />
     <PageMain className="pt-16">
       <section className="px-4 py-20 paper-bg">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
-            Politique de cookies
-          </h1>
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
+                Politique de cookies
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+                Cette page résume l&apos;état actuel des traceurs sur le site public SILAO et les
+                conditions dans lesquelles un recueil de consentement serait activé à l&apos;avenir.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+                  Pas de traceur publicitaire
+                </span>
+                <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
+                  Pas d&apos;analytics soumis à consentement
+                </span>
+                <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1.5 text-xs font-semibold text-accent-foreground">
+                  Consentement si évolution
+                </span>
+              </div>
+            </div>
+
+            <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(150deg,hsl(var(--primary)/0.08),hsl(var(--secondary)/0.08))] px-6 pb-3 pt-6 shadow-sm">
+              <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-primary/15 blur-3xl" />
+              <img
+                src={magicienneClesIllustration}
+                alt="Illustration symbolisant le contrôle des accès et l'activation encadrée des traceurs"
+                loading="lazy"
+                className="relative z-10 mx-auto w-full max-w-xs"
+              />
+            </figure>
+          </div>
+
           <div className="section-panel p-8">
             <div className="space-y-8 text-sm leading-7 text-muted-foreground">
               <p>
