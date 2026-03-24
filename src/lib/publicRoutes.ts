@@ -8,6 +8,60 @@ import {
 } from "@/lib/seo";
 import { CONTACT_EMAIL, SITE_URL } from "@/lib/site";
 
+const HOME_CRUMB = { name: "Accueil", path: "/" };
+const RESSOURCES_CRUMB = { name: "Ressources", path: "/ressources" };
+const OFFRES_CRUMB = { name: "Offres", path: "/offres" };
+const SECTEURS_CRUMB = { name: "Secteurs", path: "/#secteurs" };
+
+const essmsAudience = {
+  "@type": "Audience",
+  audienceType: "Établissements et services sociaux et médico-sociaux",
+};
+
+const buildServiceSchema = (
+  name: string,
+  path: string,
+  description: string,
+  serviceType: string,
+) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name,
+  url: `${SITE_URL}${path}`,
+  description,
+  serviceType,
+  provider: { "@id": `${SITE_URL}/#organization` },
+  audience: essmsAudience,
+  areaServed: {
+    "@type": "Country",
+    name: "France",
+  },
+});
+
+const buildSoftwareApplicationSchema = (
+  path: string,
+  description: string,
+  featureList?: string[],
+) => ({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SILAO",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Dossier Usager Informatisé",
+  operatingSystem: "Web",
+  url: `${SITE_URL}${path}`,
+  description,
+  featureList,
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  audience: essmsAudience,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+    description: "Démonstration gratuite sur demande",
+  },
+});
+
 const homeSchema = [
   getOrganizationSchema(),
   getWebsiteSchema(),
@@ -88,7 +142,18 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Conformité SONS SILAO | INS, MSSanté, DMP et interopérabilité CI-SIS",
     description:
       "Comprenez comment SILAO répond aux exigences SONS pour les ESSMS : INS qualifiée, MSSanté, DMP et interopérabilité.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      RESSOURCES_CRUMB,
+      { name: "Conformité SONS", path: "/conformite-sons" },
+    ],
     priority: 0.8,
+    schema: buildServiceSchema(
+      "Conformité SONS SILAO",
+      "/conformite-sons",
+      "Comprenez comment SILAO répond aux exigences SONS pour les ESSMS : INS qualifiée, MSSanté, DMP et interopérabilité.",
+      "Conformité numérique et interopérabilité pour DUI ESSMS",
+    ),
   },
   {
     path: "/grappes-esms",
@@ -96,7 +161,18 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Grappes multi-ESMS SILAO | DUI mutualisé pour associations et multi-sites",
     description:
       "Découvrez comment SILAO permet de mutualiser un DUI entre plusieurs établissements tout en conservant les spécificités métier et la confidentialité.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      RESSOURCES_CRUMB,
+      { name: "Grappes multi-ESMS", path: "/grappes-esms" },
+    ],
     priority: 0.8,
+    schema: buildServiceSchema(
+      "Grappes multi-ESMS SILAO",
+      "/grappes-esms",
+      "Découvrez comment SILAO permet de mutualiser un DUI entre plusieurs établissements tout en conservant les spécificités métier et la confidentialité.",
+      "Mutualisation de DUI pour associations et multi-sites ESSMS",
+    ),
   },
   {
     path: "/accompagnement",
@@ -104,7 +180,14 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Accompagnement SILAO | Gouvernance, conduite du changement et déploiement",
     description:
       "Découvrez l'accompagnement SILAO : cadrage projet, gouvernance, formation, conduite du changement et suivi des usages dans les ESSMS.",
+    breadcrumbs: [HOME_CRUMB, { name: "Accompagnement", path: "/accompagnement" }],
     priority: 0.8,
+    schema: buildServiceSchema(
+      "Accompagnement SILAO",
+      "/accompagnement",
+      "Découvrez l'accompagnement SILAO : cadrage projet, gouvernance, formation, conduite du changement et suivi des usages dans les ESSMS.",
+      "Accompagnement projet et déploiement DUI",
+    ),
   },
   {
     path: "/formations",
@@ -112,13 +195,21 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Formations SILAO | Formations sur mesure, Qualiopi et accessibilité",
     description:
       "Découvrez les formations SILAO : formules adaptées aux équipes, certification Qualiopi, accessibilité et organisation sur mesure.",
+    breadcrumbs: [HOME_CRUMB, { name: "Formations", path: "/formations" }],
     priority: 0.8,
+    schema: buildServiceSchema(
+      "Formations SILAO",
+      "/formations",
+      "Découvrez les formations SILAO : formules adaptées aux équipes, certification Qualiopi, accessibilité et organisation sur mesure.",
+      "Formation professionnelle autour du DUI SILAO",
+    ),
   },
   {
     path: "/engagements",
     title: "Engagements SILAO | Sécurité, accessibilité et démarche responsable",
     description:
       "Consultez les engagements SILAO : qualité de service, sécurité des données, référencement Ségur, accessibilité et démarche responsable.",
+    breadcrumbs: [HOME_CRUMB, { name: "Engagements", path: "/engagements" }],
     priority: 0.7,
   },
   {
@@ -127,6 +218,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Quiz Ségur SILAO | Testez vos connaissances sur le DUI et le médico-social",
     description:
       "Mesurez votre niveau sur le Ségur du numérique, le DUI, l'INS, MSSanté et les enjeux ESSMS avec le quiz SILAO.",
+    breadcrumbs: [HOME_CRUMB, RESSOURCES_CRUMB, { name: "Quiz Ségur", path: "/quiz-segur" }],
     priority: 0.6,
     schema: {
       "@context": "https://schema.org",
@@ -142,7 +234,17 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title: "SILAO Handicap | DUI pour IME, ITEP, MAS, FAM, ESAT et SESSAD",
     description:
       "Découvrez SILAO pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      SECTEURS_CRUMB,
+      { name: "Médico-social — PH", path: "/secteur/handicap" },
+    ],
     priority: 0.8,
+    schema: buildSoftwareApplicationSchema(
+      "/secteur/handicap",
+      "Découvrez SILAO pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH.",
+      ["Dossier usager", "Agenda partagé", "Gestion MDPH", "Fiche d'urgence", "Gestion des attentes"],
+    ),
   },
   {
     path: "/secteur/protection-enfance",
@@ -150,14 +252,34 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "SILAO Protection de l'enfance | DUI pour MECS, SAE, AEMO et lieux de vie",
     description:
       "Découvrez SILAO pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      SECTEURS_CRUMB,
+      { name: "Protection de l'enfance — PDE", path: "/secteur/protection-enfance" },
+    ],
     priority: 0.8,
+    schema: buildSoftwareApplicationSchema(
+      "/secteur/protection-enfance",
+      "Découvrez SILAO pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
+      ["Cahier de liaison", "Agenda", "Gestion des fratries", "Suivi des présences", "Accueil familial"],
+    ),
   },
   {
     path: "/secteur/insertion-ahi",
     title: "SILAO AHI | DUI pour CHRS, CADA, HUDA, CPH et accueil de jour",
     description:
       "Découvrez SILAO pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      SECTEURS_CRUMB,
+      { name: "Accueil, hébergement et insertion — AHI", path: "/secteur/insertion-ahi" },
+    ],
     priority: 0.8,
+    schema: buildSoftwareApplicationSchema(
+      "/secteur/insertion-ahi",
+      "Découvrez SILAO pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
+      ["Gestion des hébergements", "Accompagnement au logement", "Suivi administratif", "Budget personnel", "Suivi médical"],
+    ),
   },
   {
     path: "/secteur/personnes-difficultes-specifiques",
@@ -165,7 +287,20 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "SILAO PDS | DUI pour LHSS, ACT, CAARUD et structures santé-social",
     description:
       "Découvrez SILAO pour les personnes en difficultés spécifiques : suivi coordonné, alertes, dossier santé et pilotage d'activité.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      SECTEURS_CRUMB,
+      {
+        name: "Personnes en difficultés spécifiques — PDS",
+        path: "/secteur/personnes-difficultes-specifiques",
+      },
+    ],
     priority: 0.8,
+    schema: buildSoftwareApplicationSchema(
+      "/secteur/personnes-difficultes-specifiques",
+      "Découvrez SILAO pour les personnes en difficultés spécifiques : suivi coordonné, alertes, dossier santé et pilotage d'activité.",
+      ["Dossier médical", "DMP", "Alertes", "Accompagnement au logement", "Coordination pluridisciplinaire"],
+    ),
   },
   {
     path: "/offres",
@@ -173,7 +308,14 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Offres de déploiement SILAO | Méthode, reprise de données et formation",
     description:
       "Découvrez les offres de déploiement SILAO : cadrage, paramétrage, reprise de données, formation et suivi post-démarrage pour les ESSMS.",
+    breadcrumbs: [HOME_CRUMB, OFFRES_CRUMB],
     priority: 0.9,
+    schema: buildServiceSchema(
+      "Offres de déploiement SILAO",
+      "/offres",
+      "Découvrez les offres de déploiement SILAO : cadrage, paramétrage, reprise de données, formation et suivi post-démarrage pour les ESSMS.",
+      "Déploiement de DUI pour ESSMS",
+    ),
   },
   {
     path: "/abonnement",
@@ -181,7 +323,14 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Abonnement SILAO | Hébergement, support, mises à jour et conformité inclus",
     description:
       "Consultez le modèle d'abonnement SILAO : hébergement HDS, support, maintenance, mises à jour réglementaires et évolutions fonctionnelles inclus.",
+    breadcrumbs: [HOME_CRUMB, OFFRES_CRUMB, { name: "Abonnement", path: "/abonnement" }],
     priority: 0.8,
+    schema: buildServiceSchema(
+      "Abonnement SILAO",
+      "/abonnement",
+      "Consultez le modèle d'abonnement SILAO : hébergement HDS, support, maintenance, mises à jour réglementaires et évolutions fonctionnelles inclus.",
+      "Abonnement SaaS pour DUI ESSMS",
+    ),
   },
   {
     path: "/ressources",
@@ -189,6 +338,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Ressources SILAO par D2L | DUI, SONS, déploiement et secteurs ESSMS",
     description:
       "Guides et repères SILAO sur le DUI, la conformité SONS, le déploiement, les grappes multi-établissements et les secteurs ESSMS.",
+    breadcrumbs: [HOME_CRUMB, RESSOURCES_CRUMB],
     priority: 0.7,
     schema: resourcesSchema,
   },
@@ -197,6 +347,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title: "Aide et support SILAO | Contact, ressources et orientation",
     description:
       "Retrouvez les points de contact, ressources utiles et parcours d'assistance SILAO pour votre projet DUI ou vos questions produit.",
+    breadcrumbs: [HOME_CRUMB, { name: "Aide et support", path: "/aide-support" }],
     priority: 0.4,
     schema: {
       "@context": "https://schema.org",
@@ -211,6 +362,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title: "Mentions légales | SILAO par D2L",
     description:
       "Consultez les mentions légales du site SILAO édité par D2L Informatique.",
+    breadcrumbs: [HOME_CRUMB, { name: "Mentions légales", path: "/mentions-legales" }],
     priority: 0.2,
   },
   {
@@ -218,6 +370,10 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title: "Politique de confidentialité | SILAO par D2L",
     description:
       "Consultez la politique de confidentialité liée aux formulaires publics et aux données de contact du site SILAO.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      { name: "Politique de confidentialité", path: "/politique-de-confidentialite" },
+    ],
     priority: 0.2,
   },
   {
@@ -225,6 +381,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title: "Politique de cookies | SILAO par D2L",
     description:
       "Consultez la politique de cookies du site SILAO et l'état actuel des traceurs utilisés.",
+    breadcrumbs: [HOME_CRUMB, { name: "Politique de cookies", path: "/politique-de-cookies" }],
     priority: 0.2,
   },
   {
@@ -232,6 +389,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title: "Plan du site SILAO | Toutes les pages publiques",
     description:
       "Parcourez l'ensemble des pages publiques SILAO : offres, secteurs, ressources, accompagnement et support.",
+    breadcrumbs: [HOME_CRUMB, { name: "Plan du site", path: "/plan-du-site" }],
     priority: 0.3,
     schema: {
       "@context": "https://schema.org",

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { type PageSeo, getStructuredData, resolveUrl } from "@/lib/seo";
-import { DEFAULT_OG_IMAGE, SITE_LOCALE, SITE_NAME } from "@/lib/site";
+import { COMPANY_NAME, DEFAULT_OG_IMAGE, SITE_LOCALE, SITE_NAME } from "@/lib/site";
 
 const upsertMeta = (selector: string, attributes: Record<string, string>) => {
   let element = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -53,6 +53,7 @@ const SEOHead = ({
     const robots = noindex ? "noindex, nofollow" : "index, follow";
 
     document.title = title;
+    upsertMeta('meta[name="author"]', { name: "author", content: COMPANY_NAME });
     upsertMeta('meta[name="description"]', { name: "description", content: description });
     upsertMeta('meta[name="robots"]', { name: "robots", content: robots });
     upsertMeta('meta[property="og:locale"]', { property: "og:locale", content: SITE_LOCALE });

@@ -1,6 +1,11 @@
 import {
+  COMPANY_ACTIVITY,
+  COMPANY_CREATION_DATE,
+  COMPANY_LEGAL_NAME,
+  COMPANY_NAME,
   CONTACT_EMAIL,
   DEFAULT_OG_IMAGE,
+  LINKEDIN_URL,
   SITE_LOCALE,
   SITE_NAME,
   SITE_URL,
@@ -10,10 +15,16 @@ export interface SeoSchema extends Record<string, unknown> {
   "@type"?: string | string[];
 }
 
+export interface BreadcrumbSeoItem {
+  name: string;
+  path: string;
+}
+
 export interface PageSeo {
   path: string;
   title: string;
   description: string;
+  breadcrumbs?: BreadcrumbSeoItem[];
   noindex?: boolean;
   ogType?: "website" | "article";
   ogImage?: string;
@@ -43,16 +54,15 @@ const escapeHtml = (value: string) =>
 const toSchemaList = (schema?: SeoSchema | SeoSchema[]) =>
   schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
-const hasPageSchema = (schemaList: SeoSchema[]) =>
+const hasSchemaType = (schemaList: SeoSchema[], expectedTypes: string[]) =>
   schemaList.some((item) => {
     const typeValue = item["@type"];
     const types = Array.isArray(typeValue) ? typeValue : [typeValue];
-    return types.some((type) =>
-      ["WebPage", "CollectionPage", "ContactPage", "FAQPage"].includes(
-        String(type),
-      ),
-    );
+    return types.some((type) => expectedTypes.includes(String(type)));
   });
+
+const hasPageSchema = (schemaList: SeoSchema[]) =>
+  hasSchemaType(schemaList, ["WebPage", "CollectionPage", "ContactPage", "FAQPage"]);
 
 const getDefaultSchema = (page: PageSeo): SeoSchema => ({
   "@context": "https://schema.org",
@@ -66,13 +76,39 @@ const getDefaultSchema = (page: PageSeo): SeoSchema => ({
   publisher: { "@id": ORGANIZATION_ID },
 });
 
+const getBreadcrumbSchema = (page: PageSeo): SeoSchema | null => {
+  if (!page.breadcrumbs?.length) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: page.breadcrumbs.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: resolveUrl(item.path),
+    })),
+  };
+};
+
 export const getStructuredData = (page: PageSeo) => {
   const schemas = toSchemaList(page.schema);
+  const structuredData: SeoSchema[] = [];
+
   if (!hasPageSchema(schemas)) {
-    return [getDefaultSchema(page), ...schemas];
+    structuredData.push(getDefaultSchema(page));
   }
 
-  return schemas;
+  if (!hasSchemaType(schemas, ["BreadcrumbList"])) {
+    const breadcrumbSchema = getBreadcrumbSchema(page);
+    if (breadcrumbSchema) {
+      structuredData.push(breadcrumbSchema);
+    }
+  }
+
+  structuredData.push(...schemas);
+
+  return structuredData;
 };
 
 export const buildHeadMarkup = (page: PageSeo) => {
@@ -84,7 +120,7 @@ export const buildHeadMarkup = (page: PageSeo) => {
   return [
     `<title>${escapeHtml(page.title)}</title>`,
     `<meta name="description" content="${escapeHtml(page.description)}" />`,
-    `<meta name="author" content="D2L" />`,
+    `<meta name="author" content="${escapeHtml(COMPANY_NAME)}" />`,
     `<meta name="robots" content="${robots}" />`,
     `<link rel="canonical" href="${canonicalUrl}" />`,
     `<meta property="og:locale" content="${SITE_LOCALE}" />`,
@@ -137,11 +173,34 @@ export const getOrganizationSchema = (): SeoSchema => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
-  name: "D2L",
+  name: COMPANY_NAME,
+  legalName: COMPANY_LEGAL_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.ico`,
   description:
     "D2L édite SILAO, le logiciel de Dossier Usager Informatisé pour les établissements et services sociaux et médico-sociaux.",
+  foundingDate: COMPANY_CREATION_DATE,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "132 rue Fondaudège",
+    postalCode: "33000",
+    addressLocality: "Bordeaux",
+    addressCountry: "FR",
+  },
+  numberOfEmployees: {
+    "@type": "QuantitativeValue",
+    minValue: 20,
+    maxValue: 49,
+  },
+  sameAs: [LINKEDIN_URL],
+  knowsAbout: [
+    COMPANY_ACTIVITY,
+    "Dossier Usager Informatisé",
+    "ESSMS",
+    "Protection de l'enfance",
+    "Médico-social",
+    "Accueil, hébergement et insertion",
+  ],
   contactPoint: {
     "@type": "ContactPoint",
     email: CONTACT_EMAIL,
