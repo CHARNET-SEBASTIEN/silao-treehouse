@@ -94,13 +94,13 @@ const FilieresSection = () => (
                 {filiere.name}
               </p>
               <h3 className={`mt-1 text-2xl font-bold ${filiere.color}`}>{filiere.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-foreground/80">{filiere.description}</p>
+              <p className="mt-3 text-sm leading-7 text-foreground/90">{filiere.description}</p>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {filiere.structures.map((structure) => (
                   <span
                     key={structure}
-                    className="rounded-full border border-border/60 bg-card/90 px-3 py-1 text-xs text-muted-foreground"
+                    className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs text-muted-foreground"
                   >
                     {structure}
                   </span>

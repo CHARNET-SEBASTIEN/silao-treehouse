@@ -53,7 +53,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
       <footer
         ref={ref}
         {...props}
-        className="relative border-t border-white/8 bg-[linear-gradient(180deg,hsl(var(--card)),hsl(var(--background)))] paper-grain"
+        className="relative border-t border-border/80 bg-[linear-gradient(180deg,hsl(var(--card)),hsl(var(--background)))] paper-grain"
       >
         <div className="relative z-10 mx-auto max-w-6xl px-6 pt-16 pb-8">
           <div className="mb-14 grid gap-12 md:grid-cols-[1.1fr_0.95fr_0.95fr]">
@@ -77,7 +77,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">PDE</span>
                 <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">PH</span>
                 <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1 text-xs font-semibold text-accent-foreground">AHI</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-foreground">PDS</span>
+                <span className="rounded-full border border-border/80 bg-background/90 px-3 py-1 text-xs font-semibold text-foreground">PDS</span>
               </div>
             </div>
 

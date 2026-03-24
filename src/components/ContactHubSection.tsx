@@ -50,13 +50,14 @@ const ContactHubSection = () => {
 
   return (
     <section id="contacts" className="px-4 py-20 md:py-28 paper-bg">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
+        <p className="marker-label mb-4">Entrées de contact</p>
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
           Contacts
         </p>
@@ -77,8 +78,9 @@ const ContactHubSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06 }}
-              className="rounded-[1.5rem] border border-border/60 bg-card px-5 py-6 shadow-sm"
+              className="relative overflow-hidden rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
             >
+              <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,hsl(var(--primary)),hsl(var(--secondary)))]" />
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <card.icon className="h-5 w-5" />
               </div>
@@ -86,25 +88,25 @@ const ContactHubSection = () => {
               <p className="mb-6 text-sm leading-7 text-muted-foreground">{card.description}</p>
 
               {card.type === "dialog" ? (
-                <Button variant="hero" size="lg" className="w-full" onClick={() => setDemoOpen(true)}>
+                <Button variant="hero" size="lg" className="mt-auto w-full" onClick={() => setDemoOpen(true)}>
                   {card.actionLabel}
                 </Button>
               ) : null}
 
               {card.type === "link" ? (
-                <Button asChild variant="hero-outline" size="lg" className="w-full">
+                <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
                   <a href={card.href}>{card.actionLabel}</a>
                 </Button>
               ) : null}
 
               {card.type === "route" ? (
-                <Button asChild variant="hero-outline" size="lg" className="w-full">
+                <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
                   <Link to={card.href}>{card.actionLabel}</Link>
                 </Button>
               ) : null}
 
               {card.type === "external" ? (
-                <Button asChild variant="hero-outline" size="lg" className="w-full">
+                <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
                   <a href={card.href} target="_blank" rel="noreferrer">
                     {card.actionLabel}
                   </a>

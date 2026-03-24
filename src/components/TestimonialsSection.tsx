@@ -23,8 +23,8 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="bg-card px-4 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section className="paper-bg px-4 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="flex flex-col items-center bg-background p-8 text-center sketch-border-sm"
+              className="flex flex-col items-center bg-card p-8 text-center sketch-border-sm"
             >
               <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-border/60 bg-card text-2xl font-bold text-primary">
                 {t.name.slice(0, 2).toUpperCase()}

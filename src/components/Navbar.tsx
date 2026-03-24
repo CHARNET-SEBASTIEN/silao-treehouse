@@ -166,7 +166,7 @@ const Navbar = () => {
         <motion.div
           initial={false}
           animate={{ opacity: scrolled ? 1 : 0, y: scrolled ? 0 : -4 }}
-          className="absolute inset-x-3 inset-y-2 rounded-full border border-white/8 bg-card/85 shadow-[0_20px_50px_-30px_hsl(236_44%_7%/0.95)]"
+          className="absolute inset-x-3 inset-y-2 rounded-full border border-border/80 bg-card/90 shadow-[0_24px_60px_-40px_hsl(var(--brand-violet)/0.22)]"
         />
 
         <Link
@@ -182,7 +182,7 @@ const Navbar = () => {
 
         <nav
           aria-label="Navigation principale"
-          className="relative z-10 hidden items-center gap-1 rounded-full border border-white/8 bg-card/70 px-2 py-1.5 shadow-sm backdrop-blur xl:flex"
+          className="relative z-10 hidden items-center gap-1 rounded-full border border-border/80 bg-card/85 px-2 py-1.5 shadow-sm backdrop-blur xl:flex"
         >
           {homeLinks.slice(1).map((link) =>
             link.isAnchor ? (
@@ -227,7 +227,7 @@ const Navbar = () => {
             className={`flex h-10 items-center gap-2 rounded-full px-4 text-sm font-bold transition-colors ${
               open
                 ? "bg-foreground text-background"
-                : "border border-white/10 bg-white/5 text-foreground hover:bg-primary hover:text-primary-foreground"
+                : "border border-border/80 bg-card/90 text-foreground hover:bg-primary hover:text-primary-foreground"
             }`}
             aria-controls="mobile-navigation"
             aria-expanded={open}
@@ -262,7 +262,7 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.04 }}
-                      className="flex items-center gap-4 rounded-[1.4rem] border border-white/6 bg-white/4 px-4 py-3 transition-colors hover:bg-primary/10"
+                      className="flex items-center gap-4 rounded-[1.4rem] border border-border/70 bg-card px-4 py-3 transition-colors hover:bg-primary/10"
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/14 text-primary">
                         <link.icon className="h-4 w-4" />
@@ -290,7 +290,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.18 + groupIndex * 0.08 }}
-                    className="rounded-[1.75rem] border border-white/8 bg-card/90 p-5 shadow-[0_18px_40px_-24px_hsl(236_44%_7%/0.92)]"
+                    className="rounded-[1.75rem] border border-border/80 bg-card p-5 shadow-[0_22px_48px_-36px_hsl(var(--brand-violet)/0.2)]"
                   >
                     <p className="mb-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
                       {group.title}
@@ -301,7 +301,7 @@ const Navbar = () => {
                           key={link.href}
                           to={link.href}
                           onClick={() => setOpen(false)}
-                          className="block rounded-2xl border border-white/8 bg-background/70 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/10"
+                          className="block rounded-2xl border border-border/80 bg-background/90 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/10"
                         >
                           <p className="font-semibold text-foreground">{link.label}</p>
                           <p className="mt-1 text-sm leading-6 text-muted-foreground">{link.description}</p>

@@ -11,12 +11,12 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_18px_40px_-24px_hsl(var(--primary)/0.95)]",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
+        outline: "border border-primary/25 bg-card text-primary hover:bg-primary hover:text-primary-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/85 shadow-[0_18px_40px_-24px_hsl(var(--secondary)/0.95)]",
-        ghost: "hover:bg-accent/15 hover:text-foreground",
+        ghost: "hover:bg-primary/10 hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         hero: "rounded-full bg-secondary text-secondary-foreground font-bold text-lg tracking-[0.02em] shadow-[0_22px_45px_-26px_hsl(var(--secondary)/0.98)] hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground",
-        "hero-outline": "rounded-full border border-white/12 bg-white/5 text-foreground font-bold text-lg tracking-[0.02em] hover:border-primary/45 hover:bg-primary/12 hover:text-foreground",
+        "hero-outline": "rounded-full border border-primary/20 bg-card text-foreground font-bold text-lg tracking-[0.02em] shadow-[0_18px_42px_-34px_hsl(var(--brand-violet)/0.18)] hover:border-primary/45 hover:bg-primary/10 hover:text-foreground",
         "hero-warm": "rounded-full bg-accent text-accent-foreground font-bold text-lg tracking-[0.02em] shadow-[0_22px_45px_-26px_hsl(var(--accent)/0.98)] hover:-translate-y-0.5 hover:brightness-95",
       },
       size: {

@@ -57,7 +57,7 @@ const CompanyStorySection = () => (
             <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
               Raison d&apos;être
             </p>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground/85">
+            <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground/92">
               <li>Mettre la technologie au service des personnes et non l&apos;inverse.</li>
               <li>S&apos;appuyer sur l&apos;intelligence collective et le travail réellement ensemble.</li>
               <li>Aider les professionnels qui accompagnent quotidiennement les personnes en difficulté.</li>
@@ -74,7 +74,7 @@ const CompanyStorySection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06 }}
-              className="rounded-[1.5rem] border border-border/60 bg-background/85 px-5 py-6 shadow-sm"
+              className="rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
                 <marker.icon className="h-5 w-5" />
@@ -108,7 +108,7 @@ const CompanyStorySection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.06 }}
-          className="rounded-[1.75rem] border border-border/60 bg-background/85 px-6 py-6"
+          className="rounded-[1.75rem] border border-border/70 bg-card px-6 py-6"
         >
           <h3 className="text-2xl font-bold text-foreground">Ce qui nous caractérise</h3>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">

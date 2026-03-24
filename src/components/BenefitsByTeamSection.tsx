@@ -67,13 +67,14 @@ const teamBenefits = [
 
 const BenefitsByTeamSection = () => (
   <section className="px-4 py-20 md:py-28 paper-bg">
-    <div className="mx-auto max-w-6xl">
+    <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="mx-auto mb-14 max-w-3xl text-center"
       >
+        <p className="marker-label mb-4">Usages par équipe</p>
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
           Bénéfices par métier
         </p>
@@ -95,15 +96,19 @@ const BenefitsByTeamSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
-            className="sketch-border bg-card p-6"
+            className="sketch-border relative overflow-hidden bg-card p-6"
           >
+            <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,hsl(var(--secondary)),hsl(var(--accent)))]" />
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
               <item.icon className="h-5 w-5" />
             </div>
             <h3 className="mb-4 text-xl font-bold text-foreground">{item.title}</h3>
             <ul className="space-y-3 text-sm leading-7 text-muted-foreground">
               {item.points.map((point) => (
-                <li key={point}>{point}</li>
+                <li key={point} className="flex gap-3">
+                  <span className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <span>{point}</span>
+                </li>
               ))}
             </ul>
           </motion.article>

@@ -14,6 +14,7 @@ const PartnersSection = () => {
   return (
     <section className="px-4 py-20 md:py-28">
       <div className="mx-auto max-w-5xl text-center section-panel px-6 py-10 md:px-10">
+        <p className="marker-label mb-4">Structures accompagnées</p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +37,7 @@ const PartnersSection = () => {
           {partners.map((partner) => (
             <span
               key={partner}
-              className="cursor-default bg-card px-5 py-2 font-body text-sm text-muted-foreground sketch-border-sm"
+              className="cursor-default rounded-full bg-card px-5 py-2 font-body text-sm font-medium text-muted-foreground sketch-border-sm"
             >
               {partner}
             </span>

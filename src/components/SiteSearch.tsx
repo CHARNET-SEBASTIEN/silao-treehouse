@@ -195,7 +195,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className={className ?? "hidden lg:inline-flex h-10 items-center gap-2 rounded-full border border-border/50 bg-background/70 px-4 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-primary"}
+          className={className ?? "hidden lg:inline-flex h-10 items-center gap-2 rounded-full border border-border/70 bg-card px-4 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-primary"}
           aria-label="Ouvrir la recherche du site"
         >
           <Search className="h-4 w-4" />
@@ -239,7 +239,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
 
   return (
     <div className={className}>
-      <div className="rounded-[1.75rem] border border-border/60 bg-background/85 p-4 shadow-sm backdrop-blur sm:p-5">
+      <div className="rounded-[1.75rem] border border-border/70 bg-card p-4 shadow-sm sm:p-5">
         <label htmlFor="site-search-inline" className="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
           <FolderSearch className="h-4 w-4 text-primary" />
           Barre de recherche

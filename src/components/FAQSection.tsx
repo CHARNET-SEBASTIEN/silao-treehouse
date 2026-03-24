@@ -133,13 +133,14 @@ export const faqSchema = {
 
 const FAQSection = () => (
   <section id="faq" className="px-4 py-20 md:py-28 paper-grain">
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-3xl section-panel px-6 py-10 md:px-10 md:py-14">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="mb-12 text-center"
       >
+        <p className="marker-label mb-4">FAQ</p>
         <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
           Questions <span className="text-primary sketch-underline">fréquentes</span>
         </h2>
@@ -159,7 +160,7 @@ const FAQSection = () => (
             <AccordionItem
               key={faq.question}
               value={`faq-${i}`}
-              className="rounded-none border-b-0 bg-card px-6 sketch-border"
+              className="rounded-[1.4rem] border-b-0 bg-card px-6 sketch-border"
             >
               <AccordionTrigger className="py-5 text-left font-body font-semibold text-foreground transition-colors hover:text-primary">
                 {faq.question}
