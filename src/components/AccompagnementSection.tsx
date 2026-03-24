@@ -86,7 +86,7 @@ const AccompagnementSection = () => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-4xl text-center"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 text-sm text-accent">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-1.5 text-sm text-secondary">
             <Handshake className="h-4 w-4" />
             Accompagnement SILAO
           </div>

@@ -4,11 +4,13 @@ import {
   COMPANY_LEGAL_NAME,
   COMPANY_NAME,
   CONTACT_EMAIL,
+  CONTACT_PHONE,
   DEFAULT_OG_IMAGE,
   LINKEDIN_URL,
   SITE_LOCALE,
   SITE_NAME,
   SITE_URL,
+  TWITTER_SITE_HANDLE,
 } from "@/lib/site";
 
 export interface SeoSchema extends Record<string, unknown> {
@@ -131,10 +133,19 @@ export const buildHeadMarkup = (page: PageSeo) => {
     `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:image" content="${imageUrl}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
+    ...(TWITTER_SITE_HANDLE
+      ? [`<meta name="twitter:site" content="${escapeHtml(TWITTER_SITE_HANDLE)}" />`]
+      : []),
     `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
     `<meta name="twitter:image" content="${imageUrl}" />`,
     `<link rel="alternate" hreflang="fr-FR" href="${canonicalUrl}" />`,
+    '<link rel="preconnect" href="https://fonts.googleapis.com" />',
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
+    '<link rel="preconnect" href="https://storage.googleapis.com" />',
+    '<link rel="dns-prefetch" href="https://fonts.googleapis.com" />',
+    '<link rel="dns-prefetch" href="https://fonts.gstatic.com" />',
+    '<link rel="dns-prefetch" href="https://storage.googleapis.com" />',
     ...schemas.map(
       (schema, index) =>
         `<script id="seo-schema-${index}" type="application/ld+json" data-seo-schema="true">${JSON.stringify(schema)}</script>`,
@@ -202,9 +213,11 @@ export const getOrganizationSchema = (): SeoSchema => ({
     "Médico-social",
     "Accueil, hébergement et insertion",
   ],
+  ...(CONTACT_PHONE ? { telephone: CONTACT_PHONE } : {}),
   contactPoint: {
     "@type": "ContactPoint",
     email: CONTACT_EMAIL,
+    ...(CONTACT_PHONE ? { telephone: CONTACT_PHONE } : {}),
     contactType: "sales",
     availableLanguage: "French",
   },

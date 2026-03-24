@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 
 import { type PageSeo, getStructuredData, resolveUrl } from "@/lib/seo";
-import { COMPANY_NAME, DEFAULT_OG_IMAGE, SITE_LOCALE, SITE_NAME } from "@/lib/site";
+import {
+  COMPANY_NAME,
+  DEFAULT_OG_IMAGE,
+  SITE_LOCALE,
+  SITE_NAME,
+  TWITTER_SITE_HANDLE,
+} from "@/lib/site";
 
 const upsertMeta = (selector: string, attributes: Record<string, string>) => {
   let element = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -27,6 +33,34 @@ const upsertLink = (
 
   Object.entries(attributes).forEach(([key, value]) => {
     element?.setAttribute(key, value);
+  });
+};
+
+const ensureHeadLinks = () => {
+  upsertLink('link[rel="preconnect"][href="https://fonts.googleapis.com"]', {
+    rel: "preconnect",
+    href: "https://fonts.googleapis.com",
+  });
+  upsertLink('link[rel="preconnect"][href="https://fonts.gstatic.com"]', {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossorigin: "",
+  });
+  upsertLink('link[rel="preconnect"][href="https://storage.googleapis.com"]', {
+    rel: "preconnect",
+    href: "https://storage.googleapis.com",
+  });
+  upsertLink('link[rel="dns-prefetch"][href="https://fonts.googleapis.com"]', {
+    rel: "dns-prefetch",
+    href: "https://fonts.googleapis.com",
+  });
+  upsertLink('link[rel="dns-prefetch"][href="https://fonts.gstatic.com"]', {
+    rel: "dns-prefetch",
+    href: "https://fonts.gstatic.com",
+  });
+  upsertLink('link[rel="dns-prefetch"][href="https://storage.googleapis.com"]', {
+    rel: "dns-prefetch",
+    href: "https://storage.googleapis.com",
   });
 };
 
@@ -68,6 +102,12 @@ const SEOHead = ({
     upsertMeta('meta[property="og:url"]', { property: "og:url", content: canonicalUrl });
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: imageUrl });
     upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
+    if (TWITTER_SITE_HANDLE) {
+      upsertMeta('meta[name="twitter:site"]', {
+        name: "twitter:site",
+        content: TWITTER_SITE_HANDLE,
+      });
+    }
     upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: imageUrl });
@@ -77,6 +117,7 @@ const SEOHead = ({
       hreflang: "fr-FR",
       href: canonicalUrl,
     });
+    ensureHeadLinks();
 
     getStructuredData({ path, title, description, noindex, ogImage, ogType, schema }).forEach(
       (item, index) => {

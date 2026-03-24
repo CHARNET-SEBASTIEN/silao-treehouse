@@ -10,7 +10,7 @@ import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { getPageSeo } from "@/lib/publicRoutes";
-import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const seo = getPageSeo("/aide-support");
 
@@ -105,7 +105,7 @@ const HelpSupportPage = () => {
             <article className="section-panel p-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">Plaquette et actualités</h2>
               <p className="mb-6 text-muted-foreground">
-                Pour demander une présentation synthétique et suivre l&apos;actualité de D2L Informatique et de SILAO.
+                Pour demander une présentation synthétique et accéder aux contenus publics SILAO.
               </p>
               <div className="flex flex-col gap-3">
                 <Button asChild variant="hero-outline" size="lg">
@@ -115,9 +115,7 @@ const HelpSupportPage = () => {
                   </a>
                 </Button>
                 <Button asChild variant="hero-outline" size="lg">
-                  <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
-                    Suivre sur LinkedIn
-                  </a>
+                  <Link to="/ressources">Voir les ressources</Link>
                 </Button>
               </div>
             </article>
