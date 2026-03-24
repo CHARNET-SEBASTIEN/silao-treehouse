@@ -13,7 +13,7 @@ import {
   Users2,
 } from "lucide-react";
 
-import archivisteIllustration from "@/assets/illustrations/archiviste.png";
+import archivisteIllustration from "@/assets/illustrations/archiviste.webp";
 
 const features = [
   {
@@ -125,6 +125,9 @@ const FeaturesSection = () => (
             src={archivisteIllustration}
             alt="Illustration évoquant l'organisation documentaire et la tenue du dossier usager"
             loading="lazy"
+            decoding="async"
+            width={1200}
+            height={1200}
             className="relative z-10 mx-auto w-full max-w-xs"
           />
         </figure>

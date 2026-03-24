@@ -15,10 +15,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 43% 34%;
 
-    --primary: 198 100% 45%;
+    --primary: 198 100% 31%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 31 100% 47%;
+    --secondary: 30 100% 35%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 219 60% 96%;
@@ -32,7 +32,7 @@
 
     --border: 219 43% 87%;
     --input: 219 43% 87%;
-    --ring: 198 100% 45%;
+    --ring: 198 100% 28%;
 
     --radius: 1.5rem;
 
@@ -48,9 +48,9 @@
     /* Custom tokens */
     --sketch-border: 1px solid hsl(var(--border) / 0.8);
     --paper-texture: hsl(216 100% 99%);
-    --leaf-green: 198 100% 45%;
-    --warm-earth: 31 100% 47%;
-    --sky-soft: 198 100% 45%;
+    --leaf-green: 198 100% 31%;
+    --warm-earth: 30 100% 35%;
+    --sky-soft: 198 100% 31%;
     --bark-brown: 227 17% 27%;
     --brand-violet: 240 43% 34%;
   }
@@ -238,7 +238,7 @@
     border-radius: 999px;
     background: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
-    font-size: 0.78rem;
+    font-size: 0.875rem;
     font-weight: 800;
     letter-spacing: 0.16em;
     padding: 0.45rem 0.95rem;

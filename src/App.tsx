@@ -12,6 +12,42 @@ import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 const queryClient = new QueryClient();
 
+const DecorativeIconManager = () => {
+  useEffect(() => {
+    const selector =
+      'svg.lucide:not([aria-hidden]):not([aria-label]):not([aria-labelledby])';
+
+    const decorateIcons = (root: ParentNode) => {
+      root.querySelectorAll<SVGElement>(selector).forEach((icon) => {
+        icon.setAttribute("aria-hidden", "true");
+        icon.setAttribute("focusable", "false");
+      });
+    };
+
+    decorateIcons(document);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return;
+
+          if (node.matches(selector)) {
+            node.setAttribute("aria-hidden", "true");
+            node.setAttribute("focusable", "false");
+          }
+
+          decorateIcons(node);
+        });
+      });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+};
+
 const ScrollManager = () => {
   const location = useLocation();
 
@@ -46,9 +82,10 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <DecorativeIconManager />
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-background focus:px-4 focus:py-3 focus:text-foreground focus:shadow-lg"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-foreground focus:px-4 focus:py-3 focus:text-background focus:shadow-lg focus:outline focus:outline-4 focus:outline-secondary focus:outline-offset-2"
           >
             Aller au contenu
           </a>

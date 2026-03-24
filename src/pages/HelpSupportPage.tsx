@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BookOpenText, Brain, FileText, GraduationCap, LifeBuoy, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import postiereIllustration from "@/assets/illustrations/postiere.png";
+import postiereIllustration from "@/assets/illustrations/postiere.webp";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
@@ -71,6 +71,9 @@ const HelpSupportPage = () => {
                 src={postiereIllustration}
                 alt="Illustration symbolisant l'orientation des demandes vers les bons interlocuteurs"
                 loading="lazy"
+                decoding="async"
+                width={1200}
+                height={1200}
                 className="relative z-10 mx-auto w-full max-w-sm"
               />
             </figure>

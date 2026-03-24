@@ -15,15 +15,19 @@ const upsertMeta = (selector: string, attributes: Record<string, string>) => {
   });
 };
 
-const upsertLink = (selector: string, rel: string, href: string) => {
+const upsertLink = (
+  selector: string,
+  attributes: Record<string, string>,
+) => {
   let element = document.head.querySelector(selector) as HTMLLinkElement | null;
   if (!element) {
     element = document.createElement("link");
     document.head.appendChild(element);
   }
 
-  element.setAttribute("rel", rel);
-  element.setAttribute("href", href);
+  Object.entries(attributes).forEach(([key, value]) => {
+    element?.setAttribute(key, value);
+  });
 };
 
 const upsertJsonLd = (id: string, payload: unknown) => {
@@ -67,11 +71,12 @@ const SEOHead = ({
     upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: imageUrl });
-    upsertLink('link[rel="canonical"]', "canonical", canonicalUrl);
-
-    document
-      .querySelectorAll('script[data-seo-schema="true"]')
-      .forEach((element) => element.remove());
+    upsertLink('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
+    upsertLink('link[rel="alternate"][hreflang="fr-FR"]', {
+      rel: "alternate",
+      hreflang: "fr-FR",
+      href: canonicalUrl,
+    });
 
     getStructuredData({ path, title, description, noindex, ogImage, ogType, schema }).forEach(
       (item, index) => {

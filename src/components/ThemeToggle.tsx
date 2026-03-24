@@ -27,6 +27,7 @@ const ThemeToggle = ({ className }: ThemeToggleProps) => {
       className={`rounded-full border-border/80 bg-card/90 text-foreground shadow-sm hover:bg-primary hover:text-primary-foreground ${className ?? ""}`}
       onClick={() => mounted && setTheme(nextTheme)}
       aria-label={isDark ? "Activer le mode clair" : "Activer le mode sombre"}
+      aria-pressed={isDark}
       title={isDark ? "Activer le mode clair" : "Activer le mode sombre"}
     >
       {isDark ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}

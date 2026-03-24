@@ -34,9 +34,9 @@ const filieres = [
     description:
       "Accueil de jour, CHRS, HU, CPH, CADA, HUDA, AVDL et IML avec des parcours souvent multi-dispositifs.",
     structures: ["CHRS", "CADA", "HUDA", "CPH"],
-    color: "text-accent",
-    bgColor: "bg-accent/10",
-    borderColor: "border-accent/20",
+    color: "text-[#6b5600]",
+    bgColor: "bg-[#8a7000]/10",
+    borderColor: "border-[#8a7000]/20",
     href: "/secteur/insertion-ahi",
   },
   {

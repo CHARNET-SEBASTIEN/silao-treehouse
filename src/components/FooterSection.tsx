@@ -57,12 +57,12 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               <Link
                 to="/"
                 onClick={handleLogoClick}
-                aria-label="Retour à l'accueil de SILAO par D2L"
                 className="mb-4 flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
-                <img src={logoD2l} alt="" className="h-8 w-auto rounded" />
+                <span className="sr-only">SILAO par D2L, retour à l&apos;accueil</span>
+                <img src={logoD2l} alt="" aria-hidden="true" className="h-8 w-auto rounded" />
                 <div className="h-6 w-px bg-border" />
-                <img src={logoSilao} alt="" className="h-9 w-auto" />
+                <img src={logoSilao} alt="" aria-hidden="true" className="h-9 w-auto" />
               </Link>
               <p className="text-sm leading-7 text-muted-foreground">
                 <strong className="text-foreground">SILAO</strong> est le dossier usager informatisé
@@ -78,7 +78,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
             </div>
 
             <div>
-              <h4 className="mb-4 text-xl font-bold text-foreground">Navigation</h4>
+              <p className="mb-4 text-xl font-bold text-foreground">Navigation</p>
               <nav aria-label="Navigation secondaire" className="flex flex-col gap-2 text-sm text-muted-foreground">
                 {footerAnchors.map((anchor) => (
                   <a
@@ -109,7 +109,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
             </div>
 
             <div>
-              <h4 className="mb-4 text-xl font-bold text-foreground">Contact</h4>
+              <p className="mb-4 text-xl font-bold text-foreground">Contact</p>
               <div className="flex flex-col gap-3 text-sm text-muted-foreground">
                 <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   <Mail className="h-4 w-4 text-primary" />

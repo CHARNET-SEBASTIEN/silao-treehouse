@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Leaf, Landmark, Users2, Wrench } from "lucide-react";
 
-import teamTous from "@/assets/illustrations/team-tous.png";
+import teamTous from "@/assets/illustrations/team-tous.webp";
 import {
   COMPANY_ACTIVITY,
   COMPANY_CREATION_DATE,
@@ -86,6 +86,9 @@ const CompanyStorySection = () => (
               src={teamTous}
               alt="Illustration d'une équipe réunie, en écho au travail collectif de D2L Informatique"
               loading="lazy"
+              decoding="async"
+              width={1600}
+              height={954}
               className="relative z-10 mx-auto w-full max-w-md"
             />
           </motion.figure>
@@ -100,7 +103,7 @@ const CompanyStorySection = () => (
                 transition={{ delay: index * 0.06 }}
                 className="rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
                   <marker.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-foreground">{marker.title}</h3>

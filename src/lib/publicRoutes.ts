@@ -45,6 +45,7 @@ const buildSoftwareApplicationSchema = (
 ) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": `${SITE_URL}${path}#software`,
   name: "SILAO",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Dossier Usager Informatisé",
@@ -68,11 +69,19 @@ const homeSchema = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${SITE_URL}/#software`,
     name: "SILAO",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
       "Dossier Usager Informatisé pour les ESSMS : protection de l'enfance, médico-social, accueil hébergement insertion et personnes en difficultés spécifiques.",
+    featureList: [
+      "Dossier usager informatisé",
+      "Agenda et planning",
+      "Cahier de liaison",
+      "Services socles Ségur",
+      "Pilotage et facturation",
+    ],
     publisher: { "@id": `${SITE_URL}/#organization` },
     offers: {
       "@type": "Offer",
@@ -136,10 +145,9 @@ const resourcesSchema = [
 export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/",
-    title:
-      "SILAO par D2L | Logiciel DUI pour les établissements sociaux et médico-sociaux",
+    title: "SILAO | Logiciel DUI pour les ESSMS",
     description:
-      "SILAO aide les établissements sociaux et médico-sociaux à gérer dossier usager, agenda, transmissions, conformité Ségur et pilotage dans un outil unique.",
+      "SILAO simplifie la gestion du dossier usager, de l'agenda, des transmissions et du pilotage pour les ESSMS. Conforme Ségur.",
     priority: 1,
     changefreq: "weekly",
     schema: homeSchema,

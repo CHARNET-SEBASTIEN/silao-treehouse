@@ -170,12 +170,12 @@ const Navbar = () => {
         <Link
           to="/"
           onClick={handleLogoClick}
-          aria-label="Retour à l’accueil de SILAO par D2L"
           className="relative z-10 flex items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
-          <img src={logoD2l} alt="" className="h-8 w-auto rounded-lg shadow-sm" />
+          <span className="sr-only">SILAO par D2L, retour à l&apos;accueil</span>
+          <img src={logoD2l} alt="" aria-hidden="true" className="h-8 w-auto rounded-lg shadow-sm" />
           <div className="h-5 w-px bg-border/60" />
-          <img src={logoSilao} alt="" className="h-9 w-auto" />
+          <img src={logoSilao} alt="" aria-hidden="true" className="h-9 w-auto" />
         </Link>
 
         <nav
@@ -224,7 +224,7 @@ const Navbar = () => {
             onClick={() => setOpen((current) => !current)}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className={`flex h-10 items-center gap-2 rounded-full px-4 text-sm font-bold transition-colors ${
+            className={`flex h-11 items-center gap-2 rounded-full px-4 text-sm font-bold transition-colors ${
               open
                 ? "bg-foreground text-background"
                 : "border border-border/80 bg-card/90 text-foreground hover:bg-primary hover:text-primary-foreground"

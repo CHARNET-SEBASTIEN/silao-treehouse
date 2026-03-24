@@ -190,7 +190,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className={className ?? "hidden lg:inline-flex h-10 items-center gap-2 rounded-full border border-border/70 bg-card px-4 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"}
+          className={className ?? "hidden lg:inline-flex h-11 items-center gap-2 rounded-full border border-border/70 bg-card px-4 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"}
           aria-label="Ouvrir la recherche du site"
         >
           <Search className="h-4 w-4" />
@@ -262,7 +262,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
                 <ArrowUpRight className="h-4 w-4 text-primary" />
               </div>
               <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
-              <p className="mt-2 text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground/70">
+              <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
                 {item.category}
               </p>
             </button>

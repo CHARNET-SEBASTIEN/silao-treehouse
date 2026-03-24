@@ -134,9 +134,10 @@ export const buildHeadMarkup = (page: PageSeo) => {
     `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
     `<meta name="twitter:image" content="${imageUrl}" />`,
+    `<link rel="alternate" hreflang="fr-FR" href="${canonicalUrl}" />`,
     ...schemas.map(
-      (schema) =>
-        `<script type="application/ld+json">${JSON.stringify(schema)}</script>`,
+      (schema, index) =>
+        `<script id="seo-schema-${index}" type="application/ld+json" data-seo-schema="true">${JSON.stringify(schema)}</script>`,
     ),
   ].join("\n    ");
 };

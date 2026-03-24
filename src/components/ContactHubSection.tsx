@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { BookText, Briefcase, LifeBuoy, MessageSquareMore } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import postiereIllustration from "@/assets/illustrations/postiere.png";
+import postiereIllustration from "@/assets/illustrations/postiere.webp";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
-import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const contactCards = [
   {
@@ -40,9 +40,9 @@ const contactCards = [
     title: "Actualités D2L et SILAO",
     description:
       "Suivre les nouveautés produit, la vie de D2L Informatique, les prises de parole et les sujets de veille publiés par l'équipe.",
-    actionLabel: "Suivre sur LinkedIn",
-    href: LINKEDIN_URL,
-    type: "external" as const,
+    actionLabel: "Voir les ressources",
+    href: "/ressources",
+    type: "route" as const,
   },
 ];
 
@@ -92,6 +92,9 @@ const ContactHubSection = () => {
               src={postiereIllustration}
               alt="Illustration symbolisant la circulation des échanges et des messages vers les bons interlocuteurs"
               loading="lazy"
+              decoding="async"
+              width={1200}
+              height={1200}
               className="relative z-10 mx-auto w-full max-w-sm"
             />
           </figure>
@@ -129,14 +132,6 @@ const ContactHubSection = () => {
               {card.type === "route" ? (
                 <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
                   <Link to={card.href}>{card.actionLabel}</Link>
-                </Button>
-              ) : null}
-
-              {card.type === "external" ? (
-                <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
-                  <a href={card.href} target="_blank" rel="noreferrer">
-                    {card.actionLabel}
-                  </a>
                 </Button>
               ) : null}
             </motion.article>

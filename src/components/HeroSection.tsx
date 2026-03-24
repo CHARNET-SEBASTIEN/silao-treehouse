@@ -5,7 +5,6 @@ import {
   Baby,
   CheckCircle2,
   Home,
-  Linkedin,
   ShieldCheck,
   Sparkles,
   Stethoscope,
@@ -13,9 +12,9 @@ import {
 import { Link } from "react-router-dom";
 
 import heroTree from "@/assets/hero-tree.png";
+import heroTreeWebp from "@/assets/hero-tree.webp";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
-import { LINKEDIN_URL } from "@/lib/site";
 
 const secteurs = [
   {
@@ -37,7 +36,7 @@ const secteurs = [
     label: "AHI",
     details: "CHRS, CADA, HUDA, CPH",
     href: "/secteur/insertion-ahi",
-    tone: "border-accent/25 bg-accent/8 text-accent",
+    tone: "border-[#8a7000]/30 bg-[#8a7000]/10 text-[#6b5600]",
   },
   {
     icon: Stethoscope,
@@ -91,7 +90,7 @@ const HeroSection = () => {
               </motion.p>
 
               <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
-                <span className="mb-2 block text-accent">SILAO</span>
+                <span className="mb-2 block text-secondary">SILAO</span>
                 Le dossier usager informatisé pensé avec et pour les professionnels du social et
                 du médico-social
               </h1>
@@ -126,7 +125,7 @@ const HeroSection = () => {
                     transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                     className="flex items-center gap-3 text-sm text-foreground/95"
                   >
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-secondary" />
                     <span>{point}</span>
                   </motion.li>
                 ))}
@@ -154,15 +153,6 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-              >
-                <Linkedin className="h-4 w-4" />
-                Suivre l&apos;actualité de D2L Informatique et de SILAO sur LinkedIn
-              </a>
             </motion.div>
 
             <motion.div
@@ -182,41 +172,49 @@ const HeroSection = () => {
                     </p>
                   </div>
                   <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-2 text-right">
-                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                       Depuis
                     </p>
-                    <p className="text-2xl font-bold text-accent">2005</p>
+                    <p className="text-2xl font-bold text-secondary">2005</p>
                   </div>
                 </div>
 
                 <div className="mb-4 flex justify-center rounded-[1.75rem] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.18),transparent_62%)]">
-                  <img
-                    src={heroTree}
-                    alt="Illustration symbolique de l'accompagnement social et médico-social"
-                    className="h-48 w-auto sm:h-56"
-                    style={{
-                      maskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
-                      WebkitMaskImage:
-                        "radial-gradient(circle at center, black 62%, transparent 96%)",
-                    }}
-                  />
+                  <picture>
+                    <source srcSet={heroTreeWebp} type="image/webp" />
+                    <img
+                      src={heroTree}
+                      alt="Illustration symbolique de l'accompagnement social et médico-social"
+                      width={1536}
+                      height={1024}
+                      fetchPriority="high"
+                      loading="eager"
+                      decoding="async"
+                      className="h-48 w-auto sm:h-56"
+                      style={{
+                        maskImage: "radial-gradient(circle at center, black 62%, transparent 96%)",
+                        WebkitMaskImage:
+                          "radial-gradient(circle at center, black 62%, transparent 96%)",
+                      }}
+                    />
+                  </picture>
                 </div>
 
                 <div className="mb-5 grid grid-cols-3 gap-2">
                   <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-3 text-center">
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
                       Produit
                     </p>
                     <p className="mt-1 text-lg font-bold text-foreground">1</p>
                   </div>
                   <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-3 text-center">
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
                       Secteurs
                     </p>
                     <p className="mt-1 text-lg font-bold text-foreground">4</p>
                   </div>
                   <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-3 text-center">
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
                       Mission
                     </p>
                     <p className="mt-1 text-lg font-bold text-foreground">Terrain</p>
