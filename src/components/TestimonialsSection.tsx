@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
                 key={testimonial.name}
                 className="flex flex-col items-center bg-card p-8 text-center sketch-border-sm"
               >
-                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-3xl border border-border/60 bg-background px-3 shadow-sm">
+                <div className="logo-plate mb-5 flex h-20 w-20 items-center justify-center rounded-3xl px-3">
                   {partner?.logo ? (
                     <img
                       src={partner.logo}

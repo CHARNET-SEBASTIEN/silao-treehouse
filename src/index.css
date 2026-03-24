@@ -294,6 +294,16 @@
     background-size: 18px 18px;
   }
 
+  .logo-plate {
+    border: 1px solid hsl(220 17% 80% / 0.95);
+    background:
+      radial-gradient(circle at top, hsl(30 100% 97%), transparent 58%),
+      linear-gradient(180deg, hsl(0 0% 100%), hsl(40 38% 98%));
+    box-shadow:
+      0 16px 32px -24px hsl(220 32% 18% / 0.35),
+      inset 0 1px 0 hsl(0 0% 100%);
+  }
+
   .filiere-pde-text {
     color: hsl(var(--filiere-pde));
   }
@@ -413,5 +423,15 @@
     background-image:
       linear-gradient(hsl(var(--primary) / 0.08) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--primary) / 0.08) 1px, transparent 1px);
+  }
+
+  .dark .logo-plate {
+    border-color: hsl(220 18% 74% / 0.95);
+    background:
+      radial-gradient(circle at top, hsl(30 95% 96%), transparent 58%),
+      linear-gradient(180deg, hsl(0 0% 100%), hsl(36 35% 96%));
+    box-shadow:
+      0 18px 36px -24px hsl(236 50% 4% / 0.68),
+      inset 0 1px 0 hsl(0 0% 100% / 0.95);
   }
 }

@@ -29,7 +29,7 @@ const PartnersSection = () => {
               key={partner.name}
               className="flex min-h-[170px] flex-col items-center justify-between gap-4 rounded-[28px] bg-card/95 p-5 text-center shadow-sm sketch-border-sm"
             >
-              <div className="flex h-16 w-full items-center justify-center rounded-2xl border border-border/50 bg-background/80 px-4">
+              <div className="logo-plate flex h-16 w-full items-center justify-center rounded-2xl px-4">
                 {partner.logo ? (
                   <img
                     src={partner.logo}
