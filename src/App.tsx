@@ -8,22 +8,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, useLocation } from "react-router-dom";
 
 import AppRoutes from "@/AppRoutes";
-import { getScrollBehavior } from "@/lib/motion";
+import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 const queryClient = new QueryClient();
-
-const scrollToHashTarget = (hash: string) => {
-  const targetId = hash.replace("#", "");
-  if (!targetId) return false;
-
-  const element = document.getElementById(targetId);
-  if (!element) return false;
-
-  const headerOffset = 88;
-  const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-  window.scrollTo({ top: Math.max(0, top), behavior: getScrollBehavior() });
-  return true;
-};
 
 const ScrollManager = () => {
   const location = useLocation();

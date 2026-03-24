@@ -24,7 +24,7 @@ const sitemapGroups = [
   },
   {
     title: "Expertise SILAO",
-    paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/engagements", "/quiz-segur"],
+    paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/engagements"],
   },
   {
     title: "Informations pratiques",

@@ -12,7 +12,6 @@ import LegalNoticesPage from "@/pages/LegalNoticesPage";
 import NotFound from "@/pages/NotFound";
 import OffresPage from "@/pages/OffresPage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
-import QuizPage from "@/pages/QuizPage";
 import RessourcesPage from "@/pages/RessourcesPage";
 import SecteurAHIPage from "@/pages/SecteurAHIPage";
 import SecteurHandicapPage from "@/pages/SecteurHandicapPage";
@@ -29,7 +28,6 @@ const AppRoutes = () => (
     <Route path="/accompagnement" element={<AccompagnementPage />} />
     <Route path="/formations" element={<FormationsPage />} />
     <Route path="/engagements" element={<EngagementsPage />} />
-    <Route path="/quiz-segur" element={<QuizPage />} />
     <Route path="/secteur/handicap" element={<SecteurHandicapPage />} />
     <Route path="/secteur/protection-enfance" element={<SecteurPDEPage />} />
     <Route path="/secteur/insertion-ahi" element={<SecteurAHIPage />} />

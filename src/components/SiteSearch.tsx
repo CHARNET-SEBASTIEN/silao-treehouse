@@ -11,7 +11,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { Input } from "@/components/ui/input";
-import { getScrollBehavior } from "@/lib/motion";
+import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 type SearchMode = "inline" | "compact";
 
@@ -180,12 +180,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
       return;
     }
 
-    const element = document.getElementById(hash);
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.scrollY - 88;
-      window.scrollTo({ top: Math.max(0, top), behavior: getScrollBehavior() });
-    }
-
+    scrollToHashTarget(`#${hash}`);
     setOpen(false);
   };
 
@@ -195,7 +190,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className={className ?? "hidden lg:inline-flex h-10 items-center gap-2 rounded-full border border-border/70 bg-card px-4 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-primary"}
+          className={className ?? "hidden lg:inline-flex h-10 items-center gap-2 rounded-full border border-border/70 bg-card px-4 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"}
           aria-label="Ouvrir la recherche du site"
         >
           <Search className="h-4 w-4" />
@@ -260,7 +255,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
               key={item.href}
               type="button"
               onClick={() => navigateTo(item.href)}
-              className="rounded-2xl border border-border/60 bg-card px-4 py-4 text-left transition-colors hover:border-primary/30 hover:bg-primary/5"
+              className="rounded-2xl border border-border/60 bg-card px-4 py-4 text-left transition-colors hover:border-primary/30 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               <div className="mb-2 flex items-center justify-between gap-3">
                 <p className="font-semibold text-foreground">{item.title}</p>
@@ -288,7 +283,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
           </span>
           <Link
             to="/aide-support"
-            className="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1 text-foreground transition-colors hover:text-primary"
+            className="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1 text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <LifeBuoy className="h-3.5 w-3.5" />
             Support

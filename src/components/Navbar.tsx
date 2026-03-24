@@ -20,7 +20,7 @@ import DemoRequestDialog from "@/components/DemoRequestDialog";
 import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-import { getScrollBehavior } from "@/lib/motion";
+import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
@@ -128,7 +128,7 @@ const Navbar = () => {
 
   const handleLogoClick = () => {
     if (location.pathname === "/") {
-      window.scrollTo({ top: 0, behavior: getScrollBehavior() });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -147,11 +147,7 @@ const Navbar = () => {
       return;
     }
 
-    const element = document.getElementById(hash);
-    if (!element) return;
-
-    const top = element.getBoundingClientRect().top + window.scrollY - 88;
-    window.scrollTo({ top: Math.max(0, top), behavior: getScrollBehavior() });
+    scrollToHashTarget(`#${hash}`);
   };
 
   return (
@@ -175,7 +171,7 @@ const Navbar = () => {
           to="/"
           onClick={handleLogoClick}
           aria-label="Retour à l’accueil de SILAO par D2L"
-          className="relative z-10 flex items-center gap-2.5"
+          className="relative z-10 flex items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           <img src={logoD2l} alt="" className="h-8 w-auto rounded-lg shadow-sm" />
           <div className="h-5 w-px bg-border/60" />
@@ -192,7 +188,7 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(event) => handleAnchorNavigation(event, link.href)}
-                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 {link.label}
               </a>
@@ -200,7 +196,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 {link.label}
               </Link>
@@ -232,7 +228,7 @@ const Navbar = () => {
               open
                 ? "bg-foreground text-background"
                 : "border border-border/80 bg-card/90 text-foreground hover:bg-primary hover:text-primary-foreground"
-            }`}
+            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
             aria-controls="mobile-navigation"
             aria-expanded={open}
             aria-label={open ? "Fermer le menu principal" : "Ouvrir le menu principal"}
@@ -276,11 +272,21 @@ const Navbar = () => {
                   );
 
                   return link.isAnchor ? (
-                    <a key={link.href} href={link.href} onClick={(event) => handleAnchorNavigation(event, link.href)}>
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(event) => handleAnchorNavigation(event, link.href)}
+                      className="block rounded-[1.4rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
                       {content}
                     </a>
                   ) : (
-                    <Link key={link.href} to={link.href} onClick={() => setOpen(false)}>
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-[1.4rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
                       {content}
                     </Link>
                   );
@@ -329,7 +335,7 @@ const Navbar = () => {
                           key={link.href}
                           to={link.href}
                           onClick={() => setOpen(false)}
-                          className="block rounded-2xl border border-border/80 bg-background/90 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/10"
+                          className="block rounded-2xl border border-border/80 bg-background/90 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         >
                           <p className="font-semibold text-foreground">{link.label}</p>
                           <p className="mt-1 text-sm leading-6 text-muted-foreground">{link.description}</p>

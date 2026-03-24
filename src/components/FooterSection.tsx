@@ -4,7 +4,7 @@ import { Linkedin, Mail, MapPin } from "lucide-react";
 
 import logoD2l from "@/assets/logo-d2l.jpeg";
 import logoSilao from "@/assets/logo-silao-official.svg";
-import { getScrollBehavior } from "@/lib/motion";
+import { scrollToHashTarget } from "@/lib/hashNavigation";
 import { COMPANY_ADDRESS, COMPANY_NAME, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
 
 const footerAnchors = [
@@ -24,7 +24,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
 
     const handleLogoClick = () => {
       if (location.pathname === "/") {
-        window.scrollTo({ top: 0, behavior: getScrollBehavior() });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     };
 
@@ -42,11 +42,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
         return;
       }
 
-      const element = document.getElementById(hash);
-      if (!element) return;
-
-      const top = element.getBoundingClientRect().top + window.scrollY - 88;
-      window.scrollTo({ top: Math.max(0, top), behavior: getScrollBehavior() });
+      scrollToHashTarget(`#${hash}`);
     };
 
     return (
@@ -62,7 +58,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 to="/"
                 onClick={handleLogoClick}
                 aria-label="Retour à l'accueil de SILAO par D2L"
-                className="mb-4 flex items-center gap-3"
+                className="mb-4 flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 <img src={logoD2l} alt="" className="h-8 w-auto rounded" />
                 <div className="h-6 w-px bg-border" />
@@ -89,24 +85,24 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                     key={anchor.href}
                     href={anchor.href}
                     onClick={(event) => handleAnchorNavigation(event, anchor.href)}
-                    className="transition-colors hover:text-primary"
+                    className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   >
                     {anchor.label}
                   </a>
                 ))}
-                <Link to="/offres" className="transition-colors hover:text-primary">
+                <Link to="/offres" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   Offres
                 </Link>
-                <Link to="/accompagnement" className="transition-colors hover:text-primary">
+                <Link to="/accompagnement" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   Accompagnement
                 </Link>
-                <Link to="/formations" className="transition-colors hover:text-primary">
+                <Link to="/formations" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   Formations
                 </Link>
-                <Link to="/engagements" className="transition-colors hover:text-primary">
+                <Link to="/engagements" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   Engagements
                 </Link>
-                <Link to="/aide-support" className="transition-colors hover:text-primary">
+                <Link to="/aide-support" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   Aide et support
                 </Link>
               </nav>
@@ -115,7 +111,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
             <div>
               <h4 className="mb-4 text-xl font-bold text-foreground">Contact</h4>
               <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-                <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 transition-colors hover:text-primary">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2 rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                   <Mail className="h-4 w-4 text-primary" />
                   {CONTACT_EMAIL}
                 </a>
@@ -127,7 +123,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 transition-colors hover:text-primary"
+                  className="flex items-center gap-2 rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   <Linkedin className="h-4 w-4 text-primary" />
                   LinkedIn
@@ -141,16 +137,16 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               © {currentYear} {COMPANY_NAME}. Tous droits réservés.
             </p>
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
-              <Link to="/mentions-legales" className="transition-colors hover:text-primary">
+              <Link to="/mentions-legales" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Mentions légales
               </Link>
-              <Link to="/politique-de-confidentialite" className="transition-colors hover:text-primary">
+              <Link to="/politique-de-confidentialite" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Politique de confidentialité
               </Link>
-              <Link to="/politique-de-cookies" className="transition-colors hover:text-primary">
+              <Link to="/politique-de-cookies" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Politique de cookies
               </Link>
-              <Link to="/plan-du-site" className="transition-colors hover:text-primary">
+              <Link to="/plan-du-site" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Plan du site
               </Link>
             </div>

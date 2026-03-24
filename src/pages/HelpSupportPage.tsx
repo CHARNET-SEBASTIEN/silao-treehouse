@@ -34,8 +34,8 @@ const supportLinks = [
   },
   {
     title: "Approfondir le cadre réglementaire",
-    description: "Quiz Ségur, conformité et éléments de cadrage pour vos équipes.",
-    to: "/quiz-segur",
+    description: "Conformité SONS, interopérabilité et éléments de cadrage pour vos équipes.",
+    to: "/conformite-sons",
     icon: Brain,
   },
 ];

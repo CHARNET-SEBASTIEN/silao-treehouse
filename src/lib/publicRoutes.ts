@@ -213,23 +213,6 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     priority: 0.7,
   },
   {
-    path: "/quiz-segur",
-    title:
-      "Quiz Ségur SILAO | Testez vos connaissances sur le DUI et le médico-social",
-    description:
-      "Mesurez votre niveau sur le Ségur du numérique, le DUI, l'INS, MSSanté et les enjeux ESSMS avec le quiz SILAO.",
-    breadcrumbs: [HOME_CRUMB, RESSOURCES_CRUMB, { name: "Quiz Ségur", path: "/quiz-segur" }],
-    priority: 0.6,
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "Quiz",
-      name: "Quiz Ségur & médico-social SILAO",
-      educationalUse: "assessment",
-      inLanguage: "fr-FR",
-      url: `${SITE_URL}/quiz-segur`,
-    },
-  },
-  {
     path: "/secteur/handicap",
     title: "SILAO Handicap | DUI pour IME, ITEP, MAS, FAM, ESAT et SESSAD",
     description:
