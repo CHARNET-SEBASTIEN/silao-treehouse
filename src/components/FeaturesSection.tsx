@@ -13,6 +13,8 @@ import {
   Users2,
 } from "lucide-react";
 
+import archivisteIllustration from "@/assets/illustrations/archiviste.png";
+
 const features = [
   {
     icon: IdCard,
@@ -109,6 +111,49 @@ const FeaturesSection = () => (
           personnalisation et la facturation ont été conçus pour rester lisibles, configurables et
           réellement utiles aux équipes.
         </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-center"
+      >
+        <figure className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(160deg,hsl(var(--secondary)/0.12),hsl(var(--primary)/0.06))] px-6 pb-2 pt-6">
+          <div className="pointer-events-none absolute left-8 top-0 h-24 w-40 rounded-full bg-secondary/15 blur-3xl" />
+          <img
+            src={archivisteIllustration}
+            alt="Illustration évoquant l'organisation documentaire et la tenue du dossier usager"
+            loading="lazy"
+            className="relative z-10 mx-auto w-full max-w-xs"
+          />
+        </figure>
+
+        <div className="rounded-[1.8rem] border border-border/60 bg-card/90 p-8 shadow-sm">
+          <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
+            Dossier, documents, coordination
+          </p>
+          <h3 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
+            Un DUI conçu pour rendre l&apos;information <span className="text-primary">retrouvable</span>,
+            partageable et exploitable
+          </h3>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground">
+            L&apos;illustration met l&apos;accent sur ce que SILAO apporte au quotidien: un dossier
+            structuré, des documents classés, des repères lisibles et des usages métier qui restent
+            simples pour les équipes.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+              Dossier usager structuré
+            </span>
+            <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
+              GED et transmissions
+            </span>
+            <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1.5 text-xs font-semibold text-accent-foreground">
+              Pilotage et alertes
+            </span>
+          </div>
+        </div>
       </motion.div>
 
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { BookText, Briefcase, LifeBuoy, MessageSquareMore } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import postiereIllustration from "@/assets/illustrations/postiere.png";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { Button } from "@/components/ui/button";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
@@ -69,6 +70,37 @@ const ContactHubSection = () => {
           trouve ici un parcours simple et identifiable.
         </p>
       </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+        >
+          <div className="rounded-[1.8rem] border border-border/60 bg-card/90 p-8 shadow-sm">
+            <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
+              Échanges simplifiés
+            </p>
+            <h3 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
+              Une prise de contact lisible, sans détour inutile
+            </h3>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              Cette illustration accompagne le principe du bloc: orienter rapidement vers la bonne
+              entrée, qu&apos;il s&apos;agisse d&apos;une démo, d&apos;une demande de support, d&apos;un
+              besoin documentaire ou d&apos;un échange institutionnel.
+            </p>
+          </div>
+
+          <figure className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(160deg,hsl(var(--accent)/0.12),hsl(var(--primary)/0.06))] px-6 pb-4 pt-6">
+            <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-accent/15 blur-3xl" />
+            <img
+              src={postiereIllustration}
+              alt="Illustration symbolisant la circulation des échanges et des messages vers les bons interlocuteurs"
+              loading="lazy"
+              className="relative z-10 mx-auto w-full max-w-sm"
+            />
+          </figure>
+        </motion.div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {contactCards.map((card, index) => (

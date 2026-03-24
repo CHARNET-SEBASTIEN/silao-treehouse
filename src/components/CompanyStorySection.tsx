@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Leaf, Landmark, Users2, Wrench } from "lucide-react";
 
+import teamTous from "@/assets/illustrations/team-tous.png";
 import {
   COMPANY_ACTIVITY,
   COMPANY_CREATION_DATE,
@@ -73,23 +74,48 @@ const CompanyStorySection = () => (
           </div>
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          {markers.map((marker, index) => (
-            <motion.article
-              key={marker.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
-                <marker.icon className="h-5 w-5" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-foreground">{marker.title}</h3>
-              <p className="text-sm leading-7 text-muted-foreground">{marker.description}</p>
-            </motion.article>
-          ))}
+        <div className="space-y-5">
+          <motion.figure
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent)/0.12),hsl(var(--secondary)/0.08))] px-6 pb-6 pt-8 shadow-sm"
+          >
+            <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
+            <img
+              src={teamTous}
+              alt="Illustration d'une équipe réunie, en écho au travail collectif de D2L Informatique"
+              loading="lazy"
+              className="relative z-10 mx-auto w-full max-w-md"
+            />
+            <figcaption className="relative z-10 mt-4 rounded-[1.35rem] border border-border/60 bg-background/92 px-5 py-4">
+              <p className="text-sm font-semibold text-foreground">Une équipe qui travaille ensemble</p>
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                Cette illustration accompagne le bloc “Qui sommes-nous” et renforce l&apos;idée
+                d&apos;une organisation horizontale, collective et impliquée dans toute la vie du
+                projet.
+              </p>
+            </figcaption>
+          </motion.figure>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {markers.map((marker, index) => (
+              <motion.article
+                key={marker.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+                  <marker.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-foreground">{marker.title}</h3>
+                <p className="text-sm leading-7 text-muted-foreground">{marker.description}</p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
 
