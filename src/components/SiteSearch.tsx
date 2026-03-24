@@ -211,15 +211,19 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
                   key={item.href}
                   value={[item.title, item.description, ...item.keywords].join(" ")}
                   onSelect={() => navigateTo(item.href)}
-                  className="flex items-start gap-3 py-3"
+                  className="flex items-start gap-3 py-3 [&[data-selected=true]_.search-result-icon]:bg-accent-foreground/10 [&[data-selected=true]_.search-result-icon]:text-accent-foreground [&[data-selected=true]_.search-result-title]:text-accent-foreground [&[data-selected=true]_.search-result-description]:text-accent-foreground/88 [&[data-selected=true]_.search-result-category]:text-accent-foreground/72"
                 >
-                  <div className="mt-0.5 rounded-full bg-primary/10 p-2 text-primary">
+                  <div className="search-result-icon mt-0.5 rounded-full bg-primary/10 p-2 text-primary transition-colors">
                     <Search className="h-4 w-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-semibold text-foreground">{item.title}</p>
-                    <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
-                    <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground/70">
+                    <p className="search-result-title font-semibold text-foreground transition-colors">
+                      {item.title}
+                    </p>
+                    <p className="search-result-description text-sm leading-6 text-muted-foreground transition-colors">
+                      {item.description}
+                    </p>
+                    <p className="search-result-category text-xs uppercase tracking-[0.18em] text-muted-foreground/70 transition-colors">
                       {item.category}
                     </p>
                   </div>

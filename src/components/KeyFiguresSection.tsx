@@ -51,13 +51,9 @@ const KeyFiguresSection = () => (
       </motion.div>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {figures.map((figure, index) => (
-          <motion.article
+        {figures.map((figure) => (
+          <article
             key={figure.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.06 }}
             className="relative overflow-hidden rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 text-center shadow-sm"
           >
             <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,hsl(var(--primary)),hsl(var(--accent)))]" />
@@ -69,7 +65,7 @@ const KeyFiguresSection = () => (
               {figure.label}
             </p>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">{figure.description}</p>
-          </motion.article>
+          </article>
         ))}
       </div>
     </div>

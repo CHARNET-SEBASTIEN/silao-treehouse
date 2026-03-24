@@ -237,6 +237,25 @@
       inset 0 1px 0 hsl(0 0% 100%);
   }
 
+  .surface-card {
+    border: 1px solid hsl(var(--border) / 0.72);
+    background: hsl(var(--card));
+    box-shadow:
+      0 24px 54px -40px hsl(var(--brand-violet) / 0.18),
+      inset 0 1px 0 hsl(0 0% 100% / 0.92);
+  }
+
+  .surface-card-tint {
+    border: 1px solid hsl(var(--border) / 0.72);
+    background:
+      radial-gradient(circle at top right, hsl(var(--primary) / 0.12), transparent 32%),
+      radial-gradient(circle at top left, hsl(var(--accent) / 0.08), transparent 18%),
+      linear-gradient(160deg, hsl(var(--card)), hsl(var(--background)));
+    box-shadow:
+      0 26px 60px -42px hsl(var(--brand-violet) / 0.18),
+      inset 0 1px 0 hsl(0 0% 100% / 0.94);
+  }
+
   .section-tint {
     background:
       radial-gradient(circle at top, hsl(var(--secondary) / 0.08), transparent 30%),
@@ -356,6 +375,22 @@
       linear-gradient(180deg, hsl(236 30% 19%), hsl(236 28% 15%));
     box-shadow:
       0 30px 80px -40px hsl(236 50% 4% / 0.9),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
+  }
+
+  .dark .surface-card {
+    box-shadow:
+      0 24px 54px -36px hsl(236 50% 4% / 0.82),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
+  }
+
+  .dark .surface-card-tint {
+    background:
+      radial-gradient(circle at top right, hsl(var(--primary) / 0.18), transparent 32%),
+      radial-gradient(circle at top left, hsl(var(--accent) / 0.08), transparent 18%),
+      linear-gradient(160deg, hsl(236 30% 19%), hsl(236 28% 15%));
+    box-shadow:
+      0 28px 60px -38px hsl(236 50% 4% / 0.86),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
 

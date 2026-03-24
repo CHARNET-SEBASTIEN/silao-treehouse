@@ -45,13 +45,9 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {testimonials.map((t, index) => (
-            <motion.div
+          {testimonials.map((t) => (
+            <div
               key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
               className="flex flex-col items-center bg-card p-8 text-center sketch-border-sm"
             >
               <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-border/60 bg-card text-2xl font-bold text-primary">
@@ -64,7 +60,7 @@ const TestimonialsSection = () => {
                 <p className="font-sketch text-xl text-primary">{t.name}</p>
                 <p className="text-sm text-muted-foreground">{t.role}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

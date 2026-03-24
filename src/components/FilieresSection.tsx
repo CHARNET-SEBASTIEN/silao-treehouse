@@ -69,17 +69,11 @@ const FilieresSection = () => (
       </motion.div>
 
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {filieres.map((filiere, index) => (
-          <motion.div
-            key={filiere.name}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.06 }}
-          >
+        {filieres.map((filiere) => (
+          <div key={filiere.name}>
             <Link
               to={filiere.href}
-              className={`group flex h-full flex-col rounded-[1.7rem] border ${filiere.theme.border} ${filiere.theme.bg} px-5 py-6 transition-transform hover:-translate-y-1 hover:shadow-lg`}
+              className={`group flex h-full flex-col rounded-[1.7rem] border ${filiere.theme.border} ${filiere.theme.bg} px-5 py-6 transition-colors`}
             >
               <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${filiere.theme.iconBg} ${filiere.theme.text}`}>
                 <filiere.icon className="h-5 w-5" />
@@ -103,10 +97,10 @@ const FilieresSection = () => (
 
               <div className={`mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold ${filiere.theme.text}`}>
                 Découvrir le secteur
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4" />
               </div>
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

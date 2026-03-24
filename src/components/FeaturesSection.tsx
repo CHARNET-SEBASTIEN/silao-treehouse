@@ -15,68 +15,100 @@ import {
 
 import archivisteIllustration from "@/assets/illustrations/archiviste.webp";
 
+const featureGroups = [
+  {
+    id: "parcours",
+    title: "Suivi du parcours usager",
+    description: "Le cœur du dossier, de la coordination quotidienne et des écrits partagés.",
+    eyebrow: "Usager et coordination",
+  },
+  {
+    id: "organisation",
+    title: "Organisation et paramétrage",
+    description: "Les briques qui structurent les documents, les droits, les contacts et les alertes.",
+    eyebrow: "Configuration et circulation",
+  },
+  {
+    id: "pilotage",
+    title: "Pilotage et usages métier",
+    description: "Les modules dédiés à l'activité, aux états, à la facturation et aux services socles.",
+    eyebrow: "Activité et exploitation",
+  },
+] as const;
+
 const features = [
   {
+    group: "parcours",
     icon: IdCard,
     title: "Dossier usager",
     description:
       "Un dossier organisé par thèmes pour retrouver rapidement données administratives, famille, visites, parcours, informations juridiques et santé.",
   },
   {
+    group: "parcours",
     icon: CalendarDays,
     title: "Agenda et planning",
     description:
       "Des événements associés à l'usager, aux services ou aux professionnels, avec vues jour, semaine, mois, service et type d'événement.",
   },
   {
+    group: "parcours",
     icon: BookMarked,
     title: "Cahier de liaison",
     description:
       "Un espace de transmissions sous forme de blog, avec brouillons, commentaires, verrouillage automatique et droits d'accès personnalisables.",
   },
   {
+    group: "parcours",
     icon: HeartPulse,
     title: "Dossier santé",
     description:
       "Historisation sécurisée des allergies, vaccins, diagnostics et éléments médicaux utiles à la coordination des équipes.",
   },
   {
+    group: "organisation",
     icon: FileArchive,
     title: "GED",
     description:
       "Stockage, classement et consultation de tous les documents usagers, avec génération de modèles et de rapports.",
   },
   {
+    group: "organisation",
     icon: SlidersHorizontal,
     title: "Personnalisation",
     description:
       "Profils métiers, droits d'accès, listes déroulantes, arborescences documentaires, tableaux de bord et alertes s'adaptent à vos procédures.",
   },
   {
+    group: "organisation",
     icon: Users2,
     title: "Annuaire centralisé",
     description:
       "Un annuaire des contacts et organismes pour relier facilement médecins, écoles, juges et partenaires à l'activité.",
   },
   {
+    group: "organisation",
     icon: BellRing,
     title: "Alertes",
     description:
       "Des alertes sur les échéances, missions et renouvellements de documents, adaptables en autonomie selon vos pratiques.",
   },
   {
+    group: "pilotage",
     icon: FolderKanban,
     title: "Pilotage, états et stats",
     description:
       "Des états filtrables, des statistiques par thème et des requêteurs pour produire vos exports et indicateurs d'activité.",
   },
   {
+    group: "pilotage",
     icon: CreditCard,
     title: "Facturation",
     description:
       "Facturation à partir de l'agenda ou des présences, avec génération possible de factures rétroactives individuelles.",
   },
   {
+    group: "pilotage",
     icon: Files,
     title: "Services socles et usages métier",
     description:
@@ -119,7 +151,7 @@ const FeaturesSection = () => (
         viewport={{ once: true }}
         className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-center"
       >
-        <figure className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(160deg,hsl(var(--secondary)/0.12),hsl(var(--primary)/0.06))] px-6 pb-2 pt-6">
+        <figure className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-2 pt-6">
           <div className="pointer-events-none absolute left-8 top-0 h-24 w-40 rounded-full bg-secondary/15 blur-3xl" />
           <img
             src={archivisteIllustration}
@@ -132,7 +164,7 @@ const FeaturesSection = () => (
           />
         </figure>
 
-        <div className="rounded-[1.8rem] border border-border/60 bg-card/90 p-8 shadow-sm">
+        <div className="surface-card rounded-[1.8rem] p-8">
           <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
             Dossier, documents, coordination
           </p>
@@ -154,25 +186,57 @@ const FeaturesSection = () => (
         </div>
       </motion.div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {features.map((feature, index) => (
-          <motion.article
-            key={feature.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.04 }}
-            className="brand-card rounded-[1.5rem] px-5 py-6 transition-transform hover:-translate-y-1"
-          >
-            <div
-              className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${tones[index % tones.length]}`}
+      <div className="space-y-10">
+        {featureGroups.map((group, groupIndex) => {
+          const groupedFeatures = features.filter((feature) => feature.group === group.id);
+          const groupSurface = groupIndex % 2 === 0 ? "surface-card-tint" : "surface-card";
+          const gridClass =
+            groupedFeatures.length >= 4
+              ? "grid gap-5 md:grid-cols-2"
+              : "grid gap-5 md:grid-cols-2 xl:grid-cols-3";
+
+          return (
+            <motion.div
+              key={group.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: groupIndex * 0.05 }}
+              className={`${groupSurface} rounded-[1.9rem] p-6 md:p-8`}
             >
-              <feature.icon className="h-5 w-5" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-foreground">{feature.title}</h3>
-            <p className="text-sm leading-7 text-muted-foreground">{feature.description}</p>
-          </motion.article>
-        ))}
+              <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                    {group.eyebrow}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-foreground">{group.title}</h3>
+                </div>
+                <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{group.description}</p>
+              </div>
+
+              <div className={gridClass}>
+                {groupedFeatures.map((feature, featureIndex) => {
+                  const tone = tones[(groupIndex + featureIndex) % tones.length];
+
+                  return (
+                    <article
+                      key={feature.title}
+                      className="surface-card rounded-[1.5rem] px-5 py-6"
+                    >
+                      <div
+                        className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${tone}`}
+                      >
+                        <feature.icon className="h-5 w-5" />
+                      </div>
+                      <h4 className="mb-2 text-xl font-bold text-foreground">{feature.title}</h4>
+                      <p className="text-sm leading-7 text-muted-foreground">{feature.description}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   </section>

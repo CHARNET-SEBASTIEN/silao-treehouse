@@ -9,44 +9,75 @@ import {
   Workflow,
 } from "lucide-react";
 
+const reasonGroups = [
+  {
+    id: "produit",
+    eyebrow: "Produit et usage",
+    title: "Une expérience pensée pour le terrain",
+    description:
+      "Des modules simples à prendre en main, configurables et capables d'évoluer avec les établissements.",
+  },
+  {
+    id: "accompagnement",
+    eyebrow: "Déploiement et continuité",
+    title: "Un accompagnement qui tient dans la durée",
+    description:
+      "Le projet reste suivi dans le temps, sur tous les écrans et dans les contextes de mobilité.",
+  },
+  {
+    id: "confiance",
+    eyebrow: "Fiabilité et expertise",
+    title: "Un cadre robuste pour des usages sensibles",
+    description:
+      "Sécurité, expertise métier et connaissance du terrain structurent les choix produit.",
+  },
+] as const;
+
 const reasons = [
   {
+    group: "produit",
     icon: Sparkles,
     title: "Intuitif",
     description:
       "Une attention particulière a été portée à la convivialité et à la simplicité d'utilisation pour une prise en main rapide.",
   },
   {
+    group: "produit",
     icon: Workflow,
     title: "Évolutif",
     description:
       "Silao s'enrichit au fil des besoins des établissements, en gardant comme ligne de conduite la simplicité et le respect des usages.",
   },
   {
+    group: "produit",
     icon: SlidersHorizontal,
     title: "Personnalisable",
     description:
       "Profils métiers, droits d'accès, listes, arborescences documentaires, tableaux de bord, thèmes et alertes se configurent selon votre organisation.",
   },
   {
+    group: "accompagnement",
     icon: Headset,
     title: "Accompagnement de proximité",
     description:
       "Le déploiement s'adapte à la taille de votre structure, avec un ou deux chefs de projet dédiés pour le paramétrage, la reprise et le suivi.",
   },
   {
+    group: "confiance",
     icon: ShieldCheck,
     title: "Sécurité",
     description:
       "Solution SaaS, Silao est installée, gérée et mise à jour par nos soins avec hébergement, sauvegardes, maintenance et veille réglementaire.",
   },
   {
+    group: "accompagnement",
     icon: MonitorSmartphone,
     title: "Disponible partout",
     description:
       "Silao est disponible sur ordinateur, tablette et smartphone pour les équipes sur site, en hébergement ou mobiles.",
   },
   {
+    group: "confiance",
     icon: Accessibility,
     title: "Expertise métier",
     description:
@@ -76,23 +107,47 @@ const WhyChooseSection = () => (
         </p>
       </motion.div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {reasons.map((reason, index) => (
-          <motion.article
-            key={reason.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.06 }}
-            className="rounded-[1.5rem] border border-border/60 bg-card px-5 py-6 shadow-sm"
-          >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <reason.icon className="h-5 w-5" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-foreground">{reason.title}</h3>
-            <p className="text-sm leading-7 text-muted-foreground">{reason.description}</p>
-          </motion.article>
-        ))}
+      <div className="space-y-10">
+        {reasonGroups.map((group, groupIndex) => {
+          const groupedReasons = reasons.filter((reason) => reason.group === group.id);
+          const groupSurface = groupIndex % 2 === 0 ? "surface-card-tint" : "surface-card";
+
+          return (
+            <motion.div
+              key={group.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: groupIndex * 0.05 }}
+              className={`${groupSurface} rounded-[1.9rem] p-6 md:p-8`}
+            >
+              <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                    {group.eyebrow}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-foreground">{group.title}</h3>
+                </div>
+                <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{group.description}</p>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {groupedReasons.map((reason) => (
+                  <article
+                    key={reason.title}
+                    className="surface-card rounded-[1.5rem] px-5 py-6"
+                  >
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <reason.icon className="h-5 w-5" />
+                    </div>
+                    <h4 className="mb-2 text-xl font-bold text-foreground">{reason.title}</h4>
+                    <p className="text-sm leading-7 text-muted-foreground">{reason.description}</p>
+                  </article>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   </section>

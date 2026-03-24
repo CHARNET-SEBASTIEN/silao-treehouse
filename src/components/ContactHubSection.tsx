@@ -74,7 +74,7 @@ const ContactHubSection = () => {
           viewport={{ once: true }}
           className="mb-12 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
         >
-          <div className="rounded-[1.8rem] border border-border/60 bg-card/90 p-8 shadow-sm">
+          <div className="surface-card rounded-[1.8rem] p-8">
             <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
               Échanges simplifiés
             </p>
@@ -83,7 +83,7 @@ const ContactHubSection = () => {
             </h3>
           </div>
 
-          <figure className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(160deg,hsl(var(--accent)/0.12),hsl(var(--primary)/0.06))] px-6 pb-4 pt-6">
+          <figure className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-4 pt-6">
             <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-accent/15 blur-3xl" />
             <img
               src={postiereIllustration}
@@ -98,16 +98,11 @@ const ContactHubSection = () => {
         </motion.div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {contactCards.map((card, index) => (
-            <motion.article
+          {contactCards.map((card) => (
+            <article
               key={card.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
+              className="surface-card relative flex h-full flex-col overflow-hidden rounded-[1.5rem] px-5 py-6"
             >
-              <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,hsl(var(--primary)),hsl(var(--secondary)))]" />
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <card.icon className="h-5 w-5" />
               </div>
@@ -131,7 +126,7 @@ const ContactHubSection = () => {
                   <Link to={card.href}>{card.actionLabel}</Link>
                 </Button>
               ) : null}
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

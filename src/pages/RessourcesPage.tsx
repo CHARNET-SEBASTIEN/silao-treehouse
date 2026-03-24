@@ -67,25 +67,25 @@ const resourceGuides = [
   {
     icon: Workflow,
     eyebrow: "Préparer un projet",
-    title: "Déploiement, reprise de données, organisation et conduite du changement",
+    title: "Déploiement et reprise de données",
     description:
-      "Si vous cherchez à cadrer un DUI, commencez par les ressources sur la reprise de données, les ateliers projet, les rôles des équipes, la formation et le suivi après démarrage.",
+      "Commencez par les repères sur le cadrage, la reprise de données, les rôles projet, la formation et le suivi après démarrage.",
     tags: ["cadrage projet DUI", "reprise de données", "formation utilisateurs", "démarrage"],
   },
   {
     icon: ShieldCheck,
     eyebrow: "Comprendre le cadre",
-    title: "SONS, Ségur, ANS, vagues et exigences d'interopérabilité",
+    title: "Cadre SONS, Ségur et ANS",
     description:
-      "Pour comprendre les obligations et les jalons, recherchez des contenus qui expliquent le rôle de l'ANS, la logique Ségur, les vagues et les impacts sur le partage et la qualité des données.",
+      "Pour comprendre les obligations et les jalons, ciblez les contenus qui expliquent les vagues, l'interopérabilité et les impacts sur le partage des données.",
     tags: ["ANS", "SONS", "Ségur numérique", "vague 1", "vague 2"],
   },
   {
     icon: FolderKanban,
     eyebrow: "Aller au bon niveau métier",
-    title: "Messagerie sécurisée, DMP, DSR, HDS, Blue et cas d'usage par filière",
+    title: "Sécurité, échanges et filières",
     description:
-      "Privilégiez les ressources qui relient sécurité, échanges documentaires, hébergement et fonctionnement des structures à des situations concrètes dans votre filière ou votre organisation.",
+      "Privilégiez les ressources qui relient sécurité, échanges documentaires, hébergement et fonctionnement concret des structures selon votre filière.",
     tags: ["messagerie sécurisée", "DMP", "DSR", "HDS", "multi-établissements"],
   },
 ];
@@ -139,13 +139,9 @@ const RessourcesPage = () => (
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {pillars.map((pillar, index) => (
-              <motion.article
+            {pillars.map((pillar) => (
+              <article
                 key={pillar.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
                 className="section-panel p-6"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -165,7 +161,7 @@ const RessourcesPage = () => (
                     </Link>
                   ))}
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>
@@ -176,7 +172,7 @@ const RessourcesPage = () => (
           <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-[linear-gradient(135deg,hsl(var(--brand-violet)/0.06),hsl(var(--primary)/0.05)_42%,hsl(var(--accent)/0.08))] p-8 shadow-[0_32px_90px_-42px_hsl(var(--brand-violet)/0.35)] md:p-10">
             <div className="pointer-events-none absolute -left-16 top-0 h-40 w-40 rounded-full bg-primary/15 blur-3xl" />
             <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
-            <div className="relative grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="relative grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
               <div>
                 <h2 className="text-3xl font-bold text-foreground md:text-4xl">
                   Trouver les bonnes <span className="text-primary sketch-underline">ressources DUI</span>
@@ -201,37 +197,37 @@ const RessourcesPage = () => (
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
-                {resourceGuides.map((topic, index) => (
-                  <motion.article
+              <div className="space-y-4">
+                {resourceGuides.map((topic) => (
+                  <article
                     key={topic.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="rounded-[1.5rem] border border-border/60 bg-card/90 p-5 shadow-sm backdrop-blur-sm"
+                    className="surface-card rounded-[1.5rem] p-5 md:p-6"
                   >
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <topic.icon className="h-5 w-5" />
+                    <div className="grid gap-4 md:grid-cols-[auto_1fr] md:gap-5">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <topic.icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                          {topic.eyebrow}
+                        </p>
+                        <h3 className="mt-2 text-xl font-bold text-foreground">{topic.title}</h3>
+                        <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                          {topic.description}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {topic.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                      {topic.eyebrow}
-                    </p>
-                    <h3 className="mt-3 text-lg font-bold text-foreground">{topic.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                      {topic.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {topic.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.article>
+                  </article>
                 ))}
               </div>
             </div>
@@ -248,18 +244,14 @@ const RessourcesPage = () => (
               </p>
             </div>
             <div className="space-y-4">
-              {questions.map((item, index) => (
-                <motion.article
+              {questions.map((item) => (
+                <article
                   key={item.question}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
                   className="rounded-[1.5rem] border border-border/60 bg-card/95 p-6 shadow-[0_20px_60px_-42px_hsl(var(--brand-violet)/0.35)]"
                 >
                   <h3 className="mb-3 text-lg font-bold text-foreground">{item.question}</h3>
                   <p className="leading-7 text-muted-foreground">{item.answer}</p>
-                </motion.article>
+                </article>
               ))}
             </div>
           </div>

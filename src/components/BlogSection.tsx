@@ -57,14 +57,10 @@ const BlogSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {resources.map((resource, i) => (
-            <motion.article
+          {resources.map((resource) => (
+            <article
               key={resource.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
-              className="h-full bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg sketch-border"
+              className="surface-card h-full rounded-[1.5rem] p-6"
             >
               <div className="group flex h-full flex-col">
                 <Badge variant="secondary" className="mb-4 font-body text-xs">
@@ -84,7 +80,7 @@ const BlogSection = () => {
                   </Link>
                 </span>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

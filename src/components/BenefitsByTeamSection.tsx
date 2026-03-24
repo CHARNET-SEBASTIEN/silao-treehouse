@@ -95,16 +95,11 @@ const BenefitsByTeamSection = () => (
       </motion.div>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {teamBenefits.map((item, index) => (
-          <motion.article
+        {teamBenefits.map((item) => (
+          <article
             key={item.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.05 }}
-            className="sketch-border relative overflow-hidden bg-card p-6"
+            className="surface-card rounded-[1.5rem] p-6"
           >
-            <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,hsl(var(--secondary)),hsl(var(--accent)))]" />
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
               <item.icon className="h-5 w-5" />
             </div>
@@ -117,7 +112,7 @@ const BenefitsByTeamSection = () => (
                 </li>
               ))}
             </ul>
-          </motion.article>
+          </article>
         ))}
       </div>
     </div>

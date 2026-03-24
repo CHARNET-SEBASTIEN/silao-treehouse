@@ -61,7 +61,7 @@ const CompanyStorySection = () => (
             de production, accompagnement fonctionnel, reprise de données, formation, conseil et
             R&amp;D.
           </p>
-          <div className="mt-8 rounded-[1.75rem] border border-border/60 bg-card px-6 py-6">
+          <div className="surface-card mt-8 rounded-[1.75rem] px-6 py-6">
             <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
               Raison d&apos;être
             </p>
@@ -79,7 +79,7 @@ const CompanyStorySection = () => (
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[1.8rem] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent)/0.12),hsl(var(--secondary)/0.08))] px-6 pb-6 pt-8 shadow-sm"
+            className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-6 pt-8"
           >
             <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
             <img
@@ -94,33 +94,24 @@ const CompanyStorySection = () => (
           </motion.figure>
 
           <div className="grid gap-5 sm:grid-cols-2">
-            {markers.map((marker, index) => (
-              <motion.article
+            {markers.map((marker) => (
+              <article
                 key={marker.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06 }}
-                className="rounded-[1.5rem] border border-border/70 bg-card px-5 py-6 shadow-sm"
+                className="surface-card rounded-[1.5rem] px-5 py-6"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
                   <marker.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-foreground">{marker.title}</h3>
                 <p className="text-sm leading-7 text-muted-foreground">{marker.description}</p>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="rounded-[1.75rem] border border-border/60 bg-card px-6 py-6"
-        >
+        <article className="surface-card rounded-[1.75rem] px-6 py-6">
           <h3 className="text-2xl font-bold text-foreground">
             Une organisation alignée avec ses valeurs
           </h3>
@@ -130,22 +121,16 @@ const CompanyStorySection = () => (
             une initiative, participer à un projet et contribuer à des décisions prises
             collégialement.
           </p>
-        </motion.article>
+        </article>
 
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.06 }}
-          className="rounded-[1.75rem] border border-border/70 bg-card px-6 py-6"
-        >
+        <article className="surface-card rounded-[1.75rem] px-6 py-6">
           <h3 className="text-2xl font-bold text-foreground">Ce qui nous caractérise</h3>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
             Le sens du service, l&apos;envie d&apos;apporter des réponses de qualité, simples,
             efficaces et complètes, ainsi qu&apos;un profond respect des clients, de leur métier et de
             chaque membre de l&apos;équipe.
           </p>
-        </motion.article>
+        </article>
       </div>
     </div>
   </section>
