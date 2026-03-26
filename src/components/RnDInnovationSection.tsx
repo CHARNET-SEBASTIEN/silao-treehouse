@@ -159,8 +159,6 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                   </p>
                 </div>
                 <div className="mb-8 border border-primary/20 bg-primary/5 p-6 sketch-border md:p-8">
-                    Ambition pour le médico-social
-                  </p>
                   <p className="mx-auto max-w-4xl text-center text-sm leading-relaxed text-foreground md:text-base">
                     Nous voulons porter une{" "}
                     <strong className="font-semibold text-foreground">démarche de leader</strong> sur
