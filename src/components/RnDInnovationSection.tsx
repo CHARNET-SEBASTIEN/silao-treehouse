@@ -16,9 +16,33 @@ import magicienneClesIllustration from "@/assets/illustrations/magicienne-cles.p
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const rdTabGroups = [
-  { id: "leviers", label: "Ambition & leviers", dot: "bg-primary", eyebrowColor: "text-primary", iconTone: "bg-primary/10 text-primary" },
-  { id: "usages", label: "Usages & prudence", dot: "bg-secondary", eyebrowColor: "text-secondary", iconTone: "bg-secondary/10 text-secondary" },
-  { id: "principes", label: "Principes", dot: "bg-[hsl(var(--filiere-ph))]", eyebrowColor: "text-[hsl(var(--filiere-ph))]", iconTone: "bg-[hsl(var(--filiere-ph)/0.1)] text-[hsl(var(--filiere-ph))]" },
+  {
+    id: "leviers",
+    label: "Ambition & leviers",
+    dot: "bg-primary",
+    eyebrowColor: "text-primary",
+    activeTabTone:
+      "data-[state=active]:border-primary/35 data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--primary)/0.22),hsl(var(--primary)/0.12))] data-[state=active]:text-primary dark:data-[state=active]:border-primary/45 dark:data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--primary)/0.34),hsl(var(--primary)/0.2))]",
+    iconTone: "bg-primary/10 text-primary",
+  },
+  {
+    id: "usages",
+    label: "Usages & prudence",
+    dot: "bg-secondary",
+    eyebrowColor: "text-secondary",
+    activeTabTone:
+      "data-[state=active]:border-secondary/38 data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--secondary)/0.22),hsl(var(--secondary)/0.12))] data-[state=active]:text-secondary dark:data-[state=active]:border-secondary/45 dark:data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--secondary)/0.3),hsl(var(--secondary)/0.18))]",
+    iconTone: "bg-secondary/10 text-secondary",
+  },
+  {
+    id: "principes",
+    label: "Principes",
+    dot: "bg-[hsl(var(--filiere-ph))]",
+    eyebrowColor: "text-[hsl(var(--filiere-ph))]",
+    activeTabTone:
+      "data-[state=active]:border-[hsl(var(--filiere-ph)/0.38)] data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--filiere-ph)/0.22),hsl(var(--filiere-ph)/0.12))] data-[state=active]:text-[hsl(var(--filiere-ph))] dark:data-[state=active]:border-[hsl(var(--filiere-ph)/0.45)] dark:data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--filiere-ph)/0.3),hsl(var(--filiere-ph)/0.18))]",
+    iconTone: "bg-[hsl(var(--filiere-ph)/0.1)] text-[hsl(var(--filiere-ph))]",
+  },
 ] as const;
 
 /** Axes d’innovation alignés sur les besoins du médico-social (documentation, recherche, temps utile). */
@@ -126,14 +150,14 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
         </motion.div>
 
         <Tabs defaultValue="leviers" className="mb-10 space-y-6">
-          <TabsList className="mx-auto inline-flex h-auto flex-wrap items-center justify-center gap-0 rounded-full border border-border bg-muted p-1 shadow-inner">
+          <TabsList className="mx-auto inline-flex h-auto flex-wrap items-center justify-center gap-1 rounded-full border border-border/80 bg-[linear-gradient(180deg,hsl(var(--muted)/0.88),hsl(var(--muted)/0.62))] p-1 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.92),0_14px_34px_-24px_hsl(var(--brand-violet)/0.28)] dark:bg-[linear-gradient(180deg,hsl(var(--muted)),hsl(var(--card)))]">
             {rdTabGroups.map((tab) => (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold text-muted-foreground transition-all hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
+                className={`inline-flex items-center gap-2 rounded-full border border-transparent px-5 py-2 text-sm font-semibold text-muted-foreground/88 transition-all duration-200 hover:bg-background/60 hover:text-foreground data-[state=active]:-translate-y-0.5 data-[state=active]:px-6 data-[state=active]:font-bold data-[state=active]:shadow-[0_18px_34px_-22px_hsl(var(--foreground)/0.34)] data-[state=active]:ring-1 data-[state=active]:ring-white/70 dark:text-muted-foreground dark:hover:bg-background/30 ${tab.activeTabTone}`}
               >
-                <span className={`h-2 w-2 shrink-0 rounded-full ${tab.dot}`} />
+                <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${tab.dot} shadow-[0_0_0_3px_hsl(0_0%_100%/0.55)] dark:shadow-[0_0_0_3px_hsl(236_28%_14%/0.7)]`} />
                 {tab.label}
               </TabsTrigger>
             ))}

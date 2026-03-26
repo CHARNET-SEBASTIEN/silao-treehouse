@@ -54,14 +54,16 @@ const TestimonialsSection = () => {
                 key={testimonial.name}
                 className="flex flex-col items-center px-4 py-6 text-center"
               >
-                <div className="mb-5 flex h-20 w-20 items-center justify-center px-3">
+                <div className="mb-5 flex min-h-20 w-full items-center justify-center px-3">
                   {partner?.logo ? (
-                    <img
-                      src={partner.logo}
-                      alt={partner.logoAlt}
-                      loading="lazy"
-                      className="max-h-12 w-auto max-w-full object-contain"
-                    />
+                    <div className="logo-plate flex h-20 w-full max-w-[11rem] items-center justify-center rounded-[1.25rem] px-4 py-3">
+                      <img
+                        src={partner.logo}
+                        alt={partner.logoAlt}
+                        loading="lazy"
+                        className="max-h-11 w-auto max-w-full object-contain"
+                      />
+                    </div>
                   ) : (
                     <span className="text-2xl font-bold text-primary">
                       {partner?.monogram ?? testimonial.name.slice(0, 2).toUpperCase()}

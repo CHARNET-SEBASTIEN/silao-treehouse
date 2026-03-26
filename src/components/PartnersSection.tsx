@@ -29,14 +29,16 @@ const PartnersSection = () => {
               key={partner.name}
               className="flex min-h-[140px] flex-col items-center justify-center gap-4 text-center"
             >
-              <div className="flex h-16 w-full items-center justify-center px-4">
+              <div className="flex h-20 w-full items-center justify-center px-4">
                 {partner.logo ? (
-                  <img
-                    src={partner.logo}
-                    alt={partner.logoAlt}
-                    loading="lazy"
-                    className="max-h-11 w-auto max-w-full object-contain"
-                  />
+                  <div className="logo-plate flex h-full w-full max-w-[13rem] items-center justify-center rounded-[1.25rem] px-4 py-3">
+                    <img
+                      src={partner.logo}
+                      alt={partner.logoAlt}
+                      loading="lazy"
+                      className="max-h-10 w-auto max-w-full object-contain"
+                    />
+                  </div>
                 ) : (
                   <span className="font-sketch text-2xl text-primary">{partner.monogram}</span>
                 )}
