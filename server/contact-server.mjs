@@ -4,7 +4,8 @@ import { request as httpsRequest } from "node:https";
 const API_PORT = Number(process.env.CONTACT_API_PORT ?? 8787);
 const MAILPACE_API_URL =
   process.env.MAILPACE_API_URL ?? "https://app.mailpace.com/api/v1/send";
-const MAILPACE_SERVER_TOKEN = process.env.MAILPACE_SERVER_TOKEN ?? "";
+const MAILPACE_SERVER_TOKEN =
+  process.env.MAILPACE_SERVER_TOKEN ?? "69ddf9b2-073e-4f4d-8073-022a6da4bee1";
 const MAILPACE_DEBUG =
   (process.env.MAILPACE_DEBUG ?? "false").toLowerCase() === "true";
 const CONTACT_TO =
