@@ -6,6 +6,18 @@ export const SITE_URL =
 export const SITE_NAME = "SILAO par D2L Informatique";
 export const SITE_LOCALE = "fr_FR";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-silao-tree.png`;
+
+/** Dimensions du fichier `public/og-silao-tree.png` (à mettre à jour si l’asset change). */
+export const DEFAULT_OG_IMAGE_WIDTH = 1668;
+export const DEFAULT_OG_IMAGE_HEIGHT = 1758;
+
+/** Texte alternatif pour les cartes sociales (og:image / Twitter). */
+export const DEFAULT_OG_IMAGE_ALT =
+  "SILAO — logiciel de dossier usager pour les établissements et services sociaux et médico-sociaux";
+
+/** Alignés sur les fonds `--background` (clair / sombre) dans `index.css`. */
+export const THEME_COLOR_LIGHT = "#fafcff";
+export const THEME_COLOR_DARK = "#121426";
 export const CONTACT_EMAIL = "contact@silao.fr";
 export const CONTACT_PHONE = import.meta.env.VITE_CONTACT_PHONE || "";
 export const LINKEDIN_URL =

@@ -13,6 +13,7 @@ import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import CompanyStorySection from "@/components/CompanyStorySection";
+import RnDInnovationSection from "@/components/RnDInnovationSection";
 import ContactHubSection from "@/components/ContactHubSection";
 import SectionDivider from "@/components/SectionDivider";
 import { getPageSeo } from "@/lib/publicRoutes";
@@ -39,6 +40,8 @@ const Index = () => {
         <SectionDivider variant="wave" />
         <CompanyStorySection />
         <SectionDivider variant="curve" />
+        <RnDInnovationSection />
+        <SectionDivider variant="wave" flip />
         <section id="references">
           <TestimonialsSection />
         </section>

@@ -4,8 +4,13 @@ import { type PageSeo, getStructuredData, resolveUrl } from "@/lib/seo";
 import {
   COMPANY_NAME,
   DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+  DEFAULT_OG_IMAGE_HEIGHT,
+  DEFAULT_OG_IMAGE_WIDTH,
   SITE_LOCALE,
   SITE_NAME,
+  THEME_COLOR_DARK,
+  THEME_COLOR_LIGHT,
   TWITTER_SITE_HANDLE,
 } from "@/lib/site";
 
@@ -85,6 +90,7 @@ const SEOHead = ({
     document.title = title;
     upsertMeta('meta[name="author"]', { name: "author", content: COMPANY_NAME });
     upsertMeta('meta[name="description"]', { name: "description", content: description });
+    upsertMeta('meta[name="color-scheme"]', { name: "color-scheme", content: "light dark" });
     upsertMeta('meta[name="robots"]', { name: "robots", content: robots });
     upsertMeta('meta[property="og:locale"]', { property: "og:locale", content: SITE_LOCALE });
     upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: SITE_NAME });
@@ -93,6 +99,18 @@ const SEOHead = ({
     upsertMeta('meta[property="og:description"]', { property: "og:description", content: description });
     upsertMeta('meta[property="og:url"]', { property: "og:url", content: canonicalUrl });
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: imageUrl });
+    upsertMeta('meta[property="og:image:width"]', {
+      property: "og:image:width",
+      content: String(DEFAULT_OG_IMAGE_WIDTH),
+    });
+    upsertMeta('meta[property="og:image:height"]', {
+      property: "og:image:height",
+      content: String(DEFAULT_OG_IMAGE_HEIGHT),
+    });
+    upsertMeta('meta[property="og:image:alt"]', {
+      property: "og:image:alt",
+      content: DEFAULT_OG_IMAGE_ALT,
+    });
     upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
     if (TWITTER_SITE_HANDLE) {
       upsertMeta('meta[name="twitter:site"]', {
@@ -103,6 +121,21 @@ const SEOHead = ({
     upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: imageUrl });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: "twitter:image:alt",
+      content: DEFAULT_OG_IMAGE_ALT,
+    });
+    upsertMeta('meta[name="theme-color"][media="(prefers-color-scheme: light)"]', {
+      name: "theme-color",
+      content: THEME_COLOR_LIGHT,
+      media: "(prefers-color-scheme: light)",
+    });
+    upsertMeta('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]', {
+      name: "theme-color",
+      content: THEME_COLOR_DARK,
+      media: "(prefers-color-scheme: dark)",
+    });
+    upsertLink('link[rel="manifest"]', { rel: "manifest", href: "/site.webmanifest" });
     upsertLink('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
     upsertLink('link[rel="alternate"][hreflang="fr-FR"]', {
       rel: "alternate",

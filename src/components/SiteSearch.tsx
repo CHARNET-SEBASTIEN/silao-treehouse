@@ -60,6 +60,22 @@ const searchItems: SearchItem[] = [
     keywords: ["histoire", "d2l", "valeurs", "équipe", "open source"],
   },
   {
+    title: "R&D et intelligence artificielle",
+    description:
+      "Innovation responsable pour le médico-social : supervision humaine, transparence et valeur ajoutée sans déshumaniser.",
+    href: "/#recherche-innovation",
+    category: "Accueil",
+    keywords: [
+      "ia",
+      "intelligence artificielle",
+      "innovation",
+      "recherche",
+      "r&d",
+      "éthique",
+      "médico-social",
+    ],
+  },
+  {
     title: "Contact",
     description: "Demande de démonstration, support, plaquette et prise de contact.",
     href: "/#contacts",
@@ -197,10 +213,15 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
           Rechercher
         </button>
 
-        <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandDialog
+          open={open}
+          onOpenChange={setOpen}
+          title="Recherche dans le site SILAO"
+        >
           <CommandInput
             value={query}
             onValueChange={setQuery}
+            aria-label="Rechercher une page, un secteur ou une fonctionnalité"
             placeholder="Rechercher une page, un secteur ou une fonctionnalité…"
           />
           <CommandList>

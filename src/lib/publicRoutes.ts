@@ -228,7 +228,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     title:
       "Engagements SILAO | Sécurité, accessibilité et démarche responsable",
     description:
-      "Consultez les engagements SILAO : qualité de service, sécurité des données, référencement Ségur, accessibilité et démarche responsable.",
+      "Consultez les engagements SILAO : qualité de service, sécurité des données, référencement Ségur, accessibilité, démarche responsable et positionnement R&D / IA au service du médico-social.",
     breadcrumbs: [HOME_CRUMB, { name: "Engagements", path: "/engagements" }],
     priority: 0.7,
   },

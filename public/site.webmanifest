@@ -1,0 +1,20 @@
+{
+  "name": "SILAO par D2L Informatique",
+  "short_name": "SILAO",
+  "description": "Logiciel DUI pour les ESSMS — dossier usager, agenda, transmissions et pilotage.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#fafcff",
+  "theme_color": "#fafcff",
+  "icons": [
+    {
+      "src": "/og-silao-tree.png",
+      "sizes": "1668x1758",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

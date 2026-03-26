@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { MotionConfig } from "framer-motion";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
@@ -119,6 +119,47 @@ const ScrollManager = () => {
   return null;
 };
 
+const RouteFocusManager = () => {
+  const { pathname } = useLocation();
+  const isInitialMount = useRef(true);
+
+  useLayoutEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    document.getElementById("main-content")?.focus({ preventScroll: true });
+  }, [pathname]);
+
+  return null;
+};
+
+const RouteAnnouncer = () => {
+  const { pathname } = useLocation();
+  const [message, setMessage] = useState("");
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setMessage(`Page chargée : ${document.title}`);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [pathname]);
+
+  return (
+    <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+      {message}
+    </p>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
@@ -135,6 +176,8 @@ const App = () => (
           </a>
           <BrowserRouter>
             <ScrollManager />
+            <RouteFocusManager />
+            <RouteAnnouncer />
             <AppRoutes />
           </BrowserRouter>
         </TooltipProvider>

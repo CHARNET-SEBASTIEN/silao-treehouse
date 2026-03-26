@@ -51,6 +51,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
     return (
       <footer
         ref={ref}
+        aria-label="Pied de page"
         {...props}
         className="relative border-t border-border/80 bg-[linear-gradient(180deg,hsl(var(--card)),hsl(var(--background)))] paper-grain"
       >

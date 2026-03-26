@@ -9,6 +9,7 @@ const PageMain = React.forwardRef<HTMLElement, PageMainProps>(
   ({ className, children, ...props }, ref) => (
     <main
       id="main-content"
+      aria-label="Contenu principal"
       ref={ref}
       tabIndex={-1}
       className={cn("focus:outline-none", className)}

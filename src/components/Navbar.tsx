@@ -64,6 +64,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const menuDialogRef = useRef<HTMLDivElement | null>(null);
+  const prevMobileMenuOpen = useRef(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -83,10 +84,14 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (!open) {
+    if (prevMobileMenuOpen.current && !open) {
       menuButtonRef.current?.focus();
-      return;
     }
+    prevMobileMenuOpen.current = open;
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
 
     const dialog = menuDialogRef.current;
     const focusableElements = dialog?.querySelectorAll<HTMLElement>(
@@ -155,6 +160,7 @@ const Navbar = () => {
   return (
     <>
       <motion.header
+        role="banner"
         initial={false}
         animate={{
           backgroundColor: scrolled ? "hsl(var(--background) / 0.88)" : "transparent",
