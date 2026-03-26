@@ -16,9 +16,9 @@ import magicienneClesIllustration from "@/assets/illustrations/magicienne-cles.p
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const rdTabGroups = [
-  { id: "leviers", label: "Ambition & leviers", dot: "bg-primary" },
-  { id: "usages", label: "Usages & prudence", dot: "bg-secondary" },
-  { id: "principes", label: "Principes", dot: "bg-accent" },
+  { id: "leviers", label: "Ambition & leviers", dot: "bg-primary", eyebrowColor: "text-primary", iconTone: "bg-primary/10 text-primary" },
+  { id: "usages", label: "Usages & prudence", dot: "bg-secondary", eyebrowColor: "text-secondary", iconTone: "bg-secondary/10 text-secondary" },
+  { id: "principes", label: "Principes", dot: "bg-accent", eyebrowColor: "text-accent", iconTone: "bg-accent/10 text-accent" },
 ] as const;
 
 /** Axes d’innovation alignés sur les besoins du médico-social (documentation, recherche, temps utile). */
@@ -126,12 +126,12 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
         </motion.div>
 
         <Tabs defaultValue="leviers" className="mb-10 space-y-6">
-          <TabsList className="mx-auto flex h-auto w-full max-w-3xl flex-wrap items-center justify-center gap-1 rounded-full border border-border bg-muted p-1 shadow-inner sm:w-auto sm:max-w-none sm:flex-nowrap sm:gap-0">
+          <TabsList className="mx-auto inline-flex h-auto flex-wrap items-center justify-center gap-0 rounded-full border border-border bg-muted p-1 shadow-inner">
             {rdTabGroups.map((tab) => (
               <TabsTrigger
                 key={tab.id}
                 value={tab.id}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full px-3 py-2 text-xs font-semibold text-muted-foreground transition-all hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow sm:flex-initial sm:px-5 sm:text-sm"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold text-muted-foreground transition-all hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
               >
                 <span className={`h-2 w-2 shrink-0 rounded-full ${tab.dot}`} />
                 {tab.label}
@@ -142,7 +142,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
           <TabsContent
             value="leviers"
             forceMount
-            className="mt-2 data-[state=inactive]:hidden sm:mt-6"
+            className="mt-6 data-[state=inactive]:hidden"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -151,12 +151,14 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="rounded-[1.75rem] border border-border/70 bg-card/80 p-6 shadow-sm md:p-8"
+                className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
               >
-                <div className="mb-8 border border-primary/20 bg-primary/5 p-6 sketch-border md:p-8">
-                  <p className="mb-2 text-center text-sm font-semibold uppercase tracking-wide text-primary">
+                <div className="mb-6 border-b border-border/70 pb-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                     Ambition pour le médico-social
                   </p>
+                </div>
+                <div className="mb-8 border border-primary/20 bg-primary/5 p-6 sketch-border md:p-8">
                   <p className="mx-auto max-w-4xl text-center text-sm leading-relaxed text-foreground md:text-base">
                     Nous voulons porter une{" "}
                     <strong className="font-semibold text-foreground">démarche de leader</strong> sur
@@ -183,7 +185,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                       key={item.title}
                       className="flex flex-col rounded-2xl border border-border/60 bg-background p-5 shadow-sm"
                     >
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <item.icon className="h-5 w-5" />
                       </div>
                       <h4 className="mb-2 text-lg font-bold text-foreground">{item.title}</h4>
@@ -198,7 +200,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
           <TabsContent
             value="usages"
             forceMount
-            className="mt-2 data-[state=inactive]:hidden sm:mt-6"
+            className="mt-6 data-[state=inactive]:hidden"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -207,8 +209,13 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="rounded-[1.75rem] border border-border/70 bg-card/80 p-6 shadow-sm md:p-8"
+                className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
               >
+                <div className="mb-6 border-b border-border/70 pb-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
+                    Usages & prudence
+                  </p>
+                </div>
                 <h3 className="mb-4 text-center text-xl font-bold text-foreground md:text-2xl">
                   Deux familles d&apos;usages, un même fil de prudence
                 </h3>
@@ -278,7 +285,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
           <TabsContent
             value="principes"
             forceMount
-            className="mt-2 data-[state=inactive]:hidden sm:mt-6"
+            className="mt-6 data-[state=inactive]:hidden"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -287,8 +294,13 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="rounded-[1.75rem] border border-border/70 bg-card/80 p-6 shadow-sm md:p-8"
+                className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
               >
+                <div className="mb-6 border-b border-border/70 pb-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+                    Principes
+                  </p>
+                </div>
                 <h3 className="mb-8 text-center text-xl font-bold text-foreground md:text-2xl">
                   Principes qui cadrent nos usages
                 </h3>
@@ -298,7 +310,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                       key={item.title}
                       className="rounded-[1.5rem] border border-border/60 bg-background p-7 shadow-sm"
                     >
-                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
                         <item.icon className="h-5 w-5" />
                       </div>
                       <h4 className="mb-3 text-xl font-bold text-foreground">{item.title}</h4>
