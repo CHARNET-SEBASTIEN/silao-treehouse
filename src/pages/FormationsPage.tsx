@@ -26,6 +26,7 @@ type KeyFigure = {
   label: string;
   logo?: string;
   logoAlt?: string;
+  hideValue?: boolean;
 };
 
 const keyFigures: KeyFigure[] = [
@@ -35,6 +36,7 @@ const keyFigures: KeyFigure[] = [
     label: "certification qualité délivrée au titre des actions de formation",
     logo: qualiopiLogo,
     logoAlt: "Logo Qualiopi processus certifié République Française",
+    hideValue: true,
   },
   { value: "Sur mesure", label: "plusieurs formules adaptées aux besoins de vos équipes" },
 ];
@@ -122,13 +124,15 @@ const FormationsPage = () => {
                 key={item.label}
                 className="rounded-[1.5rem] border border-border/60 bg-card p-6 text-center shadow-sm"
               >
-                <p className="text-4xl font-bold text-foreground">{item.value}</p>
+                {!item.hideValue ? (
+                  <p className="text-4xl font-bold text-foreground">{item.value}</p>
+                ) : null}
                 {item.logo ? (
                   <img
                     src={item.logo}
                     alt={item.logoAlt}
                     loading="lazy"
-                    className="mx-auto mt-4 w-full max-w-[190px]"
+                    className={`mx-auto w-full max-w-[190px] ${item.hideValue ? "" : "mt-4"}`}
                   />
                 ) : null}
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.label}</p>
