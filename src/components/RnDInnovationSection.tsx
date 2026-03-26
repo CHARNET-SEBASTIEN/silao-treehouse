@@ -177,7 +177,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                   </p>
                 </div>
                 <h3 className="mb-6 text-center text-xl font-bold text-foreground md:text-2xl">
-                  Quatre leviers concrets de notre R&amp;D
+                  Quatre leviers en cours d’expérimentation dans notre démarche R&amp;D
                 </h3>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                   {innovationAxes.map((item) => (
