@@ -18,7 +18,7 @@ import logoD2lColor from "@/assets/logo-d2l-color.png";
 import logoD2lWhite from "@/assets/logo-d2l-white.png";
 import logoSilaoColor from "@/assets/logo-silao-color.svg";
 import logoSilaoWhite from "@/assets/logo-silao-white.svg";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
@@ -58,8 +58,8 @@ const groupedLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [demoOpen, setDemoOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
   const location = useLocation();
   const navigate = useNavigate();
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -247,7 +247,7 @@ const Navbar = () => {
             variant="hero"
             size="sm"
             className="hidden sm:inline-flex rounded-full px-5 text-xs font-bold shadow-md"
-            onClick={() => setDemoOpen(true)}
+            onClick={openDialog}
           >
             Demander une démo
           </Button>
@@ -272,8 +272,6 @@ const Navbar = () => {
           </motion.button>
         </div>
       </motion.header>
-
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
 
       <AnimatePresence>
         {open ? (

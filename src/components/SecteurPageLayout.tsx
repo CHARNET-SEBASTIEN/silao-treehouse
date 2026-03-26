@@ -3,8 +3,7 @@ import { LucideIcon, CheckCircle2, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
-import { useState } from "react";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
 import { cn } from "@/lib/utils";
@@ -38,7 +37,7 @@ const SecteurPageLayout = ({
   modules,
   seoPath,
 }: SecteurPageLayoutProps) => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
   const seo = getPageSeo(seoPath);
 
   return (
@@ -84,7 +83,7 @@ const SecteurPageLayout = ({
             transition={{ delay: 0.4 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+            <Button variant="hero" size="xl" onClick={openDialog}>
               Demander une démo
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
@@ -227,13 +226,11 @@ const SecteurPageLayout = ({
           <p className="text-muted-foreground font-body mb-6">
             Notre équipe vous accompagne de A à Z, de l'étude de vos besoins au déploiement complet.
           </p>
-          <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+          <Button variant="hero" size="xl" onClick={openDialog}>
             Demander une démo personnalisée
           </Button>
         </motion.div>
       </section>
-
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </>
   );
 };

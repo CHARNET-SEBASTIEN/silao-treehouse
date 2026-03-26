@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { BookText, Briefcase, LifeBuoy, MessageSquareMore } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import postiereIllustration from "@/assets/illustrations/postiere.webp";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
 import { CONTACT_EMAIL } from "@/lib/site";
 
@@ -47,7 +46,7 @@ const contactCards = [
 ];
 
 const ContactHubSection = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <section id="contacts" className="px-4 py-20 md:py-28 tint-violet">
@@ -110,7 +109,7 @@ const ContactHubSection = () => {
               <p className="mb-6 text-sm leading-7 text-muted-foreground">{card.description}</p>
 
               {card.type === "dialog" ? (
-                <Button variant="hero" size="lg" className="mt-auto w-full" onClick={() => setDemoOpen(true)}>
+                <Button variant="hero" size="lg" className="mt-auto w-full" onClick={openDialog}>
                   {card.actionLabel}
                 </Button>
               ) : null}
@@ -130,8 +129,6 @@ const ContactHubSection = () => {
           ))}
         </div>
       </div>
-
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </section>
   );
 };

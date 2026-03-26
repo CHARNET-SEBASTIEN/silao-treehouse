@@ -87,8 +87,8 @@ Variables par défaut :
 - `MAILPACE_API_URL=https://app.mailpace.com/api/v1/send`
 - `MAILPACE_SERVER_TOKEN=...`
 - `MAILPACE_DEBUG=false`
-- `CONTACT_TO=sebastien.charnet@d2linformatique.com`
-- `CONTACT_FROM=sebastien.charnet@d2l-informatique.com`
+- `CONTACT_TO=sebastien.charnet@d2l-informatique.com`
+- `CONTACT_FROM=sebastien.charnet@silage.fr`
 - `SITE_URL=https://www.silao.fr`
 - `SITE_NAME=SILAO`
 - `CONTACT_API_PORT=8787`

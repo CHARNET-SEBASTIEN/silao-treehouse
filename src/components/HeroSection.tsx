@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -12,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 
 import heroTreeBrand from "@/assets/hero-tree-brand.png";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
 import { filiereThemes } from "@/lib/filiereThemes";
 
@@ -50,7 +49,7 @@ const points = [
 ];
 
 const HeroSection = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <section className="relative overflow-hidden px-4 pb-12 pt-14 md:pb-16 md:pt-16">
@@ -136,7 +135,7 @@ const HeroSection = () => {
                   variant="hero"
                   size="xl"
                   className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight sm:w-auto sm:min-w-[16rem]"
-                  onClick={() => setDemoOpen(true)}
+                  onClick={openDialog}
                 >
                   Demander une démonstration
                 </Button>
@@ -191,8 +190,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </section>
   );
 };

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Accessibility,
@@ -11,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
@@ -92,7 +91,7 @@ const extraPoints = [
 const seo = getPageSeo("/formations");
 
 const FormationsPage = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <div className="min-h-screen bg-background paper-grain">
@@ -257,7 +256,7 @@ const FormationsPage = () => {
                 votre chef de projet SILAO ou écrivez à <strong>{CONTACT_EMAIL}</strong>.
               </p>
               <div className="flex flex-col gap-3">
-                <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+                <Button variant="hero" size="xl" onClick={openDialog}>
                   Demander une démonstration
                 </Button>
                 <Button variant="hero-outline" size="xl" asChild>
@@ -272,7 +271,6 @@ const FormationsPage = () => {
         </section>
       </PageMain>
       <FooterSection />
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </div>
   );
 };

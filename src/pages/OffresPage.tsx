@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -12,7 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
@@ -95,7 +94,7 @@ const framingPoints = [
 const seo = getPageSeo("/offres");
 
 const OffresPage = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <div className="min-h-screen bg-background paper-grain">
@@ -183,7 +182,7 @@ const OffresPage = () => {
             </ul>
 
             <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:flex-wrap">
-              <Button variant="hero" size="xl" className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight lg:w-auto" onClick={() => setDemoOpen(true)}>
+              <Button variant="hero" size="xl" className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight lg:w-auto" onClick={openDialog}>
                 Demander une démonstration
               </Button>
               <Button variant="hero-outline" size="xl" className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight lg:w-auto" asChild>
@@ -203,7 +202,6 @@ const OffresPage = () => {
         </section>
       </PageMain>
       <FooterSection />
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </div>
   );
 };

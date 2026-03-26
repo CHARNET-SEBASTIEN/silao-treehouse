@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
 import { HeartHandshake } from "lucide-react";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
 
 const CTASection = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <section className="px-4 py-20 md:py-28 tint-primary">
@@ -32,14 +31,13 @@ const CTASection = () => {
             avec un scénario adapté à votre organisation. Sans engagement.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+            <Button variant="hero" size="xl" onClick={openDialog}>
               Échangeons sur votre projet
             </Button>
           </div>
           <p className="mt-4 text-xs font-body text-muted-foreground">
             Sans engagement · Réponse sous 48 h
           </p>
-          <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { MotionConfig } from "framer-motion";
 import ThemeProvider from "@/components/ThemeProvider";
+import { DemoRequestDialogProvider, DemoRequestDialogRoot } from "@/components/DemoRequestDialogProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -175,10 +176,13 @@ const App = () => (
             Aller au contenu
           </a>
           <BrowserRouter>
-            <ScrollManager />
-            <RouteFocusManager />
-            <RouteAnnouncer />
-            <AppRoutes />
+            <DemoRequestDialogProvider>
+              <ScrollManager />
+              <RouteFocusManager />
+              <RouteAnnouncer />
+              <AppRoutes />
+              <DemoRequestDialogRoot />
+            </DemoRequestDialogProvider>
           </BrowserRouter>
         </TooltipProvider>
       </MotionConfig>

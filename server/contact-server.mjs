@@ -11,7 +11,7 @@ const MAILPACE_DEBUG =
 const CONTACT_TO =
   process.env.CONTACT_TO ?? "sebastien.charnet@d2l-informatique.com";
 const CONTACT_FROM =
-  process.env.CONTACT_FROM ?? "sebastien.charnet@d2l-informatique.com";
+  process.env.CONTACT_FROM ?? "sebastien.charnet@silage.fr";
 const SITE_URL = process.env.SITE_URL ?? "https://www.silao.fr";
 const SITE_NAME = process.env.SITE_NAME ?? "SILAO";
 

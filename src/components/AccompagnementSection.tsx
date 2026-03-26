@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Accessibility,
@@ -11,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
 
 const phases = [
@@ -75,7 +74,7 @@ const indicators = [
 ];
 
 const AccompagnementSection = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <section className="px-4 py-20 paper-bg">
@@ -179,7 +178,7 @@ const AccompagnementSection = () => {
             alléger leur quotidien et renforcer l&apos;impact de leur accompagnement.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+            <Button variant="hero" size="xl" onClick={openDialog}>
               Échanger sur votre projet
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
@@ -191,8 +190,6 @@ const AccompagnementSection = () => {
           </div>
         </div>
       </div>
-
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </section>
   );
 };

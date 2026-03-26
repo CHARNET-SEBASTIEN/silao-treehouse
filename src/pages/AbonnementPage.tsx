@@ -1,11 +1,10 @@
 import Navbar from "@/components/Navbar";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import FooterSection from "@/components/FooterSection";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
 import { motion } from "framer-motion";
 import { CreditCard, CheckCircle2, HelpCircle, ArrowRight, Shield } from "lucide-react";
 import PageMain from "@/components/PageMain";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
 
@@ -44,7 +43,7 @@ const faqItems = [
 ];
 
 const AbonnementPage = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
   const seo = getPageSeo("/abonnement");
 
   return (
@@ -131,7 +130,7 @@ const AbonnementPage = () => {
                 L'abonnement annuel couvre ensuite <strong>tout le reste</strong> : hébergement, maintenance, support, mises à jour.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+                <Button variant="hero" size="xl" onClick={openDialog}>
                   Obtenir un devis personnalisé
                 </Button>
               </div>
@@ -185,14 +184,13 @@ const AbonnementPage = () => {
             <p className="text-muted-foreground font-body mb-6">
               Contactez-nous pour un devis adapté à votre taille et vos besoins. Sans engagement.
             </p>
-            <Button variant="hero" size="xl" onClick={() => setDemoOpen(true)}>
+            <Button variant="hero" size="xl" onClick={openDialog}>
               Demander un devis <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </motion.div>
         </section>
       </PageMain>
       <FooterSection />
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </div>
   );
 };

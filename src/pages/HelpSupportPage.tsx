@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { BookOpenText, Brain, FileText, GraduationCap, LifeBuoy, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import postiereIllustration from "@/assets/illustrations/postiere.webp";
-import DemoRequestDialog from "@/components/DemoRequestDialog";
+import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import PageMain from "@/components/PageMain";
@@ -42,7 +41,7 @@ const supportLinks = [
 ];
 
 const HelpSupportPage = () => {
-  const [demoOpen, setDemoOpen] = useState(false);
+  const { openDialog } = useDemoRequestDialog();
 
   return (
     <div className="min-h-screen bg-background paper-grain">
@@ -87,7 +86,7 @@ const HelpSupportPage = () => {
               <p className="mb-6 text-muted-foreground">
                 Pour qualifier un projet, identifier le secteur concerné et organiser une présentation ciblée de SILAO.
               </p>
-              <Button variant="hero" size="lg" className="mt-auto w-full" onClick={() => setDemoOpen(true)}>
+              <Button variant="hero" size="lg" className="mt-auto w-full" onClick={openDialog}>
                 Demander une démo
               </Button>
             </article>
@@ -145,7 +144,6 @@ const HelpSupportPage = () => {
         </section>
       </PageMain>
       <FooterSection />
-      <DemoRequestDialog open={demoOpen} onOpenChange={setDemoOpen} />
     </div>
   );
 };
