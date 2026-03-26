@@ -162,13 +162,12 @@ const HeroSection = () => {
               className="mx-auto w-full max-w-[18rem]"
             >
               <div className="flex flex-col items-center gap-5">
-                <div className="flex justify-center rounded-[1.75rem] border border-primary/10 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-6 py-6">
+                <div className="flex justify-center bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-6 py-6">
                   <img
                     src={heroTreeBrand}
                     alt="Arbre SILAO illustrant l'accompagnement social et medico-social"
                     width={1668}
                     height={1758}
-                    fetchPriority="high"
                     loading="eager"
                     decoding="async"
                     className="h-64 w-auto drop-shadow-[0_24px_36px_hsl(var(--primary)/0.14)] sm:h-72"

@@ -218,19 +218,45 @@
 /* Sketch-style decorations */
 @layer utilities {
   .sketch-border {
-    border: 1px solid hsl(var(--border));
+    border: 1px solid hsl(var(--border) / 0.9);
     border-radius: 1.5rem;
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.34),
       0 20px 50px -34px hsl(var(--brand-violet) / 0.18),
       inset 0 1px 0 hsl(0 0% 100% / 0.95);
   }
 
   .sketch-border-sm {
-    border: 1px solid hsl(var(--border));
+    border: 1px solid hsl(var(--border) / 0.9);
     border-radius: 1rem;
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.28),
       0 16px 36px -32px hsl(var(--brand-violet) / 0.16),
       inset 0 1px 0 hsl(0 0% 100% / 0.95);
+  }
+
+  .sketch-border,
+  .sketch-border-sm,
+  .section-panel,
+  .surface-card,
+  .surface-card-tint {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .sketch-border::before,
+  .sketch-border-sm::before,
+  .section-panel::before,
+  .surface-card::before,
+  .surface-card-tint::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid hsl(var(--border) / 0.45);
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.9;
+    transform: translate(1px, -1px);
   }
 
   .sketch-underline {
@@ -272,28 +298,31 @@
       radial-gradient(circle at top right, hsl(var(--primary) / 0.09), transparent 26%),
       radial-gradient(circle at top left, hsl(var(--accent) / 0.08), transparent 18%),
       linear-gradient(180deg, hsl(0 0% 100%), hsl(218 100% 98%));
-    border: 1px solid hsl(var(--border));
+    border: 1px solid hsl(var(--border) / 0.9);
     border-radius: 2rem;
     box-shadow:
+      3px 3px 0 hsl(var(--border) / 0.28),
       0 28px 80px -38px hsl(var(--brand-violet) / 0.22),
       inset 0 1px 0 hsl(0 0% 100%);
   }
 
   .surface-card {
-    border: 1px solid hsl(var(--border) / 0.72);
+    border: 1px solid hsl(var(--border) / 0.82);
     background: hsl(var(--card));
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.24),
       0 24px 54px -40px hsl(var(--brand-violet) / 0.18),
       inset 0 1px 0 hsl(0 0% 100% / 0.92);
   }
 
   .surface-card-tint {
-    border: 1px solid hsl(var(--border) / 0.72);
+    border: 1px solid hsl(var(--border) / 0.82);
     background:
       radial-gradient(circle at top right, hsl(var(--primary) / 0.12), transparent 32%),
       radial-gradient(circle at top left, hsl(var(--accent) / 0.08), transparent 18%),
       linear-gradient(160deg, hsl(var(--card)), hsl(var(--background)));
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.24),
       0 26px 60px -42px hsl(var(--brand-violet) / 0.18),
       inset 0 1px 0 hsl(0 0% 100% / 0.94);
   }
@@ -431,14 +460,24 @@
 
   .dark .sketch-border {
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.2),
       0 26px 56px -34px hsl(var(--brand-violet) / 0.32),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
 
   .dark .sketch-border-sm {
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.18),
       0 20px 42px -30px hsl(var(--brand-violet) / 0.28),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
+  }
+
+  .dark .sketch-border::before,
+  .dark .sketch-border-sm::before,
+  .dark .section-panel::before,
+  .dark .surface-card::before,
+  .dark .surface-card-tint::before {
+    border-color: hsl(var(--border) / 0.34);
   }
 
   .dark .paper-bg {
@@ -461,12 +500,14 @@
       radial-gradient(circle at top left, hsl(var(--accent) / 0.1), transparent 18%),
       linear-gradient(180deg, hsl(236 30% 19%), hsl(236 28% 15%));
     box-shadow:
+      3px 3px 0 hsl(var(--border) / 0.16),
       0 30px 80px -40px hsl(236 50% 4% / 0.9),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
 
   .dark .surface-card {
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.14),
       0 24px 54px -36px hsl(236 50% 4% / 0.82),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
@@ -477,6 +518,7 @@
       radial-gradient(circle at top left, hsl(var(--accent) / 0.08), transparent 18%),
       linear-gradient(160deg, hsl(236 30% 19%), hsl(236 28% 15%));
     box-shadow:
+      2px 2px 0 hsl(var(--border) / 0.14),
       0 28px 60px -38px hsl(236 50% 4% / 0.86),
       inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }

@@ -39,7 +39,7 @@ const CookiePolicyPage = () => (
               </div>
             </div>
 
-            <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(150deg,hsl(var(--primary)/0.08),hsl(var(--secondary)/0.08))] px-6 pb-3 pt-6 shadow-sm">
+            <figure className="relative overflow-hidden px-6 pb-3 pt-6">
               <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-primary/15 blur-3xl" />
               <img
                 src={magicienneClesIllustration}

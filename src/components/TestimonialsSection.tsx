@@ -45,16 +45,16 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 divide-y divide-border/45 md:grid-cols-3 md:divide-x md:divide-y-0">
           {testimonials.map((testimonial) => {
             const partner = partnerReferencesByName[testimonial.name];
 
             return (
               <div
                 key={testimonial.name}
-                className="flex flex-col items-center bg-card p-8 text-center sketch-border-sm"
+                className="flex flex-col items-center px-4 py-6 text-center"
               >
-                <div className="logo-plate mb-5 flex h-20 w-20 items-center justify-center rounded-3xl px-3">
+                <div className="mb-5 flex h-20 w-20 items-center justify-center px-3">
                   {partner?.logo ? (
                     <img
                       src={partner.logo}

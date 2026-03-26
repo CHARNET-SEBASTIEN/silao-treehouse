@@ -65,7 +65,7 @@ const HelpSupportPage = () => {
               </p>
             </div>
 
-            <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(155deg,hsl(var(--accent)/0.12),hsl(var(--primary)/0.06))] px-6 pb-4 pt-6 shadow-sm">
+            <figure className="relative overflow-hidden px-6 pb-4 pt-6">
               <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-accent/15 blur-3xl" />
               <img
                 src={postiereIllustration}

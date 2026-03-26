@@ -74,7 +74,7 @@ const ContactHubSection = () => {
           viewport={{ once: true }}
           className="mb-12 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
         >
-          <div className="surface-card rounded-[1.8rem] p-8">
+          <div className="px-2 py-4 md:px-4 md:py-6">
             <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
               Échanges simplifiés
             </p>
@@ -83,7 +83,7 @@ const ContactHubSection = () => {
             </h3>
           </div>
 
-          <figure className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-4 pt-6">
+          <figure className="relative overflow-hidden px-6 pb-4 pt-6">
             <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-accent/15 blur-3xl" />
             <img
               src={postiereIllustration}

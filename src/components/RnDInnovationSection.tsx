@@ -110,7 +110,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
             </p>
           </div>
 
-          <figure className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-2 pt-6">
+          <figure className="relative overflow-hidden px-6 pb-2 pt-6">
             <div className="pointer-events-none absolute right-6 top-4 h-28 w-32 rounded-full bg-primary/10 blur-3xl" />
             <div className="pointer-events-none absolute bottom-6 left-4 h-20 w-36 rounded-full bg-secondary/15 blur-2xl" />
             <img
@@ -151,7 +151,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
+                className="px-2 py-2 md:px-4"
               >
                 <div className="mb-6 border-b border-border/70 pb-5">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
@@ -209,7 +209,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
+                className="px-2 py-2 md:px-4"
               >
                 <div className="mb-6 border-b border-border/70 pb-5">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
@@ -294,7 +294,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
+                className="px-2 py-2 md:px-4"
               >
                 <div className="mb-6 border-b border-border/70 pb-5">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[hsl(var(--filiere-ph))]">

@@ -157,7 +157,7 @@ const FeaturesSection = () => (
         viewport={{ once: true }}
         className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-center"
       >
-        <figure className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-2 pt-6">
+        <figure className="relative overflow-hidden px-6 pb-2 pt-6">
           <div className="pointer-events-none absolute left-8 top-0 h-24 w-40 rounded-full bg-secondary/15 blur-3xl" />
           <img
             src={archivisteIllustration}
@@ -170,7 +170,7 @@ const FeaturesSection = () => (
           />
         </figure>
 
-        <div className="surface-card rounded-[1.8rem] p-8">
+        <div className="px-2 py-4 md:px-4 md:py-6">
           <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
             Dossier, documents, coordination
           </p>
@@ -222,7 +222,7 @@ const FeaturesSection = () => (
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.25 }}
-                  className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
+                  className="px-2 py-2 md:px-4"
                 >
                   <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
                     <div>

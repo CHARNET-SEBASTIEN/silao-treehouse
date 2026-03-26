@@ -165,7 +165,7 @@ const WhyChooseSection = () => (
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.25 }}
-                  className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
+                  className="px-2 py-2 md:px-4"
                 >
                   <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
                     <div>

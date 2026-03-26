@@ -79,7 +79,7 @@ const CompanyStorySection = () => (
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="surface-card-tint relative overflow-hidden rounded-[1.8rem] px-6 pb-6 pt-8"
+            className="relative overflow-hidden px-6 pb-6 pt-8"
           >
             <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
             <img

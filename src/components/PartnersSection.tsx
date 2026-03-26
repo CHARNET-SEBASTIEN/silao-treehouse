@@ -22,14 +22,14 @@ const PartnersSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 [&>*]:border-border/45 [&>*:not(:first-child)]:border-t sm:[&>*:not(:first-child)]:border-t-0 sm:[&>*]:border-l-0 sm:[&>*:nth-child(n+3)]:border-t sm:[&>*:nth-child(2n)]:border-l lg:[&>*]:border-t-0 lg:[&>*]:border-l-0 lg:[&>*:nth-child(n+4)]:border-t lg:[&>*:not(:nth-child(3n+1))]:border-l xl:[&>*]:border-t-0 xl:[&>*]:border-l-0 xl:[&>*:nth-child(n+5)]:border-t xl:[&>*:not(:nth-child(4n+1))]:border-l"
         >
           {partnerReferences.map((partner) => (
             <article
               key={partner.name}
-              className="flex min-h-[170px] flex-col items-center justify-between gap-4 rounded-[28px] bg-card/95 p-5 text-center shadow-sm sketch-border-sm"
+              className="flex min-h-[140px] flex-col items-center justify-center gap-4 text-center"
             >
-              <div className="logo-plate flex h-16 w-full items-center justify-center rounded-2xl px-4">
+              <div className="flex h-16 w-full items-center justify-center px-4">
                 {partner.logo ? (
                   <img
                     src={partner.logo}
