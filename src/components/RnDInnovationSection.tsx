@@ -325,6 +325,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
         </motion.p>
       </div>
     </section>
+
   );
 };
 
