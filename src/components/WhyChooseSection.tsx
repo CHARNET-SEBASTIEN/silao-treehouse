@@ -151,7 +151,7 @@ const WhyChooseSection = () => (
             <TabsTrigger
               key={group.id}
               value={group.id}
-              className={`inline-flex items-center gap-2 rounded-full border border-transparent px-5 py-2 text-sm font-semibold text-muted-foreground/88 transition-all duration-200 hover:bg-background/60 hover:text-foreground data-[state=active]:-translate-y-0.5 data-[state=active]:px-6 data-[state=active]:font-bold data-[state=active]:shadow-[0_18px_34px_-22px_hsl(var(--foreground)/0.34)] data-[state=active]:ring-1 data-[state=active]:ring-white/70 dark:text-muted-foreground dark:hover:bg-background/30 ${group.activeTabTone}`}
+              className={`inline-flex items-center gap-2 rounded-full border border-transparent px-5 py-2 text-sm font-semibold text-muted-foreground/88 transition-all duration-200 hover:bg-background/60 hover:text-foreground data-[state=active]:px-6 data-[state=active]:font-bold data-[state=active]:shadow-[0_18px_34px_-22px_hsl(var(--foreground)/0.34)] data-[state=active]:ring-1 data-[state=active]:ring-white/70 dark:text-muted-foreground dark:hover:bg-background/30 ${group.activeTabTone}`}
             >
               <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${group.dot} shadow-[0_0_0_3px_hsl(0_0%_100%/0.55)] dark:shadow-[0_0_0_3px_hsl(236_28%_14%/0.7)]`} />
               {group.eyebrow}
