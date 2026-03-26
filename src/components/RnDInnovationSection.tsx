@@ -18,7 +18,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const rdTabGroups = [
   { id: "leviers", label: "Ambition & leviers", dot: "bg-primary", eyebrowColor: "text-primary", iconTone: "bg-primary/10 text-primary" },
   { id: "usages", label: "Usages & prudence", dot: "bg-secondary", eyebrowColor: "text-secondary", iconTone: "bg-secondary/10 text-secondary" },
-  { id: "principes", label: "Principes", dot: "bg-accent", eyebrowColor: "text-[hsl(var(--brand-violet))]", iconTone: "bg-[hsl(var(--brand-violet)/0.1)] text-[hsl(var(--brand-violet))]" },
+  { id: "principes", label: "Principes", dot: "bg-[hsl(var(--brand-violet))]", eyebrowColor: "text-[hsl(var(--brand-violet))]", iconTone: "bg-[hsl(var(--brand-violet)/0.1)] text-[hsl(var(--brand-violet))]" },
 ] as const;
 
 /** Axes d’innovation alignés sur les besoins du médico-social (documentation, recherche, temps utile). */
