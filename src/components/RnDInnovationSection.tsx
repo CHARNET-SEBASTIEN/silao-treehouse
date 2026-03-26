@@ -83,8 +83,8 @@ type RnDInnovationSectionProps = {
 
 const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSectionProps) => {
   return (
-    <section id={id} className="relative overflow-hidden px-4 py-24 paper-bg">
-      <div className="mx-auto max-w-6xl">
+    <section id={id} className="relative overflow-hidden px-4 py-20 md:py-28 tint-violet">
+      <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
