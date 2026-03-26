@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Accessibility,
   BedDouble,
@@ -15,6 +15,8 @@ import {
   Workflow,
 } from "lucide-react";
 
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
 /* ─── "Pourquoi SILAO" reasons ─── */
 const reasonGroups = [
   {
@@ -23,6 +25,9 @@ const reasonGroups = [
     title: "Une expérience pensée pour le terrain",
     description:
       "Des modules simples à prendre en main, configurables et capables d'évoluer avec les établissements.",
+    dot: "bg-primary",
+    eyebrowColor: "text-primary",
+    iconTone: "bg-primary/10 text-primary",
   },
   {
     id: "accompagnement",
@@ -30,6 +35,9 @@ const reasonGroups = [
     title: "Un accompagnement qui tient dans la durée",
     description:
       "Le projet reste suivi dans le temps, sur tous les écrans et dans les contextes de mobilité.",
+    dot: "bg-secondary",
+    eyebrowColor: "text-secondary",
+    iconTone: "bg-secondary/10 text-secondary",
   },
   {
     id: "confiance",
@@ -37,6 +45,9 @@ const reasonGroups = [
     title: "Un cadre robuste pour des usages sensibles",
     description:
       "Sécurité, expertise métier et connaissance du terrain structurent les choix produit.",
+    dot: "bg-[hsl(var(--brand-violet))]",
+    eyebrowColor: "text-[hsl(var(--brand-violet))]",
+    iconTone: "bg-[hsl(var(--brand-violet)/0.1)] text-[hsl(var(--brand-violet))]",
   },
 ] as const;
 
@@ -127,48 +138,64 @@ const WhyChooseSection = () => (
         </p>
       </motion.div>
 
-      {/* ── Reason groups ── */}
-      <div className="space-y-10">
-        {reasonGroups.map((group, groupIndex) => {
+      {/* ── Reason groups (tabbed) ── */}
+      <Tabs defaultValue="produit" className="space-y-6">
+        <TabsList className="mx-auto inline-flex h-auto flex-wrap items-center justify-center gap-0 rounded-full border border-border bg-muted p-1 shadow-inner">
+          {reasonGroups.map((group) => (
+            <TabsTrigger
+              key={group.id}
+              value={group.id}
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold text-muted-foreground transition-all hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
+            >
+              <span className={`h-2 w-2 shrink-0 rounded-full ${group.dot}`} />
+              {group.eyebrow}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {reasonGroups.map((group) => {
           const groupedReasons = reasons.filter((r) => r.group === group.id);
-          const surface = groupIndex % 2 === 0 ? "surface-card-tint" : "surface-card";
 
           return (
-            <motion.div
-              key={group.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: groupIndex * 0.05 }}
-              className={`${surface} rounded-[1.9rem] p-6 md:p-8`}
-            >
-              <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                    {group.eyebrow}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-bold text-foreground">{group.title}</h3>
-                </div>
-                <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{group.description}</p>
-              </div>
-
-              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {groupedReasons.map((reason) => (
-                  <article key={reason.title} className="surface-card rounded-[1.5rem] px-5 py-6">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <reason.icon className="h-5 w-5" />
+            <TabsContent key={group.id} value={group.id} forceMount className="mt-6 data-[state=inactive]:hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={group.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.25 }}
+                  className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
+                >
+                  <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
+                    <div>
+                      <p className={`text-sm font-semibold uppercase tracking-[0.2em] ${group.eyebrowColor}`}>
+                        {group.eyebrow}
+                      </p>
+                      <h3 className="mt-2 text-2xl font-bold text-foreground">{group.title}</h3>
                     </div>
-                    <h4 className="mb-2 text-xl font-bold text-foreground">{reason.title}</h4>
-                    <p className="text-sm leading-7 text-muted-foreground">{reason.description}</p>
-                  </article>
-                ))}
-              </div>
-            </motion.div>
+                    <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{group.description}</p>
+                  </div>
+
+                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    {groupedReasons.map((reason) => (
+                      <article key={reason.title} className="surface-card rounded-[1.5rem] px-5 py-6">
+                        <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${group.iconTone}`}>
+                          <reason.icon className="h-5 w-5" />
+                        </div>
+                        <h4 className="mb-2 text-xl font-bold text-foreground">{reason.title}</h4>
+                        <p className="text-sm leading-7 text-muted-foreground">{reason.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </TabsContent>
           );
         })}
-      </div>
+      </Tabs>
 
-      {/* ── Team benefits (merged) ── */}
+      {/* ── Team benefits (tabbed) ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
