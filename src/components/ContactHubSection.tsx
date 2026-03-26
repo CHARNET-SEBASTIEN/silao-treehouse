@@ -50,7 +50,7 @@ const ContactHubSection = () => {
   const [demoOpen, setDemoOpen] = useState(false);
 
   return (
-    <section id="contacts" className="px-4 py-20 md:py-28 paper-bg">
+    <section id="contacts" className="px-4 py-20 md:py-28 tint-violet">
       <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -36,7 +36,7 @@ const markers = [
 ];
 
 const CompanyStorySection = () => (
-  <section id="societe" className="px-4 py-20 md:py-28">
+  <section id="societe" className="px-4 py-20 md:py-28 tint-violet">
     <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
         <motion.div
