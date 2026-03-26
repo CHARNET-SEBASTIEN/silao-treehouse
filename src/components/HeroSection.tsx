@@ -20,28 +20,24 @@ const secteurs = [
   {
     icon: ShieldCheck,
     label: "Protection de l'enfance",
-    details: "MECS, milieu ouvert, accueil familial",
     href: "/secteur/protection-enfance",
     theme: filiereThemes.pde,
   },
   {
     icon: Baby,
     label: "Médico-social / PH",
-    details: "IME, DITEP, SESSAD, CAMSP, CMPP",
     href: "/secteur/handicap",
     theme: filiereThemes.ph,
   },
   {
     icon: Home,
     label: "AHI",
-    details: "CHRS, CADA, HUDA, CPH",
     href: "/secteur/insertion-ahi",
     theme: filiereThemes.ahi,
   },
   {
     icon: Stethoscope,
     label: "PDS",
-    details: "LHSS, ACT, CAARUD",
     href: "/secteur/personnes-difficultes-specifiques",
     theme: filiereThemes.pds,
   },
@@ -58,16 +54,16 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden px-4 pb-12 pt-14 md:pb-16 md:pt-16">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64">
-        <div className="absolute -left-16 top-10 h-8 w-56 rounded-full bg-primary/75 blur-[2px]" />
-        <div className="absolute left-24 top-0 h-6 w-40 rounded-full bg-primary/40" />
-        <div className="absolute right-12 top-8 h-10 w-64 rounded-full bg-primary/65 blur-[1px]" />
-        <div className="absolute -right-12 top-24 h-8 w-44 rounded-full bg-secondary/85 blur-[2px]" />
+      {/* Gradient hero background */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--primary)/0.18),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_10%,hsl(var(--secondary)/0.12),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_10%_20%,hsl(var(--accent)/0.10),transparent_50%)]" />
       </div>
 
       <div className="mx-auto max-w-6xl">
         <div className="section-panel overflow-hidden px-6 py-8 sm:px-8 md:px-10 md:py-12">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_22rem]">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_18rem]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,7 +82,7 @@ const HeroSection = () => {
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                 </motion.span>
-                Communication SILAO
+                D2L présente
               </motion.p>
 
               <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
@@ -99,9 +95,7 @@ const HeroSection = () => {
                 Silao est un outil résolument moderne conçu en partenariat avec des établissements
                 pour répondre aux besoins de la protection de l&apos;enfance, du médico-social, de
                 l&apos;accueil-hébergement-insertion et des PDS. Solution collaborative simple,
-                intuitive et complète, elle réunit suivi de la prise en charge, dossier
-                administratif et éducatif, agenda, dossier médical, GED et facturation dans un seul
-                environnement.
+                intuitive et complète.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2.5">
@@ -158,34 +152,17 @@ const HeroSection = () => {
                   </Link>
                 </Button>
               </div>
-
             </motion.div>
 
+            {/* Right column — simplified: tree + sector pills only */}
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.08 }}
-              className="mx-auto w-full max-w-sm"
+              className="mx-auto w-full max-w-[18rem]"
             >
-              <div className="brand-card brand-grid rounded-[2rem] p-5 shadow-[0_28px_64px_-42px_hsl(var(--brand-violet)/0.22)]">
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                      Secteurs couverts
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                      Une même plateforme, adaptée aux pratiques terrain et aux organisations.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-2 text-right">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      Depuis
-                    </p>
-                    <p className="text-2xl font-bold text-secondary">2005</p>
-                  </div>
-                </div>
-
-                <div className="mb-4 flex justify-center rounded-[1.75rem] border border-primary/10 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-4 py-5">
+              <div className="flex flex-col items-center gap-5">
+                <div className="flex justify-center rounded-[1.75rem] border border-primary/10 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-6 py-6">
                   <img
                     src={heroTreeBrand}
                     alt="Arbre SILAO illustrant l'accompagnement social et medico-social"
@@ -194,32 +171,11 @@ const HeroSection = () => {
                     fetchPriority="high"
                     loading="eager"
                     decoding="async"
-                    className="h-56 w-auto drop-shadow-[0_24px_36px_hsl(var(--primary)/0.14)] sm:h-64"
+                    className="h-64 w-auto drop-shadow-[0_24px_36px_hsl(var(--primary)/0.14)] sm:h-72"
                   />
                 </div>
 
-                <div className="mb-5 grid grid-cols-3 gap-2">
-                  <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-3 text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-                      Produit
-                    </p>
-                    <p className="mt-1 text-lg font-bold text-foreground">1</p>
-                  </div>
-                  <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-3 text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-                      Secteurs
-                    </p>
-                    <p className="mt-1 text-lg font-bold text-foreground">4</p>
-                  </div>
-                  <div className="rounded-2xl border border-border/80 bg-background/90 px-3 py-3 text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-                      Mission
-                    </p>
-                    <p className="mt-1 text-lg font-bold text-foreground">Terrain</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center gap-2">
                   {secteurs.map((secteur) => (
                     <Link
                       key={secteur.label}
