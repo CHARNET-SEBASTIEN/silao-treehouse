@@ -12,9 +12,9 @@ import FilieresSection from "@/components/FilieresSection";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import WhyChooseSection from "@/components/WhyChooseSection";
-import BenefitsByTeamSection from "@/components/BenefitsByTeamSection";
 import CompanyStorySection from "@/components/CompanyStorySection";
 import ContactHubSection from "@/components/ContactHubSection";
+import SectionDivider from "@/components/SectionDivider";
 import { getPageSeo } from "@/lib/publicRoutes";
 
 const seo = getPageSeo("/");
@@ -26,21 +26,29 @@ const Index = () => {
       <Navbar />
       <PageMain className="pt-16">
         <HeroSection />
+        <SectionDivider variant="wave" />
         <KeyFiguresSection />
+        <SectionDivider variant="curve" />
         <section id="services">
           <FeaturesSection />
         </section>
+        <SectionDivider variant="wave" flip />
         <FilieresSection />
+        <SectionDivider variant="curve" flip />
         <WhyChooseSection />
-        <BenefitsByTeamSection />
+        <SectionDivider variant="wave" />
         <CompanyStorySection />
+        <SectionDivider variant="curve" />
         <section id="references">
           <TestimonialsSection />
         </section>
+        <SectionDivider variant="wave" flip />
         <PartnersSection />
+        <SectionDivider variant="curve" flip />
         <section id="actualites">
           <BlogSection />
         </section>
+        <SectionDivider variant="wave" />
         <FAQSection />
         <ContactHubSection />
         <CTASection />
