@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     quote:
-      "Les équipes de D2L sont à l'écoute de nos besoins et leur accompagnement nous permet d'aborder avec confiance les échéances réglementaires.",
+      "Les équipes de D2L Informatique sont à l'écoute de nos besoins et leur accompagnement nous permet d'aborder avec confiance les échéances réglementaires.",
     name: "Fondation Grancher",
     role: "Référente SILAO",
   },

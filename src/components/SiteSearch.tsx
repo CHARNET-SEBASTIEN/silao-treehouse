@@ -47,7 +47,7 @@ const searchItems: SearchItem[] = [
   },
   {
     title: "Pourquoi choisir SILAO",
-    description: "Les six engagements opérationnels mis en avant par D2L.",
+    description: "Les six engagements opérationnels mis en avant par D2L Informatique.",
     href: "/#pourquoi-silao",
     category: "Accueil",
     keywords: ["pourquoi", "différences", "sécurité", "expertise", "accompagnement"],

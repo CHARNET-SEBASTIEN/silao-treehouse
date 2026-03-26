@@ -37,7 +37,7 @@ const contactCards = [
   },
   {
     icon: Briefcase,
-    title: "Actualités D2L et SILAO",
+    title: "Actualités D2L Informatique et SILAO",
     description:
       "Suivre les nouveautés produit, la vie de D2L Informatique, les prises de parole et les sujets de veille publiés par l'équipe.",
     actionLabel: "Voir les ressources",

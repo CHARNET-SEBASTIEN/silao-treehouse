@@ -82,7 +82,7 @@ const HeroSection = () => {
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                 </motion.span>
-                D2L présente
+                D2L Informatique présente
               </motion.p>
 
               <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">

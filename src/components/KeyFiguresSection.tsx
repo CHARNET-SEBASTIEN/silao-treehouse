@@ -42,7 +42,7 @@ const KeyFiguresSection = () => (
           Chiffres clés
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Des repères factuels pour situer <span className="text-primary sketch-underline">D2L et SILAO</span>
+          Des repères factuels pour situer <span className="text-primary sketch-underline">D2L Informatique et SILAO</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
           Une lecture synthétique de l&apos;éditeur, de son périmètre métier et de la place que

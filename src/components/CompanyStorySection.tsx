@@ -31,7 +31,7 @@ const markers = [
     icon: Leaf,
     title: "Depuis le 1er janvier 2024",
     description:
-      "Une organisation horizontale inspirée du modèle Opale, alignée avec la raison d'être et les valeurs de D2L.",
+      "Une organisation horizontale inspirée du modèle Opale, alignée avec la raison d'être et les valeurs de D2L Informatique.",
   },
 ];
 

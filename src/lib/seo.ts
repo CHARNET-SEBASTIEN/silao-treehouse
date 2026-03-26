@@ -31,12 +31,7 @@ export interface PageSeo {
   ogType?: "website" | "article";
   ogImage?: string;
   priority?: number;
-  changefreq?:
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never";
+  changefreq?: "daily" | "weekly" | "monthly" | "yearly" | "never";
   schema?: SeoSchema | SeoSchema[];
 }
 
@@ -64,7 +59,12 @@ const hasSchemaType = (schemaList: SeoSchema[], expectedTypes: string[]) =>
   });
 
 const hasPageSchema = (schemaList: SeoSchema[]) =>
-  hasSchemaType(schemaList, ["WebPage", "CollectionPage", "ContactPage", "FAQPage"]);
+  hasSchemaType(schemaList, [
+    "WebPage",
+    "CollectionPage",
+    "ContactPage",
+    "FAQPage",
+  ]);
 
 const getDefaultSchema = (page: PageSeo): SeoSchema => ({
   "@context": "https://schema.org",
@@ -134,7 +134,9 @@ export const buildHeadMarkup = (page: PageSeo) => {
     `<meta property="og:image" content="${imageUrl}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     ...(TWITTER_SITE_HANDLE
-      ? [`<meta name="twitter:site" content="${escapeHtml(TWITTER_SITE_HANDLE)}" />`]
+      ? [
+          `<meta name="twitter:site" content="${escapeHtml(TWITTER_SITE_HANDLE)}" />`,
+        ]
       : []),
     `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
@@ -188,7 +190,7 @@ export const getOrganizationSchema = (): SeoSchema => ({
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.ico`,
   description:
-    "D2L édite SILAO, le logiciel de Dossier Usager Informatisé pour les établissements et services sociaux et médico-sociaux.",
+    "D2L Informatique édite SILAO, le logiciel de Dossier Usager Informatisé pour les établissements et services sociaux et médico-sociaux.",
   foundingDate: COMPANY_CREATION_DATE,
   address: {
     "@type": "PostalAddress",
