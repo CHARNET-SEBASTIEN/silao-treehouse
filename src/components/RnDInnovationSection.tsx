@@ -18,7 +18,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const rdTabGroups = [
   { id: "leviers", label: "Ambition & leviers", dot: "bg-primary", eyebrowColor: "text-primary", iconTone: "bg-primary/10 text-primary" },
   { id: "usages", label: "Usages & prudence", dot: "bg-secondary", eyebrowColor: "text-secondary", iconTone: "bg-secondary/10 text-secondary" },
-  { id: "principes", label: "Principes", dot: "bg-accent", eyebrowColor: "text-accent", iconTone: "bg-accent/10 text-accent" },
+  { id: "principes", label: "Principes", dot: "bg-accent", eyebrowColor: "text-accent-foreground", iconTone: "bg-accent/20 text-accent-foreground" },
 ] as const;
 
 /** Axes d’innovation alignés sur les besoins du médico-social (documentation, recherche, temps utile). */
@@ -297,7 +297,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                 className="surface-card-tint rounded-[1.9rem] p-6 md:p-8"
               >
                 <div className="mb-6 border-b border-border/70 pb-5">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-foreground">
                     Principes
                   </p>
                 </div>
@@ -310,7 +310,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                       key={item.title}
                       className="rounded-[1.5rem] border border-border/60 bg-background p-7 shadow-sm"
                     >
-                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
+                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-accent/20 text-accent-foreground">
                         <item.icon className="h-5 w-5" />
                       </div>
                       <h4 className="mb-3 text-xl font-bold text-foreground">{item.title}</h4>
