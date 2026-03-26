@@ -487,6 +487,41 @@
       linear-gradient(180deg, hsl(var(--background)), hsl(236 34% 10%));
   }
 
+  .dark .tint-primary {
+    background:
+      radial-gradient(circle at top left, hsl(var(--primary) / 0.12), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--primary) / 0.06), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .dark .tint-secondary {
+    background:
+      radial-gradient(circle at top right, hsl(var(--secondary) / 0.12), transparent 40%),
+      radial-gradient(circle at bottom left, hsl(var(--secondary) / 0.06), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .dark .tint-accent {
+    background:
+      radial-gradient(circle at top, hsl(var(--accent) / 0.10), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--accent) / 0.05), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .dark .tint-earth {
+    background:
+      radial-gradient(circle at top right, hsl(var(--warm-earth) / 0.10), transparent 40%),
+      radial-gradient(circle at bottom left, hsl(var(--primary) / 0.06), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .dark .tint-violet {
+    background:
+      radial-gradient(circle at top left, hsl(var(--brand-violet) / 0.10), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--accent) / 0.06), transparent 50%),
+      hsl(var(--background));
+  }
+
   .dark .brand-card {
     background:
       radial-gradient(circle at top right, hsl(var(--primary) / 0.12), transparent 30%),
