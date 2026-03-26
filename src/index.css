@@ -304,6 +304,41 @@
       linear-gradient(180deg, hsl(var(--background)), hsl(var(--background) / 0.98));
   }
 
+  .tint-primary {
+    background:
+      radial-gradient(circle at top left, hsl(var(--primary) / 0.07), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--primary) / 0.04), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .tint-secondary {
+    background:
+      radial-gradient(circle at top right, hsl(var(--secondary) / 0.08), transparent 40%),
+      radial-gradient(circle at bottom left, hsl(var(--secondary) / 0.04), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .tint-accent {
+    background:
+      radial-gradient(circle at top, hsl(var(--accent) / 0.10), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--accent) / 0.05), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .tint-earth {
+    background:
+      radial-gradient(circle at top right, hsl(var(--warm-earth) / 0.07), transparent 40%),
+      radial-gradient(circle at bottom left, hsl(var(--primary) / 0.04), transparent 50%),
+      hsl(var(--background));
+  }
+
+  .tint-violet {
+    background:
+      radial-gradient(circle at top left, hsl(var(--brand-violet) / 0.06), transparent 40%),
+      radial-gradient(circle at bottom right, hsl(var(--accent) / 0.05), transparent 50%),
+      hsl(var(--background));
+  }
+
   .marker-label {
     display: inline-flex;
     align-items: center;
