@@ -97,10 +97,10 @@
     --brand-violet: 247 54% 33%;
 
     --filiere-pde: 30 100% 47%;
-    --filiere-ph: 220 80% 29%;
+    --filiere-ph: 190 70% 35%;
     --filiere-ahi: 56 100% 50%;
     --filiere-ahi-foreground: 220 80% 17%;
-    --filiere-pds: 247 54% 33%;
+    --filiere-pds: 330 60% 42%;
   }
 
   .dark {
@@ -140,10 +140,10 @@
     --brand-violet: 220 70% 82%;
 
     --filiere-pde: 34 100% 60%;
-    --filiere-ph: 214 76% 67%;
+    --filiere-ph: 185 65% 55%;
     --filiere-ahi: 56 100% 56%;
     --filiere-ahi-foreground: 236 35% 11%;
-    --filiere-pds: 220 70% 82%;
+    --filiere-pds: 335 60% 65%;
   }
 }
 
