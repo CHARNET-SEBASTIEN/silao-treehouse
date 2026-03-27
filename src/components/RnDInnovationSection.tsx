@@ -182,8 +182,8 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
                     Ambition pour le médico-social
                   </p>
                 </div>
-                <div className="mb-8 border border-primary/20 bg-primary/5 p-6 sketch-border md:p-8">
-                  <p className="mx-auto max-w-4xl text-center text-sm leading-relaxed text-foreground md:text-base">
+                <div className="mx-auto mb-8 max-w-4xl">
+                  <p className="text-center text-sm leading-relaxed text-muted-foreground md:text-base">
                     Nous voulons porter une{" "}
                     <strong className="font-semibold text-foreground">démarche de leader</strong> sur
                     ces enjeux dans le médico-social, en nous appuyant sur les attentes du terrain et
