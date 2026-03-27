@@ -54,7 +54,7 @@ const InfographieParcours = () => {
             <span className="text-primary sketch-underline">« Zéro Charge Mentale »</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            4 étapes simples pour un déploiement serein avec SILAO.
+            4 étapes simples pour un déploiement serein avec Silao.
           </p>
         </motion.div>
 

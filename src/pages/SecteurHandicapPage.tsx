@@ -52,7 +52,7 @@ const SecteurHandicapPage = () => (
         modules={[
           "Dossier Usager Informatisé",
           "Agenda partagé",
-          "Gestion des alertes",
+          "Gestion des rappels",
           "Gestion MDPH",
           "Fiche d'urgence",
           "Gestion des attentes",

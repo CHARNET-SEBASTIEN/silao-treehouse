@@ -29,7 +29,7 @@ const NotFound = () => {
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
             L&apos;adresse <strong className="text-foreground">{location.pathname}</strong> ne correspond
-            à aucune page publique SILAO.
+            à aucune page publique Silao.
           </p>
           <nav
             aria-label="Liens de secours"

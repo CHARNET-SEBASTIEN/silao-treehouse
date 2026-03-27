@@ -23,7 +23,7 @@ const CookiePolicyPage = () => (
                 Politique de cookies
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-                Cette page résume l&apos;état actuel des traceurs sur le site public SILAO et les
+                Cette page résume l&apos;état actuel des traceurs sur le site public Silao et les
                 conditions dans lesquelles un recueil de consentement serait activé à l&apos;avenir.
               </p>
               <div className="mt-6 flex flex-wrap gap-2.5">
@@ -65,7 +65,7 @@ const CookiePolicyPage = () => (
                   État actuel du site
                 </h2>
                 <p>
-                  À la date de publication de cette page, le site public SILAO n&apos;utilise pas de
+                  À la date de publication de cette page, le site public Silao n&apos;utilise pas de
                   traceur publicitaire, de cookie de personnalisation ou d&apos;outil de mesure
                   d&apos;audience nécessitant votre consentement préalable.
                 </p>

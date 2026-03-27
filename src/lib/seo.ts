@@ -5,6 +5,7 @@ import {
   COMPANY_NAME,
   CONTACT_EMAIL,
   CONTACT_PHONE,
+  PRODUCT_NAME,
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
   DEFAULT_OG_IMAGE_HEIGHT,
@@ -203,7 +204,7 @@ export const getOrganizationSchema = (): SeoSchema => ({
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.ico`,
   description:
-    "D2L Informatique édite SILAO, le logiciel de Dossier Usager Informatisé pour les établissements et services sociaux et médico-sociaux.",
+    `D2L Informatique édite ${PRODUCT_NAME}, un dossier usager informatisé pour les établissements et services sociaux et médico-sociaux.`,
   foundingDate: COMPANY_CREATION_DATE,
   address: {
     "@type": "PostalAddress",

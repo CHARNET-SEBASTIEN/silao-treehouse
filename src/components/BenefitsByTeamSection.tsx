@@ -15,7 +15,7 @@ const teamBenefits = [
     points: [
       "Accéder facilement et rapidement à toutes les informations.",
       "Centraliser toutes les informations et simplifier la gestion documentaire.",
-      "Mettre en place des alertes sur les échéances et les renouvellements.",
+      "Mettre en place des rappels sur les échéances et les renouvellements.",
       "Gagner du temps sur la rédaction des documents, rapports et circuits de validation.",
     ],
   },
@@ -24,7 +24,7 @@ const teamBenefits = [
     title: "Équipes éducatives et accompagnement",
     points: [
       "Accéder en un clic au cahier de liaison et à l'agenda.",
-      "Recevoir des alertes sur les missions ou suivis choisis.",
+      "Recevoir des rappels sur les missions ou suivis choisis.",
       "Transmettre et recevoir des informations en temps réel.",
       "Gagner en visibilité sur les actions et en temps sur la rédaction des rapports.",
     ],
@@ -55,7 +55,7 @@ const teamBenefits = [
     points: [
       "Faciliter la gestion du parc locatif.",
       "Centraliser les informations administratives et financières liées au logement.",
-      "Suivre les interventions avec alertes dédiées.",
+      "Suivre les interventions avec des rappels dédiés.",
       "Produire des statistiques liées à la gestion locative.",
     ],
   },

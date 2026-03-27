@@ -17,7 +17,7 @@ const faqs = [
       <>
         <p>
           Silao réunit dans un même environnement le dossier usager, l&apos;agenda, le cahier de
-          liaison, la gestion documentaire, le dossier santé, les alertes, les états et
+          liaison, la gestion documentaire, le dossier santé, les rappels, les états et
           statistiques ainsi que la facturation.
         </p>
         <p className="mt-3">
@@ -77,7 +77,7 @@ const faqs = [
   {
     question: "Quelles garanties de sécurité et de conformité sont annoncées ?",
     answerText:
-      "SILAO s'appuie sur un hébergement protégé HDS, des échanges chiffrés, des droits d'accès par profil, une gestion des sauvegardes et une veille réglementaire continue. L'outil est référencé Ségur sur plusieurs périmètres.",
+      "Silao s'appuie sur un hébergement protégé HDS, des échanges chiffrés, des droits d'accès par profil, une gestion des sauvegardes et une veille réglementaire continue. L'outil est référencé Ségur sur plusieurs périmètres.",
     answer: (
       <>
         <p>

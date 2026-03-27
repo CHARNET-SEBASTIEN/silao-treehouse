@@ -15,7 +15,7 @@ export const DEFAULT_OG_IMAGE_HEIGHT = 1758;
 
 /** Texte alternatif pour les cartes sociales (og:image / Twitter). */
 export const DEFAULT_OG_IMAGE_ALT =
-  "SILAO — logiciel de dossier usager pour les établissements et services sociaux et médico-sociaux";
+  "Silao — dossier usager informatisé pour les établissements et services sociaux et médico-sociaux";
 
 /** Alignés sur les fonds `--background` (clair / sombre) dans `index.css`. */
 export const THEME_COLOR_LIGHT = "#fafcff";

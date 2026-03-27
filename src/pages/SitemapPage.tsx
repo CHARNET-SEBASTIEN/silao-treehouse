@@ -24,7 +24,7 @@ const sitemapGroups = [
     ],
   },
   {
-    title: "Expertise SILAO",
+    title: "Expertise Silao",
     paths: ["/conformite-sons", "/grappes-esms", "/accompagnement", "/engagements"],
   },
   {
@@ -47,7 +47,7 @@ const SitemapPage = () => (
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="text-center lg:text-left">
             <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
-              Plan du site <span className="text-primary sketch-underline">SILAO</span>
+              Plan du site <span className="text-primary sketch-underline">Silao</span>
             </h1>
             <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
               Cette page regroupe l&apos;ensemble des routes publiques du site pour faciliter l&apos;exploration,

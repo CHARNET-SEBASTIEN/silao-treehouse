@@ -28,7 +28,7 @@ const reasons = [
     icon: SlidersHorizontal,
     title: "Configurable",
     description:
-      "Profils, droits, listes, arborescences et alertes s'ajustent à votre organisation.",
+      "Profils, droits, listes, arborescences et rappels s'ajustent à votre organisation.",
     tone: "bg-primary/10 text-primary",
   },
   {

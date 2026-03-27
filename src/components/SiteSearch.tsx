@@ -33,7 +33,7 @@ const searchItems: SearchItem[] = [
   },
   {
     title: "Fonctionnalités",
-    description: "Dossier usager, agenda, cahier de liaison, GED, alertes et facturation.",
+    description: "Dossier usager, agenda, cahier de liaison, GED, rappels et facturation.",
     href: "/#services",
     category: "Accueil",
     keywords: ["services", "modules", "fonctionnalités", "agenda", "ged", "facturation"],
@@ -47,14 +47,14 @@ const searchItems: SearchItem[] = [
   },
   {
     title: "Pourquoi choisir Silao",
-    description: "Les engagements opérationnels mis en avant par D2L Informatique.",
+    description: "Les engagements opérationnels portés par l'équipe D2L Informatique.",
     href: "/#pourquoi-silao",
     category: "Accueil",
     keywords: ["pourquoi", "différences", "sécurité", "expertise", "accompagnement"],
   },
   {
     title: "Qui sommes-nous",
-    description: "Créée en 2005, 30 collaborateurs, une équipe construite avec le terrain.",
+    description: "Créée en 2005, une équipe de 24 personnes construite avec le terrain.",
     href: "/#societe",
     category: "Accueil",
     keywords: ["histoire", "d2l", "valeurs", "équipe", "open source"],
@@ -139,11 +139,11 @@ const searchItems: SearchItem[] = [
     keywords: ["engagements", "rgpd", "sécurité", "segur", "responsable"],
   },
   {
-    title: "Ressources et actualités",
-    description: "Guides, veille réglementaire et retours d'expérience sectoriels.",
+    title: "Ressources",
+    description: "Guides, repères réglementaires et retours d'expérience sectoriels.",
     href: "/ressources",
     category: "Ressources",
-    keywords: ["blog", "actualités", "guides", "seo", "articles"],
+    keywords: ["ressources", "guides", "conformité", "déploiement", "articles"],
   },
   {
     title: "Aide et support",

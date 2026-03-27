@@ -71,7 +71,7 @@ const features = [
     icon: BookMarked,
     title: "Cahier de liaison",
     description:
-      "Un espace de transmissions sous forme de blog, avec brouillons, commentaires, verrouillage automatique et droits d'accès personnalisables.",
+      "Un espace de transmissions partagé, avec brouillons, commentaires, verrouillage automatique et droits d'accès personnalisables.",
   },
   {
     group: "parcours",
@@ -90,16 +90,16 @@ const features = [
   {
     group: "organisation",
     icon: Users2,
-    title: "Annuaire centralisé",
+    title: "Contacts et partenaires",
     description:
-      "Un espace collaboratif pour centraliser les contacts, organismes et partenaires utiles au suivi.",
+      "Un espace pour retrouver les contacts, organismes et partenaires utiles au suivi.",
   },
   {
     group: "organisation",
     icon: BellRing,
-    title: "Alertes",
+    title: "Rappels et échéances",
     description:
-      "Des alertes sur les échéances, missions et renouvellements de documents pour ne rien laisser de côté.",
+      "Des rappels sur les échéances, missions et renouvellements de documents pour ne rien laisser de côté.",
   },
   {
     group: "pilotage",
@@ -141,7 +141,7 @@ const FeaturesSection = () => (
           <span className="text-primary sketch-underline">quotidien des équipes</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Dossier usager, agenda, transmissions, GED, alertes, pilotage et facturation: les
+          Dossier usager, agenda, transmissions, GED, rappels, pilotage et facturation: les
           fonctionnalités sont pensées pour accompagner les usages réels du terrain.
         </p>
       </motion.div>
@@ -182,7 +182,7 @@ const FeaturesSection = () => (
               Tableaux de bord et transmissions
             </span>
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
-              Pilotage et alertes
+              Pilotage et rappels
             </span>
             <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
               Mobilité smartphone native

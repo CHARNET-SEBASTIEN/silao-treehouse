@@ -51,7 +51,7 @@ const PrivacyPolicyPage = () => (
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
                 Cette page présente le cadre de traitement des données publiques collectées via le
-                site SILAO, avec une lecture structurée des finalités, durées de conservation,
+                site Silao, avec une lecture structurée des finalités, durées de conservation,
                 destinataires et droits des personnes.
               </p>
               <div className="mt-6 flex flex-wrap gap-2.5">
@@ -182,7 +182,7 @@ const PrivacyPolicyPage = () => (
                 </h2>
                 <p>
                   Le site est exploité avec une priorité donnée à des prestataires situés dans
-                  l&apos;Union européenne. À la date de publication de cette page, le site public SILAO
+                  l&apos;Union européenne. À la date de publication de cette page, le site public Silao
                   n&apos;utilise pas d&apos;outil d&apos;analyse d&apos;audience ou de publicité impliquant un dépôt
                   de traceurs non essentiels. Si un transfert hors de l&apos;Union européenne devait
                   intervenir à l&apos;avenir, il ne serait réalisé qu&apos;avec un encadrement juridique

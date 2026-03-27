@@ -44,7 +44,7 @@ const CompanyStorySection = () => (
             {COMPANY_DISPLAY_NAME}, l&apos;éditeur de {PRODUCT_NAME}
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
-            Ce qui distingue l&apos;accompagnement de D2L Informatique, c&apos;est la continuité de
+            Ce qui distingue l&apos;accompagnement de {COMPANY_DISPLAY_NAME}, c&apos;est la continuité de
             suivi et une réponse sur mesure portée par une équipe qui connaît le terrain.
           </p>
           <div className="mt-6">
@@ -63,7 +63,7 @@ const CompanyStorySection = () => (
           <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
           <img
             src={teamTous}
-            alt="Illustration d'une équipe réunie, en écho au travail collectif de D2L Informatique"
+            alt={`Illustration d'une équipe réunie, en écho au travail collectif de ${COMPANY_DISPLAY_NAME}`}
             loading="lazy"
             decoding="async"
             width={1600}

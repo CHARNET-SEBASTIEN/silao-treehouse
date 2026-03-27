@@ -18,7 +18,7 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import qualiopiLogo from "@/assets/qualiopi-logo.png";
 import { getPageSeo } from "@/lib/publicRoutes";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { COMPANY_DISPLAY_NAME, CONTACT_EMAIL, PRODUCT_NAME } from "@/lib/site";
 
 type KeyFigure = {
   value: string;
@@ -102,7 +102,7 @@ const FormationsPage = () => {
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary">
               <GraduationCap className="h-4 w-4" />
-              Formations SILAO
+              Formations {PRODUCT_NAME}
             </div>
             <h1 className="mb-6 text-4xl font-bold text-foreground md:text-6xl">
               Des formations adaptées à vos{" "}
@@ -195,7 +195,7 @@ const FormationsPage = () => {
         <section className="px-4 py-20 paper-bg">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-12 text-center text-3xl font-bold text-foreground md:text-4xl">
-              Ce qui distingue l&apos;accompagnement D2L Informatique
+              Ce qui distingue l&apos;accompagnement de {COMPANY_DISPLAY_NAME}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               {[
@@ -207,7 +207,7 @@ const FormationsPage = () => {
                 {
                   title: "Une approche globale",
                   details:
-                    "L'équipe D2L Informatique associe expertise en formation, maîtrise du logiciel et connaissance du secteur pour proposer une réponse sur mesure.",
+                    `L'équipe de ${COMPANY_DISPLAY_NAME} associe expertise en formation, maîtrise du logiciel et connaissance du secteur pour proposer une réponse sur mesure.`,
                 },
               ].map((program, index) => (
                 <motion.article
@@ -253,7 +253,7 @@ const FormationsPage = () => {
               </p>
               <p className="mb-6 text-sm leading-7 text-muted-foreground">
                 Pour commander une formation ou échanger sur les adaptations possibles, contactez
-                votre chef de projet SILAO ou écrivez à <strong>{CONTACT_EMAIL}</strong>.
+                votre chef de projet {PRODUCT_NAME} ou écrivez à <strong>{CONTACT_EMAIL}</strong>.
               </p>
               <div className="flex flex-col gap-3">
                 <Button variant="hero" size="xl" onClick={openDialog}>

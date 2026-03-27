@@ -28,7 +28,9 @@ import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
   { label: "Fonctionnalités", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
+  { label: "Qui sommes-nous", href: "/#societe", icon: Users2, isAnchor: true },
   { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
+  { label: "R&D et IA", href: "/#recherche-innovation", icon: Newspaper, isAnchor: true },
   { label: "Références", href: "/#references", icon: ShieldCheck, isAnchor: true },
   { label: "Contacts", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
