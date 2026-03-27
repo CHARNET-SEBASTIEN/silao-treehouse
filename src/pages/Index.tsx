@@ -6,7 +6,6 @@ import PartnersSection from "@/components/PartnersSection";
 import FooterSection from "@/components/FooterSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
 import KeyFiguresSection from "@/components/KeyFiguresSection";
 import FilieresSection from "@/components/FilieresSection";
 import PageMain from "@/components/PageMain";
@@ -38,23 +37,23 @@ const Index = () => {
         <SectionDivider variant="curve" flip />
         <WhyChooseSection />
         <SectionDivider variant="wave" />
-        <CompanyStorySection />
-        <SectionDivider variant="curve" />
-        <RnDInnovationSection />
-        <SectionDivider variant="wave" flip />
         <section id="references">
           <TestimonialsSection />
         </section>
         <SectionDivider variant="wave" flip />
         <PartnersSection />
         <SectionDivider variant="curve" flip />
+        <FAQSection />
+        <SectionDivider variant="wave" />
+        <ContactHubSection />
+        <SectionDivider variant="curve" />
+        <CompanyStorySection />
+        <SectionDivider variant="wave" />
+        <RnDInnovationSection />
+        <SectionDivider variant="curve" flip />
         <section id="actualites">
           <BlogSection />
         </section>
-        <SectionDivider variant="wave" />
-        <FAQSection />
-        <ContactHubSection />
-        <CTASection />
       </PageMain>
       <FooterSection />
     </div>

@@ -46,7 +46,7 @@ const teamBenefits = [
       "Gagner du temps en visite à domicile, en maraude ou en déplacement.",
       "Transmettre et recevoir des informations en temps réel.",
       "Avoir facilement accès au dossier usager et à l'agenda.",
-      "Réaliser plus simplement ses écrits, y compris avec la dictée vocale, et coordonner l'action avec les équipes sur site.",
+      "Réaliser plus simplement ses écrits et coordonner l'action avec les équipes sur site.",
     ],
   },
   {

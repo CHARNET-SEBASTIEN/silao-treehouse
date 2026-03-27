@@ -29,13 +29,13 @@ const figures = [
 ];
 
 const KeyFiguresSection = () => (
-  <section className="px-4 py-20 md:py-28 tint-secondary">
-    <div className="mx-auto max-w-5xl section-panel px-6 py-10 md:px-10 md:py-12">
+  <section className="px-4 py-6 md:py-8 tint-secondary">
+    <div className="mx-auto max-w-5xl section-panel px-6 py-5 md:px-10 md:py-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-12 text-center"
+        className="mb-5 text-center"
       >
         <p className="marker-label mb-4">Repères de marque</p>
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
@@ -45,8 +45,7 @@ const KeyFiguresSection = () => (
           Des repères factuels pour situer <span className="text-primary sketch-underline">D2L Informatique et SILAO</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Une lecture synthétique de l&apos;éditeur, de son périmètre métier et de la place que
-          SILAO occupe dans l&apos;organisation.
+          Une lecture rapide du périmètre de SILAO, de l&apos;éditeur et des secteurs couverts.
         </p>
       </motion.div>
 

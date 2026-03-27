@@ -10,12 +10,6 @@ const testimonials = [
   },
   {
     quote:
-      "Silao est intuitif, répond bien aux besoins, il est personnalisable et l'accompagnement de proximité de D2L est réellement réactif.",
-    name: "ARRAS",
-    role: "Retour client",
-  },
-  {
-    quote:
       "Les équipes de D2L Informatique sont à l'écoute de nos besoins et leur accompagnement nous permet d'aborder avec confiance les échéances réglementaires.",
     name: "Fondation Grancher",
     role: "Référente SILAO",
@@ -24,13 +18,13 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="px-4 py-20 md:py-28 tint-secondary">
-      <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
+    <section className="px-4 py-6 md:py-8 tint-secondary">
+      <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-14 text-center"
+          className="mb-5 text-center"
         >
           <p className="mb-3 font-body text-sm uppercase tracking-widest text-muted-foreground">
             Retours clients
@@ -40,12 +34,12 @@ const TestimonialsSection = () => {
             nos clients
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
-            Proximité, personnalisation, soutien au déploiement et amélioration continue reviennent
-            de manière récurrente dans les témoignages transmis par les équipes clientes.
+            Quelques retours validés qui mettent en avant l&apos;adaptation au terrain et la qualité
+            de l&apos;accompagnement.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 divide-y divide-border/45 md:grid-cols-3 md:divide-x md:divide-y-0">
+        <div className="grid grid-cols-1 divide-y divide-border/45 md:grid-cols-2 md:divide-x md:divide-y-0">
           {testimonials.map((testimonial) => {
             const partner = partnerReferencesByName[testimonial.name];
 

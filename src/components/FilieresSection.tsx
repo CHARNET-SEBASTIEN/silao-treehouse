@@ -48,23 +48,23 @@ const filieres = [
 ];
 
 const FilieresSection = () => (
-  <section id="secteurs" className="px-4 py-20 md:py-28 tint-accent">
-    <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
+  <section id="secteurs" className="px-4 py-6 md:py-8 tint-accent">
+    <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mx-auto mb-16 max-w-3xl text-center"
+        className="mx-auto mb-5 max-w-3xl text-center"
       >
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
           Secteurs
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          <span className="text-primary sketch-underline">Quatre secteurs couverts</span>, quatre lectures métier
+          <span className="text-primary sketch-underline">4 secteurs couverts</span>, 4 lectures métier
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          SILAO s&apos;adapte aux réalités de la protection de l&apos;enfance, du médico-social, de l&apos;AHI
-          et des personnes en difficultés spécifiques.
+          SILAO s&apos;adapte aux réalités de la protection de l&apos;enfance, du médico-social, de
+          l&apos;insertion et des personnes en difficultés spécifiques.
         </p>
       </motion.div>
 

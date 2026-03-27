@@ -132,13 +132,13 @@ export const faqSchema = {
 };
 
 const FAQSection = () => (
-  <section id="faq" className="px-4 py-20 md:py-28 tint-earth">
-    <div className="mx-auto max-w-3xl section-panel px-6 py-10 md:px-10 md:py-14">
+  <section id="faq" className="px-4 py-6 md:py-8 tint-earth">
+    <div className="mx-auto max-w-3xl section-panel px-6 py-5 md:px-10 md:py-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-12 text-center"
+        className="mb-5 text-center"
       >
         <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
           Questions fréquentes

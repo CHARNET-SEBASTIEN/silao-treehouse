@@ -1,48 +1,41 @@
 import { motion } from "framer-motion";
-import { Leaf, Landmark, Users2, Wrench } from "lucide-react";
+import { Headset, Users2, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import teamTous from "@/assets/illustrations/team-tous.webp";
-import {
-  COMPANY_ACTIVITY,
-  COMPANY_CREATION_DATE,
-  COMPANY_NAME,
-} from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { COMPANY_NAME } from "@/lib/site";
 
 const markers = [
   {
-    icon: Landmark,
-    title: COMPANY_CREATION_DATE,
+    icon: Headset,
+    title: "Un interlocuteur unique",
     description:
-      `${COMPANY_NAME} conçoit des logiciels pour le secteur social et fait évoluer SILAO avec une logique de service durable depuis sa création.`,
+      "Le projet est suivi par un même contact pour garder une lecture continue de vos besoins.",
   },
   {
     icon: Users2,
-    title: "30 collaborateurs",
+    title: "Des profils issus du terrain",
     description:
-      "Un effectif qui mêle expertise informatique, accompagnement projet et profils issus du social et du médico-social.",
+      "L'équipe réunit des compétences informatiques, projet et des profils connaissant le secteur social et médico-social.",
   },
   {
     icon: Wrench,
-    title: COMPANY_ACTIVITY,
+    title: "Une approche globale",
     description:
-      "Commercialisation, développement, support, formation, reprise de données et R&D sont portés par la même organisation.",
-  },
-  {
-    icon: Leaf,
-    title: "Depuis le 1er janvier 2024",
-    description:
-      "Une organisation horizontale inspirée du modèle Opale, alignée avec la raison d'être et les valeurs de D2L Informatique.",
+      "Déploiement, support, formation, reprise de données et évolutions produit restent portés dans la même organisation.",
   },
 ];
 
 const CompanyStorySection = () => (
-  <section id="societe" className="px-4 py-20 md:py-28 tint-violet">
-    <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+  <section id="societe" className="px-4 py-6 md:py-8 tint-violet">
+    <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
+      <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="text-center lg:text-left"
         >
           <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
             Qui sommes-nous
@@ -50,87 +43,53 @@ const CompanyStorySection = () => (
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
             {COMPANY_NAME}, un éditeur impliqué dans toute la vie du projet
           </h2>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            « Concevoir un logiciel n&apos;est pas seulement l&apos;exercice de nos compétences
-            techniques, mais également la conscience profonde de l&apos;importance qu&apos;il va revêtir
-            dans le quotidien des personnes qui vont l&apos;utiliser. »
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
+            Ce qui distingue l&apos;accompagnement de D2L Informatique, c&apos;est la continuité de
+            suivi et une réponse sur mesure portée par une équipe qui connaît le terrain.
           </p>
-          <p className="mt-5 text-sm leading-7 text-muted-foreground">
-            Créée le {COMPANY_CREATION_DATE}, {COMPANY_NAME} couvre toute la vie de ses outils:
-            commercialisation, développement, tests, documentation, mise en œuvre technique, suivi
-            de production, accompagnement fonctionnel, reprise de données, formation, conseil et
-            R&amp;D.
-          </p>
-          <div className="surface-card mt-8 rounded-[1.75rem] px-6 py-6">
-            <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
-              Raison d&apos;être
-            </p>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground/92">
-              <li>Mettre la technologie au service des personnes et non l&apos;inverse.</li>
-              <li>S&apos;appuyer sur l&apos;intelligence collective et le travail réellement ensemble.</li>
-              <li>Aider les professionnels qui accompagnent quotidiennement les personnes en difficulté.</li>
-              <li>Faire vivre des valeurs de respect, solidarité, confiance, responsabilité et honnêteté.</li>
-            </ul>
+          <div className="mt-6">
+            <Button asChild variant="hero-outline" size="lg">
+              <Link to="/accompagnement">Voir l&apos;accompagnement</Link>
+            </Button>
           </div>
         </motion.div>
 
-        <div className="space-y-5">
-          <motion.figure
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden px-6 pb-6 pt-8"
-          >
-            <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
-            <img
-              src={teamTous}
-              alt="Illustration d'une équipe réunie, en écho au travail collectif de D2L Informatique"
-              loading="lazy"
-              decoding="async"
-              width={1600}
-              height={954}
-              className="relative z-10 mx-auto w-full max-w-md"
-            />
-          </motion.figure>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {markers.map((marker) => (
-              <article
-                key={marker.title}
-                className="surface-card rounded-[1.5rem] px-5 py-6"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
-                  <marker.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-foreground">{marker.title}</h3>
-                <p className="text-sm leading-7 text-muted-foreground">{marker.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden px-6 pb-2 pt-4"
+        >
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
+          <img
+            src={teamTous}
+            alt="Illustration d'une équipe réunie, en écho au travail collectif de D2L Informatique"
+            loading="lazy"
+            decoding="async"
+            width={1600}
+            height={954}
+            className="relative z-10 mx-auto w-full max-w-md"
+          />
+        </motion.figure>
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <article className="surface-card rounded-[1.75rem] px-6 py-6">
-          <h3 className="text-2xl font-bold text-foreground">
-            Une organisation alignée avec ses valeurs
-          </h3>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            Le 1er janvier 2024, D2L Informatique a fait évoluer son fonctionnement pour mettre fin
-            aux hiérarchies classiques et adopter une organisation horizontale. Chacun peut porter
-            une initiative, participer à un projet et contribuer à des décisions prises
-            collégialement.
-          </p>
-        </article>
-
-        <article className="surface-card rounded-[1.75rem] px-6 py-6">
-          <h3 className="text-2xl font-bold text-foreground">Ce qui nous caractérise</h3>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            Le sens du service, l&apos;envie d&apos;apporter des réponses de qualité, simples,
-            efficaces et complètes, ainsi qu&apos;un profond respect des clients, de leur métier et de
-            chaque membre de l&apos;équipe.
-          </p>
-        </article>
+      <div className="mt-4 grid gap-5 md:grid-cols-3">
+        {markers.map((marker, index) => (
+          <motion.article
+            key={marker.title}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05 }}
+            className="surface-card rounded-[1.5rem] px-5 py-6"
+          >
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
+              <marker.icon className="h-5 w-5" />
+            </div>
+            <h3 className="mb-2 text-xl font-bold text-foreground">{marker.title}</h3>
+            <p className="text-sm leading-7 text-muted-foreground">{marker.description}</p>
+          </motion.article>
+        ))}
       </div>
     </div>
   </section>

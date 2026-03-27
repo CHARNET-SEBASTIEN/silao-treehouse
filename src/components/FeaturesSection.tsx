@@ -9,7 +9,6 @@ import {
   FolderKanban,
   HeartPulse,
   IdCard,
-  SlidersHorizontal,
   Users2,
 } from "lucide-react";
 
@@ -65,7 +64,7 @@ const features = [
     icon: CalendarDays,
     title: "Agenda et planning",
     description:
-      "Des événements associés à l'usager, aux services ou aux professionnels, avec vues jour, semaine, mois, service et type d'événement.",
+      "Des vues adaptées aux équipes pour organiser rendez-vous, accompagnements, présences et échéances.",
   },
   {
     group: "parcours",
@@ -90,38 +89,31 @@ const features = [
   },
   {
     group: "organisation",
-    icon: SlidersHorizontal,
-    title: "Personnalisation",
-    description:
-      "Profils métiers, droits d'accès, listes déroulantes, arborescences documentaires, tableaux de bord et alertes s'adaptent à vos procédures.",
-  },
-  {
-    group: "organisation",
     icon: Users2,
     title: "Annuaire centralisé",
     description:
-      "Un annuaire des contacts et organismes pour relier facilement médecins, écoles, juges et partenaires à l'activité.",
+      "Un espace collaboratif pour centraliser les contacts, organismes et partenaires utiles au suivi.",
   },
   {
     group: "organisation",
     icon: BellRing,
     title: "Alertes",
     description:
-      "Des alertes sur les échéances, missions et renouvellements de documents, adaptables en autonomie selon vos pratiques.",
+      "Des alertes sur les échéances, missions et renouvellements de documents pour ne rien laisser de côté.",
   },
   {
     group: "pilotage",
     icon: FolderKanban,
     title: "Pilotage, états et stats",
     description:
-      "Des états filtrables, des statistiques par thème et des requêteurs pour produire vos exports et indicateurs d'activité.",
+      "Des états, statistiques et requêteurs pour visualiser rapidement les indicateurs utiles à l'activité.",
   },
   {
     group: "pilotage",
     icon: CreditCard,
     title: "Facturation",
     description:
-      "Facturation à partir de l'agenda ou des présences, avec génération possible de factures rétroactives individuelles.",
+      "Une facturation accompagnée et adaptée à vos besoins, à partir de l'agenda ou des présences.",
   },
   {
     group: "pilotage",
@@ -132,28 +124,25 @@ const features = [
   },
 ];
 
-const featureIconTone = "border border-border/70 bg-background text-primary";
-
 const FeaturesSection = () => (
-  <section className="relative overflow-hidden px-4 py-20 md:py-28 tint-primary">
-    <div className="mx-auto max-w-6xl section-panel px-6 py-10 md:px-10 md:py-14">
+  <section className="relative overflow-hidden px-4 py-6 md:py-8 tint-primary">
+    <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mx-auto mb-16 max-w-3xl text-center"
+        className="mx-auto mb-5 max-w-3xl text-center"
       >
         <p className="marker-label mb-4">
           Fonctionnalités principales
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Les modules qui structurent le{" "}
-          <span className="text-primary sketch-underline">quotidien métier</span>
+          Des fonctionnalités adaptées au{" "}
+          <span className="text-primary sketch-underline">quotidien des équipes</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Le dossier usager, l&apos;agenda, les transmissions, la GED, les alertes, le pilotage, la
-          personnalisation et la facturation ont été conçus pour rester lisibles, configurables et
-          réellement utiles aux équipes.
+          Dossier usager, agenda, transmissions, GED, alertes, pilotage et facturation: les
+          fonctionnalités sont pensées pour accompagner les usages réels du terrain.
         </p>
       </motion.div>
 
@@ -161,7 +150,7 @@ const FeaturesSection = () => (
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-12 grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center"
+        className="mb-5 grid gap-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center"
       >
         <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(180deg,hsl(var(--background)/0.96),hsl(var(--muted)/0.72))] p-4 shadow-[0_28px_60px_-32px_hsl(var(--foreground)/0.24)]">
           <div className="pointer-events-none absolute left-6 top-6 h-24 w-40 rounded-full bg-secondary/15 blur-3xl" />
@@ -182,8 +171,8 @@ const FeaturesSection = () => (
             Interface, coordination, pilotage
           </p>
           <h3 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
-            Un DUI conçu pour rendre l&apos;information <span className="text-primary">retrouvable</span>,
-            partageable et exploitable
+            Un espace collaboratif pour des informations{" "}
+            <span className="text-primary">centralisées et accessibles</span>
           </h3>
           <div className="mt-6 flex flex-wrap gap-2.5">
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
@@ -200,8 +189,8 @@ const FeaturesSection = () => (
             </span>
           </div>
           <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
-            Un dossier structuré, des tableaux de bord lisibles et une expérience mobile pensée
-            pour le terrain.
+            Un dossier organisé par thèmes pour retrouver rapidement les données administratives,
+            juridiques et le suivi de l&apos;accompagnement.
           </p>
         </div>
       </motion.div>

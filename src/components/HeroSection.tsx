@@ -43,16 +43,16 @@ const secteurs = [
 ];
 
 const points = [
-  "Pensé avec les professionnels du social et du médico-social depuis 2005",
-  "Référencé DSR Ségur MS2 PE et DSR Ségur MS1 PH",
-  "15 ans d'expertise terrain et DSR Ségur MS1 AHI en cours",
+  "Des informations centralisées et accessibles pour les équipes",
+  "4 secteurs couverts avec des usages adaptés au terrain",
+  "Un accompagnement de proximité de la démo au déploiement",
 ];
 
 const HeroSection = () => {
   const { openDialog } = useDemoRequestDialog();
 
   return (
-    <section className="relative overflow-hidden px-4 pb-12 pt-14 md:pb-16 md:pt-16">
+    <section className="relative overflow-hidden px-4 pb-8 pt-10 md:pb-10 md:pt-12">
       {/* Gradient hero background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--primary)/0.18),transparent_70%)]" />
@@ -61,7 +61,7 @@ const HeroSection = () => {
       </div>
 
       <div className="mx-auto max-w-6xl">
-        <div className="section-panel overflow-hidden px-6 py-8 sm:px-8 md:px-10 md:py-12">
+        <div className="section-panel overflow-hidden px-6 py-7 sm:px-8 md:px-10 md:py-9">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_18rem]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
@@ -86,18 +86,16 @@ const HeroSection = () => {
 
               <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
                 <span className="mb-2 block text-secondary">SILAO</span>
-                Le dossier usager informatisé pensé avec et pour les professionnels du social et
+                Le logiciel métier collaboratif pensé avec et pour les professionnels du social et
                 du médico-social
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.15rem]">
-                Silao est un outil résolument moderne conçu en partenariat avec des établissements
-                pour répondre aux besoins de la protection de l&apos;enfance, du médico-social, de
-                l&apos;accueil-hébergement-insertion et des PDS. Solution collaborative simple,
-                intuitive et complète.
+              <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.1rem]">
+                SILAO aide les équipes à centraliser les informations, suivre les accompagnements,
+                partager les écrits utiles et piloter l&apos;activité sans complexifier le quotidien.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2.5">
+              <div className="mt-5 flex flex-wrap gap-2.5">
                 <span
                   className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.pde.border} ${filiereThemes.pde.bg} ${filiereThemes.pde.text}`}
                 >
@@ -115,7 +113,7 @@ const HeroSection = () => {
                 </span>
               </div>
 
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-5 space-y-3">
                 {points.map((point, i) => (
                   <motion.li
                     key={point}
@@ -130,7 +128,7 @@ const HeroSection = () => {
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button
                   variant="hero"
                   size="xl"

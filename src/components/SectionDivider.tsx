@@ -18,7 +18,7 @@ const SectionDivider = ({
     return (
       <div className={`-my-px overflow-hidden ${className}`} aria-hidden>
         <svg
-          viewBox="0 0 1440 60"
+          viewBox="0 0 1440 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="block w-full"
@@ -26,7 +26,7 @@ const SectionDivider = ({
           preserveAspectRatio="none"
         >
           <path
-            d="M0 60V30C240 0 480 0 720 30C960 60 1200 60 1440 30V60H0Z"
+            d="M0 28V14C240 0 480 0 720 14C960 28 1200 28 1440 14V28H0Z"
             fill="hsl(var(--background))"
           />
         </svg>
@@ -37,7 +37,7 @@ const SectionDivider = ({
   return (
     <div className={`-my-px overflow-hidden ${className}`} aria-hidden>
       <svg
-        viewBox="0 0 1440 48"
+        viewBox="0 0 1440 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="block w-full"
@@ -45,7 +45,7 @@ const SectionDivider = ({
         preserveAspectRatio="none"
       >
         <path
-          d="M0 48V16C120 32 240 40 360 36C480 32 600 16 720 12C840 8 960 16 1080 24C1200 32 1320 40 1440 36V48H0Z"
+          d="M0 20V8C120 14 240 18 360 16C480 14 600 8 720 6C840 4 960 8 1080 10C1200 14 1320 18 1440 16V20H0Z"
           fill="hsl(var(--background))"
         />
       </svg>

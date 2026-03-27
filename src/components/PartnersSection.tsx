@@ -3,8 +3,8 @@ import { partnerReferences } from "@/lib/partners";
 
 const PartnersSection = () => {
   return (
-    <section className="px-4 py-20 md:py-28 tint-primary">
-      <div className="mx-auto max-w-5xl text-center section-panel px-6 py-10 md:px-10">
+    <section className="px-4 py-6 md:py-8 tint-primary">
+      <div className="mx-auto max-w-5xl text-center section-panel px-6 py-5 md:px-10 md:py-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -13,9 +13,9 @@ const PartnersSection = () => {
         >
           Structures <span className="text-primary sketch-underline">accompagnées</span>
         </motion.h2>
-        <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
-          Des associations, établissements et directions métiers s&apos;appuient sur SILAO pour
-          structurer leurs usages sans perdre leur réalité terrain.
+        <p className="mx-auto mb-4 max-w-2xl text-muted-foreground">
+          Des structures qui utilisent SILAO pour structurer leurs usages sans perdre leur réalité
+          terrain.
         </p>
 
         <motion.div
