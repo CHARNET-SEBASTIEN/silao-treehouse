@@ -13,7 +13,7 @@ import {
   Users2,
 } from "lucide-react";
 
-import archivisteIllustration from "@/assets/illustrations/archiviste.webp";
+import silaoAppHeroModern from "@/assets/silao-app-hero-modern.png";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const featureGroups = [
@@ -161,24 +161,25 @@ const FeaturesSection = () => (
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-center"
+        className="mb-12 grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center"
       >
-        <figure className="relative overflow-hidden px-6 pb-2 pt-6">
-          <div className="pointer-events-none absolute left-8 top-0 h-24 w-40 rounded-full bg-secondary/15 blur-3xl" />
+        <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(180deg,hsl(var(--background)/0.96),hsl(var(--muted)/0.72))] p-4 shadow-[0_28px_60px_-32px_hsl(var(--foreground)/0.24)]">
+          <div className="pointer-events-none absolute left-6 top-6 h-24 w-40 rounded-full bg-secondary/15 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-4 right-4 h-28 w-44 rounded-full bg-primary/10 blur-3xl" />
           <img
-            src={archivisteIllustration}
-            alt="Illustration évoquant l'organisation documentaire et la tenue du dossier usager"
+            src={silaoAppHeroModern}
+            alt="Montage moderne de l'interface SILAO avec tableau de bord et dossier usager"
             loading="lazy"
             decoding="async"
-            width={1200}
-            height={1200}
-            className="relative z-10 mx-auto w-full max-w-xs"
+            width={1520}
+            height={1040}
+            className="relative z-10 w-full rounded-[1.5rem]"
           />
         </figure>
 
         <div className="px-2 py-4 md:px-4 md:py-6">
           <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
-            Dossier, documents, coordination
+            Interface, coordination, pilotage
           </p>
           <h3 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
             Un DUI conçu pour rendre l&apos;information <span className="text-primary">retrouvable</span>,
@@ -189,12 +190,19 @@ const FeaturesSection = () => (
               Dossier usager structuré
             </span>
             <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
-              GED et transmissions
+              Tableaux de bord et transmissions
             </span>
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
               Pilotage et alertes
             </span>
+            <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
+              Mobilité smartphone native
+            </span>
           </div>
+          <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
+            Un dossier structuré, des tableaux de bord lisibles et une expérience mobile pensée
+            pour le terrain.
+          </p>
         </div>
       </motion.div>
 
