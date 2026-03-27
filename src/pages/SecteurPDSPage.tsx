@@ -16,6 +16,8 @@ const SecteurPDSPage = () => (
         tagline="Le DUI pour les structures à la jonction entre le social et le médical"
         description="Le secteur PDS a des besoins spécifiques liés à sa double vocation, sociale et médicale. L'accompagnement implique une équipe pluridisciplinaire : la qualité de la communication interne et le suivi des rappels sont donc des priorités pour assurer une prise en charge lisible."
         seoPath="/secteur/personnes-difficultes-specifiques"
+        faqSectorId="pds"
+        faqTitle="les personnes en difficultés spécifiques"
         color={filiereThemes.pds.text}
         bgColor={filiereThemes.pds.bg}
         borderColor={filiereThemes.pds.border}

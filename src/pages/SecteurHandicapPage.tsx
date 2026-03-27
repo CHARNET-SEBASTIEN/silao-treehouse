@@ -16,6 +16,8 @@ const SecteurHandicapPage = () => (
         tagline="Un DUI pensé pour les besoins du médico-social"
         description="Les fonctionnalités dédiées au secteur médico-social n'ont cessé de se multiplier sous l'impulsion de nos clients. Silao couvre aussi bien les besoins des structures avec hébergement que ceux des CAMSP et des CMPP."
         seoPath="/secteur/handicap"
+        faqSectorId="ph"
+        faqTitle="le handicap"
         color={filiereThemes.ph.text}
         bgColor={filiereThemes.ph.bg}
         borderColor={filiereThemes.ph.border}

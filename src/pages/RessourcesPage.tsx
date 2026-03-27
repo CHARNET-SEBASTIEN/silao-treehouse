@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Workflow,
 } from "lucide-react";
+import ResourcesFaqSection from "@/components/ResourcesFaqSection";
 import { getPageSeo } from "@/lib/publicRoutes";
 import { PRODUCT_NAME } from "@/lib/site";
 
@@ -136,13 +137,15 @@ const RessourcesPage = () => (
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {pillars.map((pillar) => (
-              <article key={pillar.title} className="section-panel p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <pillar.icon className="h-5 w-5" />
+              <article key={pillar.title} className="section-panel flex h-full flex-col p-6">
+                <div>
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <pillar.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-foreground">{pillar.title}</h3>
+                  <p className="text-sm leading-7 text-muted-foreground">{pillar.description}</p>
                 </div>
-                <h3 className="mb-3 text-xl font-bold text-foreground">{pillar.title}</h3>
-                <p className="mb-4 text-sm leading-7 text-muted-foreground">{pillar.description}</p>
-                <div className="flex flex-col gap-2">
+                <div className="mt-auto flex flex-col gap-2 pt-5">
                   {pillar.links.map((link) => (
                     <Link
                       key={link.to}
@@ -173,12 +176,14 @@ const RessourcesPage = () => (
 
           <div className="grid gap-6 md:grid-cols-3">
             {useCases.map((item) => (
-              <article key={item.title} className="surface-card rounded-[1.5rem] p-6">
-                <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
-                <p className="mb-5 text-sm leading-7 text-muted-foreground">{item.description}</p>
+              <article key={item.title} className="surface-card flex h-full flex-col rounded-[1.5rem] p-6">
+                <div>
+                  <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
+                  <p className="text-sm leading-7 text-muted-foreground">{item.description}</p>
+                </div>
                 <Link
                   to={item.to}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4"
+                  className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-medium text-primary hover:underline underline-offset-4"
                 >
                   Ouvrir la page secteur
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -211,6 +216,8 @@ const RessourcesPage = () => (
           </div>
         </div>
       </section>
+
+      <ResourcesFaqSection />
     </PageMain>
     <FooterSection />
   </div>

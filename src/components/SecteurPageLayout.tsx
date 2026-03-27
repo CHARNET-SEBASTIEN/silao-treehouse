@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
+import SectorFaqSection, { type SectorFaqId } from "@/components/SectorFaqSection";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
 import { cn } from "@/lib/utils";
@@ -22,6 +23,8 @@ interface SecteurPageLayoutProps {
   clients: { name: string; quote?: string }[];
   modules: string[];
   seoPath: string;
+  faqSectorId?: SectorFaqId;
+  faqTitle?: string;
 }
 
 const SecteurPageLayout = ({
@@ -37,6 +40,8 @@ const SecteurPageLayout = ({
   clients,
   modules,
   seoPath,
+  faqSectorId,
+  faqTitle,
 }: SecteurPageLayoutProps) => {
   const { openDialog } = useDemoRequestDialog();
   const seo = getPageSeo(seoPath);
@@ -179,6 +184,10 @@ const SecteurPageLayout = ({
           </div>
         </div>
       </section>
+
+      {faqSectorId && faqTitle ? (
+        <SectorFaqSection sectorId={faqSectorId} title={faqTitle} />
+      ) : null}
 
       {/* Références clients */}
       {clients.length > 0 && (

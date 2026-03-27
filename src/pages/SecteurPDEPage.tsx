@@ -16,6 +16,8 @@ const SecteurPDEPage = () => (
         tagline="Le secteur historique de Silao, pensé pour l'hébergement comme pour le milieu ouvert"
         description="La protection de l'enfance est le tout premier secteur pour lequel Silao a dédié ses fonctionnalités. L'outil couvre les besoins de l'hébergement, du milieu ouvert, de l'accueil familial et des accompagnements spécifiques, avec une adaptation continue aux réalités terrain."
         seoPath="/secteur/protection-enfance"
+        faqSectorId="pde"
+        faqTitle="la protection de l'enfance"
         color={filiereThemes.pde.text}
         bgColor={filiereThemes.pde.bg}
         borderColor={filiereThemes.pde.border}

@@ -1,4 +1,6 @@
 import { faqSchema } from "@/components/FAQSection";
+import { resourcesFaqSchema } from "@/components/ResourcesFaqSection";
+import { getSectorFaqSchema } from "@/components/SectorFaqSection";
 import {
   buildRobotsTxt,
   buildSitemapXml,
@@ -102,44 +104,7 @@ const resourcesSchema = [
     description:
       `Ressources ${PRODUCT_NAME} sur le DUI, la conformité SONS, le déploiement et les cas d'usage par secteur.`,
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Par où commencer quand on prépare un projet DUI ?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Commencez par les ressources sur le cadrage, la reprise de données, l'organisation cible, les rôles projet, la formation et le démarrage. Ce sont les contenus les plus utiles pour comprendre ce qui change dans les pratiques et ce qu'il faut sécuriser avant la bascule.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Que faut-il regarder pour comprendre SONS, Ségur, vague 1, vague 2 et ANS ?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Cherchez des ressources qui relient les exigences nationales aux usages du quotidien: identité, échanges sécurisés, partage documentaire, conformité, calendrier projet et impacts organisationnels. L'enjeu est de comprendre ce que ces cadres changent concrètement pour un établissement.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Quels sujets explorer autour de la messagerie sécurisée, du DMP, du DSR, de l'HDS et de Blue ?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Les ressources les plus utiles expliquent quels documents circulent, dans quelles conditions, avec quel niveau de sécurité, et comment l'hébergement est organisé. Ce sont de bons repères pour comprendre l'environnement technique et réglementaire du DUI.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Comment trouver des ressources adaptées à sa structure ou à sa filière ?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Il faut privilégier les contenus qui parlent du même contexte métier que le vôtre: handicap, protection de l'enfance, AHI, PDS ou multi-établissements. Plus les exemples, le vocabulaire et les contraintes ressemblent à votre organisation, plus la ressource sera utile.",
-        },
-      },
-    ],
-  },
+  resourcesFaqSchema,
 ];
 
 export const PUBLIC_ROUTES: PageSeo[] = [
@@ -243,17 +208,20 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       { name: "Médico-social — PH", path: "/secteur/handicap" },
     ],
     priority: 0.8,
-    schema: buildSoftwareApplicationSchema(
-      "/secteur/handicap",
-      "Découvrez Silao pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH.",
-      [
-        "Dossier usager",
-        "Agenda partagé",
-        "Gestion MDPH",
-        "Fiche d'urgence",
-        "Gestion des attentes",
-      ],
-    ),
+    schema: [
+      buildSoftwareApplicationSchema(
+        "/secteur/handicap",
+        "Découvrez Silao pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH.",
+        [
+          "Dossier usager",
+          "Agenda partagé",
+          "Gestion MDPH",
+          "Fiche d'urgence",
+          "Gestion des attentes",
+        ],
+      ),
+      getSectorFaqSchema("ph"),
+    ],
   },
   {
     path: "/secteur/protection-enfance",
@@ -270,17 +238,20 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       },
     ],
     priority: 0.8,
-    schema: buildSoftwareApplicationSchema(
-      "/secteur/protection-enfance",
-      "Découvrez Silao pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
-      [
-        "Cahier de liaison",
-        "Agenda",
-        "Gestion des fratries",
-        "Suivi des présences",
-        "Accueil familial",
-      ],
-    ),
+    schema: [
+      buildSoftwareApplicationSchema(
+        "/secteur/protection-enfance",
+        "Découvrez Silao pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
+        [
+          "Cahier de liaison",
+          "Agenda",
+          "Gestion des fratries",
+          "Suivi des présences",
+          "Accueil familial",
+        ],
+      ),
+      getSectorFaqSchema("pde"),
+    ],
   },
   {
     path: "/secteur/insertion-ahi",
@@ -296,17 +267,20 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       },
     ],
     priority: 0.8,
-    schema: buildSoftwareApplicationSchema(
-      "/secteur/insertion-ahi",
-      "Découvrez Silao pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
-      [
-        "Gestion des hébergements",
-        "Accompagnement au logement",
-        "Suivi administratif",
-        "Budget personnel",
-        "Suivi médical",
-      ],
-    ),
+    schema: [
+      buildSoftwareApplicationSchema(
+        "/secteur/insertion-ahi",
+        "Découvrez Silao pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
+        [
+          "Gestion des hébergements",
+          "Accompagnement au logement",
+          "Suivi administratif",
+          "Budget personnel",
+          "Suivi médical",
+        ],
+      ),
+      getSectorFaqSchema("ahi"),
+    ],
   },
   {
     path: "/secteur/personnes-difficultes-specifiques",
@@ -322,17 +296,20 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       },
     ],
     priority: 0.8,
-    schema: buildSoftwareApplicationSchema(
-      "/secteur/personnes-difficultes-specifiques",
-      "Découvrez Silao pour les personnes en difficultés spécifiques : suivi coordonné, rappels, dossier santé et pilotage d'activité.",
-      [
-        "Dossier médical",
-        "DMP",
-        "Rappels",
-        "Accompagnement au logement",
-        "Coordination pluridisciplinaire",
-      ],
-    ),
+    schema: [
+      buildSoftwareApplicationSchema(
+        "/secteur/personnes-difficultes-specifiques",
+        "Découvrez Silao pour les personnes en difficultés spécifiques : suivi coordonné, rappels, dossier santé et pilotage d'activité.",
+        [
+          "Dossier médical",
+          "DMP",
+          "Rappels",
+          "Accompagnement au logement",
+          "Coordination pluridisciplinaire",
+        ],
+      ),
+      getSectorFaqSchema("pds"),
+    ],
   },
   {
     path: "/offres",
