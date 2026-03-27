@@ -1,51 +1,30 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Linkedin, Mail, MapPin } from "lucide-react";
 
 import logoD2lColor from "@/assets/logo-d2l-color.png";
 import logoD2lWhite from "@/assets/logo-d2l-white.png";
 import logoSilaoColor from "@/assets/logo-silao-color.svg";
 import logoSilaoWhite from "@/assets/logo-silao-white.svg";
-import { scrollToHashTarget } from "@/lib/hashNavigation";
 import { filiereThemes } from "@/lib/filiereThemes";
-import { COMPANY_ADDRESS, COMPANY_NAME, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
-
-const footerAnchors = [
-  { label: "Services", href: "/#services" },
-  { label: "Secteurs", href: "/#secteurs" },
-  { label: "Qui sommes-nous", href: "/#societe" },
-  { label: "Références", href: "/#references" },
-  { label: "Actualités", href: "/#actualites" },
-  { label: "Contacts", href: "/#contacts" },
-];
+import {
+  COMPANY_ADDRESS,
+  COMPANY_DISPLAY_NAME,
+  COMPANY_NAME,
+  CONTACT_EMAIL,
+  LINKEDIN_URL,
+  PRODUCT_NAME,
+} from "@/lib/site";
 
 const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   (props, ref) => {
     const currentYear = new Date().getFullYear();
     const location = useLocation();
-    const navigate = useNavigate();
 
     const handleLogoClick = () => {
       if (location.pathname === "/") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    };
-
-    const handleAnchorNavigation = (
-      event: React.MouseEvent<HTMLAnchorElement>,
-      href: string,
-    ) => {
-      const hash = href.split("#")[1];
-      if (!hash) return;
-
-      event.preventDefault();
-
-      if (location.pathname !== "/" || location.hash !== `#${hash}`) {
-        navigate(`/#${hash}`);
-        return;
-      }
-
-      scrollToHashTarget(`#${hash}`);
     };
 
     return (
@@ -55,15 +34,15 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
         {...props}
         className="relative border-t border-border/80 bg-[linear-gradient(180deg,hsl(var(--card)),hsl(var(--background)))] paper-grain"
       >
-        <div className="relative z-10 mx-auto max-w-6xl px-6 pt-16 pb-8">
-          <div className="mb-14 grid gap-12 md:grid-cols-[1.1fr_0.95fr_0.95fr]">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 pb-8 pt-12">
+          <div className="mb-10 grid gap-10 md:grid-cols-[1.2fr_1fr]">
             <div>
               <Link
                 to="/"
                 onClick={handleLogoClick}
                 className="mb-4 inline-flex items-center gap-3 rounded-full border border-border/80 bg-card/90 px-3 py-2 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
-                <span className="sr-only">SILAO par D2L, retour à l&apos;accueil</span>
+                <span className="sr-only">{PRODUCT_NAME} par {COMPANY_DISPLAY_NAME}, retour à l&apos;accueil</span>
                 <span className="flex items-center px-1">
                   <img
                     src={logoD2lColor}
@@ -95,8 +74,8 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 </span>
               </Link>
               <p className="text-sm leading-7 text-muted-foreground">
-                <strong className="text-foreground">SILAO</strong> est le dossier usager informatisé
-                édité par <strong className="text-foreground">{COMPANY_NAME}</strong> pour les
+                <strong className="text-foreground">{PRODUCT_NAME}</strong> est le dossier usager informatisé
+                édité par <strong className="text-foreground">{COMPANY_DISPLAY_NAME}</strong> pour les
                 établissements sociaux et médico-sociaux.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
@@ -105,37 +84,6 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.ahi.border} ${filiereThemes.ahi.bg} ${filiereThemes.ahi.text}`}>AHI</span>
                 <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.pds.border} ${filiereThemes.pds.bg} ${filiereThemes.pds.text}`}>PDS</span>
               </div>
-            </div>
-
-            <div>
-              <p className="mb-4 text-xl font-bold text-foreground">Navigation</p>
-              <nav aria-label="Navigation secondaire" className="flex flex-col gap-2 text-sm text-muted-foreground">
-                {footerAnchors.map((anchor) => (
-                  <a
-                    key={anchor.href}
-                    href={anchor.href}
-                    onClick={(event) => handleAnchorNavigation(event, anchor.href)}
-                    className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  >
-                    {anchor.label}
-                  </a>
-                ))}
-                <Link to="/offres" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                  Offres
-                </Link>
-                <Link to="/accompagnement" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                  Accompagnement
-                </Link>
-                <Link to="/formations" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                  Formations
-                </Link>
-                <Link to="/engagements" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                  Engagements
-                </Link>
-                <Link to="/aide-support" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                  Aide et support
-                </Link>
-              </nav>
             </div>
 
             <div>
@@ -157,11 +105,10 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 >
                   <span className="flex items-center gap-2 font-semibold text-foreground">
                     <Linkedin className="h-4 w-4 text-primary" />
-                    Suivre SILAO sur LinkedIn
+                    Suivre {COMPANY_DISPLAY_NAME} sur LinkedIn
                   </span>
                   <span className="mt-1 block text-xs leading-6 text-muted-foreground">
-                    Suivez l&apos;actualité de D2L Informatique, les évolutions de SILAO et les prises
-                    de parole de l&apos;équipe.
+                    Suivez l&apos;actualité de {COMPANY_DISPLAY_NAME} et les contenus publiés par l&apos;équipe.
                   </span>
                 </a>
               </div>
@@ -173,6 +120,15 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               © {currentYear} {COMPANY_NAME}. Tous droits réservés.
             </p>
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+              <Link to="/offres" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                Offres
+              </Link>
+              <Link to="/formations" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                Formations
+              </Link>
+              <Link to="/aide-support" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                Aide et support
+              </Link>
               <Link to="/mentions-legales" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Mentions légales
               </Link>

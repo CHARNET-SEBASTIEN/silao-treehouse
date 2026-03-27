@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge";
 
 const resources = [
   {
-    title: "Fonctionnalités principales de SILAO",
-    category: "Produit",
+    title: "Fonctionnalités principales de Silao",
+    category: "Solution logicielle",
     slug: "/#services",
   },
   {
@@ -33,10 +33,10 @@ const BlogSection = () => {
           className="mb-5 text-center"
         >
           <h2 className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Repères & <span className="text-primary sketch-underline">contenus clés</span>
+            Aller plus loin
           </h2>
           <p className="mx-auto max-w-xl font-body text-muted-foreground">
-            Les entrées les plus utiles pour comprendre le produit, le projet et les engagements.
+            Les entrées les plus utiles pour comprendre la solution, le projet et les engagements.
           </p>
         </motion.div>
 

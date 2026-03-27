@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BadgeCheck, Boxes, CalendarClock, Users2 } from "lucide-react";
+import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const figures = [
   {
@@ -10,15 +11,15 @@ const figures = [
   },
   {
     icon: Users2,
-    value: "30",
+    value: "24",
     label: "collaborateurs",
-    description: "mobilisés sur le produit, le projet, le support et la R&D.",
+    description: "mobilisés sur la solution, le projet, le support et la formation.",
   },
   {
     icon: Boxes,
     value: "1",
     label: "logiciel",
-    description: "SILAO, unique produit mis au centre de l'organisation.",
+    description: `${PRODUCT_NAME}, solution logicielle éditée par ${COMPANY_DISPLAY_NAME}.`,
   },
   {
     icon: BadgeCheck,
@@ -37,15 +38,17 @@ const KeyFiguresSection = () => (
         viewport={{ once: true }}
         className="mb-5 text-center"
       >
-        <p className="marker-label mb-4">Repères de marque</p>
+        <p className="marker-label mb-4">Nos chiffres clés</p>
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
           Chiffres clés
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Des repères factuels pour situer <span className="text-primary sketch-underline">D2L Informatique et SILAO</span>
+          Quelques repères pour situer{" "}
+          <span className="text-primary sketch-underline">{COMPANY_DISPLAY_NAME}</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Une lecture rapide du périmètre de SILAO, de l&apos;éditeur et des secteurs couverts.
+          {COMPANY_DISPLAY_NAME} est l&apos;éditeur de {PRODUCT_NAME}. Voici quelques repères utiles
+          pour situer l&apos;équipe et son périmètre.
         </p>
       </motion.div>
 

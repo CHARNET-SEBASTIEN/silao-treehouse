@@ -18,9 +18,9 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 const featureGroups = [
   {
     id: "parcours",
-    title: "Suivi du parcours usager",
-    description: "Le cœur du dossier, de la coordination quotidienne et des écrits partagés.",
-    eyebrow: "Usager et coordination",
+    title: "Dossier usager",
+    description: "Le cœur du dossier, des écrits partagés et du suivi du quotidien.",
+    eyebrow: "Dossier usager",
     dot: "bg-primary",
     eyebrowColor: "text-primary",
     activeTabTone:
@@ -29,9 +29,9 @@ const featureGroups = [
   },
   {
     id: "organisation",
-    title: "Organisation et paramétrage",
-    description: "Les briques qui structurent les documents, les droits, les contacts et les alertes.",
-    eyebrow: "Configuration et circulation",
+    title: "Documents et rappels",
+    description: "Les fonctionnalités utiles pour organiser les documents et les échéances.",
+    eyebrow: "Documents et rappels",
     dot: "bg-secondary",
     eyebrowColor: "text-secondary",
     activeTabTone:
@@ -42,7 +42,7 @@ const featureGroups = [
     id: "pilotage",
     title: "Pilotage et usages métier",
     description: "Les modules dédiés à l'activité, aux états, à la facturation et aux services socles.",
-    eyebrow: "Activité et exploitation",
+    eyebrow: "Pilotage et usages métier",
     dot: "bg-[hsl(var(--brand-violet))]",
     eyebrowColor: "text-[hsl(var(--brand-violet))]",
     activeTabTone:
@@ -171,8 +171,8 @@ const FeaturesSection = () => (
             Interface, coordination, pilotage
           </p>
           <h3 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">
-            Un espace collaboratif pour des informations{" "}
-            <span className="text-primary">centralisées et accessibles</span>
+            Un DUI pour <span className="text-primary">centraliser</span>, partager et exploiter les
+            informations
           </h3>
           <div className="mt-6 flex flex-wrap gap-2.5">
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
@@ -196,13 +196,13 @@ const FeaturesSection = () => (
       </motion.div>
 
       <Tabs defaultValue="parcours" className="space-y-6">
-        <TabsList className="mx-auto inline-flex h-auto flex-wrap items-center justify-center gap-1 rounded-full border border-border/80 bg-[linear-gradient(180deg,hsl(var(--muted)/0.88),hsl(var(--muted)/0.62))] p-1 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.92),0_14px_34px_-24px_hsl(var(--brand-violet)/0.28)] dark:bg-[linear-gradient(180deg,hsl(var(--muted)),hsl(var(--card)))]">
-          {featureGroups.map((group) => (
-            <TabsTrigger
-              key={group.id}
-              value={group.id}
-              className={`inline-flex items-center gap-2 rounded-full border border-transparent px-5 py-2 text-sm font-semibold text-muted-foreground/88 transition-all duration-200 hover:bg-background/60 hover:text-foreground data-[state=active]:px-6 data-[state=active]:font-bold data-[state=active]:shadow-[0_18px_34px_-22px_hsl(var(--foreground)/0.34)] data-[state=active]:ring-1 data-[state=active]:ring-white/70 dark:text-muted-foreground dark:hover:bg-background/30 ${group.activeTabTone}`}
-            >
+          <TabsList className="mx-auto inline-flex h-auto flex-wrap items-center justify-center gap-2 rounded-[1.4rem] border border-border/80 bg-[linear-gradient(180deg,hsl(var(--muted)/0.88),hsl(var(--muted)/0.62))] p-2 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.92),0_14px_34px_-24px_hsl(var(--brand-violet)/0.28)] dark:bg-[linear-gradient(180deg,hsl(var(--muted)),hsl(var(--card)))]">
+            {featureGroups.map((group) => (
+              <TabsTrigger
+                key={group.id}
+                value={group.id}
+              className={`inline-flex min-h-12 items-center gap-2 rounded-[1.1rem] border border-transparent px-5 py-3 text-sm font-semibold text-muted-foreground/88 transition-all duration-200 hover:bg-background/60 hover:text-foreground data-[state=active]:font-bold data-[state=active]:shadow-[0_18px_34px_-22px_hsl(var(--foreground)/0.34)] data-[state=active]:ring-1 data-[state=active]:ring-white/70 dark:text-muted-foreground dark:hover:bg-background/30 ${group.activeTabTone}`}
+              >
               <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${group.dot} shadow-[0_0_0_3px_hsl(0_0%_100%/0.55)] dark:shadow-[0_0_0_3px_hsl(236_28%_14%/0.7)]`} />
               {group.eyebrow}
             </TabsTrigger>

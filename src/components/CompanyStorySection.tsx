@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import teamTous from "@/assets/illustrations/team-tous.webp";
 import { Button } from "@/components/ui/button";
-import { COMPANY_NAME } from "@/lib/site";
+import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const markers = [
   {
@@ -38,10 +38,10 @@ const CompanyStorySection = () => (
           className="text-center lg:text-left"
         >
           <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
-            Qui sommes-nous
+            Qui sommes-nous ?
           </p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            {COMPANY_NAME}, un éditeur impliqué dans toute la vie du projet
+            {COMPANY_DISPLAY_NAME}, l&apos;éditeur de {PRODUCT_NAME}
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
             Ce qui distingue l&apos;accompagnement de D2L Informatique, c&apos;est la continuité de

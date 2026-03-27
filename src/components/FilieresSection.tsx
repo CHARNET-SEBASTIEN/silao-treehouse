@@ -10,10 +10,11 @@ const filieres = [
     name: "PDE",
     title: "Protection de l'enfance",
     description:
-      "Hébergement, milieu ouvert, accueil familial, lieux de vie, SIE et MIJE avec un besoin fort de confidentialité et d'accompagnement projet.",
-    structures: ["MECS", "AEMO", "Accueil familial", "Lieu de vie"],
+      "Hébergement, milieu ouvert, accueil familial, lieux de vie, SIE et MJIE avec un besoin fort de confidentialité et d'accompagnement projet.",
+    structures: ["MECS", "AEMO", "Accueil familial", "Lieux de vie"],
     theme: filiereThemes.pde,
     href: "/secteur/protection-enfance",
+    cta: "Silao pour la protection de l'enfance",
   },
   {
     icon: Accessibility,
@@ -24,6 +25,7 @@ const filieres = [
     structures: ["IME", "DITEP", "SESSAD", "CAMSP / CMPP"],
     theme: filiereThemes.ph,
     href: "/secteur/handicap",
+    cta: "Silao pour le médico-social",
   },
   {
     icon: Home,
@@ -34,16 +36,18 @@ const filieres = [
     structures: ["CHRS", "CADA", "HUDA", "CPH"],
     theme: filiereThemes.ahi,
     href: "/secteur/insertion-ahi",
+    cta: "Silao pour l'AHI",
   },
   {
     icon: Stethoscope,
     name: "PDS",
     title: "Personnes en difficultés spécifiques",
     description:
-      "LHSS, ACT, CAARUD et structures à l'interface du social, du médical et de l'insertion.",
+      "LHSS, ACT, CAARUD et structures à la jonction entre le social, le médical et l'insertion.",
     structures: ["LHSS", "ACT", "CAARUD", "Prises en charge santé-social"],
     theme: filiereThemes.pds,
     href: "/secteur/personnes-difficultes-specifiques",
+    cta: "Silao pour les PDS",
   },
 ];
 
@@ -60,11 +64,11 @@ const FilieresSection = () => (
           Secteurs
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          <span className="text-primary sketch-underline">4 secteurs couverts</span>, 4 lectures métier
+          <span className="text-primary sketch-underline">Silao au service de 4 secteurs</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          SILAO s&apos;adapte aux réalités de la protection de l&apos;enfance, du médico-social, de
-          l&apos;insertion et des personnes en difficultés spécifiques.
+          Silao s&apos;adapte aux réalités de la protection de l&apos;enfance, du médico-social, de
+          l&apos;accueil, hébergement et insertion, et des personnes en difficultés spécifiques.
         </p>
       </motion.div>
 
@@ -96,7 +100,7 @@ const FilieresSection = () => (
               </div>
 
               <div className={`mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold ${filiere.theme.text}`}>
-                Découvrir le secteur
+                {filiere.cta}
                 <ArrowRight className="h-4 w-4" />
               </div>
             </Link>

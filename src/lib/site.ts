@@ -3,7 +3,9 @@ export const DEFAULT_SITE_URL = "https://www.silao.fr";
 export const SITE_URL =
   import.meta.env.VITE_SITE_URL?.replace(/\/$/, "") || DEFAULT_SITE_URL;
 
-export const SITE_NAME = "SILAO par D2L Informatique";
+export const PRODUCT_NAME = "Silao";
+export const COMPANY_DISPLAY_NAME = "D2L\u00A0Informatique";
+export const SITE_NAME = `${PRODUCT_NAME} par ${COMPANY_DISPLAY_NAME}`;
 export const SITE_LOCALE = "fr_FR";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-silao-tree.png`;
 

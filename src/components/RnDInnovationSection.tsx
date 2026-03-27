@@ -59,7 +59,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
               <span className="text-primary sketch-underline">Innover</span> pour les professionnels
             </h2>
             <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
-              Nous explorons des usages utiles pour alléger certaines tâches administratives,
+              Nous explorons des usages réellement utiles pour alléger certaines tâches administratives,
               améliorer la recherche d&apos;information et garder un cadre strict sur les données et
               la responsabilité humaine.
             </p>

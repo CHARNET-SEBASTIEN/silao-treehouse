@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import {
+  Accessibility,
   ArrowRight,
   Baby,
   CheckCircle2,
   Home,
-  ShieldCheck,
   Sparkles,
   Stethoscope,
 } from "lucide-react";
@@ -14,17 +14,18 @@ import heroTreeBrand from "@/assets/hero-tree-brand.png";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
 import { filiereThemes } from "@/lib/filiereThemes";
+import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const secteurs = [
   {
-    icon: ShieldCheck,
+    icon: Baby,
     label: "Protection de l'enfance",
     href: "/secteur/protection-enfance",
     theme: filiereThemes.pde,
   },
   {
-    icon: Baby,
-    label: "Médico-social / PH",
+    icon: Accessibility,
+    label: "Médico-social",
     href: "/secteur/handicap",
     theme: filiereThemes.ph,
   },
@@ -81,18 +82,20 @@ const HeroSection = () => {
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                 </motion.span>
-                D2L Informatique présente
+                {COMPANY_DISPLAY_NAME} présente
               </motion.p>
 
               <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
-                <span className="mb-2 block text-secondary">SILAO</span>
+                <span className="mb-2 block text-secondary">{PRODUCT_NAME}</span>
                 Le logiciel métier collaboratif pensé avec et pour les professionnels du social et
                 du médico-social
               </h1>
 
               <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.1rem]">
-                SILAO aide les équipes à centraliser les informations, suivre les accompagnements,
-                partager les écrits utiles et piloter l&apos;activité sans complexifier le quotidien.
+                {PRODUCT_NAME} aide les équipes à centraliser les informations, suivre les
+                accompagnements, partager les écrits utiles et piloter l&apos;activité sans
+                complexifier le quotidien, y compris dans le champ des personnes en difficultés
+                spécifiques (PDS).
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -161,7 +164,7 @@ const HeroSection = () => {
                 <div className="flex justify-center bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-6 py-6">
                   <img
                     src={heroTreeBrand}
-                    alt="Arbre SILAO illustrant l'accompagnement social et medico-social"
+                    alt="Arbre Silao illustrant l'accompagnement social et medico-social"
                     width={1668}
                     height={1758}
                     loading="eager"

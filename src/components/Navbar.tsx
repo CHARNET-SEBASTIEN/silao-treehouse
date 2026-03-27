@@ -23,14 +23,13 @@ import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
+import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
-  { label: "Services", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
+  { label: "Fonctionnalités", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
   { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
-  { label: "Qui sommes-nous", href: "/#societe", icon: Users2, isAnchor: true },
   { label: "Références", href: "/#references", icon: ShieldCheck, isAnchor: true },
-  { label: "Actualités", href: "/#actualites", icon: Newspaper, isAnchor: true },
   { label: "Contacts", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
 
@@ -39,19 +38,19 @@ const groupedLinks = [
     title: "Secteurs",
     links: [
       { label: "Protection de l'enfance", href: "/secteur/protection-enfance", description: "MECS, milieu ouvert, accueil familial" },
-      { label: "Médico-social / PH", href: "/secteur/handicap", description: "IME, DITEP, SESSAD, CAMSP, CMPP" },
-      { label: "AHI", href: "/secteur/insertion-ahi", description: "CHRS, CADA, HUDA, CPH, AVDL" },
-      { label: "PDS", href: "/secteur/personnes-difficultes-specifiques", description: "LHSS, ACT, CAARUD" },
+      { label: "Médico-social", href: "/secteur/handicap", description: "IME, DITEP, SESSAD, CAMSP, CMPP" },
+      { label: "Accueil, hébergement et insertion", href: "/secteur/insertion-ahi", description: "CHRS, CADA, HUDA, CPH, AVDL" },
+      { label: "Personnes en difficultés spécifiques", href: "/secteur/personnes-difficultes-specifiques", description: "LHSS, ACT, CAARUD" },
     ],
   },
   {
-    title: "Services",
+    title: "Pages utiles",
     links: [
       { label: "Offres", href: "/offres", description: "Déploiement, reprise, formation" },
       { label: "Accompagnement", href: "/accompagnement", description: "Méthode projet et proximité terrain" },
       { label: "Formations", href: "/formations", description: "Sur mesure, Qualiopi, accessibilité" },
       { label: "Engagements", href: "/engagements", description: "Sécurité, RGPD, référencement Ségur" },
-      { label: "Ressources", href: "/ressources", description: "Actualités, guides et veille sectorielle" },
+      { label: "Ressources", href: "/ressources", description: "Guides, repères et contenus utiles" },
     ],
   },
 ];
@@ -180,7 +179,7 @@ const Navbar = () => {
           onClick={handleLogoClick}
           className="relative z-10 flex h-11 shrink-0 items-center gap-3 rounded-full border border-border/80 bg-card/88 px-3 py-2 shadow-sm backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
-          <span className="sr-only">SILAO par D2L, retour à l&apos;accueil</span>
+          <span className="sr-only">{PRODUCT_NAME} par {COMPANY_DISPLAY_NAME}, retour à l&apos;accueil</span>
           <span className="flex h-full items-center px-1">
             <img
               src={logoD2lColor}
@@ -268,7 +267,7 @@ const Navbar = () => {
             aria-label={open ? "Fermer le menu principal" : "Ouvrir le menu principal"}
           >
             {open ? <X size={18} /> : <Menu size={18} />}
-            <span className="hidden sm:inline">MENU</span>
+            <span className="hidden sm:inline">Menu</span>
           </motion.button>
         </div>
       </motion.header>
