@@ -84,7 +84,7 @@ const BenefitsByTeamSection = () => (
           Bénéfices par métier
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Ce que SILAO change pour les{" "}
+          Ce que Silao change pour les{" "}
           <span className="text-primary sketch-underline">équipes</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">

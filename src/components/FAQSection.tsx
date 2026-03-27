@@ -10,13 +10,13 @@ import {
 
 const faqs = [
   {
-    question: "Que permet de faire SILAO au quotidien ?",
+    question: "Que permet de faire Silao au quotidien ?",
     answerText:
-      "SILAO réunit dans un même environnement le dossier usager, l'agenda, le cahier de liaison, la gestion documentaire, le dossier santé, les alertes, les états et statistiques, ainsi que la facturation et les services socles du numérique en santé.",
+      "Silao réunit dans un même environnement le dossier usager, l'agenda, le cahier de liaison, la gestion documentaire, le dossier santé, les rappels, les états et statistiques, ainsi que la facturation et les services socles du numérique en santé.",
     answer: (
       <>
         <p>
-          SILAO réunit dans un même environnement le dossier usager, l&apos;agenda, le cahier de
+          Silao réunit dans un même environnement le dossier usager, l&apos;agenda, le cahier de
           liaison, la gestion documentaire, le dossier santé, les alertes, les états et
           statistiques ainsi que la facturation.
         </p>
@@ -32,13 +32,13 @@ const faqs = [
     ],
   },
   {
-    question: "Pour quels secteurs SILAO est-il conçu ?",
+    question: "Pour quels secteurs Silao est-il conçu ?",
     answerText:
-      "SILAO est conçu pour la protection de l'enfance, le médico-social, l'accueil hébergement insertion et les personnes en difficultés spécifiques, avec des fonctionnalités adaptées à chaque réalité de terrain.",
+      "Silao est conçu pour la protection de l'enfance, le médico-social, l'accueil hébergement insertion et les personnes en difficultés spécifiques, avec des fonctionnalités adaptées à chaque réalité de terrain.",
     answer: (
       <>
         <p>
-          SILAO couvre la protection de l&apos;enfance, le médico-social, l&apos;accueil hébergement
+          Silao couvre la protection de l&apos;enfance, le médico-social, l&apos;accueil hébergement
           insertion et les personnes en difficultés spécifiques.
         </p>
         <p className="mt-3">
@@ -54,13 +54,13 @@ const faqs = [
     ],
   },
   {
-    question: "Comment se passe le déploiement de SILAO ?",
+    question: "Comment se passe le déploiement de Silao ?",
     answerText:
-      "SILAO fonctionne en mode SaaS: aucune installation locale n'est nécessaire. Le déploiement est accompagné par des chefs de projet dédiés qui prennent en charge le paramétrage, la reprise de données, la formation et le suivi.",
+      "Silao fonctionne en mode SaaS: aucune installation locale n'est nécessaire. Le déploiement est accompagné par des chefs de projet dédiés qui prennent en charge le paramétrage, la reprise de données, la formation et le suivi.",
     answer: (
       <>
         <p>
-          SILAO fonctionne en mode SaaS: aucune installation locale n&apos;est nécessaire et une
+          Silao fonctionne en mode SaaS: aucune installation locale n&apos;est nécessaire et une
           simple connexion internet avec un navigateur suffit pour accéder à l&apos;outil.
         </p>
         <p className="mt-3">
@@ -144,7 +144,7 @@ const FAQSection = () => (
           Questions fréquentes
         </h2>
         <p className="mx-auto max-w-xl font-body text-muted-foreground">
-          Les questions les plus directes pour comprendre SILAO, son périmètre et son accompagnement.
+          Les questions les plus directes pour comprendre Silao, son périmètre et son accompagnement.
         </p>
       </motion.div>
 

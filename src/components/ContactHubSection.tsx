@@ -10,14 +10,14 @@ const contactCards = [
   {
     icon: MessageSquareMore,
     title: "Demande de démonstration",
-    description: "Présenter SILAO sur votre secteur et qualifier le besoin.",
+    description: "Présenter Silao sur votre secteur et qualifier le besoin.",
     actionLabel: "Demander une démo",
     type: "dialog" as const,
   },
   {
     icon: BookText,
     title: "Plaquette et ressources",
-    description: "Recevoir la plaquette SILAO ou consulter les pages utiles avant un échange.",
+    description: "Recevoir la plaquette Silao ou consulter les pages utiles avant un échange.",
     actionLabel: "Demander une plaquette",
     href: `mailto:${CONTACT_EMAIL}?subject=Demande%20de%20plaquette%20SILAO`,
     type: "link" as const,

@@ -7,6 +7,7 @@ import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
 import { cn } from "@/lib/utils";
+import { PRODUCT_NAME } from "@/lib/site";
 
 interface SecteurPageLayoutProps {
   icon: LucideIcon;
@@ -44,7 +45,7 @@ const SecteurPageLayout = ({
     <>
       <SEOHead {...seo} />
       {/* Hero */}
-      <section className="py-20 px-4 paper-bg">
+      <section className="px-4 py-16 paper-bg">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -84,17 +85,17 @@ const SecteurPageLayout = ({
             className="flex flex-wrap gap-4 justify-center"
           >
             <Button variant="hero" size="xl" onClick={openDialog}>
-              Demander une démo
+              Demander une démonstration
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <Link to="/offres">Voir nos offres <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              <Link to="/offres">Voir l&apos;offre de déploiement <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
           </motion.div>
         </div>
       </section>
 
       {/* Structures couvertes */}
-      <section className="py-20 px-4">
+      <section className="px-4 py-12">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -123,7 +124,7 @@ const SecteurPageLayout = ({
       </section>
 
       {/* Bénéfices */}
-      <section className="py-20 px-4 paper-bg">
+      <section className="px-4 py-12 paper-bg">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -131,7 +132,7 @@ const SecteurPageLayout = ({
             viewport={{ once: true }}
             className="text-3xl font-bold text-foreground text-center mb-12"
           >
-            Pourquoi choisir Silao pour le secteur <span className={color}>{name}</span> ?
+            Les points d&apos;attention du secteur <span className={color}>{name}</span>
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((b, i) => (
@@ -152,7 +153,7 @@ const SecteurPageLayout = ({
       </section>
 
       {/* Modules clés */}
-      <section className="py-20 px-4">
+      <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -160,7 +161,7 @@ const SecteurPageLayout = ({
             viewport={{ once: true }}
             className="text-3xl font-bold text-foreground mb-12"
           >
-            Modules <span className={cn("sketch-underline", color)}>adaptés</span>
+            Fonctionnalités <span className={cn("sketch-underline", color)}>souvent utiles</span>
           </motion.h2>
           <div className="flex flex-wrap gap-3 justify-center">
             {modules.map((m, i) => (
@@ -181,7 +182,7 @@ const SecteurPageLayout = ({
 
       {/* Références clients */}
       {clients.length > 0 && (
-        <section className="py-20 px-4 paper-bg">
+        <section className="px-4 py-12 paper-bg">
           <div className="max-w-4xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -189,7 +190,7 @@ const SecteurPageLayout = ({
               viewport={{ once: true }}
               className="text-3xl font-bold text-foreground text-center mb-12"
             >
-              Ils utilisent Silao dans ce secteur
+              Exemples dans ce secteur
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {clients.map((c, i) => (
@@ -213,7 +214,7 @@ const SecteurPageLayout = ({
       )}
 
       {/* CTA */}
-      <section className="py-20 px-4">
+      <section className="px-4 py-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -221,13 +222,13 @@ const SecteurPageLayout = ({
           className={cn("max-w-3xl mx-auto sketch-border p-10 text-center", bgColor, borderColor)}
         >
           <h2 className="text-2xl font-bold text-foreground mb-4">
-            Prêt à déployer Silao dans votre structure ?
+            Prêt à déployer {PRODUCT_NAME} dans votre organisation ?
           </h2>
           <p className="text-muted-foreground font-body mb-6">
-            Notre équipe vous accompagne de A à Z, de l'étude de vos besoins au déploiement complet.
+            Notre équipe vous accompagne de l&apos;analyse de vos besoins jusqu&apos;au démarrage.
           </p>
           <Button variant="hero" size="xl" onClick={openDialog}>
-            Demander une démo personnalisée
+            Demander une démonstration
           </Button>
         </motion.div>
       </section>

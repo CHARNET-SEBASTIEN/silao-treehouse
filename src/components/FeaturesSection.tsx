@@ -157,7 +157,7 @@ const FeaturesSection = () => (
           <div className="pointer-events-none absolute bottom-4 right-4 h-28 w-44 rounded-full bg-primary/10 blur-3xl" />
           <img
             src={silaoAppHeroModern}
-            alt="Montage moderne de l'interface SILAO avec tableau de bord et dossier usager"
+            alt="Montage moderne de l'interface Silao avec tableau de bord et dossier usager"
             loading="lazy"
             decoding="async"
             width={1520}

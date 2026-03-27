@@ -27,7 +27,7 @@ const CTASection = () => {
             Demandez une <span className="text-secondary font-sketch">démonstration personnalisée</span>
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg font-body text-muted-foreground">
-            30 minutes pour voir SILAO en situation réelle, sur votre secteur d&apos;activité,
+            30 minutes pour voir Silao en situation réelle, sur votre secteur d&apos;activité,
             avec un scénario adapté à votre organisation. Sans engagement.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">

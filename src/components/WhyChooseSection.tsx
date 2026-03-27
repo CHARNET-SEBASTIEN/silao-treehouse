@@ -49,14 +49,14 @@ const reasons = [
     icon: MonitorSmartphone,
     title: "Disponible partout",
     description:
-      "SILAO reste accessible sur ordinateur, tablette et smartphone pour les équipes sur site ou mobiles.",
+      "Silao reste accessible sur ordinateur, tablette et smartphone pour les équipes sur site ou mobiles.",
     tone: "bg-secondary/10 text-secondary",
   },
   {
     icon: ShieldCheck,
     title: "Référencé Ségur",
     description:
-      "SILAO répond aux exigences réglementaires sur les périmètres déjà référencés et poursuit ses démarches en cours.",
+      "Silao répond aux exigences réglementaires sur les périmètres déjà référencés et poursuit ses démarches en cours.",
     tone: "bg-[hsl(var(--brand-violet)/0.1)] text-[hsl(var(--brand-violet))]",
   },
   {
@@ -82,7 +82,7 @@ const WhyChooseSection = () => (
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
           Les raisons concrètes de choisir{" "}
-          <span className="text-primary sketch-underline">SILAO</span>
+          <span className="text-primary sketch-underline">Silao</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
           Simplicité d&apos;usage, accompagnement continu, sécurité et cadre réglementaire lisible.

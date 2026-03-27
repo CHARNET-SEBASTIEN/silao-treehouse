@@ -26,7 +26,7 @@ type SearchItem = {
 const searchItems: SearchItem[] = [
   {
     title: "Accueil",
-    description: "Présentation générale de SILAO et des secteurs couverts.",
+    description: "Présentation générale de Silao et des secteurs couverts.",
     href: "/",
     category: "Pages",
     keywords: ["home", "dui", "silao", "social", "médico-social"],
@@ -46,8 +46,8 @@ const searchItems: SearchItem[] = [
     keywords: ["secteurs", "pde", "ph", "ahi", "pds"],
   },
   {
-    title: "Pourquoi choisir SILAO",
-    description: "Les six engagements opérationnels mis en avant par D2L Informatique.",
+    title: "Pourquoi choisir Silao",
+    description: "Les engagements opérationnels mis en avant par D2L Informatique.",
     href: "/#pourquoi-silao",
     category: "Accueil",
     keywords: ["pourquoi", "différences", "sécurité", "expertise", "accompagnement"],
@@ -91,7 +91,7 @@ const searchItems: SearchItem[] = [
   },
   {
     title: "Médico-social / PH",
-    description: "SILAO pour IME, DITEP, SESSAD, CAMSP, CMPP, MAS et FAM.",
+    description: "Silao pour IME, DITEP, SESSAD, CAMSP, CMPP, MAS et FAM.",
     href: "/secteur/handicap",
     category: "Secteurs",
     keywords: ["ph", "handicap", "ime", "ditep", "sessad", "camsp", "cmpp"],
@@ -216,7 +216,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
         <CommandDialog
           open={open}
           onOpenChange={setOpen}
-          title="Recherche dans le site SILAO"
+          title="Recherche dans le site Silao"
         >
           <CommandInput
             value={query}

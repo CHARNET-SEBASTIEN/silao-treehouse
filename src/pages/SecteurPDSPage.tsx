@@ -13,8 +13,8 @@ const SecteurPDSPage = () => (
       <SecteurPageLayout
         icon={Stethoscope}
         name="Personnes en difficultés spécifiques — PDS"
-        tagline="Le DUI pour les structures à la croisée du social et du médical"
-        description="Le secteur PDS a des besoins spécifiques liés à sa double vocation, sociale et médicale. L'accompagnement prodigué implique une équipe pluridisciplinaire: la qualité de la communication interne et la gestion des alertes sont donc des priorités pour assurer une prise en charge optimale."
+        tagline="Le DUI pour les structures à la jonction entre le social et le médical"
+        description="Le secteur PDS a des besoins spécifiques liés à sa double vocation, sociale et médicale. L'accompagnement implique une équipe pluridisciplinaire : la qualité de la communication interne et le suivi des rappels sont donc des priorités pour assurer une prise en charge lisible."
         seoPath="/secteur/personnes-difficultes-specifiques"
         color={filiereThemes.pds.text}
         bgColor={filiereThemes.pds.bg}
@@ -43,7 +43,7 @@ const SecteurPDSPage = () => (
         ]}
         benefits={[
           "Une bonne communication au sein des équipes devient un levier central de la prise en charge.",
-          "Les systèmes d'alertes permettent un suivi de proximité pour chaque usager.",
+          "Les rappels permettent un suivi de proximité pour chaque usager.",
           "Les outils articulent dimensions sociales, médicales et administratives dans un même cadre de travail.",
           "Les statistiques permettent de suivre l'évolution des affectations et des parcours.",
           "La coordination pluridisciplinaire est pensée comme une fonction native de l'outil.",
@@ -52,7 +52,7 @@ const SecteurPDSPage = () => (
           "Dossier Usager Informatisé",
           "Dossier médical",
           "DMP",
-          "Alertes",
+          "Rappels",
           "Accompagnement au logement",
           "Gestion des logements",
           "Budget personnel",

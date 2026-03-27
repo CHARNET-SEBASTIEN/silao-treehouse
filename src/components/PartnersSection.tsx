@@ -14,7 +14,7 @@ const PartnersSection = () => {
           Structures <span className="text-primary sketch-underline">accompagnées</span>
         </motion.h2>
         <p className="mx-auto mb-4 max-w-2xl text-muted-foreground">
-          Des structures qui utilisent SILAO pour structurer leurs usages sans perdre leur réalité
+          Des structures qui utilisent Silao pour structurer leurs usages sans perdre leur réalité
           terrain.
         </p>
 

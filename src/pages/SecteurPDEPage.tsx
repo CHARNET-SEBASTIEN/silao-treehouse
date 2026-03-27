@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { Baby } from "lucide-react";
 
 import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
@@ -11,7 +11,7 @@ const SecteurPDEPage = () => (
     <Navbar />
     <PageMain className="pt-16">
       <SecteurPageLayout
-        icon={ShieldCheck}
+        icon={Baby}
         name="Protection de l'enfance — PDE"
         tagline="Le secteur historique de Silao, pensé pour l'hébergement comme pour le milieu ouvert"
         description="La protection de l'enfance est le tout premier secteur pour lequel Silao a dédié ses fonctionnalités. L'outil couvre les besoins de l'hébergement, du milieu ouvert, de l'accueil familial et des accompagnements spécifiques, avec une adaptation continue aux réalités terrain."

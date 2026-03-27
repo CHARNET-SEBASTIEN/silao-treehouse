@@ -88,7 +88,7 @@ const AccompagnementSection = () => {
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-1.5 text-sm text-secondary">
             <Handshake className="h-4 w-4" />
-            Accompagnement SILAO
+            Accompagnement Silao
           </div>
           <h1 className="mb-5 text-4xl font-bold text-foreground md:text-6xl">
             Un accompagnement de proximité, pensé pour un déploiement{" "}

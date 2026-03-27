@@ -13,7 +13,7 @@ const SecteurHandicapPage = () => (
       <SecteurPageLayout
         icon={Accessibility}
         name="Médico-social — PH"
-        tagline="Un DUI pensé pour les prises en charge du médico-social et du handicap"
+        tagline="Un DUI pensé pour les besoins du médico-social"
         description="Les fonctionnalités dédiées au secteur médico-social n'ont cessé de se multiplier sous l'impulsion de nos clients. Silao couvre aussi bien les besoins des structures avec hébergement que ceux des CAMSP et des CMPP."
         seoPath="/secteur/handicap"
         color={filiereThemes.ph.text}
@@ -42,7 +42,7 @@ const SecteurHandicapPage = () => (
           },
         ]}
         benefits={[
-          "L'agenda concentre l'activité du service avec gestion des alertes, rappels, plages horaires, ressources et transports.",
+          "L'agenda concentre l'activité du service avec rappels, plages horaires, ressources et transports.",
           "Silao facilite la gestion et le suivi des prestations MDPH ainsi que des dossiers administratifs associés.",
           "Une fiche d'urgence peut être générée pour récupérer rapidement les informations vitales d'un usager.",
           "La gestion des attentes aide à organiser les admissions selon les demandes, le temps d'attente, le praticien concerné et la criticité.",
