@@ -32,11 +32,12 @@ const BlogSection = () => {
           viewport={{ once: true }}
           className="mb-5 text-center"
         >
+          <p className="marker-label mb-4">Repères utiles</p>
           <h2 className="mb-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Aller plus loin
+            D2L Informatique et Silao en bref
           </h2>
           <p className="mx-auto max-w-xl font-body text-muted-foreground">
-            Les entrées les plus utiles pour comprendre la solution, le projet et les engagements.
+            Les pages les plus utiles pour comprendre la solution, le déploiement et les engagements.
           </p>
         </motion.div>
 

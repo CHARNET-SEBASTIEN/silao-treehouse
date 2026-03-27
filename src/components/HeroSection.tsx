@@ -11,6 +11,8 @@ import {
 import { Link } from "react-router-dom";
 
 import heroTreeBrand from "@/assets/hero-tree-brand.png";
+import logoSilaoColor from "@/assets/logo-silao-color.svg";
+import logoSilaoWhite from "@/assets/logo-silao-white.svg";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
 import { filiereThemes } from "@/lib/filiereThemes";
@@ -31,13 +33,13 @@ const secteurs = [
   },
   {
     icon: Home,
-    label: "AHI",
+    label: "Accueil, hébergement et insertion",
     href: "/secteur/insertion-ahi",
     theme: filiereThemes.ahi,
   },
   {
     icon: Stethoscope,
-    label: "PDS",
+    label: "Personnes en difficultés spécifiques",
     href: "/secteur/personnes-difficultes-specifiques",
     theme: filiereThemes.pds,
   },
@@ -86,16 +88,31 @@ const HeroSection = () => {
               </motion.p>
 
               <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
-                <span className="mb-2 block text-secondary">{PRODUCT_NAME}</span>
+                <span className="mb-4 block">
+                  <img
+                    src={logoSilaoColor}
+                    alt={PRODUCT_NAME}
+                    width={220}
+                    height={68}
+                    className="block h-10 w-auto dark:hidden"
+                  />
+                  <img
+                    src={logoSilaoWhite}
+                    alt={PRODUCT_NAME}
+                    width={220}
+                    height={68}
+                    className="hidden h-10 w-auto dark:block"
+                  />
+                </span>
                 Le logiciel métier collaboratif pensé avec et pour les professionnels du social et
                 du médico-social
               </h1>
 
               <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.1rem]">
-                {PRODUCT_NAME} aide les équipes à centraliser les informations, suivre les
-                accompagnements, partager les écrits utiles et piloter l&apos;activité sans
-                complexifier le quotidien, y compris dans le champ des personnes en difficultés
-                spécifiques (PDS).
+                {PRODUCT_NAME} aide les équipes de la protection de l&apos;enfance, du médico-social,
+                de l&apos;accueil, hébergement et insertion (AHI) et des personnes en difficultés
+                spécifiques (PDS) à centraliser les informations, partager les écrits utiles et
+                suivre l&apos;activité sans complexifier le quotidien.
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -112,7 +129,7 @@ const HeroSection = () => {
                 <span
                   className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.ahi.border} ${filiereThemes.ahi.bg} ${filiereThemes.ahi.text}`}
                 >
-                  AHI en cours
+                  Participe aux comités éditeurs DSR Ségur AHI
                 </span>
               </div>
 

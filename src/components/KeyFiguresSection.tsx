@@ -47,8 +47,8 @@ const KeyFiguresSection = () => (
           <span className="text-primary sketch-underline">{COMPANY_DISPLAY_NAME}</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          {COMPANY_DISPLAY_NAME} est l&apos;éditeur de {PRODUCT_NAME}. Voici quelques repères utiles
-          pour situer l&apos;équipe et son périmètre.
+          Chez {COMPANY_DISPLAY_NAME}, nous sommes tournés à 100 % vers le DUI depuis plus de 20
+          ans, avec une équipe dédiée aux usages du social et du médico-social.
         </p>
       </motion.div>
 

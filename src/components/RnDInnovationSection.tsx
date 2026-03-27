@@ -61,7 +61,7 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
             <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
               Nous explorons des usages réellement utiles pour alléger certaines tâches administratives,
               améliorer la recherche d&apos;information et garder un cadre strict sur les données et
-              la responsabilité humaine.
+              la responsabilité humaine dans les secteurs social et médico-social.
             </p>
             <div className="mt-6">
               <Button asChild variant="hero-outline" size="lg">

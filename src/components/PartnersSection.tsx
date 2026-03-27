@@ -36,7 +36,7 @@ const PartnersSection = () => {
                       src={partner.logo}
                       alt={partner.logoAlt}
                       loading="lazy"
-                      className="max-h-10 w-auto max-w-full object-contain"
+                      className={`w-auto max-w-full object-contain ${partner.logoClassName ?? "max-h-10"}`}
                     />
                   </div>
                 ) : (

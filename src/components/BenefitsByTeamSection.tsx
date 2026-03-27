@@ -4,6 +4,7 @@ import {
   BriefcaseBusiness,
   Building2,
   ClipboardPenLine,
+  ClipboardList,
   HeartPulse,
   Smartphone,
 } from "lucide-react";
@@ -51,12 +52,22 @@ const teamBenefits = [
   },
   {
     icon: Building2,
-    title: "Équipes logement",
+    title: "Équipes hébergement et logement",
     points: [
-      "Faciliter la gestion du parc locatif.",
-      "Centraliser les informations administratives et financières liées au logement.",
+      "Centraliser les informations administratives et financières liées à l'hébergement.",
+      "Partager les informations utiles au suivi résidentiel et aux changements de situation.",
       "Suivre les interventions avec des rappels dédiés.",
-      "Produire des statistiques liées à la gestion locative.",
+      "Produire des repères utiles au pilotage de l'activité.",
+    ],
+  },
+  {
+    icon: ClipboardList,
+    title: "Équipes encadrantes",
+    points: [
+      "Suivre la continuité de service et les points de vigilance.",
+      "Accéder à un outil de pilotage intégré pour l'activité et les usages.",
+      "Repérer plus vite les besoins d'arbitrage ou d'organisation.",
+      "Partager une lecture commune entre direction, cadres et équipes.",
     ],
   },
   {

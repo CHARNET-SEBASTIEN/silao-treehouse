@@ -42,8 +42,6 @@ const Index = () => {
         </section>
         <SectionDivider variant="wave" flip />
         <PartnersSection />
-        <SectionDivider variant="curve" flip />
-        <FAQSection />
         <SectionDivider variant="wave" />
         <ContactHubSection />
         <SectionDivider variant="curve" />
@@ -54,6 +52,8 @@ const Index = () => {
         <section id="actualites">
           <BlogSection />
         </section>
+        <SectionDivider variant="wave" />
+        <FAQSection />
       </PageMain>
       <FooterSection />
     </div>

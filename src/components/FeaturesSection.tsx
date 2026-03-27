@@ -83,9 +83,9 @@ const features = [
   {
     group: "organisation",
     icon: FileArchive,
-    title: "GED",
+    title: "Gestion documentaire (GED)",
     description:
-      "Stockage, classement et consultation de tous les documents usagers, avec génération de modèles et de rapports.",
+      "Stockage, classement et consultation des documents usagers, avec génération de modèles et de rapports.",
   },
   {
     group: "organisation",
@@ -120,7 +120,7 @@ const features = [
     icon: Files,
     title: "Services socles et usages métier",
     description:
-      "INS, DMP, MSSanté, Pro Santé Connect, budget usager, parc locatif, rappels de rendez-vous par mail ou SMS et autres modules adaptés au terrain.",
+      "INS, DMP, MSSanté, Pro Santé Connect, budget usager, rappels de rendez-vous par mail ou SMS et autres modules adaptés au terrain.",
   },
 ];
 
@@ -141,8 +141,9 @@ const FeaturesSection = () => (
           <span className="text-primary sketch-underline">quotidien des équipes</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Dossier usager, agenda, transmissions, GED, rappels, pilotage et facturation: les
-          fonctionnalités sont pensées pour accompagner les usages réels du terrain.
+          Dossier usager, agenda, transmissions, gestion documentaire (GED), rappels, pilotage et
+          facturation: les fonctionnalités sont pensées pour accompagner les usages réels du
+          terrain.
         </p>
       </motion.div>
 

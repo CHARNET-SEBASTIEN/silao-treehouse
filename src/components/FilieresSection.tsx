@@ -11,7 +11,7 @@ const filieres = [
     title: "Protection de l'enfance",
     description:
       "Hébergement, milieu ouvert, accueil familial, lieux de vie, SIE et MJIE avec un besoin fort de confidentialité et d'accompagnement projet.",
-    structures: ["MECS", "AEMO", "Accueil familial", "Lieux de vie"],
+    structures: ["MECS", "AEMO", "SIE", "MJIE", "Accueil familial", "Lieux de vie"],
     theme: filiereThemes.pde,
     href: "/secteur/protection-enfance",
     cta: "Silao pour la protection de l'enfance",
@@ -22,7 +22,7 @@ const filieres = [
     title: "Médico-social",
     description:
       "IME, DITEP, SESSAD, CAMSP, CMPP, MAS ou FAM, avec une forte culture de traçabilité, d'agenda et de listes d'attente.",
-    structures: ["IME", "DITEP", "SESSAD", "CAMSP / CMPP"],
+    structures: ["IME", "DITEP", "SESSAD", "CAMSP", "CMPP", "MAS / FAM"],
     theme: filiereThemes.ph,
     href: "/secteur/handicap",
     cta: "Silao pour le médico-social",
@@ -33,7 +33,7 @@ const filieres = [
     title: "Accueil, hébergement et insertion",
     description:
       "Accueil de jour, CHRS, HU, CPH, CADA, HUDA, AVDL et IML avec des parcours souvent multi-dispositifs.",
-    structures: ["CHRS", "CADA", "HUDA", "CPH"],
+    structures: ["CHRS", "CADA", "HUDA", "CPH", "AVDL", "IML"],
     theme: filiereThemes.ahi,
     href: "/secteur/insertion-ahi",
     cta: "Silao pour l'AHI",
@@ -60,6 +60,7 @@ const FilieresSection = () => (
         viewport={{ once: true }}
         className="mx-auto mb-5 max-w-3xl text-center"
       >
+        <p className="marker-label mb-4">Secteurs couverts</p>
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
           Secteurs
         </p>
