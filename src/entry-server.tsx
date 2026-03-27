@@ -1,6 +1,5 @@
 import { MotionConfig } from "framer-motion";
 import { renderToString } from "react-dom/server";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StaticRouter } from "react-router-dom/server";
 
 import AppRoutes from "@/AppRoutes";
@@ -16,22 +15,18 @@ export {
 } from "@/lib/publicRoutes";
 
 export const render = (url: string) => {
-  const queryClient = new QueryClient();
-
   return renderToString(
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <MotionConfig reducedMotion="user">
-          <TooltipProvider>
-            <StaticRouter location={url}>
-              <DemoRequestDialogProvider>
-                <AppRoutes />
-                <DemoRequestDialogRoot />
-              </DemoRequestDialogProvider>
-            </StaticRouter>
-          </TooltipProvider>
-        </MotionConfig>
-      </ThemeProvider>
-    </QueryClientProvider>,
+    <ThemeProvider>
+      <MotionConfig reducedMotion="user">
+        <TooltipProvider>
+          <StaticRouter location={url}>
+            <DemoRequestDialogProvider>
+              <AppRoutes />
+              <DemoRequestDialogRoot />
+            </DemoRequestDialogProvider>
+          </StaticRouter>
+        </TooltipProvider>
+      </MotionConfig>
+    </ThemeProvider>,
   );
 };

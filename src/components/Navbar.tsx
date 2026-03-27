@@ -18,8 +18,8 @@ import logoD2lColor from "@/assets/logo-d2l-color.png";
 import logoD2lWhite from "@/assets/logo-d2l-white.png";
 import logoSilaoColor from "@/assets/logo-silao-color.svg";
 import logoSilaoWhite from "@/assets/logo-silao-white.svg";
+import DeferredSiteSearch from "@/components/DeferredSiteSearch";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
-import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
@@ -240,7 +240,7 @@ const Navbar = () => {
         </nav>
 
         <div className="relative z-10 flex items-center gap-2">
-          <SiteSearch mode="compact" />
+          <DeferredSiteSearch />
 
           <ThemeToggle className="hidden sm:inline-flex" />
 

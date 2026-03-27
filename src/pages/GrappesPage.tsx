@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import GrappesSection from "@/components/GrappesSection";
 import FooterSection from "@/components/FooterSection";
+import InfographieGrappe from "@/components/InfographieGrappe";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import { getPageSeo } from "@/lib/publicRoutes";
@@ -13,6 +14,7 @@ const GrappesPage = () => (
     <Navbar />
     <PageMain className="pt-16">
       <GrappesSection />
+      <InfographieGrappe />
     </PageMain>
     <FooterSection />
   </div>

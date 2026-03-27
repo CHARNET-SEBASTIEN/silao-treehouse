@@ -487,6 +487,10 @@
       linear-gradient(180deg, hsl(236 30% 18%), hsl(var(--background)));
   }
 
+  .dark .filiere-ahi-text {
+    color: hsl(var(--filiere-ahi));
+  }
+
   .dark .paper-grain::before {
     background-image:
       linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px),

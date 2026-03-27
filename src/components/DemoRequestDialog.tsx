@@ -192,6 +192,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                   <Input
                     id="lastName"
                     name="lastName"
+                    required
                     autoComplete="family-name"
                     value={formValues.lastName}
                     onChange={handleChange}
@@ -215,6 +216,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                   <Input
                     id="firstName"
                     name="firstName"
+                    required
                     autoComplete="given-name"
                     value={formValues.firstName}
                     onChange={handleChange}
@@ -242,6 +244,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
                 id="email"
                 name="email"
                 type="email"
+                required
                 autoComplete="email"
                 value={formValues.email}
                 onChange={handleChange}
@@ -266,6 +269,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
               <Input
                 id="organization"
                 name="organization"
+                required
                 autoComplete="organization"
                 value={formValues.organization}
                 onChange={handleChange}

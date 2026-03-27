@@ -7,6 +7,9 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
 
 const commitments = [
   {
@@ -55,15 +58,16 @@ const EngagementsSection = () => {
             <HeartHandshake className="h-4 w-4" />
             Engagements
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
-            Des engagements <span className="text-primary sketch-underline">durables</span>
-          </h2>
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-          La performance, la réglementation et la qualité de l&apos;accompagnement sont au cœur de
-          toutes nos actions, au service du confort des utilisateurs, de la sécurisation des
-          données et de l&apos;optimisation de la prise en charge.
-        </p>
-      </motion.div>
+          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
+            Des engagements <span className="text-primary sketch-underline">durables</span> sur la
+            sécurité, l&apos;accessibilité et la qualité de service
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            La performance, la réglementation et la qualité de l&apos;accompagnement sont au cœur de
+            nos actions, avec un cap clair sur la sécurité des données, le référencement Ségur,
+            l&apos;accessibilité et une démarche responsable.
+          </p>
+        </motion.div>
 
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
           {commitments.map((item, index) => (
@@ -78,7 +82,7 @@ const EngagementsSection = () => {
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <item.icon className="h-5 w-5" />
               </div>
-              <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
+              <h2 className="mb-3 text-xl font-bold text-foreground">{item.title}</h2>
               <p className="text-sm leading-7 text-muted-foreground">{item.description}</p>
             </motion.article>
           ))}
@@ -98,6 +102,14 @@ const EngagementsSection = () => {
           <p className="mt-3 font-sketch text-xl text-primary">
             Nous portons une solution, un accompagnement et une responsabilité durable.
           </p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button asChild variant="hero" size="lg">
+              <Link to="/formations">Voir les formations</Link>
+            </Button>
+            <Button asChild variant="hero-outline" size="lg">
+              <Link to="/aide-support">Contacter l&apos;équipe</Link>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

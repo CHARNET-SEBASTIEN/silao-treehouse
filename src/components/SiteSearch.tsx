@@ -159,11 +159,12 @@ const featuredItems = searchItems.slice(0, 6);
 interface SiteSearchProps {
   mode?: SearchMode;
   className?: string;
+  initialOpen?: boolean;
 }
 
-const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
+const SiteSearch = ({ mode = "inline", className, initialOpen = false }: SiteSearchProps) => {
   const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(initialOpen);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -232,7 +233,7 @@ const SiteSearch = ({ mode = "inline", className }: SiteSearchProps) => {
                   key={item.href}
                   value={[item.title, item.description, ...item.keywords].join(" ")}
                   onSelect={() => navigateTo(item.href)}
-                  className="flex items-start gap-3 py-3 [&[data-selected=true]_.search-result-icon]:bg-accent-foreground/10 [&[data-selected=true]_.search-result-icon]:text-accent-foreground [&[data-selected=true]_.search-result-title]:text-accent-foreground [&[data-selected=true]_.search-result-description]:text-accent-foreground/88 [&[data-selected=true]_.search-result-category]:text-accent-foreground/72"
+                  className="flex items-start gap-3 py-3 [&[data-selected=true]_.search-result-icon]:bg-accent-foreground/12 [&[data-selected=true]_.search-result-icon]:text-accent-foreground [&[data-selected=true]_.search-result-title]:text-accent-foreground [&[data-selected=true]_.search-result-description]:text-accent-foreground [&[data-selected=true]_.search-result-category]:text-accent-foreground/80"
                 >
                   <div className="search-result-icon mt-0.5 rounded-full bg-primary/10 p-2 text-primary transition-colors">
                     <Search className="h-4 w-4" />

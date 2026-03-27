@@ -155,7 +155,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/conformite-sons",
     title:
-      "Conformité SONS de Silao | INS, MSSanté, DMP et interopérabilité CI-SIS",
+      "Conformité SONS Silao | INS, MSSanté, DMP et CI-SIS",
     description:
       "Comprenez comment Silao répond aux exigences SONS pour les ESSMS : INS qualifiée, MSSanté, DMP et interopérabilité.",
     breadcrumbs: [
@@ -174,7 +174,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/grappes-esms",
     title:
-      "Grappes multi-ESMS avec Silao | DUI mutualisé pour associations et multi-sites",
+      "Grappes multi-ESMS | DUI mutualisé avec Silao",
     description:
       "Découvrez comment Silao permet de mutualiser un DUI entre plusieurs établissements tout en conservant les spécificités métier et la confidentialité.",
     breadcrumbs: [
@@ -193,7 +193,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/accompagnement",
     title:
-      "Accompagnement Silao | Gouvernance, conduite du changement et déploiement",
+      "Accompagnement Silao | Gouvernance et déploiement DUI",
     description:
       "Découvrez l'accompagnement Silao : cadrage projet, gouvernance, formation, conduite du changement et suivi des usages dans les ESSMS.",
     breadcrumbs: [
@@ -258,7 +258,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/secteur/protection-enfance",
     title:
-      "Silao pour la protection de l'enfance | DUI pour MECS, SAE, AEMO et lieux de vie",
+      "Protection enfance | DUI Silao pour MECS, SAE et AEMO",
     description:
       "Découvrez Silao pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
     breadcrumbs: [
@@ -310,7 +310,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/secteur/personnes-difficultes-specifiques",
-    title: "Silao pour les PDS | DUI pour LHSS, ACT, CAARUD et structures santé-social",
+    title: "Silao pour les PDS | DUI LHSS, ACT et CAARUD",
     description:
       "Découvrez Silao pour les personnes en difficultés spécifiques : suivi coordonné, rappels, dossier santé et pilotage d'activité.",
     breadcrumbs: [
@@ -352,7 +352,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/abonnement",
     title:
-      "Abonnement Silao | Hébergement, support, mises à jour et conformité inclus",
+      "Abonnement Silao | Hébergement, support et mises à jour",
     description:
       "Consultez le modèle d'abonnement Silao : hébergement HDS, support, maintenance, mises à jour réglementaires et évolutions fonctionnelles inclus.",
     breadcrumbs: [
@@ -371,7 +371,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/ressources",
     title:
-      "Ressources Silao par D2L Informatique | DUI, SONS, déploiement et secteurs ESSMS",
+      "Ressources Silao | DUI, SONS, déploiement et secteurs ESSMS",
     description:
       "Guides et repères Silao sur le DUI, la conformité SONS, le déploiement, les grappes multi-établissements et les secteurs ESSMS.",
     breadcrumbs: [HOME_CRUMB, RESSOURCES_CRUMB],
@@ -448,7 +448,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/404",
-    title: "Page introuvable | Silao",
+    title: "404 | Page introuvable sur Silao",
     description:
       "La page demandée est introuvable. Retrouvez les principaux accès Silao depuis cette page de secours.",
     noindex: true,

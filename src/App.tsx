@@ -5,13 +5,10 @@ import { DemoRequestDialogProvider, DemoRequestDialogRoot } from "@/components/D
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, useLocation } from "react-router-dom";
 
 import AppRoutes from "@/AppRoutes";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
-
-const queryClient = new QueryClient();
 
 const DecorativeIconManager = () => {
   useEffect(() => {
@@ -162,32 +159,30 @@ const RouteAnnouncer = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <MotionConfig reducedMotion="user">
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <DecorativeIconManager />
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-foreground focus:px-4 focus:py-3 focus:text-background focus:shadow-lg focus:outline focus:outline-4 focus:outline-secondary focus:outline-offset-2"
-          >
-            Aller au contenu
-          </a>
-          <BrowserRouter>
-            <DemoRequestDialogProvider>
-              <ScrollManager />
-              <RouteFocusManager />
-              <RouteAnnouncer />
-              <AppRoutes />
-              <DemoRequestDialogRoot />
-            </DemoRequestDialogProvider>
-          </BrowserRouter>
-        </TooltipProvider>
-      </MotionConfig>
-    </ThemeProvider>
-  </QueryClientProvider>
+  <ThemeProvider>
+    <MotionConfig reducedMotion="user">
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <DecorativeIconManager />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-foreground focus:px-4 focus:py-3 focus:text-background focus:shadow-lg focus:outline focus:outline-4 focus:outline-secondary focus:outline-offset-2"
+        >
+          Aller au contenu
+        </a>
+        <BrowserRouter>
+          <DemoRequestDialogProvider>
+            <ScrollManager />
+            <RouteFocusManager />
+            <RouteAnnouncer />
+            <AppRoutes />
+            <DemoRequestDialogRoot />
+          </DemoRequestDialogProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </MotionConfig>
+  </ThemeProvider>
 );
 
 export default App;

@@ -4,7 +4,7 @@ import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -24,17 +24,20 @@ Command.displayName = CommandPrimitive.displayName;
 type CommandDialogProps = DialogProps & {
   /** Titre exposé aux lecteurs d’écran (affichage masqué). */
   title?: string;
+  description?: string;
 };
 
 const CommandDialog = ({
   children,
   title = "Recherche dans le site",
+  description = "Recherchez une page, un secteur ou une fonctionnalité du site.",
   ...props
 }: CommandDialogProps) => {
   return (
     <Dialog {...props}>
       <DialogContent className="overflow-hidden p-0 shadow-lg">
         <DialogTitle className="sr-only">{title}</DialogTitle>
+        <DialogDescription className="sr-only">{description}</DialogDescription>
         <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
           {children}
         </Command>
@@ -113,7 +116,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected='true']:bg-accent data-[selected=true]:text-accent-foreground data-[selected=true]:[&_p]:text-accent-foreground data-[selected=true]:[&_div]:text-accent-foreground data-[selected=true]:[&_.text-muted-foreground]:text-accent-foreground/80 data-[selected=true]:[&_.text-muted-foreground\\/70]:text-accent-foreground/70 data-[disabled=true]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected='true']:bg-accent data-[selected=true]:text-accent-foreground data-[selected=true]:[&_p]:text-accent-foreground data-[selected=true]:[&_div]:text-accent-foreground data-[selected=true]:[&_svg]:text-accent-foreground data-[selected=true]:[&_.text-muted-foreground]:text-accent-foreground/90 data-[selected=true]:[&_.text-muted-foreground\\/70]:text-accent-foreground/80 data-[disabled=true]:opacity-50",
       className,
     )}
     {...props}
