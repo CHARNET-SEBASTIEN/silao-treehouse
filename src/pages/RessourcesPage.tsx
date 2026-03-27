@@ -4,89 +4,86 @@ import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpenText, FolderKanban, ShieldCheck, Workflow } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpenText,
+  FolderKanban,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
 import { getPageSeo } from "@/lib/publicRoutes";
+import { PRODUCT_NAME } from "@/lib/site";
 
 const pillars = [
   {
     icon: Workflow,
-    title: "Déployer un DUI sans perdre l'historique",
+    title: `Déployer ${PRODUCT_NAME}`,
     description:
-      "Le sujet ne se limite pas au paramétrage. Les points critiques sont le cadrage, la reprise de données, la formation et le suivi de l'usage après démarrage.",
+      "Cadrage du projet, reprise de données, formation des équipes et suivi après démarrage.",
     links: [
-      { to: "/accompagnement", label: "Voir la méthode d'accompagnement SILAO" },
-      { to: "/offres", label: "Comparer les offres de déploiement" },
+      { to: "/offres", label: "Voir l'offre de déploiement" },
+      { to: "/accompagnement", label: "Voir l'accompagnement" },
     ],
   },
   {
     icon: ShieldCheck,
-    title: "Rendre la conformité compréhensible",
+    title: "Comprendre le cadre réglementaire",
     description:
-      "Les contenus les plus utiles répondent directement aux questions sur SONS, l'INS, MSSanté, le DMP et les impacts concrets sur les appels à projets.",
+      "Fonctionnalités comme l'INS, le DMP et MSSanté, et repères liés aux financements et exigences nationales.",
     links: [
-      { to: "/conformite-sons", label: "Consulter la page conformité SONS" },
-      { to: "/engagements", label: "Lire les engagements de support et de pérennité" },
+      { to: "/conformite-sons", label: "Voir la page conformité SONS" },
+      { to: "/engagements", label: "Voir les engagements" },
     ],
   },
   {
     icon: FolderKanban,
-    title: "Montrer les cas d'usage par structure",
+    title: "Voir des exemples par secteur",
     description:
-      "Les ressources les plus utiles relient une problématique concrète à une structure précise, à un vocabulaire métier partagé et à des réponses opérationnelles pour les équipes.",
+      "Cas d'usage, vocabulaire métier et pages sectorielles pour retrouver un contexte proche du vôtre.",
     links: [
-      { to: "/secteur/handicap", label: "Explorer le secteur handicap" },
-      { to: "/secteur/protection-enfance", label: "Explorer la protection de l'enfance" },
+      { to: "/secteur/protection-enfance", label: "Protection de l'enfance" },
+      { to: "/secteur/handicap", label: "Médico-social" },
     ],
   },
 ];
 
-const questions = [
+const useCases = [
   {
-    question: "Par où commencer quand on prépare un projet DUI ?",
-    answer:
-      "Commencez par les ressources sur le cadrage, la reprise de données, l'organisation cible, les rôles projet, la formation et le démarrage. Ce sont les contenus les plus utiles pour comprendre ce qui change dans les pratiques et ce qu'il faut sécuriser avant la bascule.",
+    title: "Protection de l'enfance",
+    description:
+      "Confidentialité renforcée, accompagnements éducatifs, suivi du parcours et travail avec les partenaires institutionnels.",
+    to: "/secteur/protection-enfance",
   },
   {
-    question: "Que faut-il regarder pour comprendre SONS, Ségur, vague 1, vague 2 et ANS ?",
-    answer:
-      "Cherchez des ressources qui relient les exigences nationales aux usages du quotidien: identité, échanges sécurisés, partage documentaire, conformité, calendrier projet et impacts organisationnels. L'enjeu est de comprendre ce que ces cadres changent concrètement pour un établissement.",
+    title: "Médico-social",
+    description:
+      "Projet personnalisé, agenda, listes d'attente, coordination pluridisciplinaire et suivi administratif.",
+    to: "/secteur/handicap",
   },
   {
-    question: "Quels sujets explorer autour de la messagerie sécurisée, du DMP, du DSR, de l'HDS et de Blue ?",
-    answer:
-      "Les ressources les plus utiles expliquent quels documents circulent, dans quelles conditions, avec quel niveau de sécurité, et comment l'hébergement est organisé. Ce sont de bons repères pour comprendre l'environnement technique et réglementaire du DUI.",
-  },
-  {
-    question: "Comment trouver des ressources adaptées à sa structure ou à sa filière ?",
-    answer:
-      "Il faut privilégier les contenus qui parlent du même contexte métier que le vôtre: handicap, protection de l'enfance, AHI, PDS ou multi-établissements. Plus les exemples, le vocabulaire et les contraintes ressemblent à votre organisation, plus la ressource sera utile.",
+    title: "Accueil, hébergement et insertion",
+    description:
+      "Suivi de parcours, gestion des places, accompagnement social et coordination multi-acteurs.",
+    to: "/secteur/insertion-ahi",
   },
 ];
 
-const resourceGuides = [
+const officialLinks = [
   {
-    icon: Workflow,
-    eyebrow: "Préparer un projet",
-    title: "Déploiement et reprise de données",
-    description:
-      "Commencez par les repères sur le cadrage, la reprise de données, les rôles projet, la formation et le suivi après démarrage.",
-    tags: ["cadrage projet DUI", "reprise de données", "formation utilisateurs", "démarrage"],
+    href: "https://esante.gouv.fr/segur/medico-social",
+    label: "ANS - Ségur du numérique en santé pour le médico-social",
   },
   {
-    icon: ShieldCheck,
-    eyebrow: "Comprendre le cadre",
-    title: "Cadre SONS, Ségur et ANS",
-    description:
-      "Pour comprendre les obligations et les jalons, ciblez les contenus qui expliquent les vagues, l'interopérabilité et les impacts sur le partage des données.",
-    tags: ["ANS", "SONS", "Ségur numérique", "vague 1", "vague 2"],
+    href: "https://esante.gouv.fr/webinaires/tout-comprendre-sur-le-dispositif-de-financement-sons-pour-le-secteur-medico-social",
+    label: "ANS - Tout comprendre sur le dispositif SONS",
   },
   {
-    icon: FolderKanban,
-    eyebrow: "Aller au bon niveau métier",
-    title: "Sécurité, échanges et filières",
-    description:
-      "Privilégiez les ressources qui relient sécurité, échanges documentaires, hébergement et fonctionnement concret des structures selon votre filière.",
-    tags: ["messagerie sécurisée", "DMP", "DSR", "HDS", "multi-établissements"],
+    href: "https://esante.gouv.fr/ens/segur-numerique-sante/vague-1/dispositif-dui-ms1-pa-ph-dom-couloir-social-medico-social",
+    label: "ANS - Dispositif DUI MS1",
+  },
+  {
+    href: "https://esante.gouv.fr/ens/segur-numerique-sante/vague-1/dispositif-dui-ms2-pds-couloir-social-medico-social",
+    label: "ANS - Dispositif DUI MS2",
   },
 ];
 
@@ -97,7 +94,7 @@ const RessourcesPage = () => (
     <SEOHead {...seo} />
     <Navbar />
     <PageMain className="pt-16">
-      <section className="px-4 py-20 paper-bg">
+      <section className="px-4 py-16 paper-bg">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -105,7 +102,7 @@ const RessourcesPage = () => (
             className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary"
           >
             <BookOpenText className="h-4 w-4" />
-            Hub ressources
+            Ressources
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -113,7 +110,7 @@ const RessourcesPage = () => (
             transition={{ delay: 0.1 }}
             className="mb-6 text-4xl font-bold text-foreground md:text-6xl"
           >
-            Ressources <span className="text-primary sketch-underline">SILAO</span>
+            Ressources <span className="text-primary sketch-underline">{PRODUCT_NAME}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -121,29 +118,25 @@ const RessourcesPage = () => (
             transition={{ delay: 0.2 }}
             className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground"
           >
-            Cette page regroupe les sujets que les décideurs ESSMS recherchent réellement
-            avant de choisir un DUI : déploiement, conformité, multi-établissements,
-            secteurs couverts et niveau d&apos;accompagnement.
+            Cette page rassemble les thématiques clés à examiner avant de choisir un DUI :
+            déploiement, cadre réglementaire, secteurs couverts et qualité de l&apos;accompagnement.
           </motion.p>
         </div>
       </section>
 
-      <section className="px-4 py-16">
+      <section className="px-4 py-12">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-10 max-w-2xl">
+          <div className="mb-8 max-w-2xl">
             <h2 className="text-3xl font-bold text-foreground">
-              Les sujets à traiter <span className="text-primary sketch-underline">en profondeur</span>
+              Les sujets à explorer en priorité
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Chaque bloc couvre un besoin métier identifié et renvoie vers les pages les plus utiles du site.
+              Trois entrées simples pour trouver les contenus vraiment utiles.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {pillars.map((pillar) => (
-              <article
-                key={pillar.title}
-                className="section-panel p-6"
-              >
+              <article key={pillar.title} className="section-panel p-6">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <pillar.icon className="h-5 w-5" />
                 </div>
@@ -167,91 +160,52 @@ const RessourcesPage = () => (
         </div>
       </section>
 
-      <section className="px-4 py-16 paper-bg">
+      <section className="px-4 py-12 paper-bg">
         <div className="mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-[linear-gradient(135deg,hsl(var(--brand-violet)/0.06),hsl(var(--primary)/0.05)_42%,hsl(var(--accent)/0.08))] p-8 shadow-[0_32px_90px_-42px_hsl(var(--brand-violet)/0.35)] md:p-10">
-            <div className="pointer-events-none absolute -left-16 top-0 h-40 w-40 rounded-full bg-primary/15 blur-3xl" />
-            <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
-            <div className="relative grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                  Trouver les bonnes <span className="text-primary sketch-underline">ressources DUI</span>
-                  {" "}selon votre besoin
-                </h2>
-                <p className="mt-4 text-base leading-8 text-muted-foreground md:text-lg">
-                  Que vous cherchiez à préparer un déploiement, comprendre le cadre SONS ou Ségur,
-                  sécuriser les échanges ou trouver des repères adaptés à votre filière, ce bloc
-                  vous aide à repérer les sujets qui comptent vraiment dans une recherche métier DUI.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {["déploiement", "reprise de données", "SONS", "Ségur", "MSSanté", "DMP", "HDS", "filières ESSMS"].map(
-                    (keyword) => (
-                      <span
-                        key={keyword}
-                        className="rounded-full border border-border/70 bg-card/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-foreground/80"
-                      >
-                        {keyword}
-                      </span>
-                    ),
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                {resourceGuides.map((topic) => (
-                  <article
-                    key={topic.title}
-                    className="surface-card rounded-[1.5rem] p-5 md:p-6"
-                  >
-                    <div className="grid gap-4 md:grid-cols-[auto_1fr] md:gap-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <topic.icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                          {topic.eyebrow}
-                        </p>
-                        <h3 className="mt-2 text-xl font-bold text-foreground">{topic.title}</h3>
-                        <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                          {topic.description}
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {topic.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              Exemples de cas d&apos;usage
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+              Des exemples par secteur pour retrouver un contexte proche du vôtre.
+            </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-4xl">
-            <div className="mb-8 text-center">
-              <h3 className="text-2xl font-bold text-foreground md:text-3xl">
-                Questions qui reviennent souvent
-              </h3>
-              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                Ces repères aident à orienter une recherche métier sur le DUI, à identifier les bons
-                sujets et à prioriser les ressources vraiment utiles.
-              </p>
-            </div>
-            <div className="space-y-4">
-              {questions.map((item) => (
-                <article
-                  key={item.question}
-                  className="rounded-[1.5rem] border border-border/60 bg-card/95 p-6 shadow-[0_20px_60px_-42px_hsl(var(--brand-violet)/0.35)]"
+          <div className="grid gap-6 md:grid-cols-3">
+            {useCases.map((item) => (
+              <article key={item.title} className="surface-card rounded-[1.5rem] p-6">
+                <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
+                <p className="mb-5 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                <Link
+                  to={item.to}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4"
                 >
-                  <h3 className="mb-3 text-lg font-bold text-foreground">{item.question}</h3>
-                  <p className="leading-7 text-muted-foreground">{item.answer}</p>
-                </article>
+                  Ouvrir la page secteur
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-[1.75rem] border border-border/60 bg-card p-6 shadow-sm">
+            <h3 className="mb-3 text-2xl font-bold text-foreground">
+              Liens officiels utiles
+            </h3>
+            <p className="mb-4 text-sm leading-7 text-muted-foreground">
+              Pour compléter les contenus du site, voici quelques ressources officielles de l&apos;ANS.
+            </p>
+            <div className="flex flex-col gap-3">
+              {officialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4"
+                >
+                  {link.label}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </a>
               ))}
             </div>
           </div>

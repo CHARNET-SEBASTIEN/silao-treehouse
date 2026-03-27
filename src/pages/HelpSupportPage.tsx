@@ -16,7 +16,7 @@ const seo = getPageSeo("/aide-support");
 const supportLinks = [
   {
     title: "Découvrir les ressources",
-    description: "Guides DUI, conformité Ségur, cas d'usage sectoriels et actualités éditoriales.",
+    description: "Guides, repères réglementaires et exemples par secteur.",
     to: "/ressources",
     icon: BookOpenText,
   },
@@ -34,7 +34,7 @@ const supportLinks = [
   },
   {
     title: "Approfondir le cadre réglementaire",
-    description: "Conformité SONS, interopérabilité et éléments de cadrage pour vos équipes.",
+    description: "Conformité SONS, interopérabilité et éléments de cadrage utiles aux équipes.",
     to: "/conformite-sons",
     icon: Brain,
   },
@@ -59,7 +59,7 @@ const HelpSupportPage = () => {
                 Démonstration, support et documentation dans un même <span className="text-primary sketch-underline">espace de contact</span>
               </h1>
               <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
-                Retrouvez les accès utiles pour contacter l&apos;équipe, préparer un projet SILAO ou
+                Retrouvez les accès utiles pour contacter l&apos;équipe, préparer un projet Silao ou
                 demander des informations complémentaires.
               </p>
             </div>
@@ -84,7 +84,7 @@ const HelpSupportPage = () => {
             <article className="section-panel flex h-full flex-col p-8">
               <h2 className="mb-4 text-2xl font-bold text-foreground">Demande de démonstration</h2>
               <p className="mb-6 text-muted-foreground">
-                Pour qualifier un projet, identifier le secteur concerné et organiser une présentation ciblée de SILAO.
+                Pour qualifier un projet, identifier le secteur concerné et organiser une présentation ciblée de Silao.
               </p>
               <Button variant="hero" size="lg" className="mt-auto w-full" onClick={openDialog}>
                 Demander une démo
@@ -102,9 +102,9 @@ const HelpSupportPage = () => {
             </article>
 
             <article className="section-panel flex h-full flex-col p-8">
-              <h2 className="mb-4 text-2xl font-bold text-foreground">Plaquette et actualités</h2>
+              <h2 className="mb-4 text-2xl font-bold text-foreground">Plaquette et ressources</h2>
               <p className="mb-6 text-muted-foreground">
-                Pour demander une présentation synthétique et accéder aux contenus publics SILAO.
+                Pour demander une présentation synthétique et accéder aux contenus publics Silao.
               </p>
               <div className="mt-auto flex flex-col gap-3">
                 <Button asChild variant="hero-outline" size="lg">
