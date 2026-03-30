@@ -48,7 +48,25 @@ const secteurs = [
 const points = [
   "Des informations centralisées et accessibles pour les équipes",
   "4 secteurs couverts avec des usages adaptés au terrain",
-  "Un accompagnement de proximité de la démo au déploiement",
+  "Un accompagnement de proximité au fil des étapes",
+];
+
+const complianceChips = [
+  {
+    icon: Baby,
+    label: "Référencé DSR Ségur MS2 PE",
+    theme: filiereThemes.pde,
+  },
+  {
+    icon: Accessibility,
+    label: "Référencé DSR Ségur MS1 PH",
+    theme: filiereThemes.ph,
+  },
+  {
+    icon: Home,
+    label: "Participe aux comités éditeurs DSR Ségur AHI",
+    theme: filiereThemes.ahi,
+  },
 ];
 
 const HeroSection = () => {
@@ -76,7 +94,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="marker-label mb-5"
+                className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold tracking-[0.08em] text-primary shadow-[0_12px_28px_-20px_hsl(var(--primary)/0.45)] backdrop-blur"
               >
                 <motion.span
                   animate={{ rotate: [0, 15, -15, 0] }}
@@ -116,21 +134,15 @@ const HeroSection = () => {
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2.5">
-                <span
-                  className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.pde.border} ${filiereThemes.pde.bg} ${filiereThemes.pde.text}`}
-                >
-                  Référencé DSR Ségur MS2 PE
-                </span>
-                <span
-                  className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.ph.border} ${filiereThemes.ph.bg} ${filiereThemes.ph.text}`}
-                >
-                  Référencé DSR Ségur MS1 PH
-                </span>
-                <span
-                  className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold ${filiereThemes.ahi.border} ${filiereThemes.ahi.bg} ${filiereThemes.ahi.text}`}
-                >
-                  Participe aux comités éditeurs DSR Ségur AHI
-                </span>
+                {complianceChips.map((chip) => (
+                  <span
+                    key={chip.label}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-semibold ${chip.theme.border} ${chip.theme.bg} ${chip.theme.text}`}
+                  >
+                    <chip.icon className="h-3.5 w-3.5" />
+                    {chip.label}
+                  </span>
+                ))}
               </div>
 
               <ul className="mt-5 space-y-3">

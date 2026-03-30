@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Accessibility, Baby, Home, Linkedin, Mail, MapPin, Stethoscope } from "lucide-react";
 
 import logoD2lColor from "@/assets/logo-d2l-color.png";
 import logoD2lWhite from "@/assets/logo-d2l-white.png";
@@ -15,6 +15,13 @@ import {
   LINKEDIN_URL,
   PRODUCT_NAME,
 } from "@/lib/site";
+
+const sectorChips = [
+  { label: "PDE", icon: Baby, theme: filiereThemes.pde },
+  { label: "PH", icon: Accessibility, theme: filiereThemes.ph },
+  { label: "AHI", icon: Home, theme: filiereThemes.ahi },
+  { label: "PDS", icon: Stethoscope, theme: filiereThemes.pds },
+];
 
 const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   (props, ref) => {
@@ -79,10 +86,15 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 établissements sociaux et médico-sociaux.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
-                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.pde.border} ${filiereThemes.pde.bg} ${filiereThemes.pde.text}`}>PDE</span>
-                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.ph.border} ${filiereThemes.ph.bg} ${filiereThemes.ph.text}`}>PH</span>
-                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.ahi.border} ${filiereThemes.ahi.bg} ${filiereThemes.ahi.text}`}>AHI</span>
-                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${filiereThemes.pds.border} ${filiereThemes.pds.bg} ${filiereThemes.pds.text}`}>PDS</span>
+                {sectorChips.map((chip) => (
+                  <span
+                    key={chip.label}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${chip.theme.border} ${chip.theme.bg} ${chip.theme.text}`}
+                  >
+                    <chip.icon className="h-3.5 w-3.5" />
+                    {chip.label}
+                  </span>
+                ))}
               </div>
             </div>
 

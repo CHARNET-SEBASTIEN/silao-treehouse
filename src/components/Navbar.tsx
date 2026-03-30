@@ -28,33 +28,13 @@ import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
   { label: "Fonctionnalités", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
-  { label: "Qui sommes-nous", href: "/#societe", icon: Users2, isAnchor: true },
+  { label: "Offres", href: "/offres", icon: BriefcaseBusiness },
+  { label: "Ressources", href: "/ressources", icon: Newspaper },
+  { label: "Qui sommes-nous ?", href: "/#societe", icon: Users2, isAnchor: true },
   { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
   { label: "R&D et IA", href: "/#recherche-innovation", icon: Newspaper, isAnchor: true },
   { label: "Références", href: "/#references", icon: ShieldCheck, isAnchor: true },
-  { label: "Contacts", href: "/#contacts", icon: Mail, isAnchor: true },
-];
-
-const groupedLinks = [
-  {
-    title: "Secteurs",
-    links: [
-      { label: "Protection de l'enfance", href: "/secteur/protection-enfance", description: "MECS, milieu ouvert, accueil familial" },
-      { label: "Médico-social", href: "/secteur/handicap", description: "IME, DITEP, SESSAD, CAMSP, CMPP" },
-      { label: "Accueil, hébergement et insertion", href: "/secteur/insertion-ahi", description: "CHRS, CADA, HUDA, CPH, AVDL" },
-      { label: "Personnes en difficultés spécifiques", href: "/secteur/personnes-difficultes-specifiques", description: "LHSS, ACT, CAARUD" },
-    ],
-  },
-  {
-    title: "Pages utiles",
-    links: [
-      { label: "Offres", href: "/offres", description: "Déploiement, reprise, formation" },
-      { label: "Accompagnement", href: "/accompagnement", description: "Méthode projet et proximité terrain" },
-      { label: "Formations", href: "/formations", description: "Sur mesure, Qualiopi, accessibilité" },
-      { label: "Engagements", href: "/engagements", description: "Sécurité, RGPD, référencement Ségur" },
-      { label: "Ressources", href: "/ressources", description: "Guides, repères et contenus utiles" },
-    ],
-  },
+  { label: "Contact", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
 
 const Navbar = () => {
@@ -349,35 +329,6 @@ const Navbar = () => {
                   <ThemeToggle className="h-11 w-full justify-center rounded-[1.1rem] text-sm font-semibold" />
                 </div>
               </motion.section>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                {groupedLinks.map((group, groupIndex) => (
-                  <motion.section
-                    key={group.title}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.18 + groupIndex * 0.08 }}
-                    className="rounded-[1.75rem] border border-border/80 bg-card p-5 shadow-[0_22px_48px_-36px_hsl(var(--brand-violet)/0.2)]"
-                  >
-                    <p className="mb-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-                      {group.title}
-                    </p>
-                    <div className="space-y-3">
-                      {group.links.map((link) => (
-                        <Link
-                          key={link.href}
-                          to={link.href}
-                          onClick={() => setOpen(false)}
-                          className="block rounded-2xl border border-border/80 bg-background/90 px-4 py-3 transition-colors hover:border-primary/30 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                        >
-                          <p className="font-semibold text-foreground">{link.label}</p>
-                          <p className="mt-1 text-sm leading-6 text-muted-foreground">{link.description}</p>
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.section>
-                ))}
-              </div>
             </nav>
           </motion.div>
         ) : null}

@@ -443,7 +443,7 @@
   }
 
   .filiere-ahi-border {
-    border-color: hsl(var(--filiere-ahi) / 0.5);
+    border-color: hsl(var(--filiere-ahi-foreground) / 0.22);
   }
 
   .filiere-pds-text {

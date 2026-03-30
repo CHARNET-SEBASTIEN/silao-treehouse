@@ -1,0 +1,22 @@
+<?php
+
+return [
+    // Activez temporairement ce mode pour vérifier le flux sans envoyer d'email.
+    "dry_run" => false,
+
+    // Activez cette option seulement si vous voulez des logs PHP détaillés.
+    "debug" => false,
+
+    "mailpace_api_url" => "https://app.mailpace.com/api/v1/send",
+    "mailpace_server_token" => "REMPLACER_PAR_VOTRE_TOKEN_MAILPACE",
+
+    // Adresses à adapter avant la mise en ligne.
+    "contact_to" => "contact@silao.fr",
+    "contact_from" => "contact@silao.fr",
+
+    "site_url" => "https://www.silao.fr",
+    "site_name" => "SILAO",
+
+    // Si MailPace n'est pas configuré, le script peut retomber sur mail().
+    "use_php_mail_fallback" => true,
+];

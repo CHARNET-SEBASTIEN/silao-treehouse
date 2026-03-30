@@ -37,8 +37,8 @@ const phases = [
     title: "Une équipe qui connaît le terrain",
     icon: Users,
     points: [
-      "Les équipes en lien avec les clients intègrent d'anciens responsables d'établissement, chefs de service et travailleurs sociaux.",
-      "Cette connaissance du terrain permet une compréhension fine des contraintes et priorités métier.",
+      "L'équipe réunit des compétences complémentaires en projet, formation, support et produit.",
+      "Cette diversité permet une compréhension fine des contraintes et priorités métier.",
       "Les réponses apportées sont pensées pour vos pratiques professionnelles réelles.",
     ],
   },
@@ -49,7 +49,7 @@ const supportBlocks = [
     icon: HeartHandshake,
     title: "Qualité et bienveillance",
     description:
-      "Professionnalisme et bienveillance guident l'accompagnement des équipes de la protection de l'enfance, du médico-social et de l'insertion.",
+      "Professionnalisme et bienveillance guident l'accompagnement des équipes de la protection de l'enfance, du médico-social, de l'insertion et des publics en difficultés spécifiques.",
   },
   {
     icon: ShieldCheck,
@@ -92,7 +92,7 @@ const AccompagnementSection = () => {
           </div>
           <h1 className="mb-5 text-4xl font-bold text-foreground md:text-6xl">
             Un accompagnement de proximité, pensé pour un déploiement{" "}
-            <span className="text-primary sketch-underline">sur le long terme</span>
+            <span className="text-primary sketch-underline">en toute sérénité</span>
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground">
             {COMPANY_DISPLAY_NAME} a fait le choix d&apos;un accompagnement adapté à votre contexte,
@@ -153,8 +153,8 @@ const AccompagnementSection = () => {
             <h2 className="mb-4 text-2xl font-bold text-foreground">Un cadre technique pris en charge</h2>
             <p className="mb-6 text-sm leading-7 text-muted-foreground">
               Avec {PRODUCT_NAME}, les équipes peuvent se concentrer sur leur métier : {COMPANY_DISPLAY_NAME}
-              prend en charge l&apos;infrastructure, les mises à jour et la continuité technique de
-              l&apos;outil.
+              prend en charge l&apos;infrastructure et assure les mises à jour et la continuité technique
+              de l&apos;outil.
             </p>
             <div className="space-y-3">
               {indicators.map((indicator) => (

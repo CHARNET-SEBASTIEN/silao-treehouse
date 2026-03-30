@@ -15,15 +15,15 @@ const markers = [
   },
   {
     icon: Users2,
-    title: "Des profils issus du terrain",
+    title: "Des profils complémentaires",
     description:
-      "L'équipe réunit des compétences informatiques, projet et des profils connaissant le secteur social et médico-social.",
+      "L'équipe réunit des compétences projet, support, formation et produit au service des usages du social et du médico-social.",
   },
   {
     icon: Wrench,
     title: "Une approche globale",
     description:
-      "Déploiement, support, formation, reprise de données et évolutions produit restent portés dans la même organisation.",
+      "Déploiement, reprise de données, formation, support et évolutions du logiciel restent portés par la même organisation.",
   },
 ];
 
@@ -44,8 +44,9 @@ const CompanyStorySection = () => (
             {COMPANY_DISPLAY_NAME}, l&apos;éditeur de {PRODUCT_NAME}
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
-            Ce qui distingue l&apos;accompagnement de {COMPANY_DISPLAY_NAME}, c&apos;est la continuité de
-            suivi et une réponse sur mesure portée par une équipe qui connaît le terrain.
+            Ce qui distingue l&apos;accompagnement de {COMPANY_DISPLAY_NAME}, c&apos;est la continuité du
+            suivi et la volonté d&apos;apporter une réponse sur mesure, incarnée par une équipe profondément
+            ancrée dans les réalités du terrain.
           </p>
           <div className="mt-6">
             <Button asChild variant="hero-outline" size="lg">

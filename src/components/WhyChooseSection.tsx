@@ -77,12 +77,9 @@ const WhyChooseSection = () => (
         viewport={{ once: true }}
         className="mx-auto mb-5 max-w-3xl text-center"
       >
-        <p className="marker-label mb-4">Pourquoi choisir Silao</p>
-        <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
-          Pourquoi nous choisir
-        </p>
+        <p className="marker-label mb-4">Pourquoi choisir Silao ?</p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Les raisons concrètes de choisir{" "}
+          Les raisons concrètes de faire confiance à{" "}
           <span className="text-primary sketch-underline">Silao</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">

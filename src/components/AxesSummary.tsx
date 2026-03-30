@@ -45,7 +45,7 @@ const AxesSummary = () => {
           className="text-center mb-14"
         >
           <p className="text-sm uppercase tracking-widest text-muted-foreground font-body mb-3">
-            Pourquoi choisir Silao
+            Pourquoi choisir Silao ?
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Nos <span className="text-primary sketch-underline">3 engagements</span>

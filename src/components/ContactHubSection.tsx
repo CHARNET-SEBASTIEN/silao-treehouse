@@ -23,19 +23,19 @@ const contactCards = [
     type: "link" as const,
   },
   {
-    icon: LifeBuoy,
-    title: "Support et contact public",
-    description: "Orienter une question, un besoin d'information ou une prise de contact générale.",
-    actionLabel: "Ouvrir l'aide",
-    href: "/aide-support",
-    type: "route" as const,
-  },
-  {
     icon: GraduationCap,
     title: "Formations et accessibilité",
     description: "Retrouver les modalités de formation et les informations d'accessibilité.",
     actionLabel: "Voir les formations",
     href: "/formations",
+    type: "route" as const,
+  },
+  {
+    icon: LifeBuoy,
+    title: "Support et contact public",
+    description: "Orienter une question, un besoin d'information ou une prise de contact générale.",
+    actionLabel: "Ouvrir l'aide",
+    href: "/aide-support",
     type: "route" as const,
   },
 ];
@@ -52,12 +52,12 @@ const ContactHubSection = () => {
           viewport={{ once: true }}
           className="mx-auto mb-5 max-w-3xl text-center"
         >
-          <p className="marker-label mb-4">Entrées de contact</p>
+          <p className="marker-label mb-4">Vous souhaitez nous contacter ?</p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
             Un <span className="text-primary sketch-underline">point d&apos;entrée</span> clair pour chaque demande
           </h2>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
-            Démonstration, plaquette, support ou formations: l&apos;essentiel est accessible sans détour.
+            Démonstration, plaquette, formations ou support : un espace de contact adapté à chacune de vos questions.
           </p>
         </motion.div>
 

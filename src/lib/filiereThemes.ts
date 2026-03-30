@@ -18,7 +18,7 @@ export const filiereThemes = {
     text: "filiere-ahi-text",
     bg: "filiere-ahi-bg",
     border: "filiere-ahi-border",
-    iconBg: "bg-accent/28 border border-accent/45",
+    iconBg: "bg-card",
   },
   pds: {
     label: "PDS",

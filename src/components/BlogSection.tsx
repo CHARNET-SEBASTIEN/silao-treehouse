@@ -22,7 +22,11 @@ const resources = [
   },
 ];
 
-const BlogSection = () => {
+type BlogSectionProps = {
+  showResourcesLink?: boolean;
+};
+
+const BlogSection = ({ showResourcesLink = true }: BlogSectionProps) => {
   return (
     <section className="px-4 py-6 md:py-8 tint-accent">
       <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
@@ -70,15 +74,17 @@ const BlogSection = () => {
           ))}
         </div>
 
-        <div className="mt-4 text-center">
-          <Link
-            to="/ressources"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
-          >
-            Voir le hub ressources
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+        {showResourcesLink ? (
+          <div className="mt-4 text-center">
+            <Link
+              to="/ressources"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
+            >
+              Voir les ressources
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );

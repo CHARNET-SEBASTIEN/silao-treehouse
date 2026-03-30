@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import BlogSection from "@/components/BlogSection";
 import FooterSection from "@/components/FooterSection";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
@@ -216,6 +217,8 @@ const RessourcesPage = () => (
           </div>
         </div>
       </section>
+
+      <BlogSection showResourcesLink={false} />
 
       <ResourcesFaqSection />
     </PageMain>

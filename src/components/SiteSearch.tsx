@@ -46,14 +46,14 @@ const searchItems: SearchItem[] = [
     keywords: ["secteurs", "pde", "ph", "ahi", "pds"],
   },
   {
-    title: "Pourquoi choisir Silao",
+    title: "Pourquoi choisir Silao ?",
     description: "Les engagements opérationnels portés par l'équipe D2L Informatique.",
     href: "/#pourquoi-silao",
     category: "Accueil",
     keywords: ["pourquoi", "différences", "sécurité", "expertise", "accompagnement"],
   },
   {
-    title: "Qui sommes-nous",
+    title: "Qui sommes-nous ?",
     description: "Créée en 2005, une équipe de 24 personnes construite avec le terrain.",
     href: "/#societe",
     category: "Accueil",

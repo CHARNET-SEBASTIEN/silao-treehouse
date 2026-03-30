@@ -98,12 +98,12 @@ const faqs = [
   {
     question: "Les formations sont-elles adaptées aux équipes et aux situations de handicap ?",
     answerText:
-      "Oui. D2L Informatique propose plusieurs formules de formation adaptées aux besoins des équipes, organisables entre un et deux mois selon les demandes, avec une attention spécifique portée à l'accessibilité.",
+      "Oui. D2L Informatique propose plusieurs formules de formation adaptées aux besoins des équipes, avec une temporalité d'organisation adaptée aux contraintes et une attention spécifique portée à l'accessibilité.",
     answer: (
       <>
         <p>
           D2L Informatique propose plusieurs formules de formation adaptées aux besoins des équipes,
-          avec un délai d&apos;organisation et de réalisation compris entre un et deux mois selon les demandes.
+          avec une temporalité d&apos;organisation et de réalisation adaptée à vos contraintes.
         </p>
         <p className="mt-3">
           Chaque situation de handicap peut être étudiée individuellement afin d&apos;organiser les
@@ -144,7 +144,7 @@ const FAQSection = () => (
           Questions fréquentes
         </h2>
         <p className="mx-auto max-w-xl font-body text-muted-foreground">
-          Les questions les plus directes pour comprendre Silao, son périmètre et son accompagnement.
+          Les questions les plus fréquentes pour comprendre rapidement Silao, son périmètre et son accompagnement.
         </p>
       </motion.div>
 

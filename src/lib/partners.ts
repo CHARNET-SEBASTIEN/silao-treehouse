@@ -1,5 +1,4 @@
 import actionEnfanceLogo from "@/assets/partners/action-enfance.svg";
-import apajhLogo from "@/assets/partners/apajh.png";
 import croixRougeFrancaiseLogo from "@/assets/partners/croix-rouge-francaise.svg";
 import fondationGrancherLogo from "@/assets/partners/fondation-grancher.svg";
 import sauvegarde26Logo from "@/assets/partners/sauvegarde-26.svg";
@@ -24,13 +23,6 @@ export const partnerReferences: PartnerReference[] = [
     monogram: "AE",
     logo: actionEnfanceLogo,
     logoAlt: "Logo Action Enfance",
-  },
-  {
-    name: "APAJH",
-    monogram: "AP",
-    logo: apajhLogo,
-    logoAlt: "Logo APAJH",
-    logoClassName: "max-h-16 scale-[1.22]",
   },
   {
     name: "Sauvegarde 26",

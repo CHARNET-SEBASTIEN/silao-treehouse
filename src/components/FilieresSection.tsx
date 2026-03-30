@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Accessibility, ArrowRight, Home, ShieldCheck, Stethoscope } from "lucide-react";
+import { Accessibility, ArrowRight, Baby, Home, Stethoscope } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { filiereThemes } from "@/lib/filiereThemes";
 
 const filieres = [
   {
-    icon: ShieldCheck,
+    icon: Baby,
     name: "PDE",
     title: "Protection de l'enfance",
     description:
@@ -14,7 +14,7 @@ const filieres = [
     structures: ["MECS", "AEMO", "SIE", "MJIE", "Accueil familial", "Lieux de vie"],
     theme: filiereThemes.pde,
     href: "/secteur/protection-enfance",
-    cta: "Silao pour la protection de l'enfance",
+    cta: "Silao pour la PDE",
   },
   {
     icon: Accessibility,
@@ -25,7 +25,7 @@ const filieres = [
     structures: ["IME", "DITEP", "SESSAD", "CAMSP", "CMPP", "MAS / FAM"],
     theme: filiereThemes.ph,
     href: "/secteur/handicap",
-    cta: "Silao pour le médico-social",
+    cta: "Silao pour le PH",
   },
   {
     icon: Home,
@@ -61,9 +61,6 @@ const FilieresSection = () => (
         className="mx-auto mb-5 max-w-3xl text-center"
       >
         <p className="marker-label mb-4">Secteurs couverts</p>
-        <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
-          Secteurs
-        </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
           <span className="text-primary sketch-underline">Silao au service de 4 secteurs</span>
         </h2>

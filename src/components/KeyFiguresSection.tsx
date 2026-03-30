@@ -7,11 +7,11 @@ const figures = [
     icon: CalendarClock,
     value: "20 ans",
     label: "d'expérience",
-    description: "dans l'édition de logiciels pour le social et le médico-social.",
+    description: "dans l'édition de logiciel pour le social et le médico-social.",
   },
   {
     icon: Users2,
-    value: "24",
+    value: "30",
     label: "collaborateurs",
     description: "mobilisés sur la solution, le projet, le support et la formation.",
   },
@@ -40,15 +40,15 @@ const KeyFiguresSection = () => (
       >
         <p className="marker-label mb-4">Nos chiffres clés</p>
         <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
-          Chiffres clés
+          Qui se cache derrière Silao ?
         </p>
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">
           Quelques repères pour situer{" "}
           <span className="text-primary sketch-underline">{COMPANY_DISPLAY_NAME}</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Chez {COMPANY_DISPLAY_NAME}, nous sommes tournés à 100 % vers le DUI depuis plus de 20
-          ans, avec une équipe dédiée aux usages du social et du médico-social.
+          Chez {COMPANY_DISPLAY_NAME}, nous nous consacrons entièrement au DUI depuis plus de 20
+          ans, grâce à une équipe experte, dédiée aux usages du social et du médico-social.
         </p>
       </motion.div>
 

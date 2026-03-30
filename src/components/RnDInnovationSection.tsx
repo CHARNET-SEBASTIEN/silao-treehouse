@@ -14,24 +14,24 @@ import { Button } from "@/components/ui/button";
 
 const innovationAxes = [
   {
+    icon: Database,
+    title: "Données sensibles sécurisées",
+    description: "Un cadre sécurisé pour vos données, avec des usages utiles et une responsabilité humaine conservée.",
+  },
+  {
     icon: TextSearch,
-    title: "Assistance à la recherche",
-    description: "Retrouver plus vite l'information utile dans le dossier.",
+    title: "Aide à la recherche",
+    description: "Retrouver plus facilement l'information utile dans le dossier.",
   },
   {
     icon: BookOpen,
-    title: "Aides à la rédaction",
+    title: "Aide à la rédaction",
     description: "Structurer certains écrits avec des assistances relues par les professionnels.",
   },
   {
-    icon: BrainCircuit,
+    icon: ShieldCheck,
     title: "Assistances encadrées",
     description: "Explorer des usages utiles sans confondre aide logicielle et décision professionnelle.",
-  },
-  {
-    icon: Database,
-    title: "Données sensibles sécurisées",
-    description: "Simplifier les accès autorisés tout en gardant un cadre strict sur les données.",
   },
 ];
 
@@ -52,16 +52,17 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
           <div className="text-center lg:text-left">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
               <FlaskConical className="h-4 w-4" />
-              R&amp;D &amp; IA
+              R&amp;D et IA
               <ShieldCheck className="h-4 w-4 opacity-80" />
             </div>
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-              <span className="text-primary sketch-underline">Innover</span> pour les professionnels
+              <span className="text-primary sketch-underline">Innover</span> pour les professionnels, sans déshumaniser
             </h2>
             <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
-              Nous explorons des usages réellement utiles pour alléger certaines tâches administratives,
-              améliorer la recherche d&apos;information et garder un cadre strict sur les données et
-              la responsabilité humaine dans les secteurs social et médico-social.
+              Nous explorons les évolutions technologiques et leurs usages réellement utiles pour vous
+              permettre d&apos;alléger certaines tâches administratives, d&apos;améliorer la recherche
+              d&apos;information et de garder un cadre sécurisé pour vos données tout en conservant la
+              responsabilité humaine.
             </p>
             <div className="mt-6">
               <Button asChild variant="hero-outline" size="lg">

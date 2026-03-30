@@ -85,7 +85,7 @@ const features = [
     icon: FileArchive,
     title: "Gestion documentaire (GED)",
     description:
-      "Stockage, classement et consultation des documents usagers, avec génération de modèles et de rapports.",
+      "Stockage, classement et consultation des documents usagers, avec génération de modèles pour vos courriers et rapports.",
   },
   {
     group: "organisation",
@@ -142,7 +142,7 @@ const FeaturesSection = () => (
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
           Dossier usager, agenda, transmissions, gestion documentaire (GED), rappels, pilotage et
-          facturation: les fonctionnalités sont pensées pour accompagner les usages réels du
+          facturation : les fonctionnalités sont pensées pour accompagner les usages réels du
           terrain.
         </p>
       </motion.div>
@@ -228,13 +228,8 @@ const FeaturesSection = () => (
                   transition={{ duration: 0.25 }}
                   className="px-2 py-2 md:px-4"
                 >
-                  <div className="mb-6 flex flex-col gap-3 border-b border-border/70 pb-5 md:flex-row md:items-end md:justify-between">
-                    <div>
-                      <p className={`text-sm font-semibold uppercase tracking-[0.2em] ${group.eyebrowColor}`}>
-                        {group.eyebrow}
-                      </p>
-                      <h3 className="mt-2 text-2xl font-bold text-foreground">{group.title}</h3>
-                    </div>
+                  <div className="mb-6 border-b border-border/70 pb-5">
+                    <h3 className="sr-only">{group.title}</h3>
                     <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{group.description}</p>
                   </div>
 
