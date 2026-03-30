@@ -21,25 +21,31 @@ type FormValues = {
   organization: string;
   phone: string;
   message: string;
+  website: string;
+  startedAt: string;
 };
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
-const initialValues: FormValues = {
+const minFormFillMs = 2500;
+
+const createInitialValues = (): FormValues => ({
   lastName: "",
   firstName: "",
   email: "",
   organization: "",
   phone: "",
   message: "",
-};
+  website: "",
+  startedAt: Date.now().toString(),
+});
 
 const contactEndpoint = import.meta.env.VITE_CONTACT_API_URL ?? "/api/contact";
 
 const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProps>(
   ({ open, onOpenChange }, _ref) => {
     const [loading, setLoading] = useState(false);
-    const [formValues, setFormValues] = useState<FormValues>(initialValues);
+    const [formValues, setFormValues] = useState<FormValues>(() => createInitialValues());
     const [errors, setErrors] = useState<FormErrors>({});
     const [statusMessage, setStatusMessage] = useState("");
     const fieldRefs = useRef<Record<keyof FormValues, HTMLInputElement | HTMLTextAreaElement | null>>({
@@ -49,7 +55,18 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
       organization: null,
       phone: null,
       message: null,
+      website: null,
+      startedAt: null,
     });
+
+    useEffect(() => {
+      if (!open) return;
+      setFormValues((current) => ({
+        ...current,
+        website: "",
+        startedAt: Date.now().toString(),
+      }));
+    }, [open]);
 
     useEffect(() => {
       if (open) return;
@@ -114,6 +131,12 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
         return;
       }
 
+      const startedAtMs = Number(formValues.startedAt);
+      if (!Number.isFinite(startedAtMs) || Date.now() - startedAtMs < minFormFillMs) {
+        setStatusMessage("Merci de patienter quelques secondes puis de renvoyer votre demande.");
+        return;
+      }
+
       const payload = {
         lastName: formValues.lastName.trim(),
         firstName: formValues.firstName.trim(),
@@ -121,6 +144,8 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
         organization: formValues.organization.trim(),
         phone: formValues.phone.trim(),
         message: formValues.message.trim(),
+        website: formValues.website.trim(),
+        startedAt: formValues.startedAt,
       };
 
       setStatusMessage("Envoi de votre demande.");
@@ -136,17 +161,28 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
           body: JSON.stringify(payload),
         });
 
+        const result = await response.json().catch(() => null);
+
         if (!response.ok) {
-          const details = await response.text().catch(() => "");
+          if (response.status === 429) {
+            throw new Error("Trop de tentatives. Merci de patienter quelques minutes avant de réessayer.");
+          }
+
+          if (response.status === 422) {
+            throw new Error(
+              "La demande a été bloquée automatiquement. Merci de vérifier le formulaire et de réessayer.",
+            );
+          }
+
+          const details = typeof result?.error === "string" ? result.error : "";
           throw new Error(`Contact request failed (${response.status}) ${details}`);
         }
 
-        const result = await response.json().catch(() => null);
         if (!result?.success) {
           throw new Error("Contact provider returned an error");
         }
 
-        setFormValues(initialValues);
+        setFormValues(createInitialValues());
         setErrors({});
         setStatusMessage("Votre demande a bien été envoyée.");
         onOpenChange(false);
@@ -155,9 +191,16 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
         });
       } catch (error) {
         console.error(error);
-        setStatusMessage("L'envoi a échoué. Merci de réessayer.");
+        const message =
+          error instanceof Error && error.message
+            ? error.message
+            : "L'envoi a échoué. Merci de réessayer.";
+        setStatusMessage(message);
         toast.error("Envoi impossible", {
-          description: `Réessayez plus tard ou écrivez à ${CONTACT_EMAIL}.`,
+          description:
+            error instanceof Error && error.message
+              ? error.message
+              : `Réessayez plus tard ou écrivez à ${CONTACT_EMAIL}.`,
         });
       } finally {
         setLoading(false);
@@ -176,10 +219,28 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
             </DialogDescription>
           </DialogHeader>
 
-          <form onSubmit={handleSubmit} noValidate className="space-y-4 mt-2">
+          <form onSubmit={handleSubmit} noValidate className="relative mt-2 space-y-4">
             <p aria-live="polite" className="sr-only">
               {statusMessage}
             </p>
+
+            <div
+              aria-hidden="true"
+              className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden"
+            >
+              <Label htmlFor="website" className="font-body text-sm">Site web</Label>
+              <Input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formValues.website}
+                onChange={handleChange}
+                className="font-body"
+              />
+            </div>
+            <input type="hidden" name="startedAt" value={formValues.startedAt} />
 
             <fieldset className="space-y-4">
               <legend className="mb-1 text-sm font-semibold text-foreground">

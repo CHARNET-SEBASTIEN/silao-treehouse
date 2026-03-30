@@ -27,13 +27,13 @@ import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
-  { label: "Fonctionnalités", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
+  { label: "Fonctionnalités", compactLabel: "Fonctions", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
   { label: "Offres", href: "/offres", icon: BriefcaseBusiness },
   { label: "Ressources", href: "/ressources", icon: Newspaper },
-  { label: "Qui sommes-nous ?", href: "/#societe", icon: Users2, isAnchor: true },
+  { label: "Qui sommes-nous ?", compactLabel: "Société", href: "/#societe", icon: Users2, isAnchor: true },
   { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
-  { label: "R&D et IA", href: "/#recherche-innovation", icon: Newspaper, isAnchor: true },
-  { label: "Références", href: "/#references", icon: ShieldCheck, isAnchor: true },
+  { label: "R&D et IA", compactLabel: "R&D / IA", href: "/#recherche-innovation", icon: Newspaper, isAnchor: true },
+  { label: "Références", compactLabel: "Clients", href: "/#references", icon: ShieldCheck, isAnchor: true },
   { label: "Contact", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
 
@@ -138,6 +138,20 @@ const Navbar = () => {
     scrollToHashTarget(`#${hash}`);
   };
 
+  const desktopLinkClassName =
+    "rounded-full whitespace-nowrap px-3 py-2 text-[0.92rem] font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 2xl:px-4 2xl:text-sm";
+
+  const renderDesktopLinkLabel = (label: string, compactLabel?: string) => {
+    if (!compactLabel) return label;
+
+    return (
+      <>
+        <span className="2xl:hidden">{compactLabel}</span>
+        <span className="hidden 2xl:inline">{label}</span>
+      </>
+    );
+  };
+
   return (
     <>
       <motion.header
@@ -203,17 +217,21 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(event) => handleAnchorNavigation(event, link.href)}
-                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className={desktopLinkClassName}
+                aria-label={link.label}
+                title={link.label}
               >
-                {link.label}
+                {renderDesktopLinkLabel(link.label, link.compactLabel)}
               </a>
             ) : (
               <Link
                 key={link.href}
                 to={link.href}
-                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className={desktopLinkClassName}
+                aria-label={link.label}
+                title={link.label}
               >
-                {link.label}
+                {renderDesktopLinkLabel(link.label, link.compactLabel)}
               </Link>
             ),
           )}

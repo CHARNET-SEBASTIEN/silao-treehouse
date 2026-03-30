@@ -92,5 +92,15 @@ Variables par défaut :
 - `SITE_URL=https://www.silao.fr`
 - `SITE_NAME=SILAO`
 - `CONTACT_API_PORT=8787`
+- `CONTACT_MIN_FORM_FILL_MS=2500`
+- `CONTACT_MAX_FORM_AGE_MS=43200000`
+- `CONTACT_RATE_LIMIT_WINDOW_MS=900000`
+- `CONTACT_RATE_LIMIT_MAX_REQUESTS=5`
 
 En développement, Vite proxy `/api/*` vers `http://127.0.0.1:8787`. Vous pouvez changer cette cible avec `CONTACT_API_PROXY_TARGET`.
+
+Le formulaire de démonstration inclut une protection anti-spam sans captcha visible :
+
+- un champ piège caché (`honeypot`)
+- un délai minimum avant soumission
+- une limitation simple par IP côté API

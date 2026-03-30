@@ -8,12 +8,23 @@ const MAILPACE_SERVER_TOKEN =
   process.env.MAILPACE_SERVER_TOKEN ?? "69ddf9b2-073e-4f4d-8073-022a6da4bee1";
 const MAILPACE_DEBUG =
   (process.env.MAILPACE_DEBUG ?? "false").toLowerCase() === "true";
-const CONTACT_TO =
-  process.env.CONTACT_TO ?? "sebastien.charnet@d2l-informatique.com";
-const CONTACT_FROM =
-  process.env.CONTACT_FROM ?? "sebastien.charnet@silage.fr";
+const CONTACT_TO = process.env.CONTACT_TO ?? "contact@silao.fr";
+const CONTACT_FROM = process.env.CONTACT_FROM ?? "contact@silage.fr";
 const SITE_URL = process.env.SITE_URL ?? "https://www.silao.fr";
 const SITE_NAME = process.env.SITE_NAME ?? "SILAO";
+const CONTACT_MIN_FORM_FILL_MS = Number(
+  process.env.CONTACT_MIN_FORM_FILL_MS ?? 2500,
+);
+const CONTACT_MAX_FORM_AGE_MS = Number(
+  process.env.CONTACT_MAX_FORM_AGE_MS ?? 43_200_000,
+);
+const CONTACT_RATE_LIMIT_WINDOW_MS = Number(
+  process.env.CONTACT_RATE_LIMIT_WINDOW_MS ?? 900_000,
+);
+const CONTACT_RATE_LIMIT_MAX_REQUESTS = Number(
+  process.env.CONTACT_RATE_LIMIT_MAX_REQUESTS ?? 5,
+);
+const rateLimitByIp = new Map();
 
 const jsonHeaders = {
   "Content-Type": "application/json; charset=utf-8",
@@ -36,6 +47,51 @@ const escapeHtml = (value) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 const nl2br = (value) => escapeHtml(value).replace(/\r?\n/g, "<br />");
+const getClientIp = (request) => {
+  const forwardedFor = request.headers["x-forwarded-for"];
+  if (typeof forwardedFor === "string" && forwardedFor.trim()) {
+    return forwardedFor.split(",")[0].trim();
+  }
+
+  return request.socket.remoteAddress ?? "unknown";
+};
+
+const isWithinExpectedTimeWindow = (startedAt) => {
+  if (!Number.isFinite(startedAt) || startedAt <= 0) {
+    return false;
+  }
+
+  const elapsedMs = Date.now() - startedAt;
+  return (
+    elapsedMs >= CONTACT_MIN_FORM_FILL_MS &&
+    elapsedMs <= CONTACT_MAX_FORM_AGE_MS
+  );
+};
+
+const pruneRateLimitStore = (now) => {
+  for (const [clientIp, timestamps] of rateLimitByIp.entries()) {
+    const recentTimestamps = timestamps.filter(
+      (timestamp) => now - timestamp < CONTACT_RATE_LIMIT_WINDOW_MS,
+    );
+
+    if (recentTimestamps.length === 0) {
+      rateLimitByIp.delete(clientIp);
+      continue;
+    }
+
+    rateLimitByIp.set(clientIp, recentTimestamps);
+  }
+};
+
+const isRateLimited = (clientIp) => {
+  const now = Date.now();
+  pruneRateLimitStore(now);
+  const timestamps = rateLimitByIp.get(clientIp) ?? [];
+  const recentTimestamps = [...timestamps, now];
+
+  rateLimitByIp.set(clientIp, recentTimestamps);
+  return recentTimestamps.length > CONTACT_RATE_LIMIT_MAX_REQUESTS;
+};
 
 const formatMessage = (payload) =>
   [
@@ -149,27 +205,6 @@ const formatHtmlMessage = (payload) => {
                                   </div>
                                   <div style="padding-top:12px;font:400 15px/24px Arial,Helvetica,sans-serif;color:#25324b;">
                                     ${messageHtml}
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;">
-                              <tr>
-                                <td style="background:#fff8d6;border:1px solid #ffe08a;border-radius:20px;padding:18px 22px;">
-                                  <div style="font:700 14px/22px Arial,Helvetica,sans-serif;color:#31317c;">
-                                    Action recommandée
-                                  </div>
-                                  <div style="padding-top:6px;font:400 14px/22px Arial,Helvetica,sans-serif;color:#4a5874;">
-                                    Répondez directement à cet email pour contacter ${escapeHtml(fullName)} ou consultez le site pour préparer l’échange.
-                                  </div>
-                                  <div style="padding-top:16px;">
-                                    <a href="${SITE_URL}" style="display:inline-block;background:#31317c;color:#ffffff;text-decoration:none;border-radius:999px;padding:12px 18px;font:700 14px/1 Arial,Helvetica,sans-serif;">
-                                      Ouvrir le site SILAO
-                                    </a>
                                   </div>
                                 </td>
                               </tr>
@@ -316,6 +351,16 @@ const server = createServer(async (request, response) => {
 
   try {
     const body = await readJsonBody(request);
+    const clientIp = getClientIp(request);
+
+    if (isRateLimited(clientIp)) {
+      response.writeHead(429, jsonHeaders);
+      response.end(
+        JSON.stringify({ success: false, error: "Too many requests" }),
+      );
+      return;
+    }
+
     const payload = {
       lastName: (body.lastName ?? "").toString().trim(),
       firstName: (body.firstName ?? "").toString().trim(),
@@ -323,7 +368,17 @@ const server = createServer(async (request, response) => {
       organization: (body.organization ?? "").toString().trim(),
       phone: (body.phone ?? "").toString().trim(),
       message: (body.message ?? "").toString().trim(),
+      website: (body.website ?? "").toString().trim(),
+      startedAt: Number(body.startedAt ?? Number.NaN),
     };
+
+    if (payload.website || !isWithinExpectedTimeWindow(payload.startedAt)) {
+      response.writeHead(422, jsonHeaders);
+      response.end(
+        JSON.stringify({ success: false, error: "Spam protection triggered" }),
+      );
+      return;
+    }
 
     if (!isValidPayload(payload)) {
       response.writeHead(422, jsonHeaders);

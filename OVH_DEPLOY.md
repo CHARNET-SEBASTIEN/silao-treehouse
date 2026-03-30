@@ -14,7 +14,8 @@
    - `mailpace_server_token`
    - `contact_to`
    - `contact_from`
-4. Pour un test sans envoi d'email, laissez temporairement `dry_run` à `true`.
+   - ajustez si besoin les seuils anti-spam (`min_form_fill_ms`, `rate_limit_*`)
+4. `dry_run` est activé par défaut dans le package généré : gardez-le à `true` pour le premier test.
 
 ## Bascule sûre sur OVH
 
@@ -45,6 +46,8 @@ Résultat attendu pour `GET /api/contact` : réponse JSON `405 Method not allowe
 3. Vérifiez que le message de succès apparaît.
 4. Remettez `dry_run` à `false`.
 5. Refaites un test réel et confirmez la réception de l'email.
+
+Si le test réel échoue, passez temporairement `debug` à `true` dans `api/contact-config.php` pour faire remonter la cause technique exacte dans la réponse JSON.
 
 ## Point d'attention
 

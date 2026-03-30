@@ -4,12 +4,16 @@ $defaultConfig = [
     "dry_run" => false,
     "debug" => false,
     "mailpace_api_url" => "https://app.mailpace.com/api/v1/send",
-    "mailpace_server_token" => "",
+    "mailpace_server_token" => "69ddf9b2-073e-4f4d-8073-022a6da4bee1",
     "contact_to" => "contact@silao.fr",
-    "contact_from" => "contact@silao.fr",
+    "contact_from" => "contact@silage.fr",
     "site_url" => "https://www.silao.fr",
     "site_name" => "SILAO",
     "use_php_mail_fallback" => true,
+    "min_form_fill_ms" => 2500,
+    "max_form_age_ms" => 43200000,
+    "rate_limit_window_ms" => 900000,
+    "rate_limit_max_requests" => 5,
 ];
 
 $config = $defaultConfig;
@@ -41,6 +45,56 @@ function contact_respond_json($statusCode, $payload)
     exit;
 }
 
+function contact_is_placeholder_value($value)
+{
+    $normalized = trim((string) $value);
+
+    if ($normalized === "") {
+        return true;
+    }
+
+    return in_array($normalized, [
+        "REMPLACER_PAR_VOTRE_TOKEN_MAILPACE",
+        "REPLACE_WITH_YOUR_MAILPACE_TOKEN",
+    ], true);
+}
+
+function contact_write_debug_log($config, $message)
+{
+    if (empty($config["debug"])) {
+        return;
+    }
+
+    $logPaths = [
+        dirname(__DIR__, 2) . "/private/contact-debug.log",
+        __DIR__ . "/contact-debug.log",
+    ];
+
+    $line = "[" . date("Y-m-d H:i:s") . "] " . $message . PHP_EOL;
+
+    foreach ($logPaths as $logPath) {
+        $directory = dirname($logPath);
+        if (!is_dir($directory) || !is_writable($directory)) {
+            continue;
+        }
+
+        @file_put_contents($logPath, $line, FILE_APPEND | LOCK_EX);
+        return;
+    }
+}
+
+function contact_get_client_ip()
+{
+    $forwardedFor = $_SERVER["HTTP_X_FORWARDED_FOR"] ?? "";
+    if (is_string($forwardedFor) && trim($forwardedFor) !== "") {
+        $parts = explode(",", $forwardedFor);
+        return trim((string) ($parts[0] ?? "unknown"));
+    }
+
+    $remoteAddr = $_SERVER["REMOTE_ADDR"] ?? "unknown";
+    return trim((string) $remoteAddr) !== "" ? trim((string) $remoteAddr) : "unknown";
+}
+
 function contact_is_non_empty_string($value)
 {
     return is_string($value) && trim($value) !== "";
@@ -59,6 +113,90 @@ function contact_has_max_length($value, $maxLength)
 function contact_is_email($value)
 {
     return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function contact_is_within_expected_time_window($startedAt, $config)
+{
+    if (!is_numeric($startedAt)) {
+        return false;
+    }
+
+    $startedAtMs = (int) $startedAt;
+    if ($startedAtMs <= 0) {
+        return false;
+    }
+
+    $elapsedMs = (int) round(microtime(true) * 1000) - $startedAtMs;
+
+    return $elapsedMs >= (int) ($config["min_form_fill_ms"] ?? 2500)
+        && $elapsedMs <= (int) ($config["max_form_age_ms"] ?? 43200000);
+}
+
+function contact_get_rate_limit_directory()
+{
+    $baseDirectories = [
+        dirname(__DIR__, 2) . "/private/contact-rate-limit",
+        __DIR__ . "/contact-rate-limit",
+        rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . "silao-contact-rate-limit",
+    ];
+
+    foreach ($baseDirectories as $directory) {
+        if (is_dir($directory) || @mkdir($directory, 0775, true)) {
+            return $directory;
+        }
+    }
+
+    return null;
+}
+
+function contact_is_rate_limited($clientIp, $config)
+{
+    $directory = contact_get_rate_limit_directory();
+    if ($directory === null) {
+        return false;
+    }
+
+    $windowMs = (int) ($config["rate_limit_window_ms"] ?? 900000);
+    $maxRequests = (int) ($config["rate_limit_max_requests"] ?? 5);
+    $filePath = $directory . DIRECTORY_SEPARATOR . hash("sha256", $clientIp) . ".json";
+    $nowMs = (int) round(microtime(true) * 1000);
+
+    $handle = @fopen($filePath, "c+");
+    if ($handle === false) {
+        return false;
+    }
+
+    try {
+        if (!flock($handle, LOCK_EX)) {
+            fclose($handle);
+            return false;
+        }
+
+        $raw = stream_get_contents($handle);
+        $timestamps = json_decode($raw ?: "[]", true);
+        if (!is_array($timestamps)) {
+            $timestamps = [];
+        }
+
+        $recentTimestamps = array_values(array_filter($timestamps, function ($timestamp) use ($nowMs, $windowMs) {
+            return is_numeric($timestamp) && ($nowMs - (int) $timestamp) < $windowMs;
+        }));
+
+        $recentTimestamps[] = $nowMs;
+
+        ftruncate($handle, 0);
+        rewind($handle);
+        fwrite($handle, json_encode($recentTimestamps, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        fflush($handle);
+        flock($handle, LOCK_UN);
+        fclose($handle);
+
+        return count($recentTimestamps) > $maxRequests;
+    } catch (Throwable $error) {
+        @flock($handle, LOCK_UN);
+        @fclose($handle);
+        return false;
+    }
 }
 
 function contact_escape_html($value)
@@ -185,27 +323,6 @@ function contact_build_html_message($payload, $config)
                                   </div>
                                   <div style="padding-top:12px;font:400 15px/24px Arial,Helvetica,sans-serif;color:#25324b;">
                                     ' . $messageHtml . '
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;">
-                              <tr>
-                                <td style="background:#fff8d6;border:1px solid #ffe08a;border-radius:20px;padding:18px 22px;">
-                                  <div style="font:700 14px/22px Arial,Helvetica,sans-serif;color:#31317c;">
-                                    Action recommandée
-                                  </div>
-                                  <div style="padding-top:6px;font:400 14px/22px Arial,Helvetica,sans-serif;color:#4a5874;">
-                                    Répondez directement à cet email pour contacter ' . contact_escape_html($fullName) . ' ou consultez le site pour préparer l’échange.
-                                  </div>
-                                  <div style="padding-top:16px;">
-                                    <a href="' . contact_escape_html($config["site_url"]) . '" style="display:inline-block;background:#31317c;color:#ffffff;text-decoration:none;border-radius:999px;padding:12px 18px;font:700 14px/1 Arial,Helvetica,sans-serif;">
-                                      Ouvrir le site SILAO
-                                    </a>
                                   </div>
                                 </td>
                               </tr>
@@ -348,7 +465,19 @@ $payload = [
     "organization" => trim((string) ($data["organization"] ?? "")),
     "phone" => trim((string) ($data["phone"] ?? "")),
     "message" => trim((string) ($data["message"] ?? "")),
+    "website" => trim((string) ($data["website"] ?? "")),
+    "startedAt" => $data["startedAt"] ?? null,
 ];
+
+$clientIp = contact_get_client_ip();
+
+if (contact_is_rate_limited($clientIp, $config)) {
+    contact_respond_json(429, ["success" => false, "error" => "Too many requests"]);
+}
+
+if ($payload["website"] !== "" || !contact_is_within_expected_time_window($payload["startedAt"], $config)) {
+    contact_respond_json(422, ["success" => false, "error" => "Spam protection triggered"]);
+}
 
 $isValidPayload =
     contact_is_non_empty_string($payload["lastName"]) &&
@@ -371,7 +500,7 @@ try {
         contact_respond_json(200, ["success" => true, "mode" => "dry_run"]);
     }
 
-    if (!empty($config["mailpace_server_token"])) {
+    if (!contact_is_placeholder_value($config["mailpace_server_token"])) {
         contact_send_with_mailpace($payload, $config);
     } elseif (!empty($config["use_php_mail_fallback"])) {
         contact_send_with_php_mail($payload, $config);
@@ -381,8 +510,15 @@ try {
 
     contact_respond_json(200, ["success" => true]);
 } catch (Throwable $error) {
+    contact_write_debug_log($config, $error->getMessage());
+
     if (!empty($config["debug"])) {
         error_log("[contact.php] " . $error->getMessage());
+        contact_respond_json(500, [
+            "success" => false,
+            "error" => "Unable to send email",
+            "details" => $error->getMessage(),
+        ]);
     }
 
     contact_respond_json(500, ["success" => false, "error" => "Unable to send email"]);

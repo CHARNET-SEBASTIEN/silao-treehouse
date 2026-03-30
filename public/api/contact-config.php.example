@@ -2,21 +2,27 @@
 
 return [
     // Activez temporairement ce mode pour vérifier le flux sans envoyer d'email.
-    "dry_run" => false,
+    "dry_run" => true,
 
     // Activez cette option seulement si vous voulez des logs PHP détaillés.
     "debug" => false,
 
     "mailpace_api_url" => "https://app.mailpace.com/api/v1/send",
-    "mailpace_server_token" => "REMPLACER_PAR_VOTRE_TOKEN_MAILPACE",
+    "mailpace_server_token" => "69ddf9b2-073e-4f4d-8073-022a6da4bee1",
 
     // Adresses à adapter avant la mise en ligne.
     "contact_to" => "contact@silao.fr",
-    "contact_from" => "contact@silao.fr",
+    "contact_from" => "contact@silage.fr",
 
     "site_url" => "https://www.silao.fr",
     "site_name" => "SILAO",
 
     // Si MailPace n'est pas configuré, le script peut retomber sur mail().
     "use_php_mail_fallback" => true,
+
+    // Protection anti-spam.
+    "min_form_fill_ms" => 2500,
+    "max_form_age_ms" => 43200000,
+    "rate_limit_window_ms" => 900000,
+    "rate_limit_max_requests" => 5,
 ];
