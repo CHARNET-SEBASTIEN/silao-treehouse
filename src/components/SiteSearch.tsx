@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowUpRight, Building2, FolderSearch, LifeBuoy, Search, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowUpRight, Building2, FolderSearch, Mail, Search, ShieldCheck, Sparkles } from "lucide-react";
 
 import {
   CommandDialog,
@@ -62,7 +62,7 @@ const searchItems: SearchItem[] = [
   {
     title: "R&D et intelligence artificielle",
     description:
-      "Innovation responsable pour le médico-social : supervision humaine, transparence et valeur ajoutée sans déshumaniser.",
+      "Expertise IA pour les ESSMS : ateliers en cours sur la sécurité des données, l'analyse des dossiers, la rédaction assistée et le copilote métier. Contactez-nous via le formulaire si vous souhaitez en discuter.",
     href: "/#recherche-innovation",
     category: "Accueil",
     keywords: [
@@ -71,7 +71,8 @@ const searchItems: SearchItem[] = [
       "innovation",
       "recherche",
       "r&d",
-      "éthique",
+      "poc",
+      "essms",
       "médico-social",
     ],
   },
@@ -144,13 +145,6 @@ const searchItems: SearchItem[] = [
     href: "/ressources",
     category: "Ressources",
     keywords: ["ressources", "guides", "conformité", "déploiement", "articles"],
-  },
-  {
-    title: "Aide et support",
-    description: "Accès utiles pour une demande publique, une orientation projet ou un support.",
-    href: "/aide-support",
-    category: "Contact",
-    keywords: ["aide", "support", "contact", "assistance"],
   },
 ];
 
@@ -308,11 +302,11 @@ const SiteSearch = ({ mode = "inline", className, initialOpen = false }: SiteSea
             Fonctionnalités métier
           </span>
           <Link
-            to="/aide-support"
+            to="/#contacts"
             className="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1 text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <LifeBuoy className="h-3.5 w-3.5" />
-            Support
+            <Mail className="h-3.5 w-3.5" />
+            Contact
           </Link>
         </div>
       </div>

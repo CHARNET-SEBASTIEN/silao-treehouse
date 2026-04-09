@@ -149,7 +149,22 @@ function contact_get_rate_limit_directory()
     return null;
 }
 
-function contact_is_rate_limited($clientIp, $config)
+function contact_normalize_rate_limit_value($value)
+{
+    return strtolower(trim((string) $value));
+}
+
+function contact_build_rate_limit_key($clientIp, $payload)
+{
+    $normalizedIp = contact_normalize_rate_limit_value($clientIp);
+    $normalizedEmail = contact_normalize_rate_limit_value($payload["email"] ?? "");
+
+    return $normalizedEmail !== ""
+        ? $normalizedIp . "|" . $normalizedEmail
+        : $normalizedIp;
+}
+
+function contact_is_rate_limited($rateLimitKey, $config)
 {
     $directory = contact_get_rate_limit_directory();
     if ($directory === null) {
@@ -158,7 +173,7 @@ function contact_is_rate_limited($clientIp, $config)
 
     $windowMs = (int) ($config["rate_limit_window_ms"] ?? 900000);
     $maxRequests = (int) ($config["rate_limit_max_requests"] ?? 5);
-    $filePath = $directory . DIRECTORY_SEPARATOR . hash("sha256", $clientIp) . ".json";
+    $filePath = $directory . DIRECTORY_SEPARATOR . hash("sha256", $rateLimitKey) . ".json";
     $nowMs = (int) round(microtime(true) * 1000);
 
     $handle = @fopen($filePath, "c+");
@@ -471,10 +486,6 @@ $payload = [
 
 $clientIp = contact_get_client_ip();
 
-if (contact_is_rate_limited($clientIp, $config)) {
-    contact_respond_json(429, ["success" => false, "error" => "Too many requests"]);
-}
-
 if ($payload["website"] !== "" || !contact_is_within_expected_time_window($payload["startedAt"], $config)) {
     contact_respond_json(422, ["success" => false, "error" => "Spam protection triggered"]);
 }
@@ -493,6 +504,12 @@ $isValidPayload =
 
 if (!$isValidPayload) {
     contact_respond_json(422, ["success" => false, "error" => "Invalid request payload"]);
+}
+
+$rateLimitKey = contact_build_rate_limit_key($clientIp, $payload);
+
+if (contact_is_rate_limited($rateLimitKey, $config)) {
+    contact_respond_json(429, ["success" => false, "error" => "Too many requests"]);
 }
 
 try {

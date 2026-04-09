@@ -16,19 +16,19 @@ const points = [
     icon: SplitSquareVertical,
     title: "INS qualifiée et identité fiable",
     description:
-      "Structurer l'identité de l'usager, qualifier l'INS et réduire les risques d'erreur dans les échanges ou les usages aval.",
+      "Fiabiliser l'identité de l'usager en qualifiant son INS pour réduire les risques d'erreur, aussi bien dans les usages quotidiens que dans les échanges avec les partenaires.",
   },
   {
     icon: MailCheck,
     title: "MSSanté et échanges sécurisés",
     description:
-      "Faciliter les échanges sécurisés avec les partenaires et organiser les flux autour d'une BAL applicative adaptée à votre périmètre.",
+      "Sécuriser les échanges avec vos partenaires et les simplifier grâce à des adresses de messagerie adaptées à votre périmètre pour une communication fiable et organisée.",
   },
   {
     icon: FileCheck,
     title: "DMP et continuité du parcours",
     description:
-      "Préparer l'alimentation et la consultation des informations utiles dans le parcours, avec une logique de traçabilité et d'usage partagé.",
+      "Assurer l'alimentation et l'accès aux informations pertinentes tout au long du parcours, en garantissant leur traçabilité et leur partage sécurisé entre les acteurs concernés.",
   },
   {
     icon: Waypoints,
@@ -43,13 +43,13 @@ const projectImpacts = [
     icon: ShieldCheck,
     title: "Un cadrage plus concret",
     description:
-      "La conformité SONS ne se résume pas à une ligne de financement: elle influence l'identité, les échanges, les droits d'accès et les pratiques à déployer.",
+      "La conformité Ségur ne se résume pas à une ligne de financement\u00a0: elle influence l'identité, les échanges, les droits d'accès et les pratiques à déployer.",
   },
   {
     icon: SplitSquareVertical,
     title: "Des usages à piloter",
     description:
-      "INS, MSSanté ou DMP demandent un pilotage dans la durée pour suivre les usages réels, préparer les équipes et sécuriser les indicateurs attendus.",
+      "INS, MSSanté ou DMP demandent un pilotage dans la durée pour préparer les équipes, suivre les usages réels et sécuriser les indicateurs attendus.",
   },
   {
     icon: BadgeEuro,
@@ -74,12 +74,14 @@ const SONSComplianceSection = () => {
             Cadre réglementaire
           </div>
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
-            Conformité <span className="text-primary sketch-underline">SONS</span>, INS, MSSanté,
-            DMP et interopérabilité
+            Conformité <span className="text-primary sketch-underline">Ségur</span>&nbsp;: SONS,
+            INS, MSSanté, DMP et interopérabilité
           </h1>
           <p className="mx-auto max-w-3xl text-lg text-muted-foreground font-body">
-            Cette page donne un repère simple sur les sujets à cadrer dans un projet DUI ESSMS:
-            identité, messagerie sécurisée, DMP, interopérabilité CI-SIS et organisation du
+            Cette page offre une vision synthétique des principaux sujets à structurer dans un
+            projet DUI pour les ESSMS, parmi lesquels l&apos;Identité Nationale de Santé (INS), la
+            Messagerie Sécurisée de Santé (MSS), le Dossier Médical Partagé (DMP),
+            l&apos;interopérabilité avec le CI-SIS, ainsi que les modalités d&apos;organisation et de
             déploiement.
           </p>
         </motion.div>
@@ -131,7 +133,7 @@ const SONSComplianceSection = () => {
         >
           <ShieldCheck className="mx-auto mb-4 h-10 w-10 text-primary" />
           <p className="text-lg leading-relaxed text-foreground font-body">
-            <strong>Le sujet SONS est d'abord un sujet d'usage, d'interopérabilité et de cadrage
+            <strong>Le sujet Ségur est d'abord un sujet d'usages, d'interopérabilité et de cadrage
             projet.</strong>
           </p>
           <p className="mt-3 text-sm leading-7 text-muted-foreground font-body">
@@ -143,7 +145,7 @@ const SONSComplianceSection = () => {
               <Link to="/ressources">Voir les ressources</Link>
             </Button>
             <Button asChild variant="hero-outline" size="lg">
-              <Link to="/aide-support">Ouvrir l&apos;aide et support</Link>
+              <Link to="/#contacts">Voir la page Contact</Link>
             </Button>
           </div>
         </motion.div>

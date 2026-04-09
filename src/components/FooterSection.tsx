@@ -7,6 +7,7 @@ import logoD2lWhite from "@/assets/logo-d2l-white.png";
 import logoSilaoColor from "@/assets/logo-silao-color.svg";
 import logoSilaoWhite from "@/assets/logo-silao-white.svg";
 import { filiereThemes } from "@/lib/filiereThemes";
+import { useCookieConsent } from "@/contexts/CookieConsentContext";
 import {
   COMPANY_ADDRESS,
   COMPANY_DISPLAY_NAME,
@@ -27,6 +28,7 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
   (props, ref) => {
     const currentYear = new Date().getFullYear();
     const location = useLocation();
+    const { openPreferences } = useCookieConsent();
 
     const handleLogoClick = () => {
       if (location.pathname === "/") {
@@ -138,8 +140,8 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               <Link to="/formations" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Formations
               </Link>
-              <Link to="/aide-support" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                Aide et support
+              <Link to="/#contacts" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                Contact
               </Link>
               <Link to="/mentions-legales" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Mentions légales
@@ -150,6 +152,13 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               <Link to="/politique-de-cookies" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Politique de cookies
               </Link>
+              <button
+                type="button"
+                onClick={openPreferences}
+                className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                Choix cookies
+              </button>
               <Link to="/plan-du-site" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Plan du site
               </Link>

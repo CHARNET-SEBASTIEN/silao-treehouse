@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { BadgeCheck, Boxes, CalendarClock, Users2 } from "lucide-react";
+
+import archivisteIllustration from "@/assets/illustrations/archiviste.webp";
 import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const figures = [
@@ -31,26 +33,45 @@ const figures = [
 
 const KeyFiguresSection = () => (
   <section className="px-4 py-6 md:py-8 tint-secondary">
-    <div className="mx-auto max-w-5xl section-panel px-6 py-5 md:px-10 md:py-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-5 text-center"
-      >
-        <p className="marker-label mb-4">Nos chiffres clés</p>
-        <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
-          Qui se cache derrière Silao ?
-        </p>
-        <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Quelques repères pour situer{" "}
-          <span className="text-primary sketch-underline">{COMPANY_DISPLAY_NAME}</span>
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Chez {COMPANY_DISPLAY_NAME}, nous nous consacrons entièrement au DUI depuis plus de 20
-          ans, grâce à une équipe experte, dédiée aux usages du social et du médico-social.
-        </p>
-      </motion.div>
+    <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
+      <div className="mb-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center lg:text-left"
+        >
+          <p className="marker-label mb-4">Nos chiffres clés</p>
+          <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
+            Qui se cache derrière Silao ?
+          </p>
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+            Quelques repères pour situer{" "}
+            <span className="text-primary sketch-underline">{COMPANY_DISPLAY_NAME}</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
+            Chez {COMPANY_DISPLAY_NAME}, nous nous consacrons entièrement au DUI depuis plus de 20
+            ans, grâce à une équipe experte, dédiée aux usages du social et du médico-social.
+          </p>
+        </motion.div>
+
+        <motion.figure
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          className="surface-card mx-auto w-full max-w-[18rem] overflow-hidden rounded-[1.75rem] p-2"
+        >
+          <img
+            src={archivisteIllustration}
+            alt="Illustration Silao pour la section des chiffres clés"
+            width={960}
+            height={960}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full rounded-[1.25rem] object-cover"
+          />
+        </motion.figure>
+      </div>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {figures.map((figure) => (

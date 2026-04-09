@@ -56,7 +56,6 @@ const SecteurAHIPage = () => (
           "Comptabilisation individuelle et/ou famille pour les besoins de statistiques et de facturation.",
         ]}
         modules={[
-          "Dossier Usager Informatisé",
           "Plan d'accompagnement",
           "Gestion des hébergements",
           "Accompagnement au logement",

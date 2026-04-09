@@ -52,7 +52,6 @@ const SecteurHandicapPage = () => (
           "Silao est référencé DSR Ségur MS1 PH pour les personnes en situation de handicap.",
         ]}
         modules={[
-          "Dossier Usager Informatisé",
           "Agenda partagé",
           "Gestion des rappels",
           "Gestion MDPH",

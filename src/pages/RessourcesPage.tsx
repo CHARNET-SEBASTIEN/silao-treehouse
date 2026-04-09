@@ -33,7 +33,7 @@ const pillars = [
     description:
       "Fonctionnalités comme l'INS, le DMP et MSSanté, et repères liés aux financements et exigences nationales.",
     links: [
-      { to: "/conformite-sons", label: "Voir la page conformité SONS" },
+      { to: "/conformite-sons", label: "Voir la page conformité Ségur" },
       { to: "/engagements", label: "Voir les engagements" },
     ],
   },
@@ -84,8 +84,12 @@ const officialLinks = [
     label: "ANS - Dispositif DUI MS1",
   },
   {
+    href: "https://esante.gouv.fr/ens/segur-numerique-sante/vague-1/dispositif-dui-ms2-pde-couloir-social-medico-social",
+    label: "ANS - Dispositif DUI MS2 PDE",
+  },
+  {
     href: "https://esante.gouv.fr/ens/segur-numerique-sante/vague-1/dispositif-dui-ms2-pds-couloir-social-medico-social",
-    label: "ANS - Dispositif DUI MS2",
+    label: "ANS - Dispositif DUI MS2 PDS",
   },
 ];
 

@@ -24,7 +24,7 @@ const CTASection = () => {
             </div>
           </div>
           <h2 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
-            Demandez une <span className="text-secondary font-sketch">démonstration personnalisée</span>
+            Demandez une <span className="title-sky font-sketch">démonstration personnalisée</span>
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg font-body text-muted-foreground">
             30 minutes pour voir Silao en situation réelle, sur votre secteur d&apos;activité,

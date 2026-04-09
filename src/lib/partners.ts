@@ -1,5 +1,6 @@
 import actionEnfanceLogo from "@/assets/partners/action-enfance.svg";
-import croixRougeFrancaiseLogo from "@/assets/partners/croix-rouge-francaise.svg";
+import arassLogo from "@/assets/partners/arass.png";
+import croixRougeFrancaiseLogo from "@/assets/partners/croix-rouge-francaise.jpg";
 import fondationGrancherLogo from "@/assets/partners/fondation-grancher.svg";
 import sauvegarde26Logo from "@/assets/partners/sauvegarde-26.svg";
 
@@ -17,6 +18,14 @@ export const partnerReferences: PartnerReference[] = [
     monogram: "CR",
     logo: croixRougeFrancaiseLogo,
     logoAlt: "Logo Croix-Rouge française",
+    logoClassName: "max-h-14",
+  },
+  {
+    name: "ARASS",
+    monogram: "AR",
+    logo: arassLogo,
+    logoAlt: "Logo ARASS",
+    logoClassName: "max-h-12",
   },
   {
     name: "Action Enfance",

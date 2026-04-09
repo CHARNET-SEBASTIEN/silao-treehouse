@@ -12,12 +12,13 @@ const seo = getPageSeo("/plan-du-site");
 const sitemapGroups = [
   {
     title: "Pages principales",
-    paths: ["/", "/offres", "/formations", "/abonnement", "/ressources", "/aide-support"],
+    paths: ["/", "/offres", "/formations", "/abonnement", "/ressources"],
   },
   {
     title: "Secteurs",
     paths: [
       "/secteur/handicap",
+      "/secteur/camsp-cmpp",
       "/secteur/protection-enfance",
       "/secteur/insertion-ahi",
       "/secteur/personnes-difficultes-specifiques",

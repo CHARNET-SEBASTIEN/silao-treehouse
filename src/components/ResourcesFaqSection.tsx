@@ -72,7 +72,7 @@ const resourcesFaqs = [
     ),
     links: [
       { to: "/engagements", label: "Voir les engagements Silao" },
-      { to: "/conformite-sons", label: "Voir la conformité SONS" },
+      { to: "/conformite-sons", label: "Voir la conformité Ségur" },
     ],
   },
   {

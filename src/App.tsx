@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, useLocation } from "react-router-dom";
 
 import AppRoutes from "@/AppRoutes";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 const DecorativeIconManager = () => {
@@ -172,13 +173,15 @@ const App = () => (
           Aller au contenu
         </a>
         <BrowserRouter>
-          <DemoRequestDialogProvider>
-            <ScrollManager />
-            <RouteFocusManager />
-            <RouteAnnouncer />
-            <AppRoutes />
-            <DemoRequestDialogRoot />
-          </DemoRequestDialogProvider>
+          <CookieConsentProvider>
+            <DemoRequestDialogProvider>
+              <ScrollManager />
+              <RouteFocusManager />
+              <RouteAnnouncer />
+              <AppRoutes />
+              <DemoRequestDialogRoot />
+            </DemoRequestDialogProvider>
+          </CookieConsentProvider>
         </BrowserRouter>
       </TooltipProvider>
     </MotionConfig>

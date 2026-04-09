@@ -260,12 +260,25 @@
   }
 
   .sketch-underline {
-    background-image: linear-gradient(transparent 58%, hsl(var(--accent) / 0.9) 58%);
+    background-image: linear-gradient(transparent 80%, hsl(199 95% 74% / 0.65) 80%);
     color: inherit;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding-inline: 0.16em;
     padding-bottom: 0.04em;
+  }
+
+  .sketch-underline-sky {
+    background-image: linear-gradient(transparent 80%, hsl(199 95% 74% / 0.65) 80%);
+    color: inherit;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-inline: 0.16em;
+    padding-bottom: 0.04em;
+  }
+
+  .title-sky {
+    color: hsl(201 92% 58%);
   }
 
   .paper-bg {
@@ -373,14 +386,14 @@
     align-items: center;
     gap: 0.5rem;
     border-radius: 999px;
-    background: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
+    background: hsl(199 95% 74% / 0.65);
+    color: hsl(201 92% 32%);
     font-size: 0.875rem;
     font-weight: 800;
     letter-spacing: 0.16em;
     padding: 0.45rem 0.95rem;
     text-transform: uppercase;
-    box-shadow: 0 14px 30px -22px hsl(var(--accent) / 0.95);
+    box-shadow: 0 14px 30px -22px hsl(199 95% 74% / 0.95);
   }
 
   .brand-card {

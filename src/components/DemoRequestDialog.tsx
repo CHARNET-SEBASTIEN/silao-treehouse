@@ -48,6 +48,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
     const [formValues, setFormValues] = useState<FormValues>(() => createInitialValues());
     const [errors, setErrors] = useState<FormErrors>({});
     const [statusMessage, setStatusMessage] = useState("");
+    const submitLockRef = useRef(false);
     const fieldRefs = useRef<Record<keyof FormValues, HTMLInputElement | HTMLTextAreaElement | null>>({
       lastName: null,
       firstName: null,
@@ -71,6 +72,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
     useEffect(() => {
       if (open) return;
       setLoading(false);
+      submitLockRef.current = false;
       setErrors({});
       setStatusMessage("");
     }, [open]);
@@ -123,6 +125,11 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+
+      if (submitLockRef.current) {
+        return;
+      }
+
       const nextErrors = validate(formValues);
       setErrors(nextErrors);
 
@@ -149,6 +156,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
       };
 
       setStatusMessage("Envoi de votre demande.");
+      submitLockRef.current = true;
       setLoading(true);
 
       try {
@@ -203,6 +211,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
               : `Réessayez plus tard ou écrivez à ${CONTACT_EMAIL}.`,
         });
       } finally {
+        submitLockRef.current = false;
         setLoading(false);
       }
     };

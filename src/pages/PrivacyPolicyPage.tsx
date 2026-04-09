@@ -150,12 +150,19 @@ const PrivacyPolicyPage = () => (
                           Exécution de mesures précontractuelles prises à votre demande.
                         </td>
                       </tr>
-                      <tr className="align-top">
+                      <tr className="border-b border-border/70 align-top">
                         <td className="px-3 py-3">
                           Recevoir et traiter une demande liée à l&apos;exercice de vos droits en
                           matière de protection des données.
                         </td>
                         <td className="px-3 py-3">Respect d&apos;une obligation légale.</td>
+                      </tr>
+                      <tr className="align-top">
+                        <td className="px-3 py-3">
+                          Mesure des conversions et pilotage des campagnes publicitaires via la balise
+                          Google Ads, lorsque vous avez accepté les cookies correspondants.
+                        </td>
+                        <td className="px-3 py-3">Consentement.</td>
                       </tr>
                     </tbody>
                   </table>
@@ -172,7 +179,19 @@ const PrivacyPolicyPage = () => (
                   nature de votre demande. Elles peuvent également être transmises à des
                   sous-traitants techniques intervenant pour l&apos;hébergement, la maintenance du site
                   ou la gestion des demandes de droits, strictement dans la limite de leurs
-                  attributions.
+                  attributions. Sous réserve de votre consentement pour la publicité et la mesure
+                  d&apos;audience associée, des informations peuvent être traitées par{" "}
+                  <strong className="text-foreground">Google Ireland Limited</strong> dans le cadre de
+                  Google Ads, conformément à la{" "}
+                  <a
+                    className="text-primary underline underline-offset-4"
+                    href="https://policies.google.com/privacy"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    politique de confidentialité Google
+                  </a>
+                  .
                 </p>
               </div>
 
@@ -182,11 +201,10 @@ const PrivacyPolicyPage = () => (
                 </h2>
                 <p>
                   Le site est exploité avec une priorité donnée à des prestataires situés dans
-                  l&apos;Union européenne. À la date de publication de cette page, le site public Silao
-                  n&apos;utilise pas d&apos;outil d&apos;analyse d&apos;audience ou de publicité impliquant un dépôt
-                  de traceurs non essentiels. Si un transfert hors de l&apos;Union européenne devait
-                  intervenir à l&apos;avenir, il ne serait réalisé qu&apos;avec un encadrement juridique
-                  approprié au sens du RGPD.
+                  l&apos;Union européenne. La balise Google Ads peut entraîner des transferts de données
+                  vers des pays tiers ; Google propose des garanties contractuelles types et des
+                  mesures complémentaires conformément à sa documentation. Vous pouvez retirer votre
+                  consentement à tout moment (bandeau ou lien « Choix cookies » en pied de page).
                 </p>
               </div>
 
@@ -272,8 +290,8 @@ const PrivacyPolicyPage = () => (
               <div>
                 <h2 className="mb-2 text-xl font-bold text-foreground">Cookies</h2>
                 <p>
-                  Le détail du fonctionnement actuel du site en matière de traceurs est disponible
-                  dans la{" "}
+                  Le détail des traceurs (balise Google Ads, mode de consentement, bandeau) est
+                  disponible dans la{" "}
                   <Link className="text-primary underline underline-offset-4" to="/politique-de-cookies">
                     politique de cookies
                   </Link>

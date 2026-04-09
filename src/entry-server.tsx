@@ -4,6 +4,7 @@ import { StaticRouter } from "react-router-dom/server";
 
 import AppRoutes from "@/AppRoutes";
 import { DemoRequestDialogProvider, DemoRequestDialogRoot } from "@/components/DemoRequestDialogProvider";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import ThemeProvider from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 export { buildHeadMarkup } from "@/lib/seo";
@@ -20,10 +21,12 @@ export const render = (url: string) => {
       <MotionConfig reducedMotion="user">
         <TooltipProvider>
           <StaticRouter location={url}>
-            <DemoRequestDialogProvider>
-              <AppRoutes />
-              <DemoRequestDialogRoot />
-            </DemoRequestDialogProvider>
+            <CookieConsentProvider>
+              <DemoRequestDialogProvider>
+                <AppRoutes />
+                <DemoRequestDialogRoot />
+              </DemoRequestDialogProvider>
+            </CookieConsentProvider>
           </StaticRouter>
         </TooltipProvider>
       </MotionConfig>

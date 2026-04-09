@@ -44,14 +44,13 @@ const SecteurPDEPage = () => (
           },
         ]}
         benefits={[
-          "L'agenda et le cahier de liaison constituent les deux piliers de l'activité.",
+          "L'agenda et le cahier de liaison constituent deux des piliers de l'activité.",
           "Les fonctionnalités ont été conçues pour répondre aux besoins de l'hébergement comme du milieu ouvert.",
-          "Les liens entre fratries permettent de mutualiser les informations utiles entre plusieurs fiches usagers.",
+          "Les liens entre membres d'une fratrie permettent de mutualiser les informations utiles entre plusieurs fiches usagers.",
           "Le suivi des présences intègre un circuit de validation sur deux niveaux et des exports pour la facturation ou les statistiques.",
-          "Silao est aujourd'hui référencé DSR Ségur MS2 PE.",
+          "Silao est aujourd'hui référencé DSR Ségur MS2 PDE.",
         ]}
         modules={[
-          "Dossier Usager Informatisé",
           "Agenda",
           "Cahier de liaison",
           "Gestion des fratries",

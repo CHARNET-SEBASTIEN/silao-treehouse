@@ -10,8 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import heroTreeBrand from "@/assets/hero-tree-brand.png";
-import logoSilaoColor from "@/assets/logo-silao-color.svg";
+import logoSilaoOfficial from "@/assets/logo-silao-official.svg";
 import logoSilaoWhite from "@/assets/logo-silao-white.svg";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
@@ -54,7 +53,7 @@ const points = [
 const complianceChips = [
   {
     icon: Baby,
-    label: "Référencé DSR Ségur MS2 PE",
+    label: "Référencé DSR Ségur MS2 PDE",
     theme: filiereThemes.pde,
   },
   {
@@ -66,6 +65,11 @@ const complianceChips = [
     icon: Home,
     label: "Participe aux comités éditeurs DSR Ségur AHI",
     theme: filiereThemes.ahi,
+  },
+  {
+    icon: Stethoscope,
+    label: "Participe aux comités éditeurs DSR Ségur PDS",
+    theme: filiereThemes.pds,
   },
 ];
 
@@ -83,7 +87,7 @@ const HeroSection = () => {
 
       <div className="mx-auto max-w-6xl">
         <div className="section-panel overflow-hidden px-6 py-7 sm:px-8 md:px-10 md:py-9">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_18rem]">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_30rem]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -94,7 +98,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold tracking-[0.08em] text-primary shadow-[0_12px_28px_-20px_hsl(var(--primary)/0.45)] backdrop-blur"
+                className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-5 py-2.5 text-lg font-semibold tracking-[0.08em] text-primary shadow-[0_12px_28px_-20px_hsl(var(--primary)/0.45)] backdrop-blur"
               >
                 <motion.span
                   animate={{ rotate: [0, 15, -15, 0] }}
@@ -102,35 +106,25 @@ const HeroSection = () => {
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                 </motion.span>
-                {COMPANY_DISPLAY_NAME} présente
+                {COMPANY_DISPLAY_NAME} présente{" "}
+                <span className="title-sky text-2xl font-extrabold tracking-[0.01em]">
+                  {PRODUCT_NAME}
+                </span>
               </motion.p>
 
-              <h1 className="text-4xl font-bold leading-[0.98] tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]">
-                <span className="mb-4 block">
-                  <img
-                    src={logoSilaoColor}
-                    alt={PRODUCT_NAME}
-                    width={220}
-                    height={68}
-                    className="block h-10 w-auto dark:hidden"
-                  />
-                  <img
-                    src={logoSilaoWhite}
-                    alt={PRODUCT_NAME}
-                    width={220}
-                    height={68}
-                    className="hidden h-10 w-auto dark:block"
-                  />
+              <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-[2.85rem] lg:text-[2.95rem]">
+                <span className="block leading-[1.04]">
+                  Le DUI collaboratif pensé avec et pour les professionnels du social et du
+                  médico-social
                 </span>
-                Le logiciel métier collaboratif pensé avec et pour les professionnels du social et
-                du médico-social
               </h1>
 
               <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground md:text-[1.1rem]">
-                {PRODUCT_NAME} aide les équipes de la protection de l&apos;enfance, du médico-social,
-                de l&apos;accueil, hébergement et insertion (AHI) et des personnes en difficultés
-                spécifiques (PDS) à centraliser les informations, partager les écrits utiles et
-                suivre l&apos;activité sans complexifier le quotidien.
+                {PRODUCT_NAME} est le dossier usager informatisé qui aide les équipes de la
+                protection de l&apos;enfance (PDE), du médico-social (PH), de l&apos;accueil,
+                hébergement et insertion (AHI) et des personnes en difficultés spécifiques (PDS) à
+                centraliser les informations, partager les écrits utiles et suivre l&apos;activité
+                sans complexifier le quotidien.
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -175,7 +169,7 @@ const HeroSection = () => {
                   className="h-auto w-full whitespace-normal px-6 py-4 text-center leading-tight sm:w-auto"
                   asChild
                 >
-                  <Link to="/aide-support" className="gap-2 text-center">
+                  <Link to="/#contacts" className="gap-2 text-center">
                     <ArrowRight className="h-4 w-4" />
                     Voir les contacts
                   </Link>
@@ -187,18 +181,27 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.08 }}
-              className="mx-auto w-full max-w-[18rem]"
+              className="mx-auto flex w-full max-w-[30rem] lg:-translate-y-20"
             >
-              <div className="flex flex-col items-center gap-5">
-                <div className="flex justify-center bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-6 py-6">
+              <div className="flex w-full flex-col items-center gap-3">
+                <div className="flex w-full justify-center bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.16),transparent_70%)] px-6 py-8 sm:px-8 sm:py-10">
                   <img
-                    src={heroTreeBrand}
-                    alt="Arbre Silao illustrant l'accompagnement social et medico-social"
-                    width={1668}
-                    height={1758}
+                    src={logoSilaoOfficial}
+                    alt="Logo Silao"
+                    width={236}
+                    height={176}
                     loading="eager"
                     decoding="async"
-                    className="h-64 w-auto drop-shadow-[0_24px_36px_hsl(var(--primary)/0.14)] sm:h-72"
+                    className="block h-auto w-full max-w-[24rem] drop-shadow-[0_24px_36px_hsl(var(--primary)/0.14)] dark:hidden sm:max-w-[28rem]"
+                  />
+                  <img
+                    src={logoSilaoWhite}
+                    alt="Logo Silao"
+                    width={173}
+                    height={141}
+                    loading="eager"
+                    decoding="async"
+                    className="hidden h-auto w-full max-w-[24rem] drop-shadow-[0_24px_36px_hsl(var(--primary)/0.18)] dark:block sm:max-w-[28rem]"
                   />
                 </div>
 

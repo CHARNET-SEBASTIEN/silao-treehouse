@@ -41,21 +41,22 @@ const ReferencesSection = () => (
           {partnerReferences.map((partner) => (
             <article
               key={partner.name}
-              className="surface-card flex min-h-[120px] flex-col items-center justify-center gap-4 rounded-[1.5rem] px-5 py-5 text-center"
+              className="surface-card flex min-h-[132px] items-center justify-center rounded-[1.5rem] px-5 py-5 text-center"
             >
-              <div className="flex h-16 w-full items-center justify-center">
+              <div className="flex h-24 w-full items-center justify-center">
                 {partner.logo ? (
-                  <img
-                    src={partner.logo}
-                    alt={partner.logoAlt}
-                    loading="lazy"
-                    className={`w-auto max-w-full object-contain ${partner.logoClassName ?? "max-h-10"}`}
-                  />
+                  <div className="logo-plate flex h-full w-full max-w-[14rem] items-center justify-center rounded-[1.25rem] px-4 py-3">
+                    <img
+                      src={partner.logo}
+                      alt={partner.logoAlt}
+                      loading="lazy"
+                      className={`w-auto max-w-full object-contain ${partner.logoClassName ?? "max-h-12"}`}
+                    />
+                  </div>
                 ) : (
                   <span className="font-sketch text-2xl text-primary">{partner.monogram}</span>
                 )}
               </div>
-              <p className="text-sm font-medium leading-snug text-foreground">{partner.name}</p>
             </article>
           ))}
         </div>
@@ -90,12 +91,14 @@ const ReferencesSection = () => (
               >
                 <div className="mb-5 flex items-center gap-4">
                   {partner?.logo ? (
-                    <img
-                      src={partner.logo}
-                      alt={partner.logoAlt}
-                      loading="lazy"
-                      className={`w-auto max-w-[8rem] object-contain ${partner.logoClassName ?? "max-h-10"}`}
-                    />
+                    <div className="logo-plate flex h-20 w-full max-w-[11rem] items-center justify-center rounded-[1.25rem] px-4 py-3">
+                      <img
+                        src={partner.logo}
+                        alt={partner.logoAlt}
+                        loading="lazy"
+                        className={`w-auto max-w-full object-contain ${partner.logoClassName ?? "max-h-10"}`}
+                      />
+                    </div>
                   ) : null}
                   <div>
                     <p className="font-sketch text-xl text-primary">{testimonial.name}</p>

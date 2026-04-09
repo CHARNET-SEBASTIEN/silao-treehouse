@@ -136,7 +136,7 @@ const GrappesSection = () => {
             <Link to="/offres">Voir l&apos;offre de déploiement</Link>
           </Button>
           <Button asChild variant="hero-outline" size="lg">
-            <Link to="/aide-support">Poser une question projet</Link>
+            <Link to="/#contacts">Poser une question projet</Link>
           </Button>
         </div>
       </div>

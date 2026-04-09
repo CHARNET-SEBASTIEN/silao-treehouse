@@ -23,18 +23,18 @@ const CookiePolicyPage = () => (
                 Politique de cookies
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-                Cette page résume l&apos;état actuel des traceurs sur le site public Silao et les
-                conditions dans lesquelles un recueil de consentement serait activé à l&apos;avenir.
+                Cette page décrit les traceurs utilisés sur le site public Silao, le bandeau de
+                choix et le fonctionnement du mode de consentement Google (Consent Mode).
               </p>
               <div className="mt-6 flex flex-wrap gap-2.5">
                 <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
-                  Pas de traceur publicitaire
+                  Google Ads (balise AW)
                 </span>
                 <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
-                  Pas d&apos;analytics soumis à consentement
+                  Consent Mode v2
                 </span>
                 <span className="rounded-full border border-accent/25 bg-accent/90 px-3 py-1.5 text-xs font-semibold text-accent-foreground">
-                  Consentement si évolution
+                  Refus aussi simple qu&apos;accepter
                 </span>
               </div>
             </div>
@@ -61,17 +61,45 @@ const CookiePolicyPage = () => (
               </p>
 
               <div>
-                <h2 className="mb-2 text-xl font-bold text-foreground">
-                  État actuel du site
-                </h2>
+                <h2 className="mb-2 text-xl font-bold text-foreground">Bandeau et choix</h2>
                 <p>
-                  À la date de publication de cette page, le site public Silao n&apos;utilise pas de
-                  traceur publicitaire, de cookie de personnalisation ou d&apos;outil de mesure
-                  d&apos;audience nécessitant votre consentement préalable.
+                  Lors de votre première visite, un bandeau vous permet d&apos;accepter ou de refuser
+                  les cookies et traceurs liés à la publicité et à la mesure d&apos;audience
+                  (catégories couvertes par le mode de consentement Google). Le refus est proposé
+                  avec le même degré de simplicité que l&apos;acceptation. Vous pouvez modifier votre
+                  choix à tout moment via le lien « Choix cookies » en pied de page.
                 </p>
                 <p className="mt-3">
-                  En conséquence, aucun bandeau de consentement n&apos;est affiché tant qu&apos;aucun
-                  traceur non essentiel n&apos;est activé sur le site.
+                  Votre décision est mémorisée localement dans votre navigateur (clé{" "}
+                  <span className="font-mono text-xs text-foreground">silao-cookie-consent</span>
+                  ).
+                </p>
+              </div>
+
+              <div>
+                <h2 className="mb-2 text-xl font-bold text-foreground">
+                  Balise Google Ads et mode de consentement
+                </h2>
+                <p>
+                  Le site charge la balise Google (gtag.js) associée à l&apos;identifiant{" "}
+                  <span className="font-mono text-xs text-foreground">AW-18069760229</span>, fournie
+                  par Google Ireland Limited dans le cadre de Google Ads. Avant tout accord de votre
+                  part, le <strong className="text-foreground">mode de consentement</strong> (Consent
+                  Mode) est configuré par défaut de façon à ne pas activer le stockage publicitaire ni
+                  la personnalisation des annonces. Si vous acceptez, une mise à jour du consentement
+                  est envoyée à Google pour autoriser ces finalités conformément à votre choix.
+                </p>
+                <p className="mt-3">
+                  Pour en savoir plus sur la manière dont Google traite les données :{" "}
+                  <a
+                    className="text-primary underline underline-offset-4"
+                    href="https://policies.google.com/privacy"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Règles de confidentialité Google
+                  </a>
+                  .
                 </p>
               </div>
 
@@ -82,20 +110,18 @@ const CookiePolicyPage = () => (
                 <p>
                   Certains composants techniques peuvent, si une fonctionnalité interactive le
                   requiert, utiliser un stockage local strictement nécessaire au service demandé par
-                  l&apos;utilisateur. Ces mécanismes ne sont pas utilisés à des fins publicitaires et ne
-                  servent pas à suivre la navigation sur d&apos;autres sites.
+                  l&apos;utilisateur (par exemple mémorisation du thème d&apos;affichage). Ces
+                  mécanismes ne sont pas utilisés à des fins publicitaires et ne servent pas à suivre
+                  la navigation sur d&apos;autres sites.
                 </p>
               </div>
 
               <div>
-                <h2 className="mb-2 text-xl font-bold text-foreground">
-                  Évolution du site
-                </h2>
+                <h2 className="mb-2 text-xl font-bold text-foreground">Évolution du site</h2>
                 <p>
-                  Si des cookies de statistiques, de personnalisation ou des contenus tiers
-                  nécessitant un consentement étaient ajoutés à l&apos;avenir, cette politique serait
-                  mise à jour et un dispositif de recueil du consentement serait activé avec un
-                  refus aussi simple que l&apos;acceptation.
+                  Si d&apos;autres traceurs ou partenaires techniques étaient ajoutés, cette politique
+                  serait mise à jour et, le cas échéant, le bandeau ou les options de gestion du
+                  consentement adaptés pour que vous restiez informé et puissiez exercer votre choix.
                 </p>
               </div>
 

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   BookOpen,
   BrainCircuit,
-  Database,
   FlaskConical,
   ShieldCheck,
   TextSearch,
@@ -14,24 +13,28 @@ import { Button } from "@/components/ui/button";
 
 const innovationAxes = [
   {
-    icon: Database,
-    title: "Données sensibles sécurisées",
-    description: "Un cadre sécurisé pour vos données, avec des usages utiles et une responsabilité humaine conservée.",
+    icon: ShieldCheck,
+    title: "Données sensibles et souveraineté",
+    description:
+      "Une architecture IA souveraine et hautement sécurisée, conçue spécifiquement pour garantir la stricte confidentialité des données de santé et des parcours sociaux.",
   },
   {
     icon: TextSearch,
-    title: "Aide à la recherche",
-    description: "Retrouver plus facilement l'information utile dans le dossier.",
+    title: "Analyse intelligente des dossiers",
+    description:
+      "Interrogez vos bases de données naturellement. Notre IA identifie instantanément les informations critiques au sein des parcours usagers complexes pour éclairer vos décisions.",
   },
   {
     icon: BookOpen,
-    title: "Aide à la rédaction",
-    description: "Structurer certains écrits avec des assistances relues par les professionnels.",
+    title: "Rédaction assistée par l'IA",
+    description:
+      "Gagnez un temps précieux grâce à la structuration et la synthèse automatisées de vos écrits professionnels, tout en gardant le contrôle final sur chaque document.",
   },
   {
-    icon: ShieldCheck,
-    title: "Assistances encadrées",
-    description: "Explorer des usages utiles sans confondre aide logicielle et décision professionnelle.",
+    icon: BrainCircuit,
+    title: "Copilote métier expert",
+    description:
+      "Bénéficiez d'un assistant intelligent qui vous suggère des recommandations basées sur l'historique de l'usager, augmentant votre capacité d'action sans jamais remplacer votre expertise.",
   },
 ];
 
@@ -56,13 +59,14 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
               <ShieldCheck className="h-4 w-4 opacity-80" />
             </div>
             <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-              <span className="text-primary sketch-underline">Innover</span> pour les professionnels, sans déshumaniser
+              L&apos;<span className="text-primary sketch-underline">expertise technologique</span> pour libérer le temps
+              humain
             </h2>
             <p className="mx-auto max-w-3xl text-lg leading-8 text-muted-foreground lg:mx-0">
-              Nous explorons les évolutions technologiques et leurs usages réellement utiles pour vous
-              permettre d&apos;alléger certaines tâches administratives, d&apos;améliorer la recherche
-              d&apos;information et de garder un cadre sécurisé pour vos données tout en conservant la
-              responsabilité humaine.
+              En tant qu&apos;experts de l&apos;Intelligence Artificielle appliquée aux ESSMS, nous concevons
+              des solutions de pointe pour transformer votre quotidien. Notre IA sécurisée prend en charge la
+              complexité administrative et l&apos;analyse des dossiers, permettant à vos équipes de se
+              recentrer pleinement sur leur cœur de métier : l&apos;accompagnement humain.
             </p>
             <div className="mt-6">
               <Button asChild variant="hero-outline" size="lg">
@@ -85,6 +89,19 @@ const RnDInnovationSection = ({ id = "recherche-innovation" }: RnDInnovationSect
             />
           </figure>
         </motion.div>
+
+        <p className="mb-5 max-w-4xl text-sm leading-7 text-muted-foreground md:text-base md:leading-8">
+          Nous faisons avancer ces quatre pistes pas à pas, pour vérifier qu&apos;elles répondent vraiment à vos besoins sur
+          le terrain. Des ateliers autour de l&apos;intelligence artificielle sont en cours : si cela vous intéresse,
+          n&apos;hésitez pas à{" "}
+          <Link
+            to="/#contacts"
+            className="font-medium text-primary underline-offset-4 transition-colors hover:text-primary/90 hover:underline"
+          >
+            nous solliciter via le formulaire de contact
+          </Link>
+          .
+        </p>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {innovationAxes.map((item, index) => (

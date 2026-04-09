@@ -22,7 +22,7 @@ const commitments = [
     icon: LockKeyhole,
     title: "Sécurité",
     description:
-      "Accès réservés aux personnes autorisées, droits définis par profil, données hébergées sur serveur protégé HDS, échanges chiffrés, sauvegardes régulières et sensibilisation cybersécurité des équipes.",
+      "L'accès est strictement réservé aux personnes habilitées, avec des droits d'utilisation attribués selon les profils. Les données sont hébergées sur des serveurs sécurisés et certifiés HDS, tandis que les échanges sont systématiquement chiffrés. Des sauvegardes régulières sont effectuées pour garantir leur intégrité, et les équipes bénéficient d'une sensibilisation continue aux enjeux de la cybersécurité.",
   },
   {
     icon: ShieldCheck,
@@ -40,7 +40,7 @@ const commitments = [
     icon: Leaf,
     title: "Démarche responsable",
     description:
-      "Déplacements privilégiant le train, réunions en visioconférence quand c'est pertinent et attention portée au développement durable dans nos pratiques comme dans nos solutions.",
+      "Nous privilégions systématiquement la visioconférence pour nos réunions, limitons les déplacements en favorisant le train, et intégrons le développement durable dans toutes nos pratiques et solutions.",
   },
 ];
 
@@ -96,18 +96,18 @@ const EngagementsSection = () => {
           className="mx-auto max-w-3xl border-primary/20 bg-primary/5 p-8 text-center sketch-border md:p-10"
         >
           <HeartHandshake className="mx-auto mb-4 h-10 w-10 text-primary" />
-          <p className="text-lg leading-relaxed text-foreground font-body">
+          <p className="font-sketch text-xl text-primary">
             <strong>Nous ne livrons pas seulement un logiciel.</strong>
           </p>
-          <p className="mt-3 font-sketch text-xl text-primary">
+          <p className="mt-3 text-lg leading-relaxed text-foreground font-body">
             Nous portons une solution, un accompagnement et une responsabilité durable.
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild variant="hero" size="lg">
-              <Link to="/formations">Voir les formations</Link>
+              <Link to="/offres">Voir les offres</Link>
             </Button>
             <Button asChild variant="hero-outline" size="lg">
-              <Link to="/aide-support">Contacter l&apos;équipe</Link>
+              <Link to="/#contacts">Contacter l&apos;équipe</Link>
             </Button>
           </div>
         </motion.div>

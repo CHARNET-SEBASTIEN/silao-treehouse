@@ -27,19 +27,22 @@ import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const homeLinks = [
   { label: "Accueil", href: "/", icon: Home },
-  { label: "Fonctionnalités", compactLabel: "Fonctions", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
-  { label: "Offres", href: "/offres", icon: BriefcaseBusiness },
-  { label: "Ressources", href: "/ressources", icon: Newspaper },
   { label: "Qui sommes-nous ?", compactLabel: "Société", href: "/#societe", icon: Users2, isAnchor: true },
   { label: "Secteurs", href: "/#secteurs", icon: Building2, isAnchor: true },
+  { label: "Fonctionnalités", compactLabel: "Fonctions", href: "/#services", icon: BriefcaseBusiness, isAnchor: true },
   { label: "R&D et IA", compactLabel: "R&D / IA", href: "/#recherche-innovation", icon: Newspaper, isAnchor: true },
   { label: "Références", compactLabel: "Clients", href: "/#references", icon: ShieldCheck, isAnchor: true },
+  { label: "Ressources", href: "/ressources", icon: Newspaper },
+  { label: "Offres", href: "/offres", icon: BriefcaseBusiness },
   { label: "Contact", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
+
+const homeSectionHrefs = homeLinks.filter((link) => link.isAnchor).map((link) => link.href);
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHomeHref, setActiveHomeHref] = useState<string | null>(null);
   const { openDialog } = useDemoRequestDialog();
   const location = useLocation();
   const navigate = useNavigate();
@@ -63,6 +66,47 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveHomeHref(null);
+      return;
+    }
+
+    const sections = homeSectionHrefs
+      .map((href) => {
+        const id = href.split("#")[1];
+        return id ? document.getElementById(id) : null;
+      })
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (sections.length === 0) {
+      setActiveHomeHref(location.hash && homeSectionHrefs.includes(`/${location.hash}`) ? `/${location.hash}` : null);
+      return;
+    }
+
+    const updateActiveSection = () => {
+      const threshold = 140;
+      let currentHref: string | null = null;
+
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top - threshold <= 0) {
+          currentHref = `/#${section.id}`;
+        }
+      }
+
+      setActiveHomeHref(currentHref ?? (location.hash ? `/${location.hash}` : null));
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     if (prevMobileMenuOpen.current && !open) {
@@ -141,6 +185,17 @@ const Navbar = () => {
   const desktopLinkClassName =
     "rounded-full whitespace-nowrap px-3 py-2 text-[0.92rem] font-semibold text-muted-foreground transition-colors hover:bg-primary/12 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 2xl:px-4 2xl:text-sm";
 
+  const isLinkActive = (href: string, isAnchor?: boolean) => {
+    if (isAnchor) {
+      return location.pathname === "/" && activeHomeHref === href;
+    }
+
+    return location.pathname === href;
+  };
+
+  const getDesktopLinkClassName = (href: string, isAnchor?: boolean) =>
+    `${desktopLinkClassName} ${isLinkActive(href, isAnchor) ? "bg-primary/12 text-foreground shadow-sm" : ""}`;
+
   const renderDesktopLinkLabel = (label: string, compactLabel?: string) => {
     if (!compactLabel) return label;
 
@@ -170,42 +225,63 @@ const Navbar = () => {
           className="absolute inset-x-3 inset-y-2 rounded-full border border-border/80 bg-card/90 shadow-[0_24px_60px_-40px_hsl(var(--brand-violet)/0.22)]"
         />
 
-        <Link
-          to="/"
-          onClick={handleLogoClick}
-          className="relative z-10 flex h-11 shrink-0 items-center gap-3 rounded-full border border-border/80 bg-card/88 px-3 py-2 shadow-sm backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-        >
-          <span className="sr-only">{PRODUCT_NAME} par {COMPANY_DISPLAY_NAME}, retour à l&apos;accueil</span>
-          <span className="flex h-full items-center px-1">
-            <img
-              src={logoD2lColor}
-              alt=""
-              aria-hidden="true"
-              className="block h-8 w-auto object-contain dark:hidden"
-            />
-            <img
-              src={logoD2lWhite}
-              alt=""
-              aria-hidden="true"
-              className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
-            />
-          </span>
-          <div className="h-7 w-px bg-border/70" />
-          <span className="flex h-full items-center px-1">
-            <img
-              src={logoSilaoColor}
-              alt=""
-              aria-hidden="true"
-              className="block h-8 w-auto object-contain dark:hidden"
-            />
-            <img
-              src={logoSilaoWhite}
-              alt=""
-              aria-hidden="true"
-              className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
-            />
-          </span>
-        </Link>
+        <div className="relative z-10 flex items-center gap-2">
+          <motion.button
+            ref={menuButtonRef}
+            type="button"
+            onClick={() => setOpen((current) => !current)}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className={`flex h-11 items-center gap-2 rounded-full px-4 text-sm font-bold transition-colors ${
+              open
+                ? "bg-foreground text-background"
+                : "border border-border/80 bg-card/90 text-foreground hover:bg-primary hover:text-primary-foreground"
+            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
+            aria-controls="mobile-navigation"
+            aria-expanded={open}
+            aria-label={open ? "Fermer le menu principal" : "Ouvrir le menu principal"}
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+            <span className="hidden sm:inline">Menu</span>
+          </motion.button>
+
+          <Link
+            to="/"
+            onClick={handleLogoClick}
+            className="flex h-11 shrink-0 items-center gap-3 rounded-full border border-border/80 bg-card/88 px-3 py-2 shadow-sm backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            <span className="sr-only">{PRODUCT_NAME} par {COMPANY_DISPLAY_NAME}, retour à l&apos;accueil</span>
+            <span className="flex h-full items-center px-1">
+              <img
+                src={logoD2lColor}
+                alt=""
+                aria-hidden="true"
+                className="block h-8 w-auto object-contain dark:hidden"
+              />
+              <img
+                src={logoD2lWhite}
+                alt=""
+                aria-hidden="true"
+                className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
+              />
+            </span>
+            <div className="h-7 w-px bg-border/70" />
+            <span className="flex h-full items-center px-1">
+              <img
+                src={logoSilaoColor}
+                alt=""
+                aria-hidden="true"
+                className="block h-8 w-auto object-contain dark:hidden"
+              />
+              <img
+                src={logoSilaoWhite}
+                alt=""
+                aria-hidden="true"
+                className="hidden h-8 w-auto object-contain drop-shadow-[0_0_10px_hsl(0_0%_100%/0.16)] dark:block"
+              />
+            </span>
+          </Link>
+        </div>
 
         <nav
           aria-label="Navigation principale"
@@ -217,9 +293,10 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(event) => handleAnchorNavigation(event, link.href)}
-                className={desktopLinkClassName}
+                className={getDesktopLinkClassName(link.href, link.isAnchor)}
                 aria-label={link.label}
                 title={link.label}
+                aria-current={isLinkActive(link.href, link.isAnchor) ? "page" : undefined}
               >
                 {renderDesktopLinkLabel(link.label, link.compactLabel)}
               </a>
@@ -227,9 +304,10 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={desktopLinkClassName}
+                className={getDesktopLinkClassName(link.href, link.isAnchor)}
                 aria-label={link.label}
                 title={link.label}
+                aria-current={isLinkActive(link.href, link.isAnchor) ? "page" : undefined}
               >
                 {renderDesktopLinkLabel(link.label, link.compactLabel)}
               </Link>
@@ -251,24 +329,6 @@ const Navbar = () => {
             Demander une démo
           </Button>
 
-          <motion.button
-            ref={menuButtonRef}
-            type="button"
-            onClick={() => setOpen((current) => !current)}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className={`flex h-11 items-center gap-2 rounded-full px-4 text-sm font-bold transition-colors ${
-              open
-                ? "bg-foreground text-background"
-                : "border border-border/80 bg-card/90 text-foreground hover:bg-primary hover:text-primary-foreground"
-            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
-            aria-controls="mobile-navigation"
-            aria-expanded={open}
-            aria-label={open ? "Fermer le menu principal" : "Ouvrir le menu principal"}
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-            <span className="hidden sm:inline">Menu</span>
-          </motion.button>
         </div>
       </motion.header>
 
@@ -293,7 +353,11 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.04 }}
-                      className="flex items-center gap-4 rounded-[1.4rem] border border-border/70 bg-card px-4 py-3 transition-colors hover:bg-primary/10"
+                      className={`flex items-center gap-4 rounded-[1.4rem] border px-4 py-3 transition-colors hover:bg-primary/10 ${
+                        isLinkActive(link.href, link.isAnchor)
+                          ? "border-primary/40 bg-primary/10"
+                          : "border-border/70 bg-card"
+                      }`}
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/14 text-primary">
                         <link.icon className="h-4 w-4" />

@@ -69,27 +69,35 @@ const isWithinExpectedTimeWindow = (startedAt) => {
 };
 
 const pruneRateLimitStore = (now) => {
-  for (const [clientIp, timestamps] of rateLimitByIp.entries()) {
+  for (const [rateLimitKey, timestamps] of rateLimitByIp.entries()) {
     const recentTimestamps = timestamps.filter(
       (timestamp) => now - timestamp < CONTACT_RATE_LIMIT_WINDOW_MS,
     );
 
     if (recentTimestamps.length === 0) {
-      rateLimitByIp.delete(clientIp);
+      rateLimitByIp.delete(rateLimitKey);
       continue;
     }
 
-    rateLimitByIp.set(clientIp, recentTimestamps);
+    rateLimitByIp.set(rateLimitKey, recentTimestamps);
   }
 };
 
-const isRateLimited = (clientIp) => {
+const normalizeRateLimitValue = (value) => value.trim().toLowerCase();
+const buildRateLimitKey = (clientIp, email) => {
+  const normalizedIp = normalizeRateLimitValue(clientIp);
+  const normalizedEmail = normalizeRateLimitValue(email);
+
+  return normalizedEmail ? `${normalizedIp}|${normalizedEmail}` : normalizedIp;
+};
+
+const isRateLimited = (rateLimitKey) => {
   const now = Date.now();
   pruneRateLimitStore(now);
-  const timestamps = rateLimitByIp.get(clientIp) ?? [];
+  const timestamps = rateLimitByIp.get(rateLimitKey) ?? [];
   const recentTimestamps = [...timestamps, now];
 
-  rateLimitByIp.set(clientIp, recentTimestamps);
+  rateLimitByIp.set(rateLimitKey, recentTimestamps);
   return recentTimestamps.length > CONTACT_RATE_LIMIT_MAX_REQUESTS;
 };
 
@@ -353,14 +361,6 @@ const server = createServer(async (request, response) => {
     const body = await readJsonBody(request);
     const clientIp = getClientIp(request);
 
-    if (isRateLimited(clientIp)) {
-      response.writeHead(429, jsonHeaders);
-      response.end(
-        JSON.stringify({ success: false, error: "Too many requests" }),
-      );
-      return;
-    }
-
     const payload = {
       lastName: (body.lastName ?? "").toString().trim(),
       firstName: (body.firstName ?? "").toString().trim(),
@@ -384,6 +384,15 @@ const server = createServer(async (request, response) => {
       response.writeHead(422, jsonHeaders);
       response.end(
         JSON.stringify({ success: false, error: "Invalid request payload" }),
+      );
+      return;
+    }
+
+    const rateLimitKey = buildRateLimitKey(clientIp, payload.email);
+    if (isRateLimited(rateLimitKey)) {
+      response.writeHead(429, jsonHeaders);
+      response.end(
+        JSON.stringify({ success: false, error: "Too many requests" }),
       );
       return;
     }

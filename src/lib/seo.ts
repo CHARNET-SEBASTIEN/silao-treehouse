@@ -44,8 +44,27 @@ export interface PageSeo {
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 
+export const normalizeSeoPath = (path: string) => {
+  if (path.startsWith("http")) return path;
+
+  const [pathAndQuery, hashFragment] = path.split("#");
+  const [pathname, searchQuery] = pathAndQuery.split("?");
+
+  const normalizedPathname =
+    !pathname || pathname === "/"
+      ? "/"
+      : pathname.endsWith("/")
+        ? pathname
+        : `${pathname}/`;
+
+  const search = searchQuery ? `?${searchQuery}` : "";
+  const hash = hashFragment ? `#${hashFragment}` : "";
+
+  return `${normalizedPathname}${search}${hash}`;
+};
+
 export const resolveUrl = (path: string) =>
-  path.startsWith("http") ? path : `${SITE_URL}${path}`;
+  path.startsWith("http") ? path : `${SITE_URL}${normalizeSeoPath(path)}`;
 
 const escapeHtml = (value: string) =>
   value
@@ -154,6 +173,9 @@ export const buildHeadMarkup = (page: PageSeo) => {
     `<meta name="twitter:image:alt" content="${escapeHtml(DEFAULT_OG_IMAGE_ALT)}" />`,
     `<meta name="theme-color" content="${THEME_COLOR_LIGHT}" media="(prefers-color-scheme: light)" />`,
     `<meta name="theme-color" content="${THEME_COLOR_DARK}" media="(prefers-color-scheme: dark)" />`,
+    `<link rel="icon" href="/favicon.ico" sizes="any" />`,
+    `<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />`,
+    `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />`,
     `<link rel="manifest" href="/site.webmanifest" />`,
     `<link rel="alternate" hreflang="fr-FR" href="${canonicalUrl}" />`,
     '<link rel="preconnect" href="https://fonts.googleapis.com" />',
@@ -202,7 +224,7 @@ export const getOrganizationSchema = (): SeoSchema => ({
   name: COMPANY_NAME,
   legalName: COMPANY_LEGAL_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon.ico`,
+  logo: `${SITE_URL}/logo-silao.png`,
   description:
     `D2L Informatique édite ${PRODUCT_NAME}, un dossier usager informatisé pour les établissements et services sociaux et médico-sociaux.`,
   foundingDate: COMPANY_CREATION_DATE,

@@ -41,8 +41,8 @@ const NotFound = () => {
             <Link className="text-primary underline underline-offset-4" to="/plan-du-site">
               Consulter le plan du site
             </Link>
-            <Link className="text-primary underline underline-offset-4" to="/aide-support">
-              Ouvrir l&apos;aide et le support
+            <Link className="text-primary underline underline-offset-4" to="/#contacts">
+              Ouvrir le contact
             </Link>
           </nav>
         </section>

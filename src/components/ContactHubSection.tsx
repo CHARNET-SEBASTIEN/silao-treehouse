@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookText, GraduationCap, LifeBuoy, MessageSquareMore } from "lucide-react";
+import { BookText, GraduationCap, Mail, MessageSquareMore } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
@@ -21,6 +21,8 @@ const contactCards = [
     actionLabel: "Demander une plaquette",
     href: `mailto:${CONTACT_EMAIL}?subject=Demande%20de%20plaquette%20SILAO`,
     type: "link" as const,
+    secondaryLabel: "Voir les ressources",
+    secondaryHref: "/ressources",
   },
   {
     icon: GraduationCap,
@@ -31,12 +33,13 @@ const contactCards = [
     type: "route" as const,
   },
   {
-    icon: LifeBuoy,
-    title: "Support et contact public",
-    description: "Orienter une question, un besoin d'information ou une prise de contact générale.",
-    actionLabel: "Ouvrir l'aide",
-    href: "/aide-support",
-    type: "route" as const,
+    icon: Mail,
+    title: "Contact public",
+    description:
+      "Pour une question générale, une demande de support ou une orientation vers le bon interlocuteur.",
+    actionLabel: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
+    type: "link" as const,
   },
 ];
 
@@ -57,7 +60,8 @@ const ContactHubSection = () => {
             Un <span className="text-primary sketch-underline">point d&apos;entrée</span> clair pour chaque demande
           </h2>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
-            Démonstration, plaquette, formations ou support : un espace de contact adapté à chacune de vos questions.
+            Démonstration, plaquette, formations ou contact public : un espace de contact adapté à
+            chacune de vos questions.
           </p>
         </motion.div>
 
@@ -80,9 +84,19 @@ const ContactHubSection = () => {
               ) : null}
 
               {card.type === "link" ? (
-                <Button asChild variant="hero-outline" size="lg" className="mt-auto w-full">
-                  <a href={card.href}>{card.actionLabel}</a>
-                </Button>
+                <div className="mt-auto flex flex-col gap-3">
+                  <Button asChild variant="hero-outline" size="lg" className="h-auto w-full whitespace-normal break-words py-4 text-center">
+                    <a href={card.href}>{card.actionLabel}</a>
+                  </Button>
+                  {"secondaryHref" in card && card.secondaryHref ? (
+                    <Link
+                      to={card.secondaryHref}
+                      className="text-center text-sm font-medium text-primary hover:underline underline-offset-4"
+                    >
+                      {card.secondaryLabel}
+                    </Link>
+                  ) : null}
+                </div>
               ) : null}
 
               {card.type === "route" ? (
@@ -94,17 +108,6 @@ const ContactHubSection = () => {
           ))}
         </div>
 
-        <article className="surface-card mt-4 rounded-[1.5rem] px-6 py-6">
-          <h3 className="text-2xl font-bold text-foreground">Accessibilité et contact</h3>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">
-            Notre équipe est à l&apos;écoute des besoins particuliers. Chaque situation peut être
-            examinée individuellement afin d&apos;envisager les aménagements les plus adaptés.
-          </p>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">
-            Pour commander une formation ou échanger sur les adaptations possibles, écrivez à{" "}
-            <strong>{CONTACT_EMAIL}</strong> ou consultez la page formations.
-          </p>
-        </article>
       </div>
     </section>
   );

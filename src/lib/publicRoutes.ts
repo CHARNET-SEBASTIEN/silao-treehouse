@@ -7,6 +7,7 @@ import {
   type PageSeo,
   getOrganizationSchema,
   getWebsiteSchema,
+  resolveUrl,
 } from "@/lib/seo";
 import { CONTACT_EMAIL, PRODUCT_NAME, SITE_URL } from "@/lib/site";
 
@@ -29,7 +30,7 @@ const buildServiceSchema = (
   "@context": "https://schema.org",
   "@type": "Service",
   name,
-  url: `${SITE_URL}${path}`,
+  url: resolveUrl(path),
   description,
   serviceType,
   provider: { "@id": `${SITE_URL}/#organization` },
@@ -47,12 +48,12 @@ const buildSoftwareApplicationSchema = (
 ) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "@id": `${SITE_URL}${path}#software`,
+  "@id": `${resolveUrl(path)}#software`,
   name: PRODUCT_NAME,
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Dossier Usager Informatisé",
   operatingSystem: "Web",
-  url: `${SITE_URL}${path}`,
+  url: resolveUrl(path),
   description,
   featureList,
   publisher: { "@id": `${SITE_URL}/#organization` },
@@ -100,9 +101,9 @@ const resourcesSchema = [
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `Ressources ${PRODUCT_NAME}`,
-    url: `${SITE_URL}/ressources`,
+    url: resolveUrl("/ressources"),
     description:
-      `Ressources ${PRODUCT_NAME} sur le DUI, la conformité SONS, le déploiement et les cas d'usage par secteur.`,
+      `Ressources ${PRODUCT_NAME} sur le DUI, la conformité Ségur, le déploiement et les cas d'usage par secteur.`,
   },
   resourcesFaqSchema,
 ];
@@ -110,9 +111,9 @@ const resourcesSchema = [
 export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/",
-    title: "Silao | DUI pour les ESSMS",
+    title: "Logiciel DUI ESSMS | Dossier usager informatisé médico-social - Silao",
     description:
-      "Silao simplifie la gestion du dossier usager, de l'agenda, des transmissions et du pilotage pour les ESSMS.",
+      "Silao est un logiciel DUI pour les ESSMS : dossier usager informatisé, agenda, transmissions, coordination, pilotage et conformité Ségur pour le médico-social, la protection de l'enfance et l'AHI.",
     priority: 1,
     changefreq: "weekly",
     schema: homeSchema,
@@ -120,19 +121,19 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/conformite-sons",
     title:
-      "Conformité SONS Silao | INS, MSSanté, DMP et CI-SIS",
+      "Conformité Ségur Silao | SONS, INS, MSSanté, DMP et CI-SIS",
     description:
-      "Comprenez comment Silao répond aux exigences SONS pour les ESSMS : INS qualifiée, MSSanté, DMP et interopérabilité.",
+      "Comprenez comment Silao répond aux exigences Ségur pour les ESSMS : SONS, INS qualifiée, MSSanté, DMP et interopérabilité.",
     breadcrumbs: [
       HOME_CRUMB,
       RESSOURCES_CRUMB,
-      { name: "Conformité SONS", path: "/conformite-sons" },
+      { name: "Conformité Ségur", path: "/conformite-sons" },
     ],
     priority: 0.8,
     schema: buildServiceSchema(
-      "Conformité SONS de Silao",
+      "Conformité Ségur de Silao",
       "/conformite-sons",
-      "Comprenez comment Silao répond aux exigences SONS pour les ESSMS : INS qualifiée, MSSanté, DMP et interopérabilité.",
+      "Comprenez comment Silao répond aux exigences Ségur pour les ESSMS : SONS, INS qualifiée, MSSanté, DMP et interopérabilité.",
       "Conformité numérique et interopérabilité pour DUI ESSMS",
     ),
   },
@@ -222,6 +223,29 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       ),
       getSectorFaqSchema("ph"),
     ],
+  },
+  {
+    path: "/secteur/camsp-cmpp",
+    title: "Silao pour CAMSP et CMPP | DUI pour suivis ambulatoires et coordination",
+    description:
+      "Découvrez Silao pour les CAMSP et CMPP : dossier usager informatisé, bilans, agenda, coordination pluridisciplinaire, listes d'attente et pilotage d'activité.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      SECTEURS_CRUMB,
+      { name: "CAMSP / CMPP", path: "/secteur/camsp-cmpp" },
+    ],
+    priority: 0.75,
+    schema: buildSoftwareApplicationSchema(
+      "/secteur/camsp-cmpp",
+      "Découvrez Silao pour les CAMSP et CMPP : dossier usager informatisé, bilans, agenda, coordination pluridisciplinaire, listes d'attente et pilotage d'activité.",
+      [
+        "Bilans et évaluations",
+        "Planning de séances",
+        "Coordination pluridisciplinaire",
+        "Gestion des listes d'attente",
+        "Reporting d'activité",
+      ],
+    ),
   },
   {
     path: "/secteur/protection-enfance",
@@ -348,30 +372,12 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   {
     path: "/ressources",
     title:
-      "Ressources Silao | DUI, SONS, déploiement et secteurs ESSMS",
+      "Ressources Silao | DUI, Ségur, déploiement et secteurs ESSMS",
     description:
-      "Guides et repères Silao sur le DUI, la conformité SONS, le déploiement, les grappes multi-établissements et les secteurs ESSMS.",
+      "Guides et repères Silao sur le DUI, la conformité Ségur, le déploiement, les grappes multi-établissements et les secteurs ESSMS.",
     breadcrumbs: [HOME_CRUMB, RESSOURCES_CRUMB],
     priority: 0.7,
     schema: resourcesSchema,
-  },
-  {
-    path: "/aide-support",
-    title: "Aide et support Silao | Contact, ressources et orientation",
-    description:
-      "Retrouvez les points de contact, ressources utiles et parcours d'assistance Silao pour votre projet DUI ou vos questions produit.",
-    breadcrumbs: [
-      HOME_CRUMB,
-      { name: "Aide et support", path: "/aide-support" },
-    ],
-    priority: 0.4,
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      name: "Aide et support Silao",
-      url: `${SITE_URL}/aide-support`,
-      email: CONTACT_EMAIL,
-    },
   },
   {
     path: "/mentions-legales",
@@ -402,7 +408,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     path: "/politique-de-cookies",
     title: "Politique de cookies | Silao par D2L Informatique",
     description:
-      "Consultez la politique de cookies du site Silao et l'état actuel des traceurs utilisés.",
+      "Politique de cookies Silao : Google Ads, mode de consentement et bandeau de choix.",
     breadcrumbs: [
       HOME_CRUMB,
       { name: "Politique de cookies", path: "/politique-de-cookies" },
@@ -413,14 +419,14 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     path: "/plan-du-site",
     title: "Plan du site Silao | Toutes les pages publiques",
     description:
-      "Parcourez l'ensemble des pages publiques Silao : offres, secteurs, ressources, accompagnement et support.",
+      "Parcourez l'ensemble des pages publiques Silao : offres, secteurs, ressources, accompagnement et contact.",
     breadcrumbs: [HOME_CRUMB, { name: "Plan du site", path: "/plan-du-site" }],
     priority: 0.3,
     schema: {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "Plan du site Silao",
-      url: `${SITE_URL}/plan-du-site`,
+      url: resolveUrl("/plan-du-site"),
     },
   },
   {

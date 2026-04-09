@@ -135,6 +135,22 @@ const SEOHead = ({
       content: THEME_COLOR_DARK,
       media: "(prefers-color-scheme: dark)",
     });
+    upsertLink('link[rel="icon"][href="/favicon.ico"]', {
+      rel: "icon",
+      href: "/favicon.ico",
+      sizes: "any",
+    });
+    upsertLink('link[rel="icon"][href="/favicon-96x96.png"]', {
+      rel: "icon",
+      type: "image/png",
+      sizes: "96x96",
+      href: "/favicon-96x96.png",
+    });
+    upsertLink('link[rel="apple-touch-icon"]', {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    });
     upsertLink('link[rel="manifest"]', { rel: "manifest", href: "/site.webmanifest" });
     upsertLink('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
     upsertLink('link[rel="alternate"][hreflang="fr-FR"]', {

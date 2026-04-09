@@ -31,8 +31,8 @@ const sectorFaqs: Record<SectorFaqId, SectorFaqItem[]> = {
             fratries, les accueils et les circuits documentaires propres au secteur.
           </p>
           <p className="mt-3">
-            Le bon choix repose surtout sur l&apos;adéquation au terrain: confidentialité, coordination
-            éducative, suivi des parcours et qualité des écrits.
+            Le bon choix repose surtout sur l&apos;adéquation au terrain\u00a0: confidentialité,
+            coordination éducative, suivi des parcours et qualité des écrits.
           </p>
         </>
       ),
@@ -95,7 +95,7 @@ const sectorFaqs: Record<SectorFaqId, SectorFaqItem[]> = {
         <>
           <p>
             Les équipes ont besoin d&apos;un repère simple pour savoir quoi faire, quoi transmettre et
-            ce qui a déjà été réalisé. L&apos;agenda donne la vue d&apos;action; le cahier de liaison donne la
+            ce qui a déjà été réalisé. L&apos;agenda donne la vue d&apos;action\u00a0; le cahier de liaison donne la
             continuité des écrits.
           </p>
           <p className="mt-3">
@@ -124,7 +124,7 @@ const sectorFaqs: Record<SectorFaqId, SectorFaqItem[]> = {
             en charge et les interlocuteurs ne sont pas les mêmes.
           </p>
           <p className="mt-3">
-            Il faut donc regarder les usages réels: agenda, attentes, santé, coordination,
+            Il faut donc regarder les usages réels\u00a0: agenda, attentes, santé, coordination,
             transports, documents et indicateurs.
           </p>
         </>
@@ -143,7 +143,7 @@ const sectorFaqs: Record<SectorFaqId, SectorFaqItem[]> = {
         <>
           <p>
             Dans beaucoup de structures PH, l&apos;enjeu n&apos;est pas seulement de stocker des données,
-            mais d&apos;orchestrer une activité complexe: attentes, bilans, notifications, plages
+            mais d&apos;orchestrer une activité complexe\u00a0: attentes, bilans, notifications, plages
             horaires, transports et coordination entre intervenants.
           </p>
           <p className="mt-3">
@@ -376,7 +376,7 @@ const sectorFaqs: Record<SectorFaqId, SectorFaqItem[]> = {
         </>
       ),
       links: [
-        { to: "/conformite-sons", label: "Voir la page conformité SONS" },
+        { to: "/conformite-sons", label: "Voir la page conformité Ségur" },
         { to: "/abonnement", label: "Voir l'environnement SaaS" },
       ],
     },

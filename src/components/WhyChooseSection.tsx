@@ -9,6 +9,8 @@ import {
   Workflow,
 } from "lucide-react";
 
+import voyageurIllustration from "@/assets/illustrations/voyageur.png";
+
 const reasons = [
   {
     icon: Sparkles,
@@ -71,21 +73,40 @@ const reasons = [
 const WhyChooseSection = () => (
   <section id="pourquoi-silao" className="px-4 py-6 md:py-8 tint-earth">
     <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mx-auto mb-5 max-w-3xl text-center"
-      >
-        <p className="marker-label mb-4">Pourquoi choisir Silao ?</p>
-        <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-          Les raisons concrètes de faire confiance à{" "}
-          <span className="text-primary sketch-underline">Silao</span>
-        </h2>
-        <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Simplicité d&apos;usage, accompagnement continu, sécurité et cadre réglementaire lisible.
-        </p>
-      </motion.div>
+      <div className="mb-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left"
+        >
+          <p className="marker-label mb-4">Pourquoi choisir Silao ?</p>
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+            Les raisons concrètes de faire confiance à{" "}
+            <span className="text-primary sketch-underline">Silao</span>
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">
+            Simplicité d&apos;usage, accompagnement continu, sécurité et cadre réglementaire lisible.
+          </p>
+        </motion.div>
+
+        <motion.figure
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          className="surface-card mx-auto w-full max-w-[22rem] overflow-hidden rounded-[1.75rem] p-3"
+        >
+          <img
+            src={voyageurIllustration}
+            alt="Illustration personnage pour la section Pourquoi choisir Silao"
+            width={960}
+            height={960}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full rounded-[1.25rem] object-cover"
+          />
+        </motion.figure>
+      </div>
 
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {reasons.map((reason, index) => (

@@ -86,7 +86,7 @@ const faqs = [
         </p>
         <p className="mt-3">
           Les échanges circulant via internet sont chiffrés, les sauvegardes sont prises en charge
-          et Silao est référencé DSR Ségur MS2 PE et DSR Ségur MS1 PH, avec DSR Ségur MS1 AHI en cours.
+          et Silao est référencé DSR Ségur MS2 PDE et DSR Ségur MS1 PH, avec DSR Ségur MS1 AHI en cours.
         </p>
       </>
     ),

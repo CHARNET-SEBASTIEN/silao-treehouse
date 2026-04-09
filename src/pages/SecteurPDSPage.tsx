@@ -51,7 +51,6 @@ const SecteurPDSPage = () => (
           "La coordination pluridisciplinaire est pensée comme une fonction native de l'outil.",
         ]}
         modules={[
-          "Dossier Usager Informatisé",
           "Dossier médical",
           "DMP",
           "Rappels",

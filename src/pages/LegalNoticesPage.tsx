@@ -116,9 +116,9 @@ const LegalNoticesPage = () => (
                   réalisés depuis le site sont détaillées dans la politique de confidentialité.
                 </p>
                 <p>
-                  Le site public Silao n&apos;embarque à ce jour aucun outil d&apos;analyse ou de publicité
-                  nécessitant le recueil préalable du consentement. Les informations à jour sont
-                  précisées dans la politique de cookies.
+                  Le site public utilise une balise Google Ads soumise à votre consentement via un
+                  bandeau et au mode de consentement Google. Les informations à jour sont précisées
+                  dans la politique de cookies.
                 </p>
               </div>
             </div>

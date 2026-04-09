@@ -1,8 +1,20 @@
 ErrorDocument 404 /404.html
 
+Options -MultiViews
+
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} !^www\.silao\.fr$ [NC]
+RewriteRule ^ https://www.silao.fr%{REQUEST_URI} [L,R=301]
+
 RewriteCond %{ENV:HTTPS} !on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://www.silao.fr%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^plan-du-site\.html$ /plan-du-site/ [L,R=301]
+RewriteRule ^mentions-legales\.html$ /mentions-legales/ [L,R=301]
+RewriteRule ^contact-new\.php$ /#contacts [L,R=301]
+RewriteRule ^fonctionnalites-principales\.html$ / [L,R=301]
+RewriteRule ^fonctionnalites-specificites\.html$ / [L,R=301]
+RewriteRule ^fonctionnalites-personnalisation\.html$ / [L,R=301]
 
 RewriteRule ^api/contact/?$ /api/contact.php [L,QSA]

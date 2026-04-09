@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import EngagementsSection from "@/components/EngagementsSection";
-import RnDInnovationSection from "@/components/RnDInnovationSection";
 import FooterSection from "@/components/FooterSection";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
@@ -14,7 +13,6 @@ const EngagementsPage = () => (
     <Navbar />
     <PageMain className="pt-16">
       <EngagementsSection />
-      <RnDInnovationSection />
     </PageMain>
     <FooterSection />
   </div>

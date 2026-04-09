@@ -1,6 +1,39 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- Google tag (gtag.js) + Consent Mode v2 : défaut refus, reprise du choix dans localStorage -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+      var __silaoConsentKey = "silao-cookie-consent";
+      var __silaoStored = null;
+      try {
+        __silaoStored = localStorage.getItem(__silaoConsentKey);
+      } catch (e) {}
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
+      });
+      if (__silaoStored === "accepted") {
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          analytics_storage: "granted",
+        });
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18069760229"></script>
+    <script>
+      window.gtag("js", new Date());
+      window.gtag("config", "AW-18069760229");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--app-head:start-->
@@ -38,6 +71,9 @@
     />
     <meta name="theme-color" content="#fafcff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#121426" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <!--app-head:end-->
     <script>
       (() => {
