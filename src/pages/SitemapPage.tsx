@@ -12,7 +12,7 @@ const seo = getPageSeo("/plan-du-site");
 const sitemapGroups = [
   {
     title: "Pages principales",
-    paths: ["/", "/offres", "/formations", "/abonnement", "/ressources"],
+    paths: ["/", "/offres", "/recrutement", "/formations", "/abonnement", "/ressources"],
   },
   {
     title: "Secteurs",

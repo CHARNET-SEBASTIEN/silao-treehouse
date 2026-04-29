@@ -14,6 +14,7 @@ import { CONTACT_EMAIL, PRODUCT_NAME, SITE_URL } from "@/lib/site";
 const HOME_CRUMB = { name: "Accueil", path: "/" };
 const RESSOURCES_CRUMB = { name: "Ressources", path: "/ressources" };
 const OFFRES_CRUMB = { name: "Offres", path: "/offres" };
+const RECRUTEMENT_CRUMB = { name: "Recrutement", path: "/recrutement" };
 const SECTEURS_CRUMB = { name: "Secteurs", path: "/#secteurs" };
 
 const essmsAudience = {
@@ -349,6 +350,22 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       "Découvrez les offres de déploiement de Silao : cadrage, paramétrage, reprise de données, formation et suivi post-démarrage pour les ESSMS.",
       "Déploiement de DUI pour ESSMS",
     ),
+  },
+  {
+    path: "/recrutement",
+    title: "Recrutement Silao | Chef de projet, Formateur et Support",
+    description:
+      "Découvrez les opportunités de recrutement chez Silao : chef de projet, formateur et support relation client en télétravail, au service des ESSMS.",
+    breadcrumbs: [HOME_CRUMB, RECRUTEMENT_CRUMB],
+    priority: 0.6,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Recrutement Silao",
+      url: resolveUrl("/recrutement"),
+      description:
+        "Postes ouverts chez Silao pour accompagner le déploiement, la formation, le support client et l'évolution du DUI dans les ESSMS.",
+    },
   },
   {
     path: "/abonnement",

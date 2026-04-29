@@ -34,6 +34,7 @@ const homeLinks = [
   { label: "Références", compactLabel: "Clients", href: "/#references", icon: ShieldCheck, isAnchor: true },
   { label: "Ressources", href: "/ressources", icon: Newspaper },
   { label: "Offres", href: "/offres", icon: BriefcaseBusiness },
+  { label: "Recrutement", compactLabel: "Carrières", href: "/recrutement", icon: BriefcaseBusiness },
   { label: "Contact", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
 

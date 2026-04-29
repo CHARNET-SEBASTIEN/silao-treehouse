@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import segurLogo from "@/assets/logos-segur-numerique.png";
 import { Button } from "@/components/ui/button";
 
 const points = [
@@ -78,12 +79,24 @@ const SONSComplianceSection = () => {
             INS, MSSanté, DMP et interopérabilité
           </h1>
           <p className="mx-auto max-w-3xl text-lg text-muted-foreground font-body">
-            Cette page offre une vision synthétique des principaux sujets à structurer dans un
-            projet DUI pour les ESSMS, parmi lesquels l&apos;Identité Nationale de Santé (INS), la
-            Messagerie Sécurisée de Santé (MSS), le Dossier Médical Partagé (DMP),
-            l&apos;interopérabilité avec le CI-SIS, ainsi que les modalités d&apos;organisation et de
-            déploiement.
+            Silao accompagne les ESSMS dans la structuration des usages attendus autour de
+            l&apos;Identité Nationale de Santé (INS), de la Messagerie Sécurisée de Santé (MSS), du
+            Dossier Médical Partagé (DMP), de l&apos;interopérabilité CI-SIS et des modalités
+            d&apos;organisation nécessaires au déploiement.
           </p>
+          <div className="mt-8 flex justify-center">
+            <figure className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-border/70">
+              <img
+                src={segurLogo}
+                alt="Logo Ségur numérique et Référencé ANS"
+                width={600}
+                height={280}
+                loading="eager"
+                decoding="async"
+                className="h-auto w-full max-w-[18rem] object-contain sm:max-w-[22rem]"
+              />
+            </figure>
+          </div>
         </motion.div>
 
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">

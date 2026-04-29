@@ -13,6 +13,7 @@ import RnDInnovationSection from "@/components/RnDInnovationSection";
 import ContactHubSection from "@/components/ContactHubSection";
 import ReferencesSection from "@/components/ReferencesSection";
 import SectionDivider from "@/components/SectionDivider";
+import SegurHighlightSection from "@/components/SegurHighlightSection";
 import { getPageSeo } from "@/lib/publicRoutes";
 
 const seo = getPageSeo("/");
@@ -24,6 +25,7 @@ const Index = () => {
       <Navbar />
       <PageMain className="pt-16">
         <HeroSection />
+        <SegurHighlightSection />
         <SectionDivider variant="wave" />
         <KeyFiguresSection />
         <SectionDivider variant="curve" />

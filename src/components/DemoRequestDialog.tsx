@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
+import { trackGoogleAdsConversion } from "@/lib/googleAds";
 import { CONTACT_EMAIL, DPO_EMAIL, RIGHTS_REQUEST_URL } from "@/lib/site";
 
 interface DemoRequestDialogProps {
@@ -190,6 +191,7 @@ const DemoRequestDialog = React.forwardRef<HTMLDivElement, DemoRequestDialogProp
           throw new Error("Contact provider returned an error");
         }
 
+        trackGoogleAdsConversion(import.meta.env.VITE_GOOGLE_ADS_DEMO_SUBMIT_LABEL);
         setFormValues(createInitialValues());
         setErrors({});
         setStatusMessage("Votre demande a bien été envoyée.");

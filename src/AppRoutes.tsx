@@ -11,6 +11,7 @@ import LegalNoticesPage from "@/pages/LegalNoticesPage";
 import NotFound from "@/pages/NotFound";
 import OffresPage from "@/pages/OffresPage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import RecrutementPage from "@/pages/RecrutementPage";
 import RessourcesPage from "@/pages/RessourcesPage";
 import SecteurAHIPage from "@/pages/SecteurAHIPage";
 import SecteurCAMSPPage from "@/pages/SecteurCAMSPPage";
@@ -34,6 +35,7 @@ const AppRoutes = () => (
     <Route path="/secteur/camsp-cmpp" element={<SecteurCAMSPPage />} />
     <Route path="/secteur/personnes-difficultes-specifiques" element={<SecteurPDSPage />} />
     <Route path="/offres" element={<OffresPage />} />
+    <Route path="/recrutement" element={<RecrutementPage />} />
     <Route path="/abonnement" element={<AbonnementPage />} />
     <Route path="/ressources" element={<RessourcesPage />} />
     <Route path="/aide-support" element={<Navigate to="/#contacts" replace />} />

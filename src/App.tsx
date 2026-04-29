@@ -9,6 +9,7 @@ import { BrowserRouter, useLocation } from "react-router-dom";
 
 import AppRoutes from "@/AppRoutes";
 import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
+import { trackGoogleAdsPageView, trackHomePageViewConversion } from "@/lib/googleAds";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
 
 const DecorativeIconManager = () => {
@@ -159,6 +160,17 @@ const RouteAnnouncer = () => {
   );
 };
 
+const GoogleAdsRouteTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackGoogleAdsPageView();
+    trackHomePageViewConversion();
+  }, [location.pathname, location.search]);
+
+  return null;
+};
+
 const App = () => (
   <ThemeProvider>
     <MotionConfig reducedMotion="user">
@@ -175,6 +187,7 @@ const App = () => (
         <BrowserRouter>
           <CookieConsentProvider>
             <DemoRequestDialogProvider>
+              <GoogleAdsRouteTracker />
               <ScrollManager />
               <RouteFocusManager />
               <RouteAnnouncer />
