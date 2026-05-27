@@ -10,8 +10,11 @@ RewriteRule ^ https://www.silao.fr%{REQUEST_URI} [L,R=301]
 RewriteCond %{ENV:HTTPS} !on
 RewriteRule ^ https://www.silao.fr%{REQUEST_URI} [L,R=301]
 
+RewriteRule ^index\.html$ / [L,R=301]
 RewriteRule ^plan-du-site\.html$ /plan-du-site/ [L,R=301]
 RewriteRule ^mentions-legales\.html$ /mentions-legales/ [L,R=301]
+RewriteRule ^recrutement\.html$ /recrutement/ [L,R=301]
+RewriteRule ^mise-en-place-et-securite\.html$ /offres/ [L,R=301]
 RewriteRule ^contact-new\.php$ /#contacts [L,R=301]
 RewriteRule ^fonctionnalites-principales\.html$ / [L,R=301]
 RewriteRule ^fonctionnalites-specificites\.html$ / [L,R=301]

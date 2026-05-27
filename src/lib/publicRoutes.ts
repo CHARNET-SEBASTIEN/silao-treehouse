@@ -201,9 +201,9 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/secteur/handicap",
-    title: "Silao pour le handicap | DUI pour IME, ITEP, MAS, FAM, ESAT et SESSAD",
+    title: "Logiciel DUI Handicap | IME ESAT FAM MAS SESSAD | Silao",
     description:
-      "Découvrez Silao pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH.",
+      "Logiciel DUI handicap pour IME, ESAT, FAM, MAS, SESSAD. Dossier usager, coordination pluridisciplinaire, MDPH, projet personnalisé. Ségur MS1 PH référencé. Démo gratuite.",
     breadcrumbs: [
       HOME_CRUMB,
       SECTEURS_CRUMB,
@@ -213,13 +213,15 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     schema: [
       buildSoftwareApplicationSchema(
         "/secteur/handicap",
-        "Découvrez Silao pour le secteur handicap : dossier usager informatisé, coordination pluridisciplinaire, projet personnalisé et pilotage pour les structures PH.",
+        "Logiciel DUI handicap pour IME, ESAT, FAM, MAS, SESSAD. Dossier usager, coordination pluridisciplinaire, MDPH, projet personnalisé. Ségur MS1 PH référencé.",
         [
           "Dossier usager",
           "Agenda partagé",
           "Gestion MDPH",
           "Fiche d'urgence",
           "Gestion des attentes",
+          "Projet personnalisé",
+          "Ségur MS1 PH",
         ],
       ),
       getSectorFaqSchema("ph"),
@@ -227,33 +229,38 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/secteur/camsp-cmpp",
-    title: "Silao pour CAMSP et CMPP | DUI pour suivis ambulatoires et coordination",
+    title: "Logiciel CAMSP CMPP | DUI Ségur Conformité | Silao",
     description:
-      "Découvrez Silao pour les CAMSP et CMPP : dossier usager informatisé, bilans, agenda, coordination pluridisciplinaire, listes d'attente et pilotage d'activité.",
+      "Logiciel CAMSP CMPP pour dépistage précoce et soins ambulatoires. Dossier usager, bilans, agenda pluridisciplinaire, listes d'attente. Ségur conformité DMP. Démo gratuite.",
     breadcrumbs: [
       HOME_CRUMB,
       SECTEURS_CRUMB,
       { name: "CAMSP / CMPP", path: "/secteur/camsp-cmpp" },
     ],
     priority: 0.75,
-    schema: buildSoftwareApplicationSchema(
-      "/secteur/camsp-cmpp",
-      "Découvrez Silao pour les CAMSP et CMPP : dossier usager informatisé, bilans, agenda, coordination pluridisciplinaire, listes d'attente et pilotage d'activité.",
-      [
-        "Bilans et évaluations",
-        "Planning de séances",
-        "Coordination pluridisciplinaire",
-        "Gestion des listes d'attente",
-        "Reporting d'activité",
-      ],
-    ),
+    schema: [
+      buildSoftwareApplicationSchema(
+        "/secteur/camsp-cmpp",
+        "Logiciel CAMSP CMPP pour dépistage précoce et soins ambulatoires. Dossier usager, bilans, agenda pluridisciplinaire, listes d'attente. Ségur conformité DMP.",
+        [
+          "Bilans et évaluations",
+          "Planning de séances",
+          "Coordination pluridisciplinaire",
+          "Gestion des listes d'attente",
+          "Reporting d'activité",
+          "DMP et MSSanté",
+          "Ségur conformité",
+        ],
+      ),
+      getSectorFaqSchema("camsp"),
+    ],
   },
   {
     path: "/secteur/protection-enfance",
     title:
-      "Protection enfance | DUI Silao pour MECS, SAE et AEMO",
+      "Logiciel DUI Protection Enfance | MECS AEMO FAM | Silao",
     description:
-      "Découvrez Silao pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
+      "Logiciel DUI protection enfance pour MECS, AEMO, accueil familial, milieu ouvert. Gestion usager, fratries, argent poche, présences. Ségur MS2 PDE référencé. Démo gratuite.",
     breadcrumbs: [
       HOME_CRUMB,
       SECTEURS_CRUMB,
@@ -266,13 +273,15 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     schema: [
       buildSoftwareApplicationSchema(
         "/secteur/protection-enfance",
-        "Découvrez Silao pour la protection de l'enfance : PPE, mesures judiciaires, confidentialité renforcée et coordination avec l'ASE et les magistrats.",
+        "Logiciel DUI protection enfance pour MECS, AEMO, accueil familial, milieu ouvert. Gestion usager, fratries, argent poche, présences. Ségur MS2 PDE référencé.",
         [
           "Cahier de liaison",
           "Agenda",
           "Gestion des fratries",
           "Suivi des présences",
           "Accueil familial",
+          "Argent de poche",
+          "Ségur MS2 PDE",
         ],
       ),
       getSectorFaqSchema("pde"),
@@ -280,9 +289,9 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/secteur/insertion-ahi",
-    title: "Silao pour l'AHI | DUI pour CHRS, CADA, HUDA, CPH et accueil de jour",
+    title: "Logiciel DUI AHI Insertion | ESSMS CHRS CADA | Silao",
     description:
-      "Découvrez Silao pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
+      "Logiciel AHI insertion pour ESSMS, CHRS, CADA. Gestion insertion, suivi usager, parcours hébergement, droits sociaux. Ségur conformité. Démo gratuite.",
     breadcrumbs: [
       HOME_CRUMB,
       SECTEURS_CRUMB,
@@ -295,13 +304,15 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     schema: [
       buildSoftwareApplicationSchema(
         "/secteur/insertion-ahi",
-        "Découvrez Silao pour l'accueil, l'hébergement et l'insertion : suivi de parcours, coordination multi-acteurs, gestion des places et reporting d'activité.",
+        "Logiciel AHI insertion pour ESSMS, CHRS, CADA. Gestion insertion, suivi usager, parcours hébergement, droits sociaux. Ségur conformité.",
         [
           "Gestion des hébergements",
           "Accompagnement au logement",
           "Suivi administratif",
           "Budget personnel",
           "Suivi médical",
+          "Plan d'accompagnement",
+          "Droits sociaux",
         ],
       ),
       getSectorFaqSchema("ahi"),
@@ -309,9 +320,9 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/secteur/personnes-difficultes-specifiques",
-    title: "Silao pour les PDS | DUI LHSS, ACT et CAARUD",
+    title: "Logiciel DUI PDS | LHSS ACT CAARUD | Silao",
     description:
-      "Découvrez Silao pour les personnes en difficultés spécifiques : suivi coordonné, rappels, dossier santé et pilotage d'activité.",
+      "Logiciel DUI PDS pour LHSS, ACT, CAARUD. Suivi social et médical coordonné, rappels, dossier santé, DMP. Ségur conformité. Démo gratuite.",
     breadcrumbs: [
       HOME_CRUMB,
       SECTEURS_CRUMB,
@@ -324,13 +335,14 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     schema: [
       buildSoftwareApplicationSchema(
         "/secteur/personnes-difficultes-specifiques",
-        "Découvrez Silao pour les personnes en difficultés spécifiques : suivi coordonné, rappels, dossier santé et pilotage d'activité.",
+        "Logiciel DUI PDS pour LHSS, ACT, CAARUD. Suivi social et médical coordonné, rappels, dossier santé, DMP. Ségur conformité.",
         [
           "Dossier médical",
           "DMP",
           "Rappels",
           "Accompagnement au logement",
           "Coordination pluridisciplinaire",
+          "Ségur conformité",
         ],
       ),
       getSectorFaqSchema("pds"),

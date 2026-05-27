@@ -10,11 +10,17 @@ import { getPageSeo } from "@/lib/publicRoutes";
 import { cn } from "@/lib/utils";
 import { PRODUCT_NAME } from "@/lib/site";
 
+interface DetailedSection {
+  title: string;
+  content: string;
+}
+
 interface SecteurPageLayoutProps {
   icon: LucideIcon;
   name: string;
   tagline: string;
   description: string;
+  detailedSections?: DetailedSection[];
   color: string;
   bgColor: string;
   borderColor: string;
@@ -32,6 +38,7 @@ const SecteurPageLayout = ({
   name,
   tagline,
   description,
+  detailedSections,
   color,
   bgColor,
   borderColor,
@@ -98,6 +105,33 @@ const SecteurPageLayout = ({
           </motion.div>
         </div>
       </section>
+
+      {/* Sections détaillées */}
+      {detailedSections && detailedSections.length > 0 && (
+        <section className="px-4 py-16 paper-bg">
+          <div className="max-w-4xl mx-auto space-y-12">
+            {detailedSections.map((section, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="space-y-4"
+              >
+                <h2 className={cn("text-2xl font-bold text-foreground", color)}>
+                  {section.title}
+                </h2>
+                <div className="text-muted-foreground font-body leading-relaxed space-y-4">
+                  {section.content.split('\n\n').map((paragraph, pIndex) => (
+                    <p key={pIndex}>{paragraph}</p>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Structures couvertes */}
       <section className="px-4 py-12">
