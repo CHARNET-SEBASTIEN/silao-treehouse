@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  BarChart3,
   BellRing,
   BookMarked,
   CalendarDays,
   CreditCard,
   FileArchive,
+  FileText,
   Files,
   FolderKanban,
   HeartPulse,
@@ -48,7 +50,8 @@ const featureGroups = [
   {
     id: "pilotage",
     title: "Pilotage et usages métier",
-    description: "Les modules dédiés à l'activité, aux états, à la facturation et aux services socles.",
+    description:
+      "Les modules dédiés aux indicateurs, aux rapports d'activité, à la facturation et aux services socles.",
     eyebrow: "Pilotage et usages métier",
     dot: "bg-[hsl(var(--brand-violet))]",
     eyebrowColor: "text-[hsl(var(--brand-violet))]",
@@ -122,10 +125,17 @@ const features = [
   },
   {
     group: "pilotage",
-    icon: FolderKanban,
-    title: "Pilotage, états et stats",
+    icon: BarChart3,
+    title: "Pilotage, états et statistiques",
     description:
-      "Des états, statistiques et requêteurs pour visualiser rapidement les indicateurs utiles à l'activité.",
+      "Des tableaux de bord, états, statistiques et requêteurs pour visualiser rapidement les indicateurs utiles à l'activité.",
+  },
+  {
+    group: "pilotage",
+    icon: FileText,
+    title: "Rapports et indicateurs métier",
+    description:
+      "Rapports d'activité, indicateurs ANAP, taux de complétion des dossiers et suivi des actions autour du projet personnalisé aident à objectiver l'activité sans calculs manuels.",
   },
   {
     group: "pilotage",
@@ -196,9 +206,9 @@ const FeaturesSection = () => (
           <span className="text-primary sketch-underline">quotidien des équipes</span>
         </h2>
         <p className="mt-4 text-lg leading-8 text-muted-foreground">
-          Dossier usager, agenda, transmissions, gestion documentaire (GED), rappels, pilotage et
-          facturation : les fonctionnalités sont pensées pour accompagner les usages réels du
-          terrain.
+          Dossier usager, agenda, transmissions, gestion documentaire (GED), rappels, rapports,
+          indicateurs, pilotage et facturation : les fonctionnalités sont pensées pour accompagner
+          les usages réels du terrain.
         </p>
       </motion.div>
 
@@ -239,7 +249,7 @@ const FeaturesSection = () => (
               Tableaux de bord et transmissions
             </span>
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
-              Pilotage et rappels
+              Rapports et indicateurs métier
             </span>
             <span className="rounded-full border border-secondary/25 bg-secondary/10 px-3 py-1.5 text-xs font-semibold text-secondary">
               Mobilité smartphone native

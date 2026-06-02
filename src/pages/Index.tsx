@@ -5,6 +5,7 @@ import FooterSection from "@/components/FooterSection";
 import FAQSection from "@/components/FAQSection";
 import KeyFiguresSection from "@/components/KeyFiguresSection";
 import FilieresSection from "@/components/FilieresSection";
+import BenefitsByTeamSection from "@/components/BenefitsByTeamSection";
 import PageMain from "@/components/PageMain";
 import SEOHead from "@/components/SEOHead";
 import WhyChooseSection from "@/components/WhyChooseSection";
@@ -33,6 +34,8 @@ const Index = () => {
           <FeaturesSection />
         </section>
         <SectionDivider variant="wave" flip />
+        <BenefitsByTeamSection />
+        <SectionDivider variant="curve" />
         <FilieresSection />
         <SectionDivider variant="curve" flip />
         <WhyChooseSection />
