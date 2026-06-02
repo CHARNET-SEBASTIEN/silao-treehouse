@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
+import { defaultViewport, fadeUp } from "@/lib/motion";
 import { HeartHandshake } from "lucide-react";
 
 const CTASection = () => {
@@ -10,18 +11,25 @@ const CTASection = () => {
     <section className="px-4 py-20 md:py-28 tint-primary">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="section-panel px-8 py-10 text-center md:px-14 md:py-16"
         >
           <div className="mb-5 flex justify-center">
             <span className="marker-label">Démo personnalisée</span>
           </div>
           <div className="mb-6 flex justify-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_18px_40px_-24px_hsl(var(--accent)/0.95)]">
+            <motion.div
+              initial={{ scale: 0.85, rotate: -8, opacity: 0 }}
+              whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+              viewport={defaultViewport}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_18px_40px_-24px_hsl(var(--accent)/0.95)]"
+            >
               <HeartHandshake className="h-7 w-7" />
-            </div>
+            </motion.div>
           </div>
           <h2 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-4xl">
             Demandez une <span className="title-sky font-sketch">démonstration personnalisée</span>

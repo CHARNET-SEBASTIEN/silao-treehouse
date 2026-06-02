@@ -10,6 +10,13 @@ import {
 import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
+import {
+  defaultViewport,
+  fadeUp,
+  softScale,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
 
 const commitments = [
   {
@@ -49,9 +56,10 @@ const EngagementsSection = () => {
     <section className="relative overflow-hidden px-4 py-24 paper-bg">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="mb-16 text-center"
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
@@ -69,15 +77,18 @@ const EngagementsSection = () => {
           </p>
         </motion.div>
 
-        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
-          {commitments.map((item, index) => (
+        <motion.div
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5"
+        >
+          {commitments.map((item) => (
             <motion.article
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-sm"
+              variants={staggerItem}
+              className="lift-on-hover rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-sm hover:border-primary/30 hover:shadow-[0_28px_56px_-32px_hsl(var(--brand-violet)/0.28)]"
             >
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <item.icon className="h-5 w-5" />
@@ -86,13 +97,13 @@ const EngagementsSection = () => {
               <p className="text-sm leading-7 text-muted-foreground">{item.description}</p>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          variants={softScale}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="mx-auto max-w-3xl border-primary/20 bg-primary/5 p-8 text-center sketch-border md:p-10"
         >
           <HeartHandshake className="mx-auto mb-4 h-10 w-10 text-primary" />

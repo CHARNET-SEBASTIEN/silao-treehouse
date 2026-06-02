@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { partnerReferencesByName } from "@/lib/partners";
+import { defaultViewport, fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 const testimonials = [
   {
@@ -21,9 +22,10 @@ const TestimonialsSection = () => {
     <section className="px-4 py-6 md:py-8 tint-secondary">
       <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="mb-5 text-center"
         >
           <p className="mb-3 font-body text-sm uppercase tracking-widest text-muted-foreground">
@@ -39,13 +41,20 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 divide-y divide-border/45 md:grid-cols-2 md:divide-x md:divide-y-0">
+        <motion.div
+          variants={staggerContainer(0.12, 0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid grid-cols-1 divide-y divide-border/45 md:grid-cols-2 md:divide-x md:divide-y-0"
+        >
           {testimonials.map((testimonial) => {
             const partner = partnerReferencesByName[testimonial.name];
 
             return (
-              <div
+              <motion.div
                 key={testimonial.name}
+                variants={staggerItem}
                 className="flex flex-col items-center px-4 py-6 text-center"
               >
                 <div className="mb-5 flex min-h-20 w-full items-center justify-center px-3">
@@ -71,10 +80,10 @@ const TestimonialsSection = () => {
                   <p className="font-sketch text-xl text-primary">{testimonial.name}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

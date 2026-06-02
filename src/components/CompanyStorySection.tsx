@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import teamTous from "@/assets/illustrations/team-tous.webp";
 import { Button } from "@/components/ui/button";
+import { defaultViewport, fadeUp, softScale, staggerContainer, staggerItem } from "@/lib/motion";
 import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
 const markers = [
@@ -32,9 +33,10 @@ const CompanyStorySection = () => (
     <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
       <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="text-center lg:text-left"
         >
           <p className="mb-3 text-sm uppercase tracking-[0.22em] text-muted-foreground">
@@ -56,9 +58,10 @@ const CompanyStorySection = () => (
         </motion.div>
 
         <motion.figure
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={softScale}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="relative overflow-hidden px-6 pb-2 pt-4"
         >
           <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-full bg-primary/10 blur-3xl" />
@@ -69,19 +72,22 @@ const CompanyStorySection = () => (
             decoding="async"
             width={1600}
             height={954}
-            className="relative z-10 mx-auto w-full max-w-md"
+            className="relative z-10 mx-auto w-full max-w-md transition-transform duration-700 ease-out hover:scale-[1.015]"
           />
         </motion.figure>
       </div>
 
-      <div className="mt-4 grid gap-5 md:grid-cols-3">
-        {markers.map((marker, index) => (
+      <motion.div
+        variants={staggerContainer(0.07)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        className="mt-4 grid gap-5 md:grid-cols-3"
+      >
+        {markers.map((marker) => (
           <motion.article
             key={marker.title}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.05 }}
+            variants={staggerItem}
             className="surface-card rounded-[1.5rem] px-5 py-6"
           >
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-secondary">
@@ -91,7 +97,7 @@ const CompanyStorySection = () => (
             <p className="text-sm leading-7 text-muted-foreground">{marker.description}</p>
           </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );

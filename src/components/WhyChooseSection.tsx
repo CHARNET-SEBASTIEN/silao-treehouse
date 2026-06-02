@@ -10,6 +10,13 @@ import {
 } from "lucide-react";
 
 import voyageurIllustration from "@/assets/illustrations/voyageur.png";
+import {
+  defaultViewport,
+  fadeUp,
+  softScale,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
 
 const reasons = [
   {
@@ -75,9 +82,10 @@ const WhyChooseSection = () => (
     <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
       <div className="mb-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left"
         >
           <p className="marker-label mb-4">Pourquoi choisir Silao ?</p>
@@ -91,9 +99,10 @@ const WhyChooseSection = () => (
         </motion.div>
 
         <motion.figure
-          initial={{ opacity: 0, y: 20, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
+          variants={softScale}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="surface-card mx-auto w-full max-w-[22rem] overflow-hidden rounded-[1.75rem] p-3"
         >
           <img
@@ -103,19 +112,22 @@ const WhyChooseSection = () => (
             height={960}
             loading="lazy"
             decoding="async"
-            className="h-full w-full rounded-[1.25rem] object-cover"
+            className="h-full w-full rounded-[1.25rem] object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
           />
         </motion.figure>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {reasons.map((reason, index) => (
+      <motion.div
+        variants={staggerContainer(0.06)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        className="grid gap-5 md:grid-cols-2 xl:grid-cols-4"
+      >
+        {reasons.map((reason) => (
           <motion.article
             key={reason.title}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.04 }}
+            variants={staggerItem}
             className="surface-card rounded-[1.5rem] px-5 py-6"
           >
             <div
@@ -127,7 +139,7 @@ const WhyChooseSection = () => (
             <p className="text-sm leading-7 text-muted-foreground">{reason.description}</p>
           </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );

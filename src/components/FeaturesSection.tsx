@@ -14,6 +14,13 @@ import {
 
 import silaoAppHeroModern from "@/assets/silao-app-hero-modern.png";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+  defaultViewport,
+  easeOutSoft,
+  fadeUp,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
 
 const featureGroups = [
   {
@@ -48,6 +55,18 @@ const featureGroups = [
     activeTabTone:
       "data-[state=active]:border-[hsl(var(--brand-violet)/0.38)] data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--brand-violet)/0.22),hsl(var(--brand-violet)/0.12))] data-[state=active]:text-[hsl(var(--brand-violet))] dark:data-[state=active]:border-[hsl(var(--brand-violet)/0.45)] dark:data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--brand-violet)/0.3),hsl(var(--brand-violet)/0.18))]",
     iconTone: "bg-[hsl(var(--brand-violet)/0.1)] text-[hsl(var(--brand-violet))]",
+  },
+  {
+    id: "avenir",
+    title: "À venir",
+    description:
+      "Quelques jalons de la feuille de route produit SILAO, prévus entre 2026 et 2027.",
+    eyebrow: "À venir",
+    dot: "bg-accent",
+    eyebrowColor: "text-accent-foreground",
+    activeTabTone:
+      "data-[state=active]:border-accent/45 data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--accent)/0.36),hsl(var(--accent)/0.16))] data-[state=active]:text-accent-foreground dark:data-[state=active]:border-accent/50 dark:data-[state=active]:bg-[linear-gradient(180deg,hsl(var(--accent)/0.28),hsl(var(--accent)/0.14))]",
+    iconTone: "bg-accent/20 text-accent-foreground",
   },
 ] as const;
 
@@ -122,15 +141,51 @@ const features = [
     description:
       "INS, DMP, MSSanté, Pro Santé Connect, budget usager, rappels de rendez-vous par mail ou SMS et autres modules adaptés au terrain.",
   },
+  {
+    group: "avenir",
+    icon: Files,
+    title: "Portail usager et rapports",
+    description:
+      "Portail usager, rapport PH, rapport personnalisé et rapport d'activité PDS font partie des évolutions prévues sur la période 2026-2027.",
+  },
+  {
+    group: "avenir",
+    icon: FolderKanban,
+    title: "Suivi AHI renforcé",
+    description:
+      "Logement, vue famille, gestion des places avec taux d'occupation et SI SIAO viennent enrichir les usages AHI.",
+  },
+  {
+    group: "avenir",
+    icon: HeartPulse,
+    title: "Parcours PDS et médicament",
+    description:
+      "Stock du médicament, circuit du médicament et rapport d'activité PDS sont identifiés dans les prochaines vagues produit.",
+  },
+  {
+    group: "avenir",
+    icon: BellRing,
+    title: "Interopérabilité et services socles",
+    description:
+      "INS, MSSanté, documents DMP/MES, EDC/PSC, ViaTrajectoire et reporting SIDOBA-MATURIN sont intégrés à la trajectoire.",
+  },
+  {
+    group: "avenir",
+    icon: IdCard,
+    title: "Pilotage et qualité",
+    description:
+      "Pilotage PH, pilotage milieu ouvert, événements indésirables, judiciaires et accueil d'urgence complètent la feuille de route.",
+  },
 ];
 
 const FeaturesSection = () => (
   <section className="relative overflow-hidden px-4 py-6 md:py-8 tint-primary">
     <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
         className="mx-auto mb-5 max-w-3xl text-center"
       >
         <p className="marker-label mb-4">
@@ -148,9 +203,10 @@ const FeaturesSection = () => (
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
         className="mb-5 grid gap-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-center"
       >
         <figure className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-[linear-gradient(180deg,hsl(var(--background)/0.96),hsl(var(--muted)/0.72))] p-4 shadow-[0_28px_60px_-32px_hsl(var(--foreground)/0.24)]">
@@ -222,10 +278,10 @@ const FeaturesSection = () => (
               <AnimatePresence mode="wait">
                 <motion.div
                   key={group.id}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.25 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.32, ease: easeOutSoft }}
                   className="px-2 py-2 md:px-4"
                 >
                   <div className="mb-6 border-b border-border/70 pb-5">
@@ -233,19 +289,28 @@ const FeaturesSection = () => (
                     <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{group.description}</p>
                   </div>
 
-                  <div className={gridClass}>
+                  <motion.div
+                    variants={staggerContainer(0.06)}
+                    initial="hidden"
+                    animate="visible"
+                    className={gridClass}
+                  >
                     {groupedFeatures.map((feature) => (
-                      <article key={feature.title} className="surface-card rounded-[1.5rem] px-5 py-6">
+                      <motion.article
+                        key={feature.title}
+                        variants={staggerItem}
+                        className="surface-card rounded-[1.5rem] px-5 py-6"
+                      >
                         <div
-                          className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${group.iconTone}`}
+                          className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 ease-out group-hover:scale-105 ${group.iconTone}`}
                         >
                           <feature.icon className="h-5 w-5" />
                         </div>
                         <h4 className="mb-2 text-xl font-bold text-foreground">{feature.title}</h4>
                         <p className="text-sm leading-7 text-muted-foreground">{feature.description}</p>
-                      </article>
+                      </motion.article>
                     ))}
-                  </div>
+                  </motion.div>
                 </motion.div>
               </AnimatePresence>
             </TabsContent>

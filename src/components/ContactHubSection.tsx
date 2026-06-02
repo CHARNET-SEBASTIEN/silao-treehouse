@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import { Button } from "@/components/ui/button";
+import { defaultViewport, fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 const contactCards = [
@@ -50,9 +51,10 @@ const ContactHubSection = () => {
     <section id="contacts" className="px-4 py-6 md:py-8 tint-violet">
       <div className="mx-auto max-w-6xl section-panel px-6 py-5 md:px-10 md:py-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
           className="mx-auto mb-5 max-w-3xl text-center"
         >
           <p className="marker-label mb-4">Vous souhaitez nous contacter ?</p>
@@ -65,10 +67,17 @@ const ContactHubSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <motion.div
+          variants={staggerContainer(0.07)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="grid gap-5 md:grid-cols-2 xl:grid-cols-4"
+        >
           {contactCards.map((card) => (
-            <article
+            <motion.article
               key={card.title}
+              variants={staggerItem}
               className="surface-card relative flex h-full flex-col overflow-hidden rounded-[1.5rem] px-5 py-6"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -104,9 +113,9 @@ const ContactHubSection = () => {
                   <Link to={card.href}>{card.actionLabel}</Link>
                 </Button>
               ) : null}
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
