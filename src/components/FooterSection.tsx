@@ -143,6 +143,9 @@ const FooterSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               <Link to="/formations" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Formations
               </Link>
+              <Link to="/supervision-esante" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                Supervision e-santé
+              </Link>
               <Link to="/#contacts" className="rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Contact
               </Link>

@@ -20,6 +20,7 @@ import SecteurPDSPage from "@/pages/SecteurPDSPage";
 import SecteurPDEPage from "@/pages/SecteurPDEPage";
 import SitemapPage from "@/pages/SitemapPage";
 import SONSCompliancePage from "@/pages/SONSCompliancePage";
+import SupervisionPage from "@/pages/SupervisionPage";
 
 const AppRoutes = () => (
   <Routes>
@@ -38,6 +39,7 @@ const AppRoutes = () => (
     <Route path="/recrutement" element={<RecrutementPage />} />
     <Route path="/abonnement" element={<AbonnementPage />} />
     <Route path="/ressources" element={<RessourcesPage />} />
+    <Route path="/supervision-esante" element={<SupervisionPage />} />
     <Route path="/aide-support" element={<Navigate to="/#contacts" replace />} />
     <Route path="/mentions-legales" element={<LegalNoticesPage />} />
     <Route path="/politique-de-confidentialite" element={<PrivacyPolicyPage />} />

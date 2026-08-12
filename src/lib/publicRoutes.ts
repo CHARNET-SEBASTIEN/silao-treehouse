@@ -365,9 +365,9 @@ export const PUBLIC_ROUTES: PageSeo[] = [
   },
   {
     path: "/recrutement",
-    title: "Recrutement Silao | Chef de projet, Formateur et Support",
+    title: "Recrutement Silao | Candidatures spontanées",
     description:
-      "Découvrez les opportunités de recrutement chez Silao : chef de projet, formateur et support relation client en télétravail, au service des ESSMS.",
+      "Rejoignez Silao : candidatures spontanées bienvenues pour accompagner le déploiement, la formation et le support du DUI auprès des ESSMS.",
     breadcrumbs: [HOME_CRUMB, RECRUTEMENT_CRUMB],
     priority: 0.6,
     schema: {
@@ -376,7 +376,7 @@ export const PUBLIC_ROUTES: PageSeo[] = [
       name: "Recrutement Silao",
       url: resolveUrl("/recrutement"),
       description:
-        "Postes ouverts chez Silao pour accompagner le déploiement, la formation, le support client et l'évolution du DUI dans les ESSMS.",
+        "Candidatures spontanées chez Silao pour accompagner le déploiement, la formation, le support client et l'évolution du DUI dans les ESSMS.",
     },
   },
   {
@@ -407,6 +407,17 @@ export const PUBLIC_ROUTES: PageSeo[] = [
     breadcrumbs: [HOME_CRUMB, RESSOURCES_CRUMB],
     priority: 0.7,
     schema: resourcesSchema,
+  },
+  {
+    path: "/supervision-esante",
+    title: "Supervision e-santé | Statut des services | Silao",
+    description:
+      "Supervision en temps réel des services e-santé utilisés par Silao : INSi, Pro Santé Connect, MSSanté, DMP, Annuaire Santé et plus.",
+    breadcrumbs: [
+      HOME_CRUMB,
+      { name: "Supervision e-santé", path: "/supervision-esante" },
+    ],
+    priority: 0.5,
   },
   {
     path: "/mentions-legales",

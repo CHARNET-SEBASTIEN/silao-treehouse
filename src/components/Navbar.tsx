@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  Activity,
   BriefcaseBusiness,
   Building2,
   Home,
@@ -22,6 +23,7 @@ import DeferredSiteSearch from "@/components/DeferredSiteSearch";
 import { useDemoRequestDialog } from "@/components/DemoRequestDialogProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { scrollToHashTarget } from "@/lib/hashNavigation";
 import { COMPANY_DISPLAY_NAME, PRODUCT_NAME } from "@/lib/site";
 
@@ -35,6 +37,7 @@ const homeLinks = [
   { label: "Ressources", href: "/ressources", icon: Newspaper },
   { label: "Offres", href: "/offres", icon: BriefcaseBusiness },
   { label: "Recrutement", compactLabel: "Carrières", href: "/recrutement", icon: BriefcaseBusiness },
+  { label: "Supervision e-santé", compactLabel: "Supervision", href: "/supervision-esante", icon: Activity },
   { label: "Contact", href: "/#contacts", icon: Mail, isAnchor: true },
 ];
 
@@ -318,6 +321,21 @@ const Navbar = () => {
 
         <div className="relative z-10 flex items-center gap-2">
           <DeferredSiteSearch />
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                to="/supervision-esante"
+                className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card/90 text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label="Supervision e-santé"
+              >
+                <Activity className="h-4 w-4" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Supervision e-santé</p>
+            </TooltipContent>
+          </Tooltip>
 
           <ThemeToggle className="hidden sm:inline-flex" />
 
